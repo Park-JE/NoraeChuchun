@@ -1,19 +1,28 @@
-{% load socialaccount %}
-<html>
-	<head>
-	</head>
-	<body>
-		{% if user.is_authenticated %}
-			<p> 로그인 성공 </p>
-		{% else %}		
-			<form method ="POST" action = "{% url 'login' %}">
-				{% csrf_token %}
-				{{ form.as_p }}
-				<button type="submit">로그인</button>
-				<span style="color:red;"><strong>{{error}}</strong></span>
-			</form>
-			<a href="{% provider_login_url 'naver' %}">네이버로그인</a>
-			<a href="{% url 'signup' %}">회원가입</a>
-		{% endif %}
-	</body>
+{% load static %}
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <link rel="stylesheet" href="components/login/login.css" />
+  </head>
+  <body>
+    <form action="{% url 'index'%}" method="post" class="loginForm">
+      <h2>로그인</h2>
+      <div class="idForm">
+        <input type="text" class="id" placeholder="ID" />
+      </div>
+      <div class="passForm">
+        <input type="password" class="pw" placeholder="PW" />
+      </div>
+      <button type="button" class="btn" onClick="{this.login_btn}">
+        LOG IN
+      </button>
+      <div class="bottomText">
+        아이디가 없으신가요? <a href="{% url 'signup'%}">sign up</a>
+      </div>
+    </form>
+  </body>
 </html>

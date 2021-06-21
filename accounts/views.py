@@ -10,6 +10,7 @@ from django.contrib.auth.decorators import login_required
 def index(req):
     return render(req, 'index.html')
 
+
 def signup(req):
     if req.method == "POST":
         if req.POST['password1'] == req.POST['password2']:
@@ -17,24 +18,51 @@ def signup(req):
             auth.login(req, user, backend="django.contrib.auth.backends.ModelBackend")
             return redirect('../main')
         else:
-            form = UserCreationForm
-            return render(req, 'signup.html', {'form':form, 'error':'비밀번호가 일치하지 않습니다.'})
+            return render(req, 'signup.html', {'error':'비밀번호가 일치하지 않습니다.'})
     else:
-        form = UserCreationForm
-        return render(req, 'signup.html', {'form':form})
+        return render(req, 'signup.html')
+
+
+#def signup(req):
+#    if req.method == "POST":
+#        if req.POST['password1'] == req.POST['password2']:
+#            user = User.objects.create_user(username = req.POST['username'], password = req.POST['password1'])
+#            auth.login(req, user, backend="django.contrib.auth.backends.ModelBackend")
+#            return redirect('../main')
+#        else:
+#            form = UserCreationForm
+#            return render(req, 'signup.html', {'form':form, 'error':'비밀번호가 일치하지 않습니다.'})
+#    else:
+#        form = UserCreationForm
+#        return render(req, 'signup.html', {'form':form})
+        
         
 def login(req):
     if req.method == "POST":
-        form = AuthenticationForm(req, data=req.POST)
-        if form.is_valid():
-            auth.login(req, form.get_user())
+        userid = req.POST['userid']
+        password = req.POST['password']
+        user = auth.authenticate(req, userid = userid, password = password)
+        if user is not None:
+            auth.login(req, user)
             return redirect('../main')
         else:
-            form = AuthenticationForm()
-            return render(req, 'login.html', {'form':form, 'error':'가입하지 않은 아이디이거나, 잘못된 비밀번호입니다.'})
+            return render(req, 'login.html', {'error': '가입하지 않은 아이디이거나, 잘못된 비밀번호입니다.'})
     else:
-        form = AuthenticationForm()
-        return render(req, 'login.html', {'form':form})
+        return render(req, 'login.html')
+
+#
+#def login2(req):
+#    if req.method == "POST":
+#        form = AuthenticationForm(req, data=req.POST)
+#        if form.is_valid():
+#            auth.login(req, form.get_user())
+#            return redirect('../main')
+#        else:
+#            form = AuthenticationForm()
+#            return render(req, 'login.html', {'form':form, 'error':'가입하지 않은 아이디이거나, 잘못된 비밀번호입니다.'})
+#    else:
+#        form = AuthenticationForm()
+#        return render(req, 'login.html', {'form':form})
 
 @require_POST
 def logout(req):
@@ -73,3 +101,5 @@ def update_password(req):
 #    else:
 #        form = CustomUserChangeForm(instance=req.user)
 #    return render(req, 'update.html', {'form':form})
+
+

@@ -12,4 +12,5 @@ urlpatterns = [
     
     #소셜로그인
     path('accounts/', include('allauth.urls')),
+    
 ]

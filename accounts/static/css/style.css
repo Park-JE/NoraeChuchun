@@ -1,0 +1,352 @@
+a {
+  text-decoration: none;
+  color: #000;
+}
+
+a :active {
+  text-decoration: none;
+}
+
+nav {
+  width: 100vw;
+  height: 50px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 0 16px;
+  background-color: #f8f8f8;
+}
+
+nav .logo {
+  font-weight: 600;
+  font-size: 18px;
+  cursor: pointer;
+  -webkit-transition: opacity 0.3s ease;
+  transition: opacity 0.3s ease;
+}
+
+nav .logo:hover {
+  opacity: 0.7;
+}
+
+nav .loginAndJoin {
+  font-size: 15px;
+}
+
+nav .loginAndJoin .login {
+  margin-right: 16px;
+  cursor: pointer;
+  -webkit-transition: opacity 0.3s ease;
+  transition: opacity 0.3s ease;
+}
+
+nav .loginAndJoin .login:hover {
+  opacity: 0.7;
+}
+
+nav .loginAndJoin .join {
+  cursor: pointer;
+  -webkit-transition: opacity 0.3s ease;
+  transition: opacity 0.3s ease;
+}
+
+nav .loginAndJoin .join:hover {
+  opacity: 0.7;
+}
+
+.recommendation-warp {
+  width: 800px;
+  height: 300px;
+  margin: 48px;
+}
+
+.recommendation-warp .title {
+  display: block;
+  width: 100%;
+  padding: 8px 16px;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: default;
+}
+
+.recommendation-warp .recommendation {
+  width: 800px;
+  height: 250px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 16px;
+  background-color: #444e61;
+  color: #fff;
+  border-radius: 5px;
+}
+
+.recommendation-warp .recommendation .weather {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 30%;
+  height: 100%;
+  position: relative;
+}
+
+.recommendation-warp .recommendation .weather .icon {
+  width: 150px;
+  position: absolute;
+  top: 10px;
+}
+
+.recommendation-warp .recommendation .weather .info {
+  text-align: center;
+  position: absolute;
+  top: 150px;
+  cursor: default;
+}
+
+.recommendation-warp .recommendation .weather .info .tempAndLoc {
+  font-size: 13px;
+  margin-bottom: 4px;
+}
+
+.recommendation-warp .recommendation .weather .info .tempAndLoc .temperature {
+  margin-right: 4px;
+}
+
+.recommendation-warp .recommendation .weather .info .tempAndLoc .state {
+  font-size: 15px;
+}
+
+.recommendation-warp .recommendation .playlist {
+  width: 70%;
+  height: 100%;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+  -ms-grid-rows: (1fr)[4];
+      grid-template-rows: repeat(4, 1fr);
+}
+
+.recommendation-warp .recommendation .playlist .music {
+  width: 100%;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 50px auto;
+      grid-template-columns: 50px auto;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.recommendation-warp .recommendation .playlist .music .album-cover {
+  height: 45px;
+  width: 45px;
+  border-radius: 5px;
+}
+
+.recommendation-warp .recommendation .playlist .music .song-info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-size: 13px;
+  padding: 8px;
+  cursor: default;
+}
+
+.recommendation-warp .recommendation .playlist .music .song-info .artist {
+  font-size: 11px;
+  opacity: 80%;
+}
+
+.weather-filter .category .title {
+  padding: 32px;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.weather-filter .category .filter-wrap {
+  width: 800px;
+  height: 140px;
+  margin: 16px;
+}
+
+.weather-filter .category .filter-wrap .btn-wrap {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.weather-filter .category .filter-wrap .btn-wrap .filter {
+  cursor: pointer;
+  outline: none;
+  border: 1px solid gray;
+  background-color: #fff;
+  color: #333;
+  font-weight: 600;
+  padding: 0.5em 1em;
+  margin: 0.5em;
+  border-radius: 1em;
+  -webkit-transition: -webkit-transform 0.3s ease;
+  transition: -webkit-transform 0.3s ease;
+  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, -webkit-transform 0.3s ease;
+}
+
+.weather-filter .category .filter-wrap .btn-wrap .filter:hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+  color: #5196f0;
+  border-color: #5196f0;
+}
+
+.weather-filter .playlists {
+  width: 800px;
+}
+
+.weather-filter .playlists .total-count {
+  font-size: 18px;
+  font-weight: 600;
+  padding: 16px;
+}
+
+.weather-filter .playlists .playlist-wrap {
+  width: 100%;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[4];
+      grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: auto;
+  gap: 16px 8px;
+  margin-top: 16px;
+  margin-bottom: 48px;
+}
+
+.weather-filter .playlists .playlist-wrap .platlist {
+  background-color: #fff;
+  border: 2px solid #b8b8b8;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: 2fr 1fr;
+      grid-template-rows: 2fr 1fr;
+}
+
+.weather-filter .playlists .playlist-wrap .platlist:hover > .cover-wrap > .cover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+}
+
+.weather-filter .playlists .playlist-wrap .platlist:hover > .info {
+  color: gray;
+}
+
+.weather-filter .playlists .playlist-wrap .platlist .cover-wrap {
+  width: 100%;
+  height: 227px;
+  overflow: hidden;
+}
+
+.weather-filter .playlists .playlist-wrap .platlist .cover-wrap .cover {
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -webkit-transition: -webkit-transform 0.3s ease;
+  transition: -webkit-transform 0.3s ease;
+  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, -webkit-transform 0.3s ease;
+}
+
+.weather-filter .playlists .playlist-wrap .platlist .info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 16px 8px;
+  -webkit-transition: color 0.3s ease;
+  transition: color 0.3s ease;
+}
+
+.weather-filter .playlists .playlist-wrap .platlist .info .title {
+  font-size: 15px;
+}
+
+.weather-filter .playlists .playlist-wrap .platlist .info .category {
+  font-size: 13px;
+}
+
+.weather-filter .playlists .playlist-wrap .platlist .info .category .filter {
+  margin-right: 4px;
+}
+
+.weather-filter .playlists .playlist-wrap .platlist .info .songs {
+  font-size: 11px;
+}
+
+.weather-filter .playlists .playlist-wrap .platlist .info .count {
+  margin-left: 4px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  width: 100vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+/*# sourceMappingURL=style.css.map */
