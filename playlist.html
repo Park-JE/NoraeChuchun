@@ -20,12 +20,12 @@
   <body>
     <nav>
       <div class="logoAndName">
-        <a href="{% static 'index.html' %}"
+        <a href="{% url 'index' %}"
           ><img class="logo" src="{% static 'img/favicon.png' %}" alt="img"
         /></a>
-        <a href="{% static 'index.html' %}" class="name">날씨음악</a>
+        <a href="{% url 'index' %}" class="name">날씨음악</a>
       </div>
-      <a href="{% static 'login.html' %}" class="login">로그인</a>
+      <a href="{% url 'login' %}" class="login">로그인</a>
     </nav>
     <div class="bg-1"></div>
     <div class="bg-2"></div>

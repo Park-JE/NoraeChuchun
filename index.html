@@ -29,12 +29,12 @@
   <body>
     <nav>
       <div class="logoAndName">
-        <a href="{% static 'index.html' %}"
+        <a href="{% url 'index' %}"
           ><img class="logo" src="{% static 'img/favicon.png' %}" alt="img"
         /></a>
-        <a href="{% static 'index.html' %}" class="name">날씨음악</a>
+        <a href="{% url 'index' %}" class="name">날씨음악</a>
       </div>
-      <a href="{% static 'login.html' %}" class="login">로그인</a>
+      <a href="{% url 'login' %}" class="login">로그인</a>
     </nav>
     <section class="recommendation-warp">
       <span class="title">현재 날씨에 맞는 추천 음악</span>
@@ -125,7 +125,7 @@
         </div>
       </div>
       <div class="playlist-wrap">
-        <a href="{% static 'playlist.html' %}">
+        <a href="{% url 'playlist' %}">
           <div class="playlist">
             <img
               src="{% static 'img/summer.jpeg' %}"
@@ -145,7 +145,7 @@
             </div>
           </div>
         </a>
-        <a href="{% static 'playlist.html' %}">
+        <a href="{% url 'playlist' %}">
           <div class="playlist">
             <img
               src="{% static 'img/night.jpeg' %}"
@@ -165,7 +165,7 @@
             </div>
           </div>
         </a>
-        <a href="{% static 'playlist.html' %}">
+        <a href="{% url 'playlist' %}">
           <div class="playlist">
             <img
               src="{% static 'img/picnic.jpeg' %}"
@@ -185,7 +185,7 @@
             </div>
           </div>
         </a>
-        <a href="{% static 'playlist.html' %}">
+        <a href="{% url 'playlist' %}">
           <div class="playlist">
             <img
               src="{% static 'img/party.jpeg' %}"
