@@ -15,14 +15,14 @@
   <body>
     <nav>
       <div class="logoAndName">
-        <a href="{ % static 'index.html' %}"
-          ><img class="logo" src="{ % static 'img/favicon.png' %}" alt="img"
+        <a href="{% static 'index.html' %}"
+          ><img class="logo" src="{% static 'img/favicon.png' %}" alt="img"
         /></a>
-        <a href="{ % static 'index.html' %}" class="name">날씨음악</a>
+        <a href="{% static 'index.html' %}" class="name">날씨음악</a>
       </div>
-      <a href="{ % static 'login.html' %}" class="login">로그인</a>
+      <a href="{% static 'login.html' %}" class="login">로그인</a>
     </nav>
-    <form action="{ % static 'index.html' %}" method="post" class="loginForm">
+    <form action="{% static 'index.html' %}" method="post" class="loginForm">
       <h2>로그인</h2>
       <div class="idForm">
         <input type="text" name="username" class="id" placeholder="ID" />
@@ -32,7 +32,7 @@
       </div>
       <button type="button" class="loginBtn">LOG IN</button>
       <div class="bottomText">
-        아이디가 없으신가요? <a href="{ % static 'signup.html' %}">sign up</a>
+        아이디가 없으신가요? <a href="{% static 'signup.html' %}">sign up</a>
       </div>
     </form>
     <div class="bg-1"></div>
