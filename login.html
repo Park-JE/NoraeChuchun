@@ -1,13 +1,15 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="ko">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Login</title>
-    <link rel="stylesheet" href="css/style.css" />
-    <link rel="stylesheet" href="components/user/login.css" />
-    <script defer src="./components/user/login.js"></script>
+    <link rel="shortcut icon" href="{% static 'img/favicon.png' %}" />
+    <title>로그인</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    <link rel="stylesheet" href="{% static 'components/user/login.css' %}" />
+    <script defer src="{% static './components/user/login.js' %}"></script>
   </head>
 
   <body>
