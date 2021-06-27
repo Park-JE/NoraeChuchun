@@ -5,36 +5,36 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="shortcut icon" href="{% static 'img/favicon.png' %}" />
+    <link rel="shortcut icon" href="{ % static 'img/favicon.png' %}" />
     <title>날씨에 맞는 음악 추천</title>
     <script
-      src="{% https://kit.fontawesome.com/ef81e253aa.js %}"
+      src="{% 'https://kit.fontawesome.com/ef81e253aa.js' %}"
       crossorigin="anonymous"
     ></script>
-    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
-    <script defer src="{% static 'components/navbar/navbar.js'%}"></script>
+    <link rel="stylesheet" href="{ % static 'css/style.css' %}" />
+    <script defer src="{ % static 'components/navbar/navbar.js' %}"></script>
     <script
       defer
-      src="{% static 'components/weatherMusic/weather.js' %}"
+      src="{ % static 'components/weatherMusic/weather.js' %}"
     ></script>
     <script
       defer
-      src="{% static 'components/weatherMusic/music.js' %}"
+      src="{ % static 'components/weatherMusic/music.js' %}"
     ></script>
     <script
       defer
-      src="{% static 'components/filterMusic/filterMusic.js'%}"
+      src="{ % static 'components/filterMusic/filterMusic.js' %}"
     ></script>
   </head>
   <body>
     <nav>
       <div class="logoAndName">
-        <a href="index.html"
-          ><img class="logo" src="img/favicon.png" alt="img"
+        <a href="{ % static 'index.html' %}"
+          ><img class="logo" src="{ % static 'img/favicon.png' %}" alt="img"
         /></a>
-        <a href="index.html" class="name">날씨음악</a>
+        <a href="{ % static 'index.html' %}" class="name">날씨음악</a>
       </div>
-      <a href="login.html" class="login">로그인</a>
+      <a href="{ % static 'login.html' %}" class="login">로그인</a>
     </nav>
     <section class="recommendation-warp">
       <span class="title">현재 날씨에 맞는 추천 음악</span>
@@ -125,9 +125,13 @@
         </div>
       </div>
       <div class="playlist-wrap">
-        <a href="playlist.html">
+        <a href="{ % static 'playlist.html' % }">
           <div class="playlist">
-            <img src="img/summer.jpeg" alt="platlist-cover" class="cover" />
+            <img
+              src="{ % static 'img/summer.jpeg' %}"
+              alt="platlist-cover"
+              class="cover"
+            />
             <span class="title">선선한 초여름의 낭만을 느끼며</span>
             <div class="info">
               <div class="tags">
@@ -141,9 +145,13 @@
             </div>
           </div>
         </a>
-        <a href="playlist.html">
+        <a href="{ % static 'playlist.html' % }">
           <div class="playlist">
-            <img src="img/night.jpeg" alt="platlist-cover" class="cover" />
+            <img
+              src="{ % static 'img/night.jpeg' %}"
+              alt="platlist-cover"
+              class="cover"
+            />
             <span class="title">모두가 잠든 새벽</span>
             <div class="info">
               <div class="tags">
@@ -157,9 +165,13 @@
             </div>
           </div>
         </a>
-        <a href="playlist.html">
+        <a href="{ % static 'playlist.html' % }">
           <div class="playlist">
-            <img src="img/picnic.jpeg" alt="platlist-cover" class="cover" />
+            <img
+              src="{ % static 'img/picnic.jpeg' %}"
+              alt="platlist-cover"
+              class="cover"
+            />
             <span class="title">모두가 잠든 새벽</span>
             <div class="info">
               <div class="tags">
@@ -173,9 +185,13 @@
             </div>
           </div>
         </a>
-        <a href="playlist.html">
+        <a href="{ % static 'playlist.html' % }">
           <div class="playlist">
-            <img src="img/party.jpeg" alt="platlist-cover" class="cover" />
+            <img
+              src="{ % static 'img/party.jpeg' %}"
+              alt="platlist-cover"
+              class="cover"
+            />
             <span class="title">모두가 잠든 새벽</span>
             <div class="info">
               <div class="tags">

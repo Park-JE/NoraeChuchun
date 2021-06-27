@@ -2,22 +2,21 @@
   margin: 0;
   padding: 0;
   -webkit-box-sizing: border-box;
-  box-sizing: border-box;
+          box-sizing: border-box;
 }
 
 body {
   width: 100vw;
-  height: 100vh;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-  -ms-flex-direction: column;
-  flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
   -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 body .loginForm {
@@ -25,18 +24,13 @@ body .loginForm {
   width: 300px;
   height: 400px;
   padding: 30px, 20px;
+  background-color: #ffffff;
   text-align: center;
   top: 50%;
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
   border-radius: 15px;
-  background-color: rgba(255, 255, 255, 0.1);
-  color: #eee;
-  backdrop-filter: blur(5px);
-  border-top: 1px solid rgba(255, 255, 255, 0.2);
-  border-right: 1px solid rgba(255, 255, 255, 0.2);
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
 }
 
 body .loginForm h2 {
@@ -44,9 +38,9 @@ body .loginForm h2 {
   margin: 30px;
 }
 
-body .loginForm .input-form {
+body .loginForm .idForm {
   border-bottom: 2px solid #adadad;
-  margin: 30px 30px 10px 30px;
+  margin: 30px;
   padding: 10px 10px;
 }
 
@@ -60,6 +54,12 @@ body .loginForm .idForm .id {
   background: none;
 }
 
+body .loginForm .passForm {
+  border-bottom: 2px solid #adadad;
+  margin: 30px;
+  padding: 10px 10px;
+}
+
 body .loginForm .passForm .pw {
   width: 100%;
   border: none;
@@ -68,6 +68,16 @@ body .loginForm .passForm .pw {
   font-size: 16px;
   height: 25px;
   background: none;
+}
+
+body .loginForm .passForm .error1 {
+  display: none;
+}
+
+body .loginForm .passForm_chck {
+  border-bottom: 2px solid #adadad;
+  margin: 30px;
+  padding: 10px 10px;
 }
 
 body .loginForm .passForm_chck .pw_chck {
@@ -80,12 +90,11 @@ body .loginForm .passForm_chck .pw_chck {
   background: none;
 }
 
-body .loginForm .signupBtn {
+body .loginForm .btn {
   position: relative;
   left: 40%;
   -webkit-transform: translateX(-50%);
-  transform: translateX(-50%);
-  margin-top: 30px;
+          transform: translateX(-50%);
   margin-bottom: 40px;
   width: 80%;
   height: 40px;
@@ -101,13 +110,7 @@ body .loginForm .signupBtn {
   display: inline;
 }
 
-body .loginForm .signupBtn:hover {
+body .loginForm .btn:hover {
   background-position: right;
-}
-
-.error {
-  font-size: 14px;
-  color: red;
-  display: none;
 }
 /*# sourceMappingURL=signup.css.map */
