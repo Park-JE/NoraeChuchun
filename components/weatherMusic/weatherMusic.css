@@ -1,0 +1,194 @@
+.recommendation-warp {
+  width: 950px;
+  margin-bottom: 80px;
+  margin-top: 150px;
+  color: #eee;
+}
+
+.recommendation-warp .title {
+  display: block;
+  width: 100%;
+  padding: 0 16px;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: default;
+  margin-bottom: 16px;
+  -webkit-backdrop-filter: blur(5px);
+          backdrop-filter: blur(5px);
+}
+
+.recommendation-warp .recommendation {
+  width: 100%;
+  height: 300px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  border-radius: 8px;
+  padding: 24px 16px;
+  background-color: rgba(255, 255, 255, 0.1);
+  -webkit-backdrop-filter: blur(5px);
+          backdrop-filter: blur(5px);
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  border-right: 1px solid rgba(255, 255, 255, 0.2);
+  -webkit-box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.recommendation-warp .recommendation .weather {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 29%;
+  height: 100%;
+  position: relative;
+}
+
+.recommendation-warp .recommendation .weather .icon {
+  width: 220px;
+  position: absolute;
+  top: -10px;
+}
+
+.recommendation-warp .recommendation .weather .info {
+  text-align: center;
+  position: absolute;
+  top: 180px;
+  cursor: default;
+}
+
+.recommendation-warp .recommendation .weather .info .tempAndLoc {
+  font-size: 14px;
+  margin-bottom: 4px;
+}
+
+.recommendation-warp .recommendation .weather .info .tempAndLoc .temperature {
+  margin-right: 4px;
+}
+
+.recommendation-warp .recommendation .weather .info .tempAndLoc .state {
+  font-size: 16px;
+}
+
+.recommendation-warp .recommendation .currentWeather-playlist {
+  width: 70%;
+  height: 100%;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+  -ms-grid-rows: (1fr)[4];
+      grid-template-rows: repeat(4, 1fr);
+}
+
+.recommendation-warp .recommendation .currentWeather-playlist .music {
+  width: 100%;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 60px auto;
+      grid-template-columns: 60px auto;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.recommendation-warp .recommendation .currentWeather-playlist .music .album-cover {
+  height: 50px;
+  width: 50px;
+  border-radius: 8px;
+}
+
+.recommendation-warp .recommendation .currentWeather-playlist .music .song-info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-size: 14px;
+  padding: 8px;
+  cursor: default;
+  color: #eee;
+}
+
+.recommendation-warp .recommendation .currentWeather-playlist .music .song-info .artist {
+  font-size: 11px;
+  opacity: 80%;
+  margin-top: 2px;
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .recommendation-warp {
+    width: 680px;
+  }
+  .recommendation-warp .recommendation {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    height: 520px;
+  }
+  .recommendation-warp .recommendation .weather {
+    width: 90%;
+  }
+  .recommendation-warp .recommendation .weather .icon {
+    width: 200px;
+    top: -30px;
+  }
+  .recommendation-warp .recommendation .weather .info {
+    top: 130px;
+  }
+  .recommendation-warp .recommendation .currentWeather-playlist {
+    width: 90%;
+  }
+}
+
+@media (max-width: 767px) {
+  .recommendation-warp {
+    width: 350px;
+  }
+  .recommendation-warp .recommendation {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    height: 800px;
+  }
+  .recommendation-warp .recommendation .weather {
+    width: 90%;
+  }
+  .recommendation-warp .recommendation .weather .icon {
+    width: 180px;
+    top: -30px;
+  }
+  .recommendation-warp .recommendation .weather .info {
+    top: 120px;
+  }
+  .recommendation-warp .recommendation .currentWeather-playlist {
+    width: 90%;
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+    -ms-grid-rows: (1fr)[8];
+        grid-template-rows: repeat(8, 1fr);
+  }
+}
+/*# sourceMappingURL=weatherMusic.css.map */

@@ -1,0 +1,61 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+body {
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: linear-gradient(to left, #242359, #0e0e1f);
+  overscroll-behavior: none;
+
+  a {
+    text-decoration: none;
+    color: inherit;
+    :active {
+      text-decoration: none;
+    }
+  }
+
+  .bg-1 {
+    position: fixed;
+    right: -20px;
+    top: -20px;
+    width: 350px;
+    height: 350px;
+    background: linear-gradient(#ffc931, #cf3b2e);
+    filter: blur(150px);
+    z-index: -1;
+  }
+
+  .bg-2 {
+    position: fixed;
+    left: -20px;
+    top: 50%;
+    width: 200px;
+    height: 200px;
+    background: linear-gradient(#da57e1, #01adf7);
+    filter: blur(140px);
+    z-index: -1;
+  }
+
+  .bg-3 {
+    position: fixed;
+    right: 30%;
+    bottom: -20px;
+    width: 200px;
+    height: 200px;
+    background: linear-gradient(#747008, #436f1d);
+    filter: blur(120px);
+    z-index: -1;
+  }
+}
+
+@import "../components/navbar/navbar";
+@import "../components/weatherMusic/weatherMusic";
+@import "../components/filterMusic/filterMusic";

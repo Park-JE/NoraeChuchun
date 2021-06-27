@@ -1,0 +1,42 @@
+@import "../../css/variables";
+
+nav {
+  width: 100vw;
+  position: fixed;
+  top: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: $font-large;
+  font-weight: $font-bold;
+  padding: 30px 40px;
+  color: $white;
+  z-index: 3;
+  transition: top 0.3s ease-in;
+
+  .logoAndName {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+
+    .logo {
+      width: 30px;
+      height: 30px;
+      margin-right: 8px;
+    }
+  }
+
+  .login {
+    padding: 0.5em 1.5em;
+    border: 1px solid $white;
+    border-radius: $border-large;
+    font-size: $font-medium;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+  }
+}

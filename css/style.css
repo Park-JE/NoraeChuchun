@@ -1,0 +1,609 @@
+@charset "UTF-8";
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+body {
+  width: 100vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background: -webkit-gradient(linear, right top, left top, from(#242359), to(#0e0e1f));
+  background: linear-gradient(to left, #242359, #0e0e1f);
+  overscroll-behavior: none;
+}
+
+body a {
+  text-decoration: none;
+  color: inherit;
+}
+
+body a :active {
+  text-decoration: none;
+}
+
+body .bg-1 {
+  position: fixed;
+  right: -20px;
+  top: -20px;
+  width: 350px;
+  height: 350px;
+  background: -webkit-gradient(linear, left top, left bottom, from(#ffc931), to(#cf3b2e));
+  background: linear-gradient(#ffc931, #cf3b2e);
+  -webkit-filter: blur(150px);
+          filter: blur(150px);
+  z-index: -1;
+}
+
+body .bg-2 {
+  position: fixed;
+  left: -20px;
+  top: 50%;
+  width: 200px;
+  height: 200px;
+  background: -webkit-gradient(linear, left top, left bottom, from(#da57e1), to(#01adf7));
+  background: linear-gradient(#da57e1, #01adf7);
+  -webkit-filter: blur(140px);
+          filter: blur(140px);
+  z-index: -1;
+}
+
+body .bg-3 {
+  position: fixed;
+  right: 30%;
+  bottom: -20px;
+  width: 200px;
+  height: 200px;
+  background: -webkit-gradient(linear, left top, left bottom, from(#747008), to(#436f1d));
+  background: linear-gradient(#747008, #436f1d);
+  -webkit-filter: blur(120px);
+          filter: blur(120px);
+  z-index: -1;
+}
+
+nav {
+  width: 100vw;
+  position: fixed;
+  top: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 18px;
+  font-weight: 600;
+  padding: 30px 40px;
+  color: #eee;
+  z-index: 3;
+  -webkit-transition: top 0.3s ease-in;
+  transition: top 0.3s ease-in;
+}
+
+nav .logoAndName {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  cursor: pointer;
+}
+
+nav .logoAndName .logo {
+  width: 30px;
+  height: 30px;
+  margin-right: 8px;
+}
+
+nav .login {
+  padding: 0.5em 1.5em;
+  border: 1px solid #eee;
+  border-radius: 18px;
+  font-size: 16px;
+  cursor: pointer;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+nav .login:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.recommendation-warp {
+  width: 950px;
+  margin-bottom: 80px;
+  margin-top: 150px;
+  color: #eee;
+}
+
+.recommendation-warp .title {
+  display: block;
+  width: 100%;
+  padding: 0 16px;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: default;
+  margin-bottom: 16px;
+  -webkit-backdrop-filter: blur(5px);
+          backdrop-filter: blur(5px);
+}
+
+.recommendation-warp .recommendation {
+  width: 100%;
+  height: 300px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  border-radius: 8px;
+  padding: 24px 16px;
+  background-color: rgba(255, 255, 255, 0.1);
+  -webkit-backdrop-filter: blur(5px);
+          backdrop-filter: blur(5px);
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  border-right: 1px solid rgba(255, 255, 255, 0.2);
+  -webkit-box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.recommendation-warp .recommendation .weather {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 29%;
+  height: 100%;
+  position: relative;
+}
+
+.recommendation-warp .recommendation .weather .icon {
+  width: 220px;
+  position: absolute;
+  top: -10px;
+}
+
+.recommendation-warp .recommendation .weather .info {
+  text-align: center;
+  position: absolute;
+  top: 180px;
+  cursor: default;
+}
+
+.recommendation-warp .recommendation .weather .info .tempAndLoc {
+  font-size: 14px;
+  margin-bottom: 4px;
+}
+
+.recommendation-warp .recommendation .weather .info .tempAndLoc .temperature {
+  margin-right: 4px;
+}
+
+.recommendation-warp .recommendation .weather .info .tempAndLoc .state {
+  font-size: 16px;
+}
+
+.recommendation-warp .recommendation .currentWeather-playlist {
+  width: 70%;
+  height: 100%;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+  -ms-grid-rows: (1fr)[4];
+      grid-template-rows: repeat(4, 1fr);
+}
+
+.recommendation-warp .recommendation .currentWeather-playlist .music {
+  width: 100%;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 60px auto;
+      grid-template-columns: 60px auto;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.recommendation-warp .recommendation .currentWeather-playlist .music .album-cover {
+  height: 50px;
+  width: 50px;
+  border-radius: 8px;
+}
+
+.recommendation-warp .recommendation .currentWeather-playlist .music .song-info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-size: 14px;
+  padding: 8px;
+  cursor: default;
+  color: #eee;
+}
+
+.recommendation-warp .recommendation .currentWeather-playlist .music .song-info .artist {
+  font-size: 11px;
+  opacity: 80%;
+  margin-top: 2px;
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .recommendation-warp {
+    width: 680px;
+  }
+  .recommendation-warp .recommendation {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    height: 520px;
+  }
+  .recommendation-warp .recommendation .weather {
+    width: 90%;
+  }
+  .recommendation-warp .recommendation .weather .icon {
+    width: 200px;
+    top: -30px;
+  }
+  .recommendation-warp .recommendation .weather .info {
+    top: 130px;
+  }
+  .recommendation-warp .recommendation .currentWeather-playlist {
+    width: 90%;
+  }
+}
+
+@media (max-width: 767px) {
+  .recommendation-warp {
+    width: 350px;
+  }
+  .recommendation-warp .recommendation {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    height: 800px;
+  }
+  .recommendation-warp .recommendation .weather {
+    width: 90%;
+  }
+  .recommendation-warp .recommendation .weather .icon {
+    width: 180px;
+    top: -30px;
+  }
+  .recommendation-warp .recommendation .weather .info {
+    top: 120px;
+  }
+  .recommendation-warp .recommendation .currentWeather-playlist {
+    width: 90%;
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+    -ms-grid-rows: (1fr)[8];
+        grid-template-rows: repeat(8, 1fr);
+  }
+}
+
+.musicFilter-wrap {
+  width: 950px;
+  margin-bottom: 80px;
+}
+
+.musicFilter-wrap .titleAndFilters {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 0 16px;
+  margin-bottom: 16px;
+}
+
+.musicFilter-wrap .titleAndFilters .title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #eee;
+}
+
+.musicFilter-wrap .titleAndFilters .filter-btn {
+  border: 0;
+  background-color: transparent;
+  outline: none;
+  font-size: 16px;
+  font-weight: 500;
+  color: #eee;
+  cursor: pointer;
+}
+
+.musicFilter-wrap .titleAndFilters .filter-bar {
+  position: fixed;
+  right: -300px;
+  top: 0;
+  height: 100%;
+  width: 300px;
+  z-index: 3;
+  padding: 0 25px;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-left: 1px solid rgba(255, 255, 255, 0.2);
+  border-top-left-radius: 18px;
+  border-bottom-left-radius: 18px;
+  background-color: rgba(255, 255, 255, 0.1);
+  -webkit-backdrop-filter: blur(15px);
+          backdrop-filter: blur(15px);
+}
+
+.musicFilter-wrap .titleAndFilters .filter-bar.active {
+  right: 0;
+  -webkit-box-shadow: -15px 0px 18px 5px rgba(0, 0, 0, 0.4);
+          box-shadow: -15px 0px 18px 5px rgba(0, 0, 0, 0.4);
+}
+
+.musicFilter-wrap .titleAndFilters .filter-bar .btn-box {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.musicFilter-wrap .titleAndFilters .filter-bar .btn-box .btn {
+  outline: none;
+  border: 0;
+  background-color: transparent;
+  color: #eee;
+  padding: 0.5em;
+  -webkit-transition: opacity 0.3s ease;
+  transition: opacity 0.3s ease;
+  cursor: pointer;
+}
+
+.musicFilter-wrap .titleAndFilters .filter-bar .btn-box .btn.reset {
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.musicFilter-wrap .titleAndFilters .filter-bar .filters {
+  color: #eee;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  font-size: 14px;
+  margin-bottom: 32px;
+}
+
+.musicFilter-wrap .titleAndFilters .filter-bar .filters .category {
+  margin-bottom: 4px;
+  cursor: pointer;
+  border-bottom: 1px solid rgba(238, 238, 238, 0.5);
+  cursor: default;
+  padding-bottom: 4px;
+  margin-top: 16px;
+  font-weight: 600;
+  padding-left: 4px;
+  color: #111;
+}
+
+.musicFilter-wrap .titleAndFilters .filter-bar .filters input {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+}
+
+.musicFilter-wrap .titleAndFilters .filter-bar .filters .option {
+  margin: 3px 0;
+  padding-left: 4px;
+  cursor: pointer;
+  position: relative;
+}
+
+.musicFilter-wrap .titleAndFilters .filter-bar .filters .option.active {
+  color: #111;
+}
+
+.musicFilter-wrap .titleAndFilters .filter-bar .filters .option.active::before {
+  content: "";
+  position: absolute;
+  top: 1px;
+  right: 30px;
+  width: 16px;
+  height: 16px;
+  background-color: #111;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.musicFilter-wrap .titleAndFilters .filter-bar .filters .option.active::after {
+  content: "✓";
+  position: absolute;
+  right: 32px;
+  color: #eee;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  top: -1px;
+}
+
+.musicFilter-wrap .playlist-wrap {
+  width: 100%;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[4];
+      grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: auto;
+  gap: 16px 8px;
+}
+
+.musicFilter-wrap .playlist-wrap .playlist {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  height: 300px;
+  position: relative;
+  overflow: hidden;
+}
+
+.musicFilter-wrap .playlist-wrap .playlist:hover .info {
+  bottom: 0;
+}
+
+.musicFilter-wrap .playlist-wrap .playlist:hover .title {
+  bottom: 60px;
+}
+
+.musicFilter-wrap .playlist-wrap .playlist .cover {
+  width: 100%;
+  height: 100%;
+  border-radius: 18px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.musicFilter-wrap .playlist-wrap .playlist .title {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 8px;
+  position: absolute;
+  bottom: 0;
+  color: #eee;
+  font-weight: 600;
+  font-size: 20px;
+  -webkit-transition: bottom 0.5s ease;
+  transition: bottom 0.5s ease;
+}
+
+.musicFilter-wrap .playlist-wrap .playlist .info {
+  width: 100%;
+  -webkit-backdrop-filter: blur(15px);
+          backdrop-filter: blur(15px);
+  -webkit-box-shadow: 0 -10px 10px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 -10px 10px rgba(0, 0, 0, 0.1);
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  border-bottom-left-radius: 18px;
+  border-bottom-right-radius: 18px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: absolute;
+  bottom: -80px;
+  padding: 16px;
+  color: #eee;
+  -webkit-transition: bottom 0.5s ease;
+  transition: bottom 0.5s ease;
+}
+
+.musicFilter-wrap .playlist-wrap .playlist .info .tags {
+  font-size: 14px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.musicFilter-wrap .playlist-wrap .playlist .info .songs {
+  font-size: 11px;
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .musicFilter-wrap {
+    width: 680px;
+  }
+  .musicFilter-wrap .playlist-wrap {
+    -ms-grid-columns: (1fr)[3];
+        grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 767px) {
+  .musicFilter-wrap {
+    width: 350px;
+  }
+  .musicFilter-wrap .playlist-wrap {
+    -ms-grid-columns: (1fr)[2];
+        grid-template-columns: repeat(2, 1fr);
+  }
+  .musicFilter-wrap .playlist-wrap .playlist {
+    height: 250px;
+  }
+  .musicFilter-wrap .playlist-wrap .playlist .title {
+    font-size: 18px;
+  }
+}
+/*# sourceMappingURL=style.css.map */

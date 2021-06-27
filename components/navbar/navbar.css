@@ -1,0 +1,55 @@
+nav {
+  width: 100vw;
+  position: fixed;
+  top: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 18px;
+  font-weight: 600;
+  padding: 30px 40px;
+  color: #eee;
+  z-index: 3;
+  -webkit-transition: top 0.3s ease-in;
+  transition: top 0.3s ease-in;
+}
+
+nav .logoAndName {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  cursor: pointer;
+}
+
+nav .logoAndName .logo {
+  width: 30px;
+  height: 30px;
+  margin-right: 8px;
+}
+
+nav .login {
+  padding: 0.5em 1.5em;
+  border: 1px solid #eee;
+  border-radius: 18px;
+  font-size: 16px;
+  cursor: pointer;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+nav .login:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+/*# sourceMappingURL=navbar.css.map */
