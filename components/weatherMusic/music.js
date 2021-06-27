@@ -1,5 +1,8 @@
 function loadItems() {
-  return fetch("data/playlist.json")
+  const config = {
+    headers: { Accept: "application/json" },
+  };
+  return fetch("data/playlist.json", config)
     .then((response) => response.json())
     .then((data) => data.playlist[0].list1.playlistMusic)
     .catch((error) => console.log("error", error));
