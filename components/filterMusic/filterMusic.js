@@ -3,6 +3,7 @@ const filterBar = document.querySelector(".titleAndFilters .filter-bar");
 const closeBtn = filterBar.querySelector(".btn-box .close");
 const applyBtn = filterBar.querySelector(".apply-btn");
 const optionBtns = filterBar.querySelectorAll(".option");
+const filters = filterBar.querySelector(".filters");
 
 filterBtn.addEventListener("click", () => {
   filterBar.classList.toggle("active");
@@ -25,8 +26,12 @@ document.addEventListener("click", (e) => {
   }
 });
 
+let beforeChecked;
+
 optionBtns.forEach((btn) =>
   btn.addEventListener("click", () => {
     btn.classList.toggle("active");
+    beforeChecked = btn.control.name;
+    // console.log(btn.control.name);
   })
 );

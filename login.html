@@ -1,28 +1,27 @@
-{% load static %}
 <!DOCTYPE html>
 <html lang="ko">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="shortcut icon" href="{% static 'img/favicon.png' %}" />
+    <link rel="shortcut icon" href="img/favicon.png" />
     <title>로그인</title>
-    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
-    <link rel="stylesheet" href="{% static 'components/user/login.css' %}" />
-    <script defer src="{% static './components/user/login.js' %}"></script>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="components/user/login.css" />
+    <script defer src="./components/user/login.js"></script>
   </head>
 
   <body>
     <nav>
       <div class="logoAndName">
-        <a href="{% url 'index' %}"
-          ><img class="logo" src="{% static 'img/favicon.png' %}" alt="img"
+        <a href="index.html"
+          ><img class="logo" src="img/favicon.png" alt="img"
         /></a>
-        <a href="{% url 'index' %}" class="name">날씨음악</a>
+        <a href="index.html" class="name">날씨음악</a>
       </div>
-      <a href="{% url 'login' %}" class="login">로그인</a>
+      <a href="login.html" class="login">로그인</a>
     </nav>
-    <form action="{% url 'index' %}" method="post" class="loginForm">
+    <form action="index.html" method="post" class="loginForm">
       <h2>로그인</h2>
       <div class="idForm">
         <input type="text" name="username" class="id" placeholder="ID" />
@@ -32,7 +31,7 @@
       </div>
       <button type="button" class="loginBtn">LOG IN</button>
       <div class="bottomText">
-        아이디가 없으신가요? <a href="{% url 'signup' %}">sign up</a>
+        아이디가 없으신가요? <a href="signup.html">sign up</a>
       </div>
     </form>
     <div class="bg-1"></div>
