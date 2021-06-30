@@ -2,22 +2,21 @@
   margin: 0;
   padding: 0;
   -webkit-box-sizing: border-box;
-  box-sizing: border-box;
+          box-sizing: border-box;
 }
 
 body {
   width: 100vw;
-  height: 100vh;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-  -ms-flex-direction: column;
-  flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
   -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 body .loginForm {
@@ -25,17 +24,12 @@ body .loginForm {
   width: 300px;
   height: 400px;
   padding: 30px, 20px;
+  background-color: #ffffff;
   text-align: center;
   top: 50%;
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
-  background-color: rgba(255, 255, 255, 0.1);
-  color: #eee;
-  backdrop-filter: blur(5px);
-  border-top: 1px solid rgba(255, 255, 255, 0.2);
-  border-right: 1px solid rgba(255, 255, 255, 0.2);
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+          transform: translate(-50%, -50%);
   border-radius: 15px;
 }
 
@@ -76,11 +70,11 @@ body .loginForm .passForm .pw {
   background: none;
 }
 
-body .loginForm .loginBtn {
+body .loginForm .btn {
   position: relative;
   left: 40%;
   -webkit-transform: translateX(-50%);
-  transform: translateX(-50%);
+          transform: translateX(-50%);
   margin-bottom: 40px;
   width: 80%;
   height: 40px;
@@ -96,7 +90,7 @@ body .loginForm .loginBtn {
   display: inline;
 }
 
-body .loginForm .loginBtn:hover {
+body .loginForm .btn:hover {
   background-position: right;
 }
 

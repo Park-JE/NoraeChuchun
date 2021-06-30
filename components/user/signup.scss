@@ -57,9 +57,7 @@ body {
         height: 25px;
         background: none;
       }
-      .error1{
-        display: none;
-      }
+      
     }
     .passForm_chck {
       border-bottom: 2px solid #adadad;
@@ -76,8 +74,8 @@ body {
         background: none;
       }
     }
-
-    .btn {
+    
+    .signupBtn {
       position: relative;
       left: 40%;
       transform: translateX(-50%);
@@ -98,6 +96,7 @@ body {
         background-position: right;
       }
     }
+    
   }
   
 }
