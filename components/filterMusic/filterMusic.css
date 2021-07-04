@@ -189,6 +189,10 @@
   overflow: hidden;
 }
 
+.musicFilter-wrap .playlist-wrap .playlist.invisible {
+  display: none;
+}
+
 .musicFilter-wrap .playlist-wrap .playlist:hover .info {
   bottom: 0;
 }
@@ -257,6 +261,10 @@
 
 .musicFilter-wrap .playlist-wrap .playlist .info .songs {
   font-size: 11px;
+}
+
+.musicFilter-wrap .playlist-wrap .playlist .info .songs .count {
+  margin-left: 4px;
 }
 
 @media (min-width: 768px) and (max-width: 1023px) {

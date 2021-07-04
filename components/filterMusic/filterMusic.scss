@@ -147,6 +147,10 @@
       position: relative;
       overflow: hidden;
 
+      &.invisible {
+        display: none;
+      }
+
       &:hover .info {
         bottom: 0;
       }
@@ -197,6 +201,10 @@
         }
         .songs {
           font-size: $font-xsmall;
+
+          .count {
+            margin-left: 4px;
+          }
         }
       }
     }

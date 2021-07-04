@@ -4,33 +4,43 @@ function loadItems() {
   };
   return fetch("data/playlist.json", config)
     .then((response) => response.json())
-    .then((data) => data.playlist[0].list1.playlistMusic)
     .catch((error) => console.log("error", error));
 }
 
-function displayItems(songs) {
-  const container = document.querySelector(
-    ".recommendation .currentWeather-playlist"
-  );
-  container.innerHTML = songs.map((song) => createHTMLString(song)).join("");
-}
+function createElement(song) {
+  const li = document.createElement("li");
+  li.setAttribute("class", "music");
 
-function createHTMLString(song) {
-  return `<li class="music">
-    <img
-      src=${song.cover}
-      alt="album-cover"
-      class="album-cover"
-    />
-    <div class="song-info">
-      <span class="name">${song.title}</span>
-      <span class="artist">${song.artist}</span>
-    </div>
-  </li>`;
+  const img = document.createElement("img");
+  img.setAttribute("class", "album-cover");
+  img.setAttribute("src", song.cover);
+  img.setAttribute("alt", "album-cover");
+
+  const songInfo = document.createElement("div");
+  songInfo.setAttribute("class", "song-info");
+
+  const name = document.createElement("span");
+  name.setAttribute("class", "name");
+  name.innerText = `${song.title}`;
+
+  const artist = document.createElement("span");
+  artist.setAttribute("class", "artist");
+  artist.innerText = `${song.artist}`;
+
+  songInfo.append(name);
+  songInfo.append(artist);
+  li.append(img);
+  li.append(songInfo);
+
+  return li;
 }
 
 loadItems()
   .then((data) => {
-    displayItems(data);
+    const music = data.playlists[0].playlistMusic.map(createElement);
+    const container = document.querySelector(
+      ".recommendation .currentWeather-playlist"
+    );
+    container.append(...music);
   })
   .catch(console.log);
