@@ -39,6 +39,62 @@ nav .logoAndName .logo {
   margin-right: 8px;
 }
 
+nav .searchAndLogin {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: relative;
+}
+
+nav .searchAndLogin input {
+  border: 0;
+  outline: none;
+  padding: 8px 16px;
+  border-radius: 18px;
+  width: 30px;
+  -webkit-transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  background-color: transparent;
+}
+
+nav .searchAndLogin input.active {
+  width: 250px;
+  padding: 8px 32px;
+  background-color: #eee;
+}
+
+nav .searchAndLogin .btn {
+  border: 0;
+  outline: none;
+  background-color: transparent;
+  color: #eee;
+  padding: 6px;
+  border-radius: 50%;
+  position: absolute;
+  left: 2px;
+  -webkit-transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+nav .searchAndLogin .btn.search.active {
+  color: #111;
+}
+
+nav .searchAndLogin .btn.close {
+  opacity: 0;
+  visibility: hidden;
+}
+
+nav .searchAndLogin .btn.close.active {
+  color: #111;
+  left: 220px;
+  opacity: 1;
+  visibility: visible;
+}
+
 nav .login {
   padding: 0.5em 1.5em;
   border: 1px solid #eee;
@@ -47,9 +103,27 @@ nav .login {
   cursor: pointer;
   -webkit-transition: all 0.3s ease;
   transition: all 0.3s ease;
+  margin-left: 16px;
 }
 
 nav .login:hover {
   background-color: rgba(255, 255, 255, 0.1);
+}
+
+@media (max-width: 767px) {
+  nav {
+    padding: 20px;
+    font-size: 16px;
+  }
+  nav .searchAndLogin input.active {
+    width: 110px;
+  }
+  nav .searchAndLogin .btn.close.active {
+    left: 83px;
+  }
+  nav .login {
+    font-size: 14px;
+    margin-left: 8px;
+  }
 }
 /*# sourceMappingURL=navbar.css.map */

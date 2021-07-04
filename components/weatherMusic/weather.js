@@ -7,9 +7,6 @@ const onGeoOk = (position) => {
   if (!navigator.geolocation) {
     alert("위치 정보를 찾을 수 없습니다 🧐");
   } else {
-    const status = document.querySelector(".recommendation .weather .status");
-    status.textContent = "잠시만요 ..🐌..";
-
     fetch(url)
       .then((response) => response.json())
       .then((data) => {
@@ -25,7 +22,10 @@ const onGeoOk = (position) => {
         temp.textContent = `${Math.round(data.main.temp)}°C`;
         loc.textContent = data.name;
         state.textContent = data.weather[0].description;
-        status.textContent = null;
+        const loading = document.querySelector(
+          ".recommendation .weather .loading"
+        );
+        loading.classList.add("deactive");
       })
       .catch((error) => console.log("error", error));
   }

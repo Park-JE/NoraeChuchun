@@ -59,6 +59,72 @@
   position: relative;
 }
 
+.recommendation-warp .recommendation .weather .loading {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  width: 60px;
+  height: 60px;
+}
+
+.recommendation-warp .recommendation .weather .loading.deactive {
+  display: none;
+}
+
+.recommendation-warp .recommendation .weather .loading .bouncer {
+  width: 10px;
+  height: 10px;
+  background: linear-gradient(135deg, #d557e1, #01adf7);
+  border-radius: 50%;
+  -webkit-animation: bouncer 0.5s cubic-bezier(0.19, 0.57, 0.3, 0.98) infinite alternate;
+          animation: bouncer 0.5s cubic-bezier(0.19, 0.57, 0.3, 0.98) infinite alternate;
+}
+
+.recommendation-warp .recommendation .weather .loading .bouncer:nth-child(2) {
+  -webkit-animation-delay: 0.1s;
+          animation-delay: 0.1s;
+  opacity: 0.8;
+}
+
+.recommendation-warp .recommendation .weather .loading .bouncer:nth-child(3) {
+  -webkit-animation-delay: 0.2s;
+          animation-delay: 0.2s;
+  opacity: 0.6;
+}
+
+.recommendation-warp .recommendation .weather .loading .bouncer:nth-child(4) {
+  -webkit-animation-delay: 0.3s;
+          animation-delay: 0.3s;
+  opacity: 0.4;
+}
+
+@-webkit-keyframes bouncer {
+  from {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+  to {
+    -webkit-transform: translateY(-60px);
+            transform: translateY(-60px);
+  }
+}
+
+@keyframes bouncer {
+  from {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+  to {
+    -webkit-transform: translateY(-60px);
+            transform: translateY(-60px);
+  }
+}
+
 .recommendation-warp .recommendation .weather .icon {
   width: 220px;
   position: absolute;

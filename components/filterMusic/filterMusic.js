@@ -26,12 +26,9 @@ document.addEventListener("click", (e) => {
   }
 });
 
-let beforeChecked;
-
 optionBtns.forEach((btn) =>
   btn.addEventListener("click", () => {
     btn.classList.toggle("active");
-    beforeChecked = btn.control.name;
     // console.log(btn.control.name);
   })
 );
