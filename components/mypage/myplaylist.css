@@ -1,0 +1,81 @@
+html {
+  height: 100%;
+}
+
+body {
+  min-height: 100%;
+  color: #fff;
+}
+
+li {
+  list-style: none;
+}
+
+.container {
+  width: 100%;
+  height: 100%;
+}
+
+.container .myplaylist {
+  margin-top: 50px;
+  overflow: wrap;
+  width: calc(100% - 240px);
+  margin-left: 100px;
+}
+
+.container .myplaylist .myplaylist__list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.container .myplaylist .myplaylist__list .list-group-play {
+  margin: 20px;
+}
+
+.container .myplaylist .myplaylist__list .list-group-play .myplaylist__add {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 200px;
+  height: 200px;
+  border-radius: 10px;
+  background: #28243a;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.container .myplaylist .myplaylist__list .list-group-play .myplaylist__add div {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  vertical-align: middle;
+  font-size: 50px;
+  color: #fff;
+}
+
+.container .myplaylist .myplaylist__list .list-group-play .myplaylist__thumnail {
+  width: 200px;
+  height: 200px;
+  border-radius: 10px;
+}
+
+.container .myplaylist .myplaylist__list .list-group-play .myplaylist__count {
+  color: #aaaaaa;
+}
+
+.container .myplaylist .myplaylist__list .list-group-play .myplaylist__shareBtn:hover {
+  cursor: pointer;
+}
+/*# sourceMappingURL=myplaylist.css.map */
