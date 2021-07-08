@@ -140,6 +140,12 @@ nav .searchAndLogin input.active {
   background-color: #eee;
 }
 
+nav .searchAndLogin [type="search"]::-webkit-search-cancel-button,
+nav .searchAndLogin [type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none;
+  appearance: none;
+}
+
 nav .searchAndLogin .btn {
   border: 0;
   outline: none;
@@ -753,5 +759,51 @@ nav .login:hover {
   .musicFilter-wrap .playlist-wrap .playlist .title {
     font-size: 18px;
   }
+}
+
+.search-wrap {
+  margin-top: 150px;
+  width: 1000px;
+}
+
+.search-wrap .value {
+  font-size: 18px;
+  color: #eee;
+  margin-bottom: 16px;
+  padding: 0 16px;
+}
+
+.search-wrap .sort {
+  width: 100%;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 4fr 1fr 1fr;
+      grid-template-columns: 4fr 1fr 1fr;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  color: #eee;
+  font-size: 14px;
+  padding: 4px 0 4px 48px;
+}
+
+.search-wrap .music {
+  width: 100%;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 72px 4fr 1fr 1fr;
+      grid-template-columns: 72px 4fr 1fr 1fr;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: #eee;
+  font-size: 14px;
+  padding: 5px 16px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.search-wrap .music .cover {
+  width: 55px;
+  height: 55px;
+  border-radius: 8px;
 }
 /*# sourceMappingURL=style.css.map */

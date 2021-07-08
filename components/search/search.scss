@@ -1,0 +1,41 @@
+@import "../../css/variables";
+
+.search-wrap {
+  margin-top: 150px;
+  width: 1000px;
+
+  .value {
+    font-size: $font-large;
+    color: $white;
+    margin-bottom: $base-space;
+    padding: 0 $base-space;
+  }
+
+  .sort {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 4fr 1fr 1fr;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    color: $white;
+    font-size: $font-small;
+    padding: 4px 0 4px $base-space * 3;
+  }
+
+  .music {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 72px 4fr 1fr 1fr;
+    align-items: center;
+    color: $white;
+    font-size: $font-small;
+    padding: 5px $base-space;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+
+    .cover {
+      width: 55px;
+      height: 55px;
+      border-radius: $border-small;
+    }
+  }
+}
