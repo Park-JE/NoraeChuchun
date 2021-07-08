@@ -6,6 +6,8 @@
 
 body {
   width: 100vw;
+  height: 100vh;
+  background: linear-gradient(to left, #242359, #0e0e1f);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -15,7 +17,12 @@ body {
     width: 300px;
     height: 400px;
     padding: 30px, 20px;
-    background-color: #ffffff;
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    border-right: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    color: #eee;
     text-align: center;
     top: 50%;
     left: 50%;
@@ -57,7 +64,6 @@ body {
         height: 25px;
         background: none;
       }
-      
     }
     .passForm_chck {
       border-bottom: 2px solid #adadad;
@@ -74,7 +80,7 @@ body {
         background: none;
       }
     }
-    
+
     .signupBtn {
       position: relative;
       left: 40%;
@@ -96,7 +102,5 @@ body {
         background-position: right;
       }
     }
-    
   }
-  
 }
