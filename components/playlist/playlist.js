@@ -1,4 +1,6 @@
-function loadPlaylists() {
+const song = document.querySelector(".playlist-main .content-wrap .music");
+
+function loadSongs() {
   const config = {
     headers: { Accept: "application/json" },
   };
@@ -7,105 +9,48 @@ function loadPlaylists() {
     .catch((error) => console.log("error", error));
 }
 
-function createPlaylist(playlist) {
-  const aTag = document.createElement("a");
-  aTag.setAttribute("href", "playlist.html");
-
-  const playlistCard = document.createElement("div");
-  playlistCard.setAttribute("class", "playlist");
+function createSong(song) {
+  const music = document.createElement("div");
+  music.setAttribute("class", "music");
 
   const img = document.createElement("img");
-  img.setAttribute("src", playlist.playlistCover);
-  img.setAttribute("alt", "platlist-cover");
   img.setAttribute("class", "cover");
+  img.setAttribute("src", song.cover);
+  img.setAttribute("alt", "img");
 
-  const title = document.createElement("span");
-  title.setAttribute("class", "title");
-  title.innerText = `${playlist.playlistTitle}`;
+  const name = document.createElement("span");
+  name.setAttribute("class", "name");
+  name.innerText = `${song.title}`;
 
-  const info = document.createElement("div");
-  info.setAttribute("class", "info");
+  const artist = document.createElement("span");
+  artist.setAttribute("class", "artist");
+  artist.innerText = `${song.artist}`;
 
   const tags = document.createElement("div");
   tags.setAttribute("class", "tags");
 
-  const filter1 = document.createElement("span");
-  filter1.setAttribute("class", "filter");
-  filter1.innerText = `#${playlist.playlistCategory[0]}`;
+  const tag1 = document.createElement("span");
+  tag1.setAttribute("class", "tag1");
+  tag1.innerText = `#${song.category[0]}`;
 
-  const filter2 = document.createElement("span");
-  filter2.setAttribute("class", "filter");
-  filter2.innerText = `#${playlist.playlistCategory[1]}`;
+  const tag2 = document.createElement("span");
+  tag2.setAttribute("class", "tag2");
+  tag2.innerText = `#${song.category[1]}`;
 
-  const songs = document.createElement("div");
-  songs.setAttribute("class", "songs");
+  tags.append(tag1);
+  tags.append(tag2);
+  music.append(img);
+  music.append(name);
+  music.append(artist);
+  music.append(tags);
 
-  const icon = document.createElement("i");
-  icon.setAttribute("class", "fas fa-compact-disc");
-
-  const count = document.createElement("span");
-  count.setAttribute("class", "count");
-  count.innerText = `${playlist.playlistMusic.length}곡`;
-
-  songs.append(icon);
-  songs.append(count);
-  tags.append(filter1);
-  tags.append(filter2);
-  info.append(tags);
-  info.append(songs);
-  playlistCard.append(img);
-  playlistCard.append(title);
-  playlistCard.append(info);
-  aTag.append(playlistCard);
-
-  return aTag;
+  return music;
 }
 
-function onButtonClick(event, playlistData, playlistEle) {
-  const target = event.target;
-  const value = target.innerText;
-  if (value == null) {
-    return;
-  } else {
-    playlistData.map((playlist) => updateItems(value, playlist, playlistEle));
-  }
-}
-
-function updateItems(value, playlist, playlistEle) {
-  playlistEle.forEach((item) => {
-    if (
-      playlist.playlistCategory[0] === value ||
-      playlist.playlistCategory[1] === value
-    ) {
-      item.classList.remove("invisible");
-      console.log("맞대");
-    } else {
-      item.classList.add("invisible");
-      console.log("틀리대");
-    }
-  });
-}
-
-loadPlaylists()
+loadSongs()
   .then((data) => {
-    const playlist = data.playlists.map(createPlaylist);
-    const playlistWrap = document.querySelector(".playlist-wrap");
-    playlistWrap.append(...playlist);
-
-    const optionBtns = filterBar.querySelectorAll(
-      ".titleAndFilters .filter-bar .option"
-    );
-
-    const playlistData = data.playlists;
-    const playlistEle = playlist.map((item) => item.firstChild);
-    console.log(
-      playlistEle.map((item) => item.childNodes[2].childNodes[0].childNodes)
-    );
-
-    optionBtns.forEach((optionBtn) => {
-      optionBtn.addEventListener("click", (event) => {
-        onButtonClick(event, playlistData, playlistEle);
-      });
-    });
+    const music = data.playlists[0].playlistMusic.map(createSong);
+    const contentWrap = document.querySelector(".playlist-main .content-wrap");
+    contentWrap.append(...music);
   })
   .catch(console.log);

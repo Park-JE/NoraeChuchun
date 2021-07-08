@@ -1,8 +1,6 @@
 @import "../../css/variables";
 
 body {
-  height: 100vh;
-
   .playlist-main {
     width: 1000px;
     background-color: rgba(255, 255, 255, 0.1);
@@ -12,7 +10,7 @@ body {
     border-right: 1px solid rgba(255, 255, 255, 0.2);
     box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
     padding: $base-space * 2;
-    margin-top: 150px;
+    margin: 150px 0;
 
     .description-wrap {
       width: 100%;
@@ -74,12 +72,12 @@ body {
       align-items: center;
       color: $white;
       font-size: $font-small;
-      padding: 4px $base-space;
+      padding: 5px $base-space;
       border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 
       .cover {
-        width: 65px;
-        height: 65px;
+        width: 55px;
+        height: 55px;
         border-radius: $border-small;
       }
     }
