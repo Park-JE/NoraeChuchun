@@ -66,6 +66,12 @@ nav .searchAndLogin input.active {
   background-color: #eee;
 }
 
+nav .searchAndLogin [type="search"]::-webkit-search-cancel-button,
+nav .searchAndLogin [type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none;
+  appearance: none;
+}
+
 nav .searchAndLogin .btn {
   border: 0;
   outline: none;

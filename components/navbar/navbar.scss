@@ -53,6 +53,12 @@ nav {
       }
     }
 
+    [type="search"]::-webkit-search-cancel-button,
+    [type="search"]::-webkit-search-decoration {
+      -webkit-appearance: none;
+      appearance: none;
+    }
+
     .btn {
       border: 0;
       outline: none;
