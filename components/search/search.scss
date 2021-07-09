@@ -1,41 +1,127 @@
 @import "../../css/variables";
 
 .search-wrap {
-  margin-top: 150px;
+  margin: 150px 0;
   width: 1000px;
+  color: $white;
 
   .value {
     font-size: $font-large;
-    color: $white;
     margin-bottom: $base-space;
     padding: 0 $base-space;
+  }
+
+  .noResult {
+    font-size: $font-xlarge;
+    width: 100%;
+    height: 50vh;
+    border-radius: $border-large;
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    border-right: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    display: none;
+    justify-content: center;
+    align-items: center;
+
+    &.active {
+      display: flex;
+    }
+
+    .fa-exclamation-triangle {
+      margin-right: 10px;
+    }
   }
 
   .sort {
     width: 100%;
     display: grid;
-    grid-template-columns: 4fr 1fr 1fr;
+    grid-template-columns: 4fr 3fr 3fr 40px;
+    column-gap: 5px;
     border-top: 1px solid rgba(255, 255, 255, 0.2);
     border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-    color: $white;
     font-size: $font-small;
-    padding: 4px 0 4px $base-space * 3;
+    padding: 4px 0 4px $base-space;
+
+    .name {
+      padding-left: $base-space;
+    }
+
+    &.deactive {
+      display: none;
+    }
   }
 
-  .music {
-    width: 100%;
-    display: grid;
-    grid-template-columns: 72px 4fr 1fr 1fr;
-    align-items: center;
-    color: $white;
-    font-size: $font-small;
-    padding: 5px $base-space;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  .musicList {
+    &.deactive {
+      display: none;
+    }
 
-    .cover {
-      width: 55px;
-      height: 55px;
-      border-radius: $border-small;
+    .music {
+      width: 100%;
+      display: grid;
+      grid-template-columns: 4fr 3fr 3fr 40px;
+      column-gap: 5px;
+      align-items: center;
+      justify-items: flex-start;
+      font-size: $font-small;
+      padding: 5px 0 5px $base-space;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+
+      .coverAndName {
+        display: grid;
+        grid-template-columns: 70px 1fr;
+        align-items: center;
+
+        .cover {
+          width: 55px;
+          height: 55px;
+          border-radius: $border-small;
+        }
+      }
+
+      .add {
+        outline: none;
+        border: 0;
+        background-color: transparent;
+        color: $white;
+      }
+    }
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .search-wrap {
+    width: 680px;
+
+    .noResult {
+      width: 680px;
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .search-wrap {
+    width: 350px;
+
+    .noResult {
+      width: 350px;
+      font-size: $font-large;
+    }
+
+    .sort {
+      font-size: $font-xsmall;
+      padding: 4px 0 4px $base-space/2;
+      grid-template-columns: 4fr 3fr 3fr 30px;
+    }
+
+    .musicList {
+      .music {
+        font-size: $font-xsmall;
+        padding: 5px 0 5px $base-space/2;
+        grid-template-columns: 4fr 3fr 3fr 30px;
+      }
     }
   }
 }

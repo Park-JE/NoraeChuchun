@@ -78,10 +78,10 @@ function updateItems(value, playlist, playlistEle) {
       playlist.playlistCategory[1] === value
     ) {
       item.classList.remove("invisible");
-      console.log("맞대");
+      // console.log("맞대");
     } else {
       item.classList.add("invisible");
-      console.log("틀리대");
+      // console.log("틀리대");
     }
   });
 }
@@ -98,9 +98,7 @@ loadPlaylists()
 
     const playlistData = data.playlists;
     const playlistEle = playlist.map((item) => item.firstChild);
-    console.log(
-      playlistEle.map((item) => item.childNodes[2].childNodes[0].childNodes)
-    );
+    // console.log(playlistEle);
 
     optionBtns.forEach((optionBtn) => {
       optionBtn.addEventListener("click", (event) => {

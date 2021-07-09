@@ -40,7 +40,6 @@
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      // overflow: scroll;
       border-left: 1px solid rgba(255, 255, 255, 0.2);
       border-top-left-radius: $border-large;
       border-bottom-left-radius: $border-large;
@@ -52,78 +51,84 @@
         box-shadow: -15px 0px 18px 5px rgba(0, 0, 0, 0.4);
       }
 
-      .btn-box {
+      .filter-wrap {
         width: 100%;
-        display: flex;
-        justify-content: space-between;
+        overflow-y: scroll;
 
-        .btn {
-          outline: none;
-          border: 0;
-          background-color: transparent;
-          color: $white;
-          padding: 0.5em;
-          transition: opacity 0.3s ease;
-          cursor: pointer;
+        .btn-box {
+          width: 100%;
+          display: flex;
+          justify-content: space-between;
+          margin-top: $base-space;
 
-          &.reset {
-            font-size: $font-small;
-            font-weight: 400;
+          .btn {
+            outline: none;
+            border: 0;
+            background-color: transparent;
+            color: $white;
+            padding: 0.5em;
+            transition: opacity 0.3s ease;
+            cursor: pointer;
+
+            &.reset {
+              font-size: $font-small;
+              font-weight: 400;
+            }
           }
         }
-      }
 
-      .filters {
-        color: $white;
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        font-size: $font-small;
-        margin-bottom: $base-space * 2;
+        .filters {
+          color: $white;
+          width: 100%;
+          display: flex;
+          flex-direction: column;
+          font-size: $font-small;
+          margin-bottom: $base-space * 2;
 
-        .category {
-          margin-bottom: 4px;
-          cursor: pointer;
-          border-bottom: 1px solid rgba(238, 238, 238, 0.5);
-          cursor: default;
-          padding-bottom: 4px;
-          margin-top: $base-space;
-          font-weight: 600;
-          padding-left: 4px;
-          color: $black;
-        }
-
-        input {
-          appearance: none;
-        }
-
-        .option {
-          margin: 3px 0;
-          padding-left: 4px;
-          cursor: pointer;
-          position: relative;
-
-          &.active {
+          .category {
+            margin-bottom: 4px;
+            cursor: pointer;
+            border-bottom: 1px solid rgba(238, 238, 238, 0.5);
+            cursor: default;
+            padding-bottom: 4px;
+            margin-top: $base-space;
+            font-weight: 600;
+            padding-left: 4px;
             color: $black;
+          }
 
-            &::before {
-              content: "";
-              position: absolute;
-              top: 1px;
-              right: 30px;
-              width: 16px;
-              height: 16px;
-              background-color: $black;
-              transition: 0.3s;
-            }
+          input {
+            appearance: none;
+          }
 
-            &::after {
-              content: "✓";
-              position: absolute;
-              right: 32px;
-              color: $white;
-              transition: 0.3s;
-              top: -1px;
+          .option {
+            margin: 3px 0;
+            padding-left: 4px;
+            cursor: pointer;
+            position: relative;
+
+            &.active {
+              color: $black;
+
+              &::before {
+                content: "";
+                position: absolute;
+                top: 1px;
+                right: 30px;
+                width: 16px;
+                height: 16px;
+                background-color: $black;
+                transition: 0.3s;
+              }
+
+              &::after {
+                content: "✓";
+                position: absolute;
+                right: 32px;
+                color: $white;
+                transition: 0.3s;
+                top: -1px;
+              }
             }
           }
         }

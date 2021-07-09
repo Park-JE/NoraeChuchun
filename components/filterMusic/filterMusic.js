@@ -32,3 +32,9 @@ optionBtns.forEach((btn) =>
     // console.log(btn.control.name);
   })
 );
+
+const scrollHeight = document.documentElement.clientHeight;
+const filterWrap = document.querySelector(".filter-wrap");
+filterWrap.addEventListener("resize", () => {
+  filterWrap.style.height = `${scrollHeight}px`;
+});

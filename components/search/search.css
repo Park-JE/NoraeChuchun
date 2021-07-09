@@ -1,46 +1,140 @@
 .search-wrap {
-  margin-top: 150px;
+  margin: 150px 0;
   width: 1000px;
+  color: #eee;
 }
 
 .search-wrap .value {
   font-size: 18px;
-  color: #eee;
   margin-bottom: 16px;
   padding: 0 16px;
+}
+
+.search-wrap .noResult {
+  font-size: 20px;
+  width: 100%;
+  height: 50vh;
+  border-radius: 18px;
+  background-color: rgba(255, 255, 255, 0.1);
+  -webkit-backdrop-filter: blur(5px);
+          backdrop-filter: blur(5px);
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  border-right: 1px solid rgba(255, 255, 255, 0.2);
+  -webkit-box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+  display: none;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.search-wrap .noResult.active {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.search-wrap .noResult .fa-exclamation-triangle {
+  margin-right: 10px;
 }
 
 .search-wrap .sort {
   width: 100%;
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 4fr 1fr 1fr;
-      grid-template-columns: 4fr 1fr 1fr;
+  -ms-grid-columns: 4fr 3fr 3fr 40px;
+      grid-template-columns: 4fr 3fr 3fr 40px;
+  -webkit-column-gap: 5px;
+          column-gap: 5px;
   border-top: 1px solid rgba(255, 255, 255, 0.2);
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-  color: #eee;
   font-size: 14px;
-  padding: 4px 0 4px 48px;
+  padding: 4px 0 4px 16px;
 }
 
-.search-wrap .music {
+.search-wrap .sort .name {
+  padding-left: 16px;
+}
+
+.search-wrap .sort.deactive {
+  display: none;
+}
+
+.search-wrap .musicList.deactive {
+  display: none;
+}
+
+.search-wrap .musicList .music {
   width: 100%;
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 72px 4fr 1fr 1fr;
-      grid-template-columns: 72px 4fr 1fr 1fr;
+  -ms-grid-columns: 4fr 3fr 3fr 40px;
+      grid-template-columns: 4fr 3fr 3fr 40px;
+  -webkit-column-gap: 5px;
+          column-gap: 5px;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  color: #eee;
+  justify-items: flex-start;
   font-size: 14px;
-  padding: 5px 16px;
+  padding: 5px 0 5px 16px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 }
 
-.search-wrap .music .cover {
+.search-wrap .musicList .music .coverAndName {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 70px 1fr;
+      grid-template-columns: 70px 1fr;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.search-wrap .musicList .music .coverAndName .cover {
   width: 55px;
   height: 55px;
   border-radius: 8px;
+}
+
+.search-wrap .musicList .music .add {
+  outline: none;
+  border: 0;
+  background-color: transparent;
+  color: #eee;
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .search-wrap {
+    width: 680px;
+  }
+  .search-wrap .noResult {
+    width: 680px;
+  }
+}
+
+@media (max-width: 767px) {
+  .search-wrap {
+    width: 350px;
+  }
+  .search-wrap .noResult {
+    width: 350px;
+    font-size: 18px;
+  }
+  .search-wrap .sort {
+    font-size: 12px;
+    padding: 4px 0 4px 8px;
+    -ms-grid-columns: 4fr 3fr 3fr 30px;
+        grid-template-columns: 4fr 3fr 3fr 30px;
+  }
+  .search-wrap .musicList .music {
+    font-size: 12px;
+    padding: 5px 0 5px 8px;
+    -ms-grid-columns: 4fr 3fr 3fr 30px;
+        grid-template-columns: 4fr 3fr 3fr 30px;
+  }
 }
 /*# sourceMappingURL=search.css.map */

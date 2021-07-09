@@ -69,7 +69,12 @@
           box-shadow: -15px 0px 18px 5px rgba(0, 0, 0, 0.4);
 }
 
-.musicFilter-wrap .titleAndFilters .filter-bar .btn-box {
+.musicFilter-wrap .titleAndFilters .filter-bar .filter-wrap {
+  width: 100%;
+  overflow-y: scroll;
+}
+
+.musicFilter-wrap .titleAndFilters .filter-bar .filter-wrap .btn-box {
   width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -77,9 +82,10 @@
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  margin-top: 16px;
 }
 
-.musicFilter-wrap .titleAndFilters .filter-bar .btn-box .btn {
+.musicFilter-wrap .titleAndFilters .filter-bar .filter-wrap .btn-box .btn {
   outline: none;
   border: 0;
   background-color: transparent;
@@ -90,12 +96,12 @@
   cursor: pointer;
 }
 
-.musicFilter-wrap .titleAndFilters .filter-bar .btn-box .btn.reset {
+.musicFilter-wrap .titleAndFilters .filter-bar .filter-wrap .btn-box .btn.reset {
   font-size: 14px;
   font-weight: 400;
 }
 
-.musicFilter-wrap .titleAndFilters .filter-bar .filters {
+.musicFilter-wrap .titleAndFilters .filter-bar .filter-wrap .filters {
   color: #eee;
   width: 100%;
   display: -webkit-box;
@@ -109,7 +115,7 @@
   margin-bottom: 32px;
 }
 
-.musicFilter-wrap .titleAndFilters .filter-bar .filters .category {
+.musicFilter-wrap .titleAndFilters .filter-bar .filter-wrap .filters .category {
   margin-bottom: 4px;
   cursor: pointer;
   border-bottom: 1px solid rgba(238, 238, 238, 0.5);
@@ -121,24 +127,24 @@
   color: #111;
 }
 
-.musicFilter-wrap .titleAndFilters .filter-bar .filters input {
+.musicFilter-wrap .titleAndFilters .filter-bar .filter-wrap .filters input {
   -webkit-appearance: none;
      -moz-appearance: none;
           appearance: none;
 }
 
-.musicFilter-wrap .titleAndFilters .filter-bar .filters .option {
+.musicFilter-wrap .titleAndFilters .filter-bar .filter-wrap .filters .option {
   margin: 3px 0;
   padding-left: 4px;
   cursor: pointer;
   position: relative;
 }
 
-.musicFilter-wrap .titleAndFilters .filter-bar .filters .option.active {
+.musicFilter-wrap .titleAndFilters .filter-bar .filter-wrap .filters .option.active {
   color: #111;
 }
 
-.musicFilter-wrap .titleAndFilters .filter-bar .filters .option.active::before {
+.musicFilter-wrap .titleAndFilters .filter-bar .filter-wrap .filters .option.active::before {
   content: "";
   position: absolute;
   top: 1px;
@@ -150,7 +156,7 @@
   transition: 0.3s;
 }
 
-.musicFilter-wrap .titleAndFilters .filter-bar .filters .option.active::after {
+.musicFilter-wrap .titleAndFilters .filter-bar .filter-wrap .filters .option.active::after {
   content: "✓";
   position: absolute;
   right: 32px;
@@ -260,7 +266,7 @@
 }
 
 .musicFilter-wrap .playlist-wrap .playlist .info .songs {
-  font-size: 11px;
+  font-size: 12px;
 }
 
 .musicFilter-wrap .playlist-wrap .playlist .info .songs .count {

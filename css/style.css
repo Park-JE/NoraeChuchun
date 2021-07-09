@@ -406,7 +406,7 @@ nav .login:hover {
 }
 
 .recommendation-warp .recommendation .currentWeather-playlist .music .song-info .artist {
-  font-size: 11px;
+  font-size: 12px;
   opacity: 80%;
   margin-top: 2px;
 }
@@ -537,7 +537,12 @@ nav .login:hover {
           box-shadow: -15px 0px 18px 5px rgba(0, 0, 0, 0.4);
 }
 
-.musicFilter-wrap .titleAndFilters .filter-bar .btn-box {
+.musicFilter-wrap .titleAndFilters .filter-bar .filter-wrap {
+  width: 100%;
+  overflow-y: scroll;
+}
+
+.musicFilter-wrap .titleAndFilters .filter-bar .filter-wrap .btn-box {
   width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -545,9 +550,10 @@ nav .login:hover {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  margin-top: 16px;
 }
 
-.musicFilter-wrap .titleAndFilters .filter-bar .btn-box .btn {
+.musicFilter-wrap .titleAndFilters .filter-bar .filter-wrap .btn-box .btn {
   outline: none;
   border: 0;
   background-color: transparent;
@@ -558,12 +564,12 @@ nav .login:hover {
   cursor: pointer;
 }
 
-.musicFilter-wrap .titleAndFilters .filter-bar .btn-box .btn.reset {
+.musicFilter-wrap .titleAndFilters .filter-bar .filter-wrap .btn-box .btn.reset {
   font-size: 14px;
   font-weight: 400;
 }
 
-.musicFilter-wrap .titleAndFilters .filter-bar .filters {
+.musicFilter-wrap .titleAndFilters .filter-bar .filter-wrap .filters {
   color: #eee;
   width: 100%;
   display: -webkit-box;
@@ -577,7 +583,7 @@ nav .login:hover {
   margin-bottom: 32px;
 }
 
-.musicFilter-wrap .titleAndFilters .filter-bar .filters .category {
+.musicFilter-wrap .titleAndFilters .filter-bar .filter-wrap .filters .category {
   margin-bottom: 4px;
   cursor: pointer;
   border-bottom: 1px solid rgba(238, 238, 238, 0.5);
@@ -589,24 +595,24 @@ nav .login:hover {
   color: #111;
 }
 
-.musicFilter-wrap .titleAndFilters .filter-bar .filters input {
+.musicFilter-wrap .titleAndFilters .filter-bar .filter-wrap .filters input {
   -webkit-appearance: none;
      -moz-appearance: none;
           appearance: none;
 }
 
-.musicFilter-wrap .titleAndFilters .filter-bar .filters .option {
+.musicFilter-wrap .titleAndFilters .filter-bar .filter-wrap .filters .option {
   margin: 3px 0;
   padding-left: 4px;
   cursor: pointer;
   position: relative;
 }
 
-.musicFilter-wrap .titleAndFilters .filter-bar .filters .option.active {
+.musicFilter-wrap .titleAndFilters .filter-bar .filter-wrap .filters .option.active {
   color: #111;
 }
 
-.musicFilter-wrap .titleAndFilters .filter-bar .filters .option.active::before {
+.musicFilter-wrap .titleAndFilters .filter-bar .filter-wrap .filters .option.active::before {
   content: "";
   position: absolute;
   top: 1px;
@@ -618,7 +624,7 @@ nav .login:hover {
   transition: 0.3s;
 }
 
-.musicFilter-wrap .titleAndFilters .filter-bar .filters .option.active::after {
+.musicFilter-wrap .titleAndFilters .filter-bar .filter-wrap .filters .option.active::after {
   content: "✓";
   position: absolute;
   right: 32px;
@@ -728,7 +734,7 @@ nav .login:hover {
 }
 
 .musicFilter-wrap .playlist-wrap .playlist .info .songs {
-  font-size: 11px;
+  font-size: 12px;
 }
 
 .musicFilter-wrap .playlist-wrap .playlist .info .songs .count {
@@ -762,48 +768,126 @@ nav .login:hover {
 }
 
 .search-wrap {
-  margin-top: 150px;
+  margin: 150px 0;
   width: 1000px;
+  color: #eee;
 }
 
 .search-wrap .value {
   font-size: 18px;
-  color: #eee;
   margin-bottom: 16px;
   padding: 0 16px;
+}
+
+.search-wrap .noResult {
+  font-size: 20px;
+  width: 100%;
+  height: 50vh;
+  border-radius: 18px;
+  background-color: rgba(255, 255, 255, 0.1);
+  -webkit-backdrop-filter: blur(5px);
+          backdrop-filter: blur(5px);
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  border-right: 1px solid rgba(255, 255, 255, 0.2);
+  -webkit-box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.search-wrap .noResult .fa-exclamation-triangle {
+  margin-right: 10px;
 }
 
 .search-wrap .sort {
   width: 100%;
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 4fr 1fr 1fr;
-      grid-template-columns: 4fr 1fr 1fr;
+  -ms-grid-columns: 4fr 3fr 3fr 40px;
+      grid-template-columns: 4fr 3fr 3fr 40px;
+  -webkit-column-gap: 5px;
+          column-gap: 5px;
   border-top: 1px solid rgba(255, 255, 255, 0.2);
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-  color: #eee;
   font-size: 14px;
-  padding: 4px 0 4px 48px;
+  padding: 4px 0 4px 16px;
 }
 
-.search-wrap .music {
+.search-wrap .sort .name {
+  padding-left: 16px;
+}
+
+.search-wrap .musicList .music {
   width: 100%;
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 72px 4fr 1fr 1fr;
-      grid-template-columns: 72px 4fr 1fr 1fr;
+  -ms-grid-columns: 4fr 3fr 3fr 40px;
+      grid-template-columns: 4fr 3fr 3fr 40px;
+  -webkit-column-gap: 5px;
+          column-gap: 5px;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  color: #eee;
+  justify-items: flex-start;
   font-size: 14px;
-  padding: 5px 16px;
+  padding: 5px 0 5px 16px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 }
 
-.search-wrap .music .cover {
+.search-wrap .musicList .music .coverAndName {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 70px 1fr;
+      grid-template-columns: 70px 1fr;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.search-wrap .musicList .music .coverAndName .cover {
   width: 55px;
   height: 55px;
   border-radius: 8px;
+}
+
+.search-wrap .musicList .music .add {
+  outline: none;
+  border: 0;
+  background-color: transparent;
+  color: #eee;
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .search-wrap {
+    width: 680px;
+  }
+  .search-wrap .noResult {
+    width: 680px;
+  }
+}
+
+@media (max-width: 767px) {
+  .search-wrap {
+    width: 350px;
+  }
+  .search-wrap .noResult {
+    width: 350px;
+    font-size: 18px;
+  }
+  .search-wrap .sort {
+    font-size: 12px;
+    padding: 4px 0 4px 8px;
+  }
+  .search-wrap .musicList .music {
+    font-size: 12px;
+    padding: 5px 0 5px 8px;
+  }
 }
 /*# sourceMappingURL=style.css.map */
