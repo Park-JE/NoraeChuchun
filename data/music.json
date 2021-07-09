@@ -1,0 +1,204 @@
+{
+  "music": [
+    {
+      "id": 1,
+      "title": "Square (2017)",
+      "artist": "백예린 (Yerin Baek)",
+      "album": "Every letter I sent you.",
+      "data": "2019.12.10",
+      "cover": "EveryletterIsentyou.jpg",
+      "genre": ["알앤비", "팝"],
+      "mood": ["봄", "오후", "화창한 날"]
+    },
+    {
+      "id": 2,
+      "title": "네 생각",
+      "artist": "존 박 (John Park)",
+      "album": "네 생각",
+      "data": "2016.07.15",
+      "cover": "네생각.jpg",
+      "genre": ["발라드"],
+      "mood": ["봄", "아침", "화창한 날"]
+    },
+    {
+      "id": 3,
+      "title": "Dun Dun Dance",
+      "artist": "오마이걸(OH MY GIRL)",
+      "album": "Dear OHMYGIRL",
+      "data": "2021.05.10",
+      "cover": "DearOHMYGIRL.jpg",
+      "genre": ["댄스", "팝"],
+      "mood": ["여름", "아침", "폭염/ 더위"]
+    },
+    {
+      "id": 4,
+      "title": "다시 여기 바닷가",
+      "artist": "싹쓰리 (유두래곤, 린다G, 비룡)",
+      "album": "다시 여기 바닷가",
+      "data": "2020.07.18",
+      "cover": "다시여기바닷가.jpg",
+      "genre": ["댄스 팝"],
+      "mood": ["여름", "오후", "폭염/ 더위"]
+    },
+    {
+      "id": 5,
+      "title": "가을 아침",
+      "artist": "아이유 (IU)",
+      "album": "꽃갈피 둘",
+      "data": "2017.09.22",
+      "cover": "꽃갈피둘.jpg",
+      "genre": ["발라드", "포크 팝"],
+      "mood": ["가을", "아침", "선선한 날"]
+    },
+    {
+      "id": 6,
+      "title": "야생화",
+      "artist": "박효신",
+      "album": "야생화",
+      "data": "2016.10.03",
+      "cover": "야생화.jpg",
+      "genre": ["발라드"],
+      "mood": ["가을", "저녁", "쌀쌀한 날"]
+    },
+    {
+      "id": 7,
+      "title": "Lonely (Feat. 태연)",
+      "artist": "종현 (JONGHYUN)",
+      "album": "종현 소품집 '이야기 Op.2'",
+      "data": "2017.04.24",
+      "cover": "종현소품집이야기.jpg",
+      "genre": ["알앤비"],
+      "mood": ["겨울", "밤/ 새벽", "눈오는 날"]
+    },
+    {
+      "id": 8,
+      "title": "크리스마스 카드 (Vocal By 김형중)",
+      "artist": "토이(Toy)",
+      "album": "Thank You",
+      "data": "2007.11.29",
+      "cover": "ThankYou.jpg",
+      "genre": ["발라드", "팝"],
+      "mood": ["겨울", "크리스마스", "밤/ 새벽"]
+    },
+    {
+      "id": 9,
+      "title": "기다린 만큼, 더",
+      "artist": "검정치마",
+      "album": "또 오해영 (tvN 월화드라마) OST - Part.7",
+      "data": "2016.06.14",
+      "cover": "또오해영.jpg",
+      "genre": ["인디 팝", "OST"],
+      "mood": ["저녁", "환절기", "선선한 날"]
+    },
+    {
+      "id": 10,
+      "title": "공드리",
+      "artist": "혁오 (HYUKOH)",
+      "album": "22",
+      "data": "2015.05.28",
+      "cover": "22.jpg",
+      "genre": ["인디 락"],
+      "mood": ["겨울", "밤/ 새벽", "쌀쌀한 날"]
+    },
+    {
+      "id": 11,
+      "title": "Paris in the Rain",
+      "artist": "Lauv (라우브)",
+      "album": "I met you when I was 18. (the playlist)",
+      "data": "2018.10.08",
+      "cover": "ImetyouwhenIwas18.jpg",
+      "genre": ["팝"],
+      "mood": ["여름", "비/ 흐림"]
+    },
+    {
+      "id": 12,
+      "title": "Does it Make You Feel Good? (Stripped)",
+      "artist": "Joesef",
+      "album": "Does It Make You Feel Good?",
+      "data": "2021.04.14",
+      "cover": "DoesItMakeYouFeelGood.jpg",
+      "genre": ["팝"],
+      "mood": ["여름", "비/ 흐림", "쌀쌀한 날"]
+    },
+    {
+      "id": 13,
+      "title": "Summer Vibe ",
+      "artist": "Forrest Nolan",
+      "album": "Summer Vibe",
+      "data": "2021.05.12",
+      "cover": "SummerVibe.jpg",
+      "genre": ["팝"],
+      "mood": ["여름", "폭염/ 더위", "화창한 날"]
+    },
+    {
+      "id": 14,
+      "title": "Snowfall",
+      "artist": "Idealism",
+      "album": "Essentials - Winter 2016",
+      "data": "2017.01.23",
+      "cover": "EssentialsWinter2016.jpg",
+      "genre": ["랩/힙합", "일렉트로닉"],
+      "mood": ["겨울", "눈오는 날", "환절기"]
+    },
+    {
+      "id": 15,
+      "title": "That's Us",
+      "artist": "Anson Seabra",
+      "album": "That's Us",
+      "data": "2019.05.17",
+      "cover": "ThatsUs.jpg",
+      "genre": ["팝"],
+      "mood": ["겨울", "비/ 흐림", "쌀쌀한 날"]
+    },
+    {
+      "id": 16,
+      "title": "Snowman",
+      "artist": "Sia",
+      "album": "Every day is Christmas (Deluxe Edition)",
+      "data": "2017.11.17",
+      "cover": "EverydayisChristmas(DeluxeEdition).jpg",
+      "genre": ["알앤비", "캐롤", "팝"],
+      "mood": ["겨울", "크리스마스"]
+    },
+    {
+      "id": 17,
+      "title": "At My Worst (feat. Kehlani)",
+      "artist": "Pink Sweat$",
+      "album": "At My Worst (feat. Kehlani)",
+      "data": "2021.01.27",
+      "cover": "AtMyWorst.jpg",
+      "genre": ["팝"],
+      "mood": ["봄", "여름", "화창한 날"]
+    },
+    {
+      "id": 18,
+      "title": "What Am I",
+      "artist": "Why Don't We",
+      "album": "What Am I",
+      "data": "2019.08.23",
+      "cover": "WhatAmI.jpg",
+      "genre": ["팝 락", "얼터너티브 팝"],
+      "mood": ["비온 후/ 맑게 갠", "선선한 날"]
+    },
+    {
+      "id": 19,
+      "title": "Saturday",
+      "artist": "Sammy Wilk",
+      "album": "Saturday (The Wedding Song)",
+      "data": "2019.08.23",
+      "cover": "SaturdayTheWeddingSong.jpg",
+      "genre": ["팝"],
+      "mood": ["비온 후/ 맑게 갠", "오후"]
+    },
+    {
+      "id": 20,
+      "title": "parachute",
+      "artist": "John K",
+      "album": "love + everything else",
+      "data": "2020.11.13",
+      "cover": "loveEverythingElse.jpg",
+      "genre": ["소울 팝"],
+      "mood": ["비온 후/ 맑게 갠", "선선한 날"]
+    }
+  ]
+}
