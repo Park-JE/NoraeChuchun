@@ -11,23 +11,53 @@ li {
   list-style: none;
 }
 
+@keyframes fadein {
+  from {
+      opacity: 0;
+  }
+  to {
+      opacity: 1;
+  }
+}
+@-moz-keyframes fadein { /* Firefox */
+  from {
+      opacity: 0;
+  }
+  to {
+      opacity: 1;
+  }
+}
+@-webkit-keyframes fadein { /* Safari and Chrome */
+  from {
+      opacity: 0;
+  }
+  to {
+      opacity: 1;
+  }
+}
+
+
 .container {
   width: 100%;
   height: 100%;
 
   .myplaylist {
     margin-top: 50px;
-    overflow: wrap;
     width: calc(100% - 240px);
     margin-left: 100px;
 
     .myplaylist__list {
+      width: 100%;
+      height: 100%;
       display: flex;
       flex-direction: row;
+      flex-wrap: wrap;
 
       .list-group-play {
+        max-width: 100%;
         margin: 20px;
-        .myplaylist__add{
+
+        .myplaylist__add {
           display: flex;
           width: 200px;
           height: 200px;
@@ -35,14 +65,20 @@ li {
           background: #28243a;
           align-items: center;
           justify-content: center;
-          div{
+
+          div {
             width: fit-content;
             height: fit-content;
-            vertical-align:middle;
-            font-size: 50px;           
+            vertical-align: middle;
+            font-size: 50px;
             color: #fff;
           }
         }
+
+        .myplaylist__add:hover {
+          cursor: pointer;
+        }
+
         .myplaylist__thumnail {
           width: 200px;
           height: 200px;
@@ -52,9 +88,123 @@ li {
         .myplaylist__count {
           color: #aaaaaa;
         }
-        .myplaylist__shareBtn:hover{
+
+        .myplaylist__shareBtn {
+          float: rifght;
+          margin-left: 100px;
+        }
+
+        .myplaylist__shareBtn:hover {
           cursor: pointer;
         }
+      }
+    }
+  }
+
+  .cover.active {
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(75, 73, 73, 0.5);
+    backdrop-filter: blur(1px);
+    z-index: 1;
+    // filter: blur(6px); 
+
+    // -webkit-filter: blur(6px);  
+
+  }
+
+  .newplaylist {
+    display: none;
+  }
+
+  .newplaylist.active {
+    position: absolute;
+    display: block;
+    z-index: 2;
+    width: 640px;
+    height: 400px;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto auto;
+    background: linear-gradient(to left, #2e1d30, #0e0e1f);
+    border: 1px solid rgb(56, 55, 55);
+    border-radius: 20px;
+    animation: fadein 0.5s;
+
+    .newplaylist__container {
+      width: 100%;
+      height: 100%;
+
+      h2 {
+        width: fit-content;
+        margin: 30px auto 0px auto;
+      }
+
+      div:nth-child(2),
+      div:nth-child(3){
+        border-bottom: 2px solid #adadad;
+        margin: 50px;
+        padding: 10px 10px;
+        >input {
+          width: 100%;
+          border: none;
+          outline: none;
+          color: #fff;
+          font-size: 16px;
+          height: 25px;
+          background: none;
+        }
+      }
+      div:nth-child(4){
+        >button {
+          position: relative;
+          left: 65%;
+          margin-right: 20px;
+          width: 80px;
+          height: 40px;
+          background-position: left;
+          background-size: 200%;
+          color: white;
+          font-weight: bold;
+          border: none;
+          cursor: pointer;
+          transition: 0.4s;
+          display: inline;
+          border-radius: 5px;
+        }
+      }
+      .btn__group{
+        .saveBtn{
+          background: linear-gradient(125deg, #2d2d2e, #01000e, #272727);
+        }
+        .closeBtn{
+          background: linear-gradient(125deg, #f0eaea, #aaa9a9, #e0dede);
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    flex-direction: row;
+    width: 100%;
+    flex-wrap: wrap;
+
+    .myplaylist {
+      width: 90%;
+      margin: auto auto;
+
+      .myplaylist__list {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
       }
     }
   }
