@@ -15,12 +15,12 @@ chngBtn.addEventListener("click", function () {
     pw1_error.classList.add("active");
     pw1_error.innerHTML = "패스워드를 4글자 이상 입력해주세요";
     //비밀번호 포커스
-    pw1.focus();
+    new_pw1.focus();
     // 새로운 비밀번호가 다를시
   } else if (new_pw1.value != new_pw2.value) {
     pw2_error.classList.add("active");
     pw2_error.innerHTML = "패스워드가 일치하지 않습니다.";
-    pw2.focus();
+    new_pw2.focus();
   }
 });
 new_pw1.addEventListener("click", checkActive);

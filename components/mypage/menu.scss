@@ -3,6 +3,7 @@
   height: 80vh;
   display: flex;
   margin-top: 85px;
+  color: #fff;
 
   .mypage__menu {
     width: 240px;
@@ -40,6 +41,9 @@
       .menu__list{
         display: flex;
         justify-content: space-between;
+        .nonactive:hover{
+          transform: translateY(-10px);
+        }
       }
     }
   }

@@ -7,114 +7,63 @@ body {
   color: #fff;
 }
 
-.container{
+.container {
   width: 100%;
   height: 100%;
 
-  .menu__contents{
+  .menu__contents {
     width: calc(100% - 240px);
     margin-left: 100px;
-    .menu__content{
-      width: 700px;
-      margin: 40px auto;
 
-      h2{
+    .menu__content {
+      width: 700px;
+      margin: 100px auto;
+
+      h2 {
         font-size: 18px;
       }
-      .contents{
+
+      .contents {
         width: 500px;
-        .contents_tag{
+
+        .contents_tag {
           font-size: 16px;
           width: 200px;
           margin-top: 20px;
         }
-  
-        input{
+
+        input {
           color: #fff;
           font-size: 20px;
-          width: 400px;
+          width: 600px;
           height: 40px;
           border-top: none;
           border-left: none;
           border-right: none;
-          border-bottom : 2px solid rgb(168, 166, 166);
-          background-color: rgba(0,0,0,0);
+          border-bottom: 2px solid rgb(168, 166, 166);
+          background-color: rgba(0, 0, 0, 0);
         }
-        input:focus{
+
+        input:focus {
           outline: none;
         }
       }
-  
-      .error{
+
+      .error {
         display: none;
       }
-      .error.active{
+
+      .error.active {
         margin-top: 5px;
         display: block;
         color: red;
         font-size: 14px;
       }
 
-      button{
-      left: 40%;
-      margin-top: 30px;
-      width: 400px;
-      height: 50px;
-      background: linear-gradient(125deg, #81ecec, #6c5ce7, #81ecec);
-      background-position: left;
-      background-size: 200%;
-      color: white;
-      font-weight: bold;
-      border: none;
-      cursor: pointer;
-      transition: 0.4s;
-      &:hover {
-        background-position: right;
-      }
-      }
-    }  
-  }
-}
-
-@media screen and (max-width: 768px) {
-  .container{
-    flex-direction: column;
-    width: 100%;
-    .menu__contents{
-      width:100%;
-      margin: auto auto;
-      .menu__content{
-        width: 300px;
-        margin: 40px auto;
-
-        .contents{
-          width: 300px;
-          .contents_tag{
-            font-size: 16px;
-            width: 200px;
-            margin-top: 20px;
-          }
-    
-          input{
-            color: #fff;
-            font-size: 20px;
-            width: 300px;
-            height: 40px;
-            border-top: none;
-            border-left: none;
-            border-right: none;
-            border-bottom : 2px solid rgb(168, 166, 166);
-            background-color: rgba(0,0,0,0);
-          }
-          input:focus{
-            outline: none;
-          }
-        }
-  
-        button{
+      button {
         left: 40%;
         margin-top: 30px;
-        width: 300px;
+        width: 600px;
         height: 50px;
         background: linear-gradient(125deg, #81ecec, #6c5ce7, #81ecec);
         background-position: left;
@@ -124,11 +73,77 @@ body {
         border: none;
         cursor: pointer;
         transition: 0.4s;
+
         &:hover {
           background-position: right;
         }
+
+      }
+    }
+
+  }
+
+
+}
+@media screen and (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    width: 100%;
+
+    .menu__contents {
+      width: 100%;
+      margin: 50px auto;
+
+      .menu__content {
+        width: 400px;
+        margin: 40px auto;
+
+        .contents {
+          width: 300px;
+
+          .contents_tag {
+            font-size: 16px;
+            width: 200px;
+            margin-top: 20px;
+          }
+
+          input {
+            color: #fff;
+            font-size: 20px;
+            width: 400px;
+            height: 40px;
+            border-top: none;
+            border-left: none;
+            border-right: none;
+            border-bottom: 2px solid rgb(168, 166, 166);
+            background-color: rgba(0, 0, 0, 0);
+          }
+
+          input:focus {
+            outline: none;
+          }
         }
-      }  
+
+        button {
+          left: 40%;
+          margin-top: 30px;
+          width: 400px;
+          height: 50px;
+          background: linear-gradient(125deg, #81ecec, #6c5ce7, #81ecec);
+          background-position: left;
+          background-size: 200%;
+          color: white;
+          font-weight: bold;
+          border: none;
+          cursor: pointer;
+          transition: 0.4s;
+
+          &:hover {
+            background-position: right;
+          }
+
+        }
+      }
     }
   }
 }

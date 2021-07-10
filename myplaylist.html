@@ -11,6 +11,7 @@
   <link rel="stylesheet" href="./components/mypage/myplaylist.css" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined">
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <script defer src="./components/mypage/myplaylist.js"></script>
   <title>Document</title>
 </head>
 
@@ -25,10 +26,10 @@
   <div class="container">
     <div class="mypage__menu">
       <ul class="menu__list">
-        <li class="list-group-item material-icons">account_circle<a href="/mypage.html">비밀번호 변경</a></li>
+        <li class="list-group-item nonactive material-icons">account_circle<a href="/mypage.html">비밀번호 변경</a></li>
         <li class="list-group-item active material-icons">music_note<a href="/myplaylist.html">나의 플레이리스트</a></li>
-        <li class="list-group-item material-icons">person_add<a href="#">친구목록</a></li>
-        <li class="list-group-item material-icons">delete_forever<a href="#">회원탈퇴</a></li>
+        <li class="list-group-item nonactive material-icons">person_add<a href="/share.html">친구목록</a></li>
+        <li class="list-group-item nonactive material-icons">delete_forever<a href="/secession.html">회원탈퇴</a></li>
       </ul>
       </ul>
     </div>
@@ -36,40 +37,39 @@
       <ul class="myplaylist__list">
         <li class="list-group-play">
           <div class="myplaylist__add" title="새 재생목록 생성">
-            <div class="material-icons-outlined">
-              add
-            </div>
+            <div class="material-icons-outlined">add</div>
           </div>
           <div class="myplaylist__title">새 재생목록</div>
-
         </li>
         <li class="list-group-play">
           <img class="myplaylist__thumnail" src="./img/나랑아니면.jpeg" alt="플레이리스트첫노래사진" />
           <div class="myplaylist__title">운동할때 들어야징</div>
-          <div class="myplaylist__count">노래 9곡</div>
-          <div title="공유하기" class="material-icons-outlined myplaylist__shareBtn">
-            ios_share
-          </div>
+          <span class="myplaylist__count">노래 9곡</span>
+          <span title="공유하기" class="material-icons-outlined myplaylist__shareBtn">ios_share</span>
         </li>
-        <li class="list-group-play">
-          <img class="myplaylist__thumnail" src="./img/나랑아니면.jpeg" alt="플레이리스트첫노래사진" />
-          <div class="myplaylist__title">Coding i oi </div>
-          <div class="myplaylist__count">노래 20곡</div>
-          <div title="공유하기" class="material-icons-outlined myplaylist__shareBtn">
-            ios_share
-          </div>
-        </li>
-        <li class="list-group-play">
-          <img class="myplaylist__thumnail" src="./img/나랑아니면.jpeg" alt="플레이리스트첫노래사진" />
-          <div class="myplaylist__title">울고싶군,,,</div>
-          <div class="myplaylist__count">노래 11곡</div>
-          <div title="공유하기" class="material-icons-outlined myplaylist__shareBtn">
-            ios_share
-          </div>
-        </li>
+
       </ul>
     </div>
+    <!-- 모달창 -->
+    <div class="cover"></div>
+    <div class="newplaylist">
+      <div class="newplaylist__container">
+        <h2>새 재생목록</h2>
+        <div class="new__title">
+          <input type="text" name="newplaylist" placeholder="제목">
+        </div>
+        <div class="new__desc">
+          <input type="text" name="newplaylist" placeholder="설명">
+        </div>
+        <div class="btn__group">
+          <button class="closeBtn">취소</button>
+          <button class="saveBtn">저장</button>
+        </div>
+      </div>
+    </div>
   </div>
+
+
 </body>
 
 </html>
