@@ -12,12 +12,12 @@ body {
   height: 100%;
 
   .menu__contents {
-    width: calc(100% - 240px);
-    margin-left: 100px;
+    margin: 0px 70px;
+    width: 90%;
+    margin-top: 50px;
 
     .menu__content {
       width: 700px;
-      margin: 100px auto;
 
       h2 {
         font-size: 18px;
@@ -84,6 +84,24 @@ body {
   }
 
 
+}
+@media screen and (max-width: 910px){
+  .container{
+    .menu__contents{
+      .menu__content{
+        width: 500px;
+        .contents{
+
+          input{
+            width: 400px;
+          }
+        }
+        button{
+          width: 400px;
+        }
+      }
+    }
+  }
 }
 @media screen and (max-width: 768px) {
   .container {

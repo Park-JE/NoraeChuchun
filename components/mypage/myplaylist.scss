@@ -42,9 +42,9 @@ li {
   height: 100%;
 
   .myplaylist {
+    margin: 0px 70px;
+    width: 90%;
     margin-top: 50px;
-    width: calc(100% - 240px);
-    margin-left: 100px;
 
     .myplaylist__list {
       width: 100%;
@@ -204,7 +204,58 @@ li {
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
-        justify-content: space-evenly;
+      }
+    }    
+    .newplaylist.active {
+      width: 450px;
+      height: 400px;
+     
+      .newplaylist__container {
+        width: 100%;
+        height: 100%;
+  
+  
+        div:nth-child(2),
+        div:nth-child(3){
+          border-bottom: 2px solid #adadad;
+          margin: 50px;
+          padding: 10px 10px;
+          >input {
+            width: 100%;
+            border: none;
+            outline: none;
+            color: #fff;
+            font-size: 16px;
+            height: 25px;
+            background: none;
+          }
+        }
+        div:nth-child(4){
+          >button {
+            position: relative;
+            left: 65%;
+            margin-right: 10px;
+            width: 60px;
+            height: 30px;
+            background-position: left;
+            background-size: 200%;
+            color: white;
+            font-weight: bold;
+            border: none;
+            cursor: pointer;
+            transition: 0.4s;
+            display: inline;
+            border-radius: 5px;
+          }
+        }
+        .btn__group{
+          .saveBtn{
+            background: linear-gradient(125deg, #2d2d2e, #01000e, #272727);
+          }
+          .closeBtn{
+            background: linear-gradient(125deg, #f0eaea, #aaa9a9, #e0dede);
+          }
+        }
       }
     }
   }

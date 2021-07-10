@@ -42,7 +42,7 @@
           <div class="myplaylist__title">새 재생목록</div>
         </li>
         <li class="list-group-play">
-          <img class="myplaylist__thumnail" src="./img/나랑아니면.jpeg" alt="플레이리스트첫노래사진" />
+          <img class="myplaylist__thumnail" src="./img/나랑아니면.jpeg" alt="플레이리스트 이미지" />
           <div class="myplaylist__title">운동할때 들어야징</div>
           <span class="myplaylist__count">노래 9곡</span>
           <span title="공유하기" class="material-icons-outlined myplaylist__shareBtn">ios_share</span>
@@ -56,14 +56,14 @@
       <div class="newplaylist__container">
         <h2>새 재생목록</h2>
         <div class="new__title">
-          <input type="text" name="newplaylist" placeholder="제목">
+          <input class="title" type="text" name="newplaylist" placeholder="제목">
         </div>
         <div class="new__desc">
-          <input type="text" name="newplaylist" placeholder="설명">
+          <input class="desc" type="text" name="newplaylist" placeholder="설명">
         </div>
         <div class="btn__group">
           <button class="closeBtn">취소</button>
-          <button class="saveBtn">저장</button>
+          <button class="saveBtn" onClick='addPlaylist()'>저장</button>
         </div>
       </div>
     </div>

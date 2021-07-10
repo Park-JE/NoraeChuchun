@@ -13,13 +13,13 @@ body {
 }
 
 .container .menu__contents {
-  width: calc(100% - 240px);
-  margin-left: 100px;
+  margin: 0px 70px;
+  width: 90%;
+  margin-top: 50px;
 }
 
 .container .menu__contents .menu__content {
   width: 700px;
-  margin: 100px auto;
 }
 
 .container .menu__contents .menu__content h2 {
@@ -81,6 +81,18 @@ body {
 
 .container .menu__contents .menu__content button:hover {
   background-position: right;
+}
+
+@media screen and (max-width: 910px) {
+  .container .menu__contents .menu__content {
+    width: 500px;
+  }
+  .container .menu__contents .menu__content .contents input {
+    width: 400px;
+  }
+  .container .menu__contents .menu__content button {
+    width: 400px;
+  }
 }
 
 @media screen and (max-width: 768px) {
