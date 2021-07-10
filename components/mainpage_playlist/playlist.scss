@@ -53,32 +53,51 @@ body {
 
   .content-wrap {
     width: 100%;
+    color: $white;
 
     .sort {
       width: 100%;
       display: grid;
-      grid-template-columns: 4fr 1fr 1fr;
+      grid-template-columns: 4fr 3fr 3fr 40px;
+      column-gap: 5px;
       border-top: 1px solid rgba(255, 255, 255, 0.2);
       border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-      color: $white;
       font-size: $font-small;
-      padding: 4px 0 4px $base-space * 3;
+      padding: 4px 0 4px $base-space;
+
+      .name {
+        padding-left: $base-space;
+      }
     }
 
     .music {
       width: 100%;
       display: grid;
-      grid-template-columns: 72px 4fr 1fr 1fr;
+      grid-template-columns: 4fr 3fr 3fr 40px;
+      column-gap: 5px;
       align-items: center;
-      color: $white;
+      justify-items: flex-start;
       font-size: $font-small;
-      padding: 5px $base-space;
+      padding: 5px 0 5px $base-space;
       border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 
-      .cover {
-        width: 55px;
-        height: 55px;
-        border-radius: $border-small;
+      .coverAndName {
+        display: grid;
+        grid-template-columns: 70px 1fr;
+        align-items: center;
+
+        .cover {
+          width: 55px;
+          height: 55px;
+          border-radius: $border-small;
+        }
+      }
+
+      .add {
+        outline: none;
+        border: 0;
+        background-color: transparent;
+        color: $white;
       }
     }
   }
@@ -90,8 +109,6 @@ body {
   }
 
   @media (max-width: 767px) {
-    $font-xsmall: 12px;
-
     .playlist-main {
       width: 350px;
       padding: $base-space * 1.5 $base-space;
@@ -116,27 +133,14 @@ body {
       .content-wrap {
         .sort {
           font-size: $font-xsmall;
-          padding: 4px 0 4px $base-space * 2;
-          display: grid;
-          grid-template-columns: 3fr 1fr 1fr;
+          padding: 4px 0 4px $base-space/2;
+          grid-template-columns: 4fr 3fr 3fr 30px;
         }
 
         .music {
-          padding: 4px;
-          display: grid;
-          grid-template-columns: 60px 130px 1fr 1fr;
-          column-gap: 5px;
           font-size: $font-xsmall;
-
-          .cover {
-            width: 60px;
-            height: 60px;
-          }
-
-          .tags {
-            display: flex;
-            flex-direction: column;
-          }
+          padding: 5px 0 5px $base-space/2;
+          grid-template-columns: 4fr 3fr 3fr 30px;
         }
       }
     }

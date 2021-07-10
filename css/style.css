@@ -232,12 +232,12 @@ nav .login:hover {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
   border-radius: 8px;
   padding: 24px 16px;
   background-color: rgba(255, 255, 255, 0.1);
@@ -249,26 +249,7 @@ nav .login:hover {
           box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
 }
 
-.recommendation-warp .recommendation .weather {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  width: 29%;
-  height: 100%;
-  position: relative;
-}
-
-.recommendation-warp .recommendation .weather .loading {
+.recommendation-warp .recommendation .loading {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -277,15 +258,15 @@ nav .login:hover {
   -webkit-box-align: end;
       -ms-flex-align: end;
           align-items: flex-end;
-  width: 60px;
+  width: 70px;
   height: 60px;
 }
 
-.recommendation-warp .recommendation .weather .loading.deactive {
+.recommendation-warp .recommendation .loading.deactive {
   display: none;
 }
 
-.recommendation-warp .recommendation .weather .loading .bouncer {
+.recommendation-warp .recommendation .loading .bouncer {
   width: 10px;
   height: 10px;
   background: linear-gradient(135deg, #d557e1, #01adf7);
@@ -294,22 +275,28 @@ nav .login:hover {
           animation: bouncer 0.5s cubic-bezier(0.19, 0.57, 0.3, 0.98) infinite alternate;
 }
 
-.recommendation-warp .recommendation .weather .loading .bouncer:nth-child(2) {
+.recommendation-warp .recommendation .loading .bouncer:nth-child(2) {
   -webkit-animation-delay: 0.1s;
           animation-delay: 0.1s;
+  opacity: 0.9;
+}
+
+.recommendation-warp .recommendation .loading .bouncer:nth-child(3) {
+  -webkit-animation-delay: 0.2s;
+          animation-delay: 0.2s;
   opacity: 0.8;
 }
 
-.recommendation-warp .recommendation .weather .loading .bouncer:nth-child(3) {
-  -webkit-animation-delay: 0.2s;
-          animation-delay: 0.2s;
-  opacity: 0.6;
-}
-
-.recommendation-warp .recommendation .weather .loading .bouncer:nth-child(4) {
+.recommendation-warp .recommendation .loading .bouncer:nth-child(4) {
   -webkit-animation-delay: 0.3s;
           animation-delay: 0.3s;
-  opacity: 0.4;
+  opacity: 0.7;
+}
+
+.recommendation-warp .recommendation .loading .bouncer:nth-child(5) {
+  -webkit-animation-delay: 0.4s;
+          animation-delay: 0.4s;
+  opacity: 0.6;
 }
 
 @-webkit-keyframes bouncer {
@@ -332,6 +319,29 @@ nav .login:hover {
     -webkit-transform: translateY(-60px);
             transform: translateY(-60px);
   }
+}
+
+.recommendation-warp .recommendation .weather {
+  display: none;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 29%;
+  height: 100%;
+  position: relative;
+}
+
+.recommendation-warp .recommendation .weather.active {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 .recommendation-warp .recommendation .weather .icon {
@@ -363,12 +373,16 @@ nav .login:hover {
 .recommendation-warp .recommendation .currentWeather-playlist {
   width: 70%;
   height: 100%;
-  display: -ms-grid;
-  display: grid;
+  display: none;
   -ms-grid-columns: 1fr 1fr;
       grid-template-columns: 1fr 1fr;
   -ms-grid-rows: (1fr)[4];
       grid-template-rows: repeat(4, 1fr);
+}
+
+.recommendation-warp .recommendation .currentWeather-playlist.active {
+  display: -ms-grid;
+  display: grid;
 }
 
 .recommendation-warp .recommendation .currentWeather-playlist .music {
@@ -424,6 +438,7 @@ nav .login:hover {
   }
   .recommendation-warp .recommendation .weather {
     width: 90%;
+    height: 380px;
   }
   .recommendation-warp .recommendation .weather .icon {
     width: 200px;
@@ -446,10 +461,17 @@ nav .login:hover {
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
-    height: 800px;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+    height: 790px;
+  }
+  .recommendation-warp .recommendation .loading {
+    margin-top: 100px;
   }
   .recommendation-warp .recommendation .weather {
     width: 90%;
+    height: 280px;
   }
   .recommendation-warp .recommendation .weather .icon {
     width: 180px;

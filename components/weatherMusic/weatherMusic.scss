@@ -21,8 +21,9 @@
     width: 100%;
     height: 300px;
     display: flex;
+    justify-content: center;
     align-items: center;
-    justify-content: space-between;
+    // justify-content: space-between;
     border-radius: $border-small;
     padding: $base-space * 1.5 $base-space;
     background-color: rgba(255, 255, 255, 0.1);
@@ -31,8 +32,58 @@
     border-right: 1px solid rgba(255, 255, 255, 0.2);
     box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
 
-    .weather {
+    .loading {
       display: flex;
+      justify-content: space-around;
+      align-items: flex-end;
+      width: 70px;
+      height: 60px;
+
+      &.deactive {
+        display: none;
+      }
+
+      .bouncer {
+        width: 10px;
+        height: 10px;
+        background: linear-gradient(135deg, #d557e1, #01adf7);
+        border-radius: 50%;
+        animation: bouncer 0.5s cubic-bezier(0.19, 0.57, 0.3, 0.98) infinite
+          alternate;
+
+        &:nth-child(2) {
+          animation-delay: 0.1s;
+          opacity: 0.9;
+        }
+
+        &:nth-child(3) {
+          animation-delay: 0.2s;
+          opacity: 0.8;
+        }
+
+        &:nth-child(4) {
+          animation-delay: 0.3s;
+          opacity: 0.7;
+        }
+
+        &:nth-child(5) {
+          animation-delay: 0.4s;
+          opacity: 0.6;
+        }
+      }
+
+      @keyframes bouncer {
+        from {
+          transform: translateY(0);
+        }
+        to {
+          transform: translateY(-60px);
+        }
+      }
+    }
+
+    .weather {
+      display: none;
       flex-direction: column;
       align-items: center;
       justify-content: center;
@@ -40,49 +91,8 @@
       height: 100%;
       position: relative;
 
-      .loading {
+      &.active {
         display: flex;
-        justify-content: space-around;
-        align-items: flex-end;
-        width: 60px;
-        height: 60px;
-
-        &.deactive {
-          display: none;
-        }
-
-        .bouncer {
-          width: 10px;
-          height: 10px;
-          background: linear-gradient(135deg, #d557e1, #01adf7);
-          border-radius: 50%;
-          animation: bouncer 0.5s cubic-bezier(0.19, 0.57, 0.3, 0.98) infinite
-            alternate;
-
-          &:nth-child(2) {
-            animation-delay: 0.1s;
-            opacity: 0.8;
-          }
-
-          &:nth-child(3) {
-            animation-delay: 0.2s;
-            opacity: 0.6;
-          }
-
-          &:nth-child(4) {
-            animation-delay: 0.3s;
-            opacity: 0.4;
-          }
-        }
-
-        @keyframes bouncer {
-          from {
-            transform: translateY(0);
-          }
-          to {
-            transform: translateY(-60px);
-          }
-        }
       }
 
       .icon {
@@ -115,9 +125,13 @@
     .currentWeather-playlist {
       width: 70%;
       height: 100%;
-      display: grid;
+      display: none;
       grid-template-columns: 1fr 1fr;
       grid-template-rows: repeat(4, 1fr);
+
+      &.active {
+        display: grid;
+      }
 
       .music {
         width: 100%;
@@ -163,6 +177,7 @@
 
       .weather {
         width: 90%;
+        height: 380px;
 
         .icon {
           width: 200px;
@@ -189,10 +204,16 @@
 
     .recommendation {
       flex-direction: column;
-      height: 800px;
+      justify-content: flex-start;
+      height: 790px;
+
+      .loading {
+        margin-top: 100px;
+      }
 
       .weather {
         width: 90%;
+        height: 280px;
 
         .icon {
           width: 180px;
