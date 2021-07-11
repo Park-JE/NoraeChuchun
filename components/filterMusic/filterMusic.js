@@ -26,12 +26,20 @@ document.addEventListener("click", (e) => {
   }
 });
 
-optionBtns.forEach((btn) =>
+const checkBtn = (clickedBtn) => {
+  optionBtns.forEach((btn) => {
+    if (btn.classList.contains("active")) {
+      btn.classList.remove("active");
+    }
+  });
+  clickedBtn.classList.add("active");
+};
+
+optionBtns.forEach((btn) => {
   btn.addEventListener("click", () => {
-    btn.classList.toggle("active");
-    // console.log(btn.control.name);
-  })
-);
+    checkBtn(btn);
+  });
+});
 
 const scrollHeight = document.documentElement.clientHeight;
 const filterWrap = document.querySelector(".filter-wrap");

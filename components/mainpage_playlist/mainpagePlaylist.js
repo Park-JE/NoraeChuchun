@@ -9,6 +9,9 @@ function loadPlaylists() {
 
 function showNewPlaylist(list) {
   const playlistWrap = document.querySelector(".playlist-wrap");
+  while (playlistWrap.firstChild) {
+    playlistWrap.removeChild(playlistWrap.firstChild);
+  }
   playlistWrap.append(...list[0]);
 }
 
