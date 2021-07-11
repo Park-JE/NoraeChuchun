@@ -78,7 +78,7 @@
       "data": "2007.11.29",
       "cover": "ThankYou.jpg",
       "genre": ["발라드", "팝"],
-      "mood": ["겨울", "크리스마스", "밤/ 새벽"]
+      "mood": ["겨울", "크리스마스"]
     },
     {
       "id": 9,
@@ -199,6 +199,86 @@
       "cover": "loveEverythingElse.jpg",
       "genre": ["소울 팝"],
       "mood": ["비온 후/ 맑게 갠", "선선한 날"]
+    },
+    {
+      "id": 21,
+      "title": "그건 아마 우리의 잘못은 아닐 거야",
+      "artist": "백예린 (Yerin Baek)",
+      "album": "Our love is great",
+      "data": "2019.03.18",
+      "cover": "yerinbaek_ep.jpeg",
+      "genre": ["알앤비", "힙합"],
+      "mood": ["여름", "밤/ 새벽", "저녁", "환절기"]
+    },
+    {
+      "id": 22,
+      "title": "나랑 아니면",
+      "artist": "검정치마",
+      "album": "TEAM BABY",
+      "data": "2017.05.30",
+      "cover": "나랑아니면.jpeg",
+      "genre": ["인디 락"],
+      "mood": ["밤/ 새벽", "선선한 날", "쌀쌀한 날", "저녁"]
+    },
+    {
+      "id": 23,
+      "title": "Walking",
+      "artist": "SURAN (수란)",
+      "album": "Walkin'",
+      "data": "2017.06.02",
+      "cover": "walking.jpeg",
+      "genre": ["알앤비", "팝"],
+      "mood": ["저녁", "선선한 날", "환절기"]
+    },
+    {
+      "id": 24,
+      "title": "Vineyard (빈야드)",
+      "artist": "우효(Oohyo)",
+      "album": "소녀감성",
+      "data": "2014.05.15",
+      "cover": "빈야드.jpeg",
+      "genre": ["인디 팝", "일렉트로닉 팝"],
+      "mood": ["가을", "쌀쌀한 날", "저녁", "밤/ 새벽", "환절기"]
+    },
+    {
+      "id": 25,
+      "title": "영원처럼 안아줘 (with 카더가든)",
+      "artist": "프롬(Fromm)",
+      "album": "Midnight Candy",
+      "data": "2018.11.06",
+      "cover": "영원처럼.jpeg",
+      "genre": ["인디 팝", "인디 락"],
+      "mood": ["밤/ 새벽", "여름", "선선한 날", "비/ 흐림"]
+    },
+    {
+      "id": 26,
+      "title": "하루살이 (feat. 설리, Rad Museum)",
+      "artist": "DEAN(딘)",
+      "album": "하루살이 (feat. 설리, Rad Museum)",
+      "data": "2018.11.08",
+      "cover": "하루살이.jpeg",
+      "genre": ["알앤비"],
+      "mood": ["가을", "저녁", "밤/ 새벽", "쌀쌀한 날", "비/ 흐림"]
+    },
+    {
+      "id": 27,
+      "title": "bath",
+      "artist": "offonoff (오프온오프)",
+      "album": "bath",
+      "data": "2016.09.21",
+      "cover": "bath.jpeg",
+      "genre": ["일렉트로닉 팝"],
+      "mood": ["비/ 흐림", "저녁", "밤/ 새벽", "쌀쌀한 날"]
+    },
+    {
+      "id": 28,
+      "title": "Walking In The Moonlight (feat. 다원, Lazier)",
+      "artist": "서교동의 밤",
+      "album": "Walking In The Moonlight",
+      "data": "2017.07.19",
+      "cover": "moonlight.jpeg",
+      "genre": ["알앤비", "인디 팝"],
+      "mood": ["여름", "저녁"]
     }
   ]
 }

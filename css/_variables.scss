@@ -3,7 +3,7 @@ $base-space: 16px;
 $border-large: 18px;
 $border-small: 8px;
 $content-width: 950px;
-$content-bottom: 80px;
+$content-bottom: 130px;
 
 // font-size
 $font-xlarge: 20px;
@@ -18,11 +18,3 @@ $font-bold: 600;
 //color
 $white: #eee;
 $black: #111;
-
-// @media (min-width: 768px) and (max-width: 1023px) {
-//   $content-width: 680px;
-// }
-
-// @media (max-width: 767px) {
-//   $content-width: 373px;
-// }

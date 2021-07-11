@@ -30,12 +30,20 @@
         <a href="index.html" class="name">날씨음악</a>
       </div>
       <div class="searchAndLogin">
-        <input type="search" placeholder="검색" />
+        <input type="search" class="searchInput" placeholder="검색" />
         <button class="btn search">
           <i class="fas fa-search fa-lg"></i>
         </button>
         <button class="btn close"><i class="fas fa-times fa-lg"></i></button>
+        <!-- {% if user.is_authenticated %} -->
+        <!-- <a href="mypage.html" class="mypage">마이페이지</a> -->
+        <!-- <form action="{% url 'logout' %}" method="POST"> -->
+        <!-- {% csrf_token %} -->
+        <!-- <input type="submit" class="login" value="로그아웃" /> -->
+        <!-- </form> -->
+        <!-- {% else %} -->
         <a href="login.html" class="login">로그인</a>
+        <!-- {% endif %} -->
       </div>
     </nav>
     <section class="recommendation-warp">
@@ -68,14 +76,14 @@
           FILTERS <i class="fas fa-filter fa-xs"></i>
         </button>
         <div class="filter-bar">
-          <div class="filter-wrap">
+          <form class="filter-wrap">
             <div class="btn-box">
               <button class="btn reset" type="reset">초기화</button>
               <button class="btn close">
                 <i class="fas fa-times fa-lg"></i>
               </button>
             </div>
-            <form action="" class="filters">
+            <div class="filters">
               <p class="category">계절</p>
               <input type="checkbox" name="season" id="spring" value="spring" />
               <label for="spring" class="option">봄</label>
@@ -155,8 +163,8 @@
                 value="heatWave"
               />
               <label for="heatWave" class="option">폭염/ 더위</label>
-            </form>
-          </div>
+            </div>
+          </form>
         </div>
       </div>
       <div class="playlist-wrap"></div>

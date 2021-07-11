@@ -38,7 +38,7 @@ const onGeoOk = (position) => {
             matchWeather(weather[1]),
           ];
           const random = Math.floor(Math.random() * conditions.length);
-          console.log(conditions[random]);
+          // console.log(conditions[random]);
           return conditions[random];
         };
 
@@ -104,6 +104,6 @@ const matchWeather = (weather) => {
   } else if (weather === "Snow") {
     return "눈오는 날";
   } else {
-    return "그 외";
+    return "비/ 흐림";
   }
 };

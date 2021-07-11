@@ -3,7 +3,7 @@
     {
       "playlistId": 1,
       "playlistTitle": "신선한 초여름 낭만을 느끼며",
-      "playlistCover": "img/summer.jpeg",
+      "playlistCover": "summer.jpeg",
       "playlistCategory": ["여름", "화창한"],
       "playlistMusic": [
         {
@@ -68,7 +68,7 @@
     {
       "playlistId": 2,
       "playlistTitle": "피크닉을 즐기며 듣는 이국적인 분위기의 음악들",
-      "playlistCover": "img/picnic.jpeg",
+      "playlistCover": "picnic.jpeg",
       "playlistCategory": ["화창한", "환절기"],
       "playlistMusic": [
         {
@@ -132,7 +132,7 @@
     {
       "playlistId": 3,
       "playlistTitle": "모두가 잠든 새벽",
-      "playlistCover": "img/night.jpeg",
+      "playlistCover": "night.jpeg",
       "playlistCategory": ["밤/새벽", "쌀쌀한날"],
       "playlistMusic": [
         {
@@ -196,7 +196,7 @@
     {
       "playlistId": 4,
       "playlistTitle": "나의 새벽을 몽롱하게 만들어주는 알앤비 모음",
-      "playlistCover": "img/party.jpeg",
+      "playlistCover": "party.jpeg",
       "playlistCategory": ["선선한", "봄"],
       "playlistMusic": [
         {
@@ -260,7 +260,7 @@
     {
       "playlistId": 5,
       "playlistTitle": "혼자있어도 인생 술자리를 만들어주는 선곡",
-      "playlistCover": "img/pic1.jpeg",
+      "playlistCover": "pic1.jpeg",
       "playlistCategory": ["가을", "저녁"],
       "playlistMusic": [
         {
@@ -324,7 +324,7 @@
     {
       "playlistId": 6,
       "playlistTitle": "이너피스를 가져다줄 기분좋은 보사노바 재즈",
-      "playlistCover": "img/pic2.jpeg",
+      "playlistCover": "pic2.jpeg",
       "playlistCategory": ["폭염/ 더위", "여름"],
       "playlistMusic": [
         {
@@ -367,7 +367,7 @@
     {
       "playlistId": 7,
       "playlistTitle": "비와 적막함을 닮은 잔잔한 곡들",
-      "playlistCover": "img/pic4.jpeg",
+      "playlistCover": "pic4.jpeg",
       "playlistCategory": ["비/ 흐림", "미세먼지/ 황사"],
       "playlistMusic": [
         {
@@ -424,7 +424,7 @@
     {
       "playlistId": 8,
       "playlistTitle": "여름 산책을 위한 인디 음악",
-      "playlistCover": "img/pic3.jpeg",
+      "playlistCover": "pic3.jpeg",
       "playlistCategory": ["아침", "여름"],
       "playlistMusic": [
         {

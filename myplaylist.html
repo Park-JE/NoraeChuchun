@@ -17,10 +17,27 @@
 
 <body>
   <nav>
-    <a href="index.html" class="logo">날씨음악</a>
-    <div class="loginAndJoin">
+    <div class="logoAndName">
+      <a href="index.html"
+        ><img class="logo" src="img/favicon.png" alt="img"
+      /></a>
+      <a href="index.html" class="name">날씨음악</a>
+    </div>
+    <div class="searchAndLogin">
+      <input type="search" class="searchInput" placeholder="검색" />
+      <button class="btn search">
+        <i class="fas fa-search fa-lg"></i>
+      </button>
+      <button class="btn close"><i class="fas fa-times fa-lg"></i></button>
+      <!-- {% if user.is_authenticated %} -->
+      <!-- <a href="mypage.html" class="mypage">마이페이지</a> -->
+      <!-- <form action="{% url 'logout' %}" method="POST"> -->
+      <!-- {% csrf_token %} -->
+      <!-- <input type="submit" class="login" value="로그아웃" /> -->
+      <!-- </form> -->
+      <!-- {% else %} -->
       <a href="login.html" class="login">로그인</a>
-      <a href="signup.html" class="signup">회원가입</a>
+      <!-- {% endif %} -->
     </div>
   </nav>
   <div class="container">
