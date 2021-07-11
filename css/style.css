@@ -123,7 +123,7 @@ nav .searchAndLogin {
   position: relative;
 }
 
-nav .searchAndLogin input {
+nav .searchAndLogin .searchInput {
   border: 0;
   outline: none;
   padding: 8px 16px;
@@ -134,7 +134,7 @@ nav .searchAndLogin input {
   background-color: transparent;
 }
 
-nav .searchAndLogin input.active {
+nav .searchAndLogin .searchInput.active {
   width: 250px;
   padding: 8px 32px;
   background-color: #eee;
@@ -184,10 +184,16 @@ nav .login {
   -webkit-transition: all 0.3s ease;
   transition: all 0.3s ease;
   margin-left: 16px;
+  background-color: transparent;
+  color: #eee;
 }
 
 nav .login:hover {
   background-color: rgba(255, 255, 255, 0.1);
+}
+
+nav .mypage {
+  margin-left: 16px;
 }
 
 @media (max-width: 767px) {
@@ -209,7 +215,7 @@ nav .login:hover {
 
 .recommendation-warp {
   width: 950px;
-  margin-bottom: 80px;
+  margin-bottom: 130px;
   margin-top: 150px;
   color: #eee;
 }
@@ -491,7 +497,7 @@ nav .login:hover {
 
 .musicFilter-wrap {
   width: 950px;
-  margin-bottom: 80px;
+  margin-bottom: 130px;
 }
 
 .musicFilter-wrap .titleAndFilters {

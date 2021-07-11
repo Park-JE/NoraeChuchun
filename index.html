@@ -30,12 +30,20 @@
         <a href="index.html" class="name">날씨음악</a>
       </div>
       <div class="searchAndLogin">
-        <input type="search" placeholder="검색" />
+        <input type="search" class="searchInput" placeholder="검색" />
         <button class="btn search">
           <i class="fas fa-search fa-lg"></i>
         </button>
         <button class="btn close"><i class="fas fa-times fa-lg"></i></button>
+        <!-- {% if user.is_authenticated %} -->
+        <!-- <a href="mypage.html" class="mypage">마이페이지</a> -->
+        <!-- <form action="{% url 'logout' %}" method="POST"> -->
+        <!-- {% csrf_token %} -->
+        <!-- <input type="submit" class="login" value="로그아웃" /> -->
+        <!-- </form> -->
+        <!-- {% else %} -->
         <a href="login.html" class="login">로그인</a>
+        <!-- {% endif %} -->
       </div>
     </nav>
     <section class="recommendation-warp">
@@ -68,25 +76,25 @@
           FILTERS <i class="fas fa-filter fa-xs"></i>
         </button>
         <div class="filter-bar">
-          <div class="filter-wrap">
+          <form class="filter-wrap">
             <div class="btn-box">
               <button class="btn reset" type="reset">초기화</button>
               <button class="btn close">
                 <i class="fas fa-times fa-lg"></i>
               </button>
             </div>
-            <form action="" class="filters">
+            <div class="filters">
               <p class="category">계절</p>
-              <input type="checkbox" name="season" id="spring" value="spring" />
+              <input type="radio" name="season" id="spring" value="spring" />
               <label for="spring" class="option">봄</label>
-              <input type="checkbox" name="season" id="summer" value="summer" />
+              <input type="radio" name="season" id="summer" value="summer" />
               <label for="summer" class="option">여름</label>
-              <input type="checkbox" name="season" id="fall" value="fall" />
+              <input type="radio" name="season" id="fall" value="fall" />
               <label for="fall" class="option">가을</label>
-              <input type="checkbox" name="season" id="winter" value="winter" />
+              <input type="radio" name="season" id="winter" value="winter" />
               <label for="winter" class="option">겨울</label>
               <input
-                type="checkbox"
+                type="radio"
                 name="season"
                 id="christmas"
                 value="christmas"
@@ -94,19 +102,19 @@
               <label for="christmas" class="option"> 크리스마스 </label>
 
               <p class="category">시간</p>
-              <input type="checkbox" name="time" id="morning" value="morning" />
+              <input type="radio" name="time" id="morning" value="morning" />
               <label for="morning" class="option">아침</label>
               <input
-                type="checkbox"
+                type="radio"
                 name="time"
                 id="afternoon"
                 value="afternoon"
               />
               <label for="afternoon" class="option">오후</label>
-              <input type="checkbox" name="time" id="evening" value="evening" />
+              <input type="radio" name="time" id="evening" value="evening" />
               <label for="evening" class="option">저녁</label>
               <input
-                type="checkbox"
+                type="radio"
                 name="time"
                 id="nightDawn"
                 value="nightDawn"
@@ -114,49 +122,34 @@
               <label for="nightDawn" class="option">밤/ 새벽</label>
 
               <p class="category">날씨</p>
-              <input type="checkbox" name="weather" id="clear" value="clear" />
+              <input type="radio" name="weather" id="clear" value="clear" />
               <label for="clear" class="option">화창한 날</label>
-              <input
-                type="checkbox"
-                name="weather"
-                id="breezy"
-                value="breezy"
-              />
+              <input type="radio" name="weather" id="breezy" value="breezy" />
               <label for="breezy" class="option">선선한 날</label>
-              <input
-                type="checkbox"
-                name="weather"
-                id="chilly"
-                value="chilly"
-              />
+              <input type="radio" name="weather" id="chilly" value="chilly" />
               <label for="chilly" class="option">쌀쌀한 날</label>
-              <input
-                type="checkbox"
-                name="weather"
-                id="between"
-                value="between"
-              />
+              <input type="radio" name="weather" id="between" value="between" />
               <label for="between" class="option">환절기</label>
-              <input type="checkbox" name="weather" id="rain" value="rain" />
+              <input type="radio" name="weather" id="rain" value="rain" />
               <label for="rain" class="option">비/ 흐림</label>
               <input
-                type="checkbox"
+                type="radio"
                 name="weather"
                 id="rainStop"
                 value="rainStop"
               />
               <label for="rainStop" class="option">비온 후/ 맑게 갠</label>
-              <input type="checkbox" name="weather" id="snow" value="snow" />
+              <input type="radio" name="weather" id="snow" value="snow" />
               <label for="snow" class="option">눈오는 날</label>
               <input
-                type="checkbox"
+                type="radio"
                 name="weather"
                 id="heatWave"
                 value="heatWave"
               />
               <label for="heatWave" class="option">폭염/ 더위</label>
-            </form>
-          </div>
+            </div>
+          </form>
         </div>
       </div>
       <div class="playlist-wrap"></div>

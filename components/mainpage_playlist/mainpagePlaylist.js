@@ -2,9 +2,17 @@ function loadPlaylists() {
   const config = {
     headers: { Accept: "application/json" },
   };
-  return fetch("data/playlist.json", config)
+  return fetch("data/playlist2.json", config)
     .then((response) => response.json())
     .catch((error) => console.log("error", error));
+}
+
+function showNewPlaylist(list) {
+  const playlistWrap = document.querySelector(".playlist-wrap");
+  while (playlistWrap.firstChild) {
+    playlistWrap.removeChild(playlistWrap.firstChild);
+  }
+  playlistWrap.append(...list[0]);
 }
 
 function createPlaylist(playlist) {
@@ -15,13 +23,14 @@ function createPlaylist(playlist) {
   playlistCard.setAttribute("class", "playlist");
 
   const img = document.createElement("img");
-  img.setAttribute("src", playlist.playlistCover);
+  img.setAttribute("src", `img/playlistCovers/${playlist.cover}`);
   img.setAttribute("alt", "platlist-cover");
   img.setAttribute("class", "cover");
+  img.setAttribute("data-mood", playlist.mood);
 
   const title = document.createElement("span");
   title.setAttribute("class", "title");
-  title.innerText = `${playlist.playlistTitle}`;
+  title.innerText = `${playlist.title}`;
 
   const info = document.createElement("div");
   info.setAttribute("class", "info");
@@ -31,11 +40,11 @@ function createPlaylist(playlist) {
 
   const filter1 = document.createElement("span");
   filter1.setAttribute("class", "filter");
-  filter1.innerText = `#${playlist.playlistCategory[0]}`;
+  filter1.innerText = `#${playlist.mood[0]}`;
 
   const filter2 = document.createElement("span");
   filter2.setAttribute("class", "filter");
-  filter2.innerText = `#${playlist.playlistCategory[1]}`;
+  filter2.innerText = `#${playlist.mood[1]}`;
 
   const songs = document.createElement("div");
   songs.setAttribute("class", "songs");
@@ -45,7 +54,7 @@ function createPlaylist(playlist) {
 
   const count = document.createElement("span");
   count.setAttribute("class", "count");
-  count.innerText = `${playlist.playlistMusic.length}곡`;
+  count.innerText = "n곡";
 
   songs.append(icon);
   songs.append(count);
@@ -61,29 +70,31 @@ function createPlaylist(playlist) {
   return aTag;
 }
 
-function onButtonClick(event, playlistData, playlistEle) {
+function onButtonClick(event, playlist) {
   const target = event.target;
   const value = target.innerText;
   if (value == null) {
     return;
   } else {
-    playlistData.map((playlist) => updateItems(value, playlist, playlistEle));
+    updateItems(value, playlist);
   }
 }
 
-function updateItems(value, playlist, playlistEle) {
-  playlistEle.forEach((item) => {
-    if (
-      playlist.playlistCategory[0] === value ||
-      playlist.playlistCategory[1] === value
-    ) {
-      item.classList.remove("invisible");
-      // console.log("맞대");
-    } else {
-      item.classList.add("invisible");
-      // console.log("틀리대");
+function updateItems(value, playlist) {
+  newPlaylist = [];
+  playlist[0].forEach((item) => {
+    const mood = item.firstChild.dataset.mood.split(",");
+    for (let i = 0; i < mood.length; i++) {
+      if (mood[i] === value) {
+        item.classList.remove("invisible");
+        newPlaylist.push(item);
+        return;
+      } else {
+        item.classList.add("invisible");
+      }
     }
   });
+  showNewPlaylist([newPlaylist]);
 }
 
 loadPlaylists()
@@ -96,13 +107,11 @@ loadPlaylists()
       ".titleAndFilters .filter-bar .option"
     );
 
-    const playlistData = data.playlists;
-    const playlistEle = playlist.map((item) => item.firstChild);
-    // console.log(playlistEle);
+    const playlistDiv = playlist.map((item) => item.firstChild);
 
     optionBtns.forEach((optionBtn) => {
       optionBtn.addEventListener("click", (event) => {
-        onButtonClick(event, playlistData, playlistEle);
+        onButtonClick(event, [playlistDiv]);
       });
     });
   })

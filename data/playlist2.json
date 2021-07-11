@@ -1,0 +1,144 @@
+{
+  "playlists": [
+    {
+      "id": 1,
+      "title": "신선한 초여름 낭만을 느끼며",
+      "cover": "summer.jpeg",
+      "mood": ["여름", "화창한 날"],
+      "musicList": []
+    },
+    {
+      "id": 2,
+      "title": "피크닉을 즐기며 듣는 이국적인 분위기의 음악들",
+      "cover": "picnic.jpeg",
+      "mood": ["화창한 날", "오후"],
+      "musicList": []
+    },
+    {
+      "id": 3,
+      "title": "모두가 잠든 새벽",
+      "cover": "night.jpeg",
+      "mood": ["밤/ 새벽", "쌀쌀한 날"],
+      "musicList": []
+    },
+    {
+      "id": 4,
+      "title": "나의 새벽을 몽롱하게 만들어주는 알앤비 모음",
+      "cover": "party.jpeg",
+      "mood": ["선선한 날", "봄"],
+      "musicList": []
+    },
+    {
+      "id": 5,
+      "title": "혼자 있어도 인생 술자리를 만들어주는 선곡",
+      "cover": "pic1.jpeg",
+      "mood": ["가을", "저녁"],
+      "musicList": []
+    },
+    {
+      "id": 6,
+      "title": "이너피스를 가져다줄 기분좋은 보사노바 재즈",
+      "cover": "pic2.jpeg",
+      "mood": ["폭염/ 더위", "여름"],
+      "musicList": []
+    },
+    {
+      "id": 7,
+      "title": "비와 적막함을 닮은 잔잔한 곡들",
+      "cover": "pic4.jpeg",
+      "mood": ["비/ 흐림", "밤/ 새벽"],
+      "musicList": []
+    },
+    {
+      "id": 8,
+      "title": "여름 산책을 위한 인디 음악",
+      "cover": "pic3.jpeg",
+      "mood": ["아침", "여름"],
+      "musicList": []
+    },
+    {
+      "id": 9,
+      "title": "무더위를 날려줄 시원한 노래",
+      "cover": "summer1.jpeg",
+      "mood": ["폭염/ 더위", "여름"],
+      "musicList": []
+    },
+    {
+      "id": 10,
+      "title": "구름이 걷히고 눈부신 하늘",
+      "cover": "cloud.jpeg",
+      "mood": ["비온 후/ 맑게 갠", "봄"],
+      "musicList": []
+    },
+    {
+      "id": 11,
+      "title": "눈에 보이는 사방이 바다야",
+      "cover": "ocean.jpeg",
+      "mood": ["폭염/ 더위", "여름"],
+      "musicList": []
+    },
+    {
+      "id": 12,
+      "title": "선선한 저녁 산책하며 듣기 딱 좋은 노래",
+      "cover": "stroll.jpeg",
+      "mood": ["선선한 날", "저녁"],
+      "musicList": []
+    },
+    {
+      "id": 13,
+      "title": "피넛버터칩 쿠기와 빈티지 크리스마스",
+      "cover": "cookie.jpeg",
+      "mood": ["겨울", "크리스마스"],
+      "musicList": []
+    },
+    {
+      "id": 14,
+      "title": "겨울이 다 가기 전에",
+      "cover": "winter.jpeg",
+      "mood": ["겨울", "눈오는 날"],
+      "musicList": []
+    },
+    {
+      "id": 15,
+      "title": "어떤 모양으로 다가올지 모를 새벽에",
+      "cover": "dawn.jpeg",
+      "mood": ["밤/ 새벽"],
+      "musicList": []
+    },
+    {
+      "id": 16,
+      "title": "겨울이 퍼붓던 차가운 공기와 따뜻한 햇살",
+      "cover": "winter2.jpeg",
+      "mood": ["겨울"],
+      "musicList": []
+    },
+    {
+      "id": 17,
+      "title": "찬바람이 불어 올 때면 생각나는 발라드",
+      "cover": "winter3.jpeg",
+      "mood": ["겨울", "가을"],
+      "musicList": []
+    },
+    {
+      "id": 18,
+      "title": "우르릉 쾅쾅쾅 비가 내려요",
+      "cover": "thunder.jpeg",
+      "mood": ["비/ 흐림", "폭염/ 더위"],
+      "musicList": []
+    },
+    {
+      "id": 19,
+      "title": "느릿느릿 나른한 오후의 데일리 플리",
+      "cover": "afternoon.jpeg",
+      "mood": ["선선한 날", "오후"],
+      "musicList": []
+    },
+    {
+      "id": 20,
+      "title": "수다와 와인이 있는 평일 런치",
+      "cover": "wine.jpeg",
+      "mood": ["오후", "선선한 날"],
+      "musicList": []
+    }
+  ]
+}
