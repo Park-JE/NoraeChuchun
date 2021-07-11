@@ -111,16 +111,6 @@ li {
   cursor: pointer;
 }
 
-.container .cover.active {
-  position: absolute;
-  width: 100%;
-  height: 100vh;
-  background-color: rgba(75, 73, 73, 0.5);
-  -webkit-backdrop-filter: blur(1px);
-          backdrop-filter: blur(1px);
-  z-index: 1;
-}
-
 .container .newplaylist {
   display: none;
 }
@@ -175,29 +165,39 @@ li {
 }
 
 .container .newplaylist.active .newplaylist__container div:nth-child(4) > button {
-  position: relative;
-  left: 65%;
-  margin-right: 20px;
-  width: 80px;
-  height: 40px;
-  background-position: left;
-  background-size: 200%;
-  color: white;
-  font-weight: bold;
-  border: none;
+  padding: 0.5em 1.5em;
+  border: 1px solid #eee;
+  border-radius: 18px;
+  font-size: 16px;
   cursor: pointer;
-  -webkit-transition: 0.4s;
-  transition: 0.4s;
-  display: inline;
-  border-radius: 5px;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+.container .newplaylist.active .newplaylist__container .btn__group {
+  position: absolute;
+  right: 0;
+  margin-right: 30px;
 }
 
 .container .newplaylist.active .newplaylist__container .btn__group .saveBtn {
-  background: linear-gradient(125deg, #2d2d2e, #01000e, #272727);
+  color: #fff;
+  background: none;
+  margin-right: 5px;
 }
 
 .container .newplaylist.active .newplaylist__container .btn__group .closeBtn {
   background: linear-gradient(125deg, #f0eaea, #aaa9a9, #e0dede);
+}
+
+.cover.active {
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(75, 73, 73, 0.5);
+  -webkit-backdrop-filter: blur(1px);
+          backdrop-filter: blur(1px);
+  z-index: 1;
 }
 
 @media screen and (max-width: 768px) {
@@ -234,45 +234,6 @@ li {
   .container .newplaylist.active .newplaylist__container {
     width: 100%;
     height: 100%;
-  }
-  .container .newplaylist.active .newplaylist__container div:nth-child(2),
-  .container .newplaylist.active .newplaylist__container div:nth-child(3) {
-    border-bottom: 2px solid #adadad;
-    margin: 50px;
-    padding: 10px 10px;
-  }
-  .container .newplaylist.active .newplaylist__container div:nth-child(2) > input,
-  .container .newplaylist.active .newplaylist__container div:nth-child(3) > input {
-    width: 100%;
-    border: none;
-    outline: none;
-    color: #fff;
-    font-size: 16px;
-    height: 25px;
-    background: none;
-  }
-  .container .newplaylist.active .newplaylist__container div:nth-child(4) > button {
-    position: relative;
-    left: 65%;
-    margin-right: 10px;
-    width: 60px;
-    height: 30px;
-    background-position: left;
-    background-size: 200%;
-    color: white;
-    font-weight: bold;
-    border: none;
-    cursor: pointer;
-    -webkit-transition: 0.4s;
-    transition: 0.4s;
-    display: inline;
-    border-radius: 5px;
-  }
-  .container .newplaylist.active .newplaylist__container .btn__group .saveBtn {
-    background: linear-gradient(125deg, #2d2d2e, #01000e, #272727);
-  }
-  .container .newplaylist.active .newplaylist__container .btn__group .closeBtn {
-    background: linear-gradient(125deg, #f0eaea, #aaa9a9, #e0dede);
   }
 }
 /*# sourceMappingURL=myplaylist.css.map */

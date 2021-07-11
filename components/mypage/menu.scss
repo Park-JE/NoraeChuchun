@@ -8,6 +8,7 @@
   .mypage__menu {
     width: 240px;
     margin-top: 30px;
+    padding-left: 20px;
 
     .menu__list {
       .active{
@@ -64,12 +65,13 @@
 @media screen and (max-width: 768px) {
   .container{
     .mypage__menu{
-      width: fit-content;
-      width: 90%;
+      width: 99%;
+      height: fit-content;
       margin: 0 auto;
       .menu__list{
         display: flex;
-        justify-content: space-between;
+        justify-content: space-evenly;
+        flex-wrap: wrap;
         .nonactive:hover{
           transform: translateY(-10px);
         }

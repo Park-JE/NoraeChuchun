@@ -44,7 +44,7 @@ body {
   border-top: none;
   border-left: none;
   border-right: none;
-  border-bottom: 2px solid #a8a6a6;
+  border-bottom: 2px solid #706d6d;
   background-color: rgba(0, 0, 0, 0);
 }
 
@@ -105,7 +105,7 @@ body {
   }
   .container .menu__contents {
     width: 100%;
-    margin: 50px auto;
+    margin: 0px auto;
   }
   .container .menu__contents .menu__content {
     width: 400px;
@@ -115,41 +115,18 @@ body {
     width: 300px;
   }
   .container .menu__contents .menu__content .contents .contents_tag {
-    font-size: 16px;
+    font-size: 14px;
     width: 200px;
     margin-top: 20px;
   }
   .container .menu__contents .menu__content .contents input {
-    color: #fff;
-    font-size: 20px;
     width: 400px;
     height: 40px;
-    border-top: none;
-    border-left: none;
-    border-right: none;
-    border-bottom: 2px solid #a8a6a6;
-    background-color: rgba(0, 0, 0, 0);
-  }
-  .container .menu__contents .menu__content .contents input:focus {
-    outline: none;
   }
   .container .menu__contents .menu__content button {
     left: 40%;
     margin-top: 30px;
     width: 400px;
-    height: 50px;
-    background: linear-gradient(125deg, #81ecec, #6c5ce7, #81ecec);
-    background-position: left;
-    background-size: 200%;
-    color: white;
-    font-weight: bold;
-    border: none;
-    cursor: pointer;
-    -webkit-transition: 0.4s;
-    transition: 0.4s;
-  }
-  .container .menu__contents .menu__content button:hover {
-    background-position: right;
   }
 }
 /*# sourceMappingURL=mypage.css.map */

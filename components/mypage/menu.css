@@ -11,6 +11,7 @@
 .container .mypage__menu {
   width: 240px;
   margin-top: 30px;
+  padding-left: 20px;
 }
 
 .container .mypage__menu .menu__list .active {
@@ -64,19 +65,21 @@
 
 @media screen and (max-width: 768px) {
   .container .mypage__menu {
-    width: -webkit-fit-content;
-    width: -moz-fit-content;
-    width: fit-content;
-    width: 90%;
+    width: 99%;
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
     margin: 0 auto;
   }
   .container .mypage__menu .menu__list {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
+    -webkit-box-pack: space-evenly;
+        -ms-flex-pack: space-evenly;
+            justify-content: space-evenly;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
   }
   .container .mypage__menu .menu__list .nonactive:hover {
     -webkit-transform: translateY(-10px);
