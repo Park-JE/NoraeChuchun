@@ -1,9 +1,29 @@
 const filterBtn = document.querySelector(".titleAndFilters .filter-btn");
 const filterBar = document.querySelector(".titleAndFilters .filter-bar");
 const closeBtn = filterBar.querySelector(".btn-box .close");
+const resetBtn = filterBar.querySelector(".filter-wrap .btn-box .reset");
 const applyBtn = filterBar.querySelector(".apply-btn");
 const optionBtns = filterBar.querySelectorAll(".option");
 const filters = filterBar.querySelector(".filters");
+
+resetBtn.addEventListener("click", () => {
+  optionBtns.forEach((btn) => {
+    if (btn.classList.contains("active")) {
+      btn.classList.remove("active");
+    }
+  });
+
+  loadPlaylists()
+    .then((data) => {
+      const playlist = data.playlists.map(createPlaylist);
+      const playlistWrap = document.querySelector(".playlist-wrap");
+      while (playlistWrap.firstChild) {
+        playlistWrap.removeChild(playlistWrap.firstChild);
+      }
+      playlistWrap.append(...playlist);
+    })
+    .catch(console.log);
+});
 
 filterBtn.addEventListener("click", () => {
   filterBar.classList.toggle("active");
