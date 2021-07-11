@@ -35,17 +35,6 @@ function createElement(music) {
   return li;
 }
 
-// loadItems()
-//   .then((data) => {
-//     const result = filterSongByWeather(data.music);
-//     const music = result.map(createElement).splice(0, 8);
-//     const container = document.querySelector(
-//       ".recommendation .currentWeather-playlist"
-//     );
-//     container.append(...music);
-//   })
-//   .catch(console.log);
-
 let today = new Date();
 let month = today.getMonth() + 1;
 let date = today.getDate;
@@ -76,24 +65,3 @@ const matchTime = () => {
     return "밤/ 새벽";
   }
 };
-
-// const weatherParm = (todayWeather) => {
-//   const conditions = [matchSeason(), matchTime(), todayWeather, "쌀쌀한 날"];
-//   const random = Math.floor(Math.random() * conditions.length);
-//   console.log(conditions[random]);
-//   return conditions[random];
-// };
-
-// const weatherParmValue = weatherParm();
-
-// const filterSongByWeather = (data) => {
-//   let result = [];
-//   data.filter((song) => {
-//     song.mood.forEach(function (item) {
-//       if (item === weatherParmValue) {
-//         result.push(song);
-//       }
-//     });
-//   });
-//   return result;
-// };
