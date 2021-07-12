@@ -30,7 +30,7 @@ loadPlaylists()
     const optionBtns = filterBar.querySelectorAll(
       ".titleAndFilters .filter-bar .option"
     );
-    const playlistDiv = playlist.map((item) => item.firstChild);
+    const playlistDiv = playlist.map((item) => item);
 
     optionBtns.forEach((optionBtn) => {
       optionBtn.addEventListener("click", (event) => {

@@ -38,8 +38,8 @@ const onGeoOk = (position) => {
             matchWeather(weather[1]),
           ];
           const random = Math.floor(Math.random() * conditions.length);
-          console.log(conditions[random]);
-          // return conditions[random];
+          // console.log(conditions[random]);
+          return conditions[random];
         };
 
         const weatherParmValue = weatherParm();

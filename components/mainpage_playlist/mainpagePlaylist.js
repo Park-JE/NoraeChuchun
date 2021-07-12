@@ -81,7 +81,6 @@ function onButtonClick(event, playlist) {
 function updateItems(value, playlist) {
   newPlaylist = [];
   playlist[0].forEach((item) => {
-    console.log(item);
     const mood = item.firstChild.dataset.mood.split(",");
     for (let i = 0; i < mood.length; i++) {
       if (mood[i] === value) {
@@ -93,5 +92,6 @@ function updateItems(value, playlist) {
       }
     }
   });
+
   showNewPlaylist([newPlaylist]);
 }
