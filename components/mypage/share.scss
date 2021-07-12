@@ -26,16 +26,13 @@
 
 
       .info {
-        height: 100%;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-        padding: $base-space * 1.5 $base-space;
-
+        margin-left: 10px;
         .title {
-          font-size: $font-xlarge;
-          font-weight: $font-bold;
-          margin-bottom: $base-space * 2;
+          font-size: 24px;
+          margin-bottom: 15px;
         }
       }
     }
@@ -48,7 +45,7 @@
     .sort {
       width: 100%;
       display: grid;
-      grid-template-columns: 4fr 3fr 3fr 40px;
+      grid-template-columns: 3fr 3fr 1fr 40px;
       column-gap: 5px;
       border-top: 1px solid rgba(255, 255, 255, 0.2);
       border-bottom: 1px solid rgba(255, 255, 255, 0.2);
@@ -60,14 +57,20 @@
       line-height: 3;
       width: 100%;
       display: grid;
-      grid-template-columns: 4fr 3fr 3fr 40px;
+      grid-template-columns: 3fr 3fr 1fr 40px;
       column-gap: 5px;
       align-items: center;
       justify-items: flex-start;
       font-size: $font-small;
       padding: 5px 0 5px $base-space;
       border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-
+      .id{
+        display: flex;            
+        align-items: center;
+        span{
+          margin-right: 3px;
+        }
+      }
       .coverAndName {
         display: grid;
         grid-template-columns: 70px 1fr;
@@ -116,15 +119,20 @@
 
       .content-wrap {
         .sort {
-          font-size: $font-xsmall;
-          padding: 4px 0 4px $base-space/2;
-          grid-template-columns: 4fr 3fr 3fr 30px;
+          font-size: 12px;
+          grid-template-columns: 4fr 3fr 1fr 30px;
         }
 
         .friends {
-          font-size: $font-xsmall;
-          padding: 5px 0 5px $base-space/2;
-          grid-template-columns: 4fr 3fr 3fr 30px;
+          font-size: 13px;
+          grid-template-columns: 4fr 3fr 1fr 30px;
+          .id{
+            display: flex;            
+            align-items: center;
+            span{
+              margin-right: 3px;
+            }
+          }
         }
       }
     }

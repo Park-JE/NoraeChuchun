@@ -13,26 +13,35 @@ li {
 
 @keyframes fadein {
   from {
-      opacity: 0;
+    opacity: 0;
   }
+
   to {
-      opacity: 1;
+    opacity: 1;
   }
 }
-@-moz-keyframes fadein { /* Firefox */
+
+@-moz-keyframes fadein {
+
+  /* Firefox */
   from {
-      opacity: 0;
+    opacity: 0;
   }
+
   to {
-      opacity: 1;
+    opacity: 1;
   }
 }
-@-webkit-keyframes fadein { /* Safari and Chrome */
+
+@-webkit-keyframes fadein {
+
+  /* Safari and Chrome */
   from {
-      opacity: 0;
+    opacity: 0;
   }
+
   to {
-      opacity: 1;
+    opacity: 1;
   }
 }
 
@@ -57,6 +66,49 @@ li {
         max-width: 100%;
         margin: 20px;
 
+        &:hover {
+          cursor: pointer;
+        }
+
+        div {
+          width: fit-content;
+          height: fit-content;
+          vertical-align: middle;
+          font-size: 50px;
+          color: #fff;
+        }
+
+        .myplaylist__thumnail {
+          width: 200px;
+          height: 200px;
+          border-radius: 10px;
+        }
+        .myplaylist__title{
+          font-size: 15px;
+        }
+
+        .myplaylist__count {
+          color: #aaaaaa;
+        }
+
+        .myplaylist__shareBtn {
+          float: rifght;
+          margin-left: 100px;
+        }
+
+        .myplaylist__shareBtn:hover {
+          cursor: pointer;
+        }
+      }
+
+      .list-group-add {
+        max-width: 100%;
+        margin: 20px;
+
+        &:hover {
+          cursor: pointer;
+        }
+
         .myplaylist__add {
           display: flex;
           width: 200px;
@@ -79,29 +131,12 @@ li {
           cursor: pointer;
         }
 
-        .myplaylist__thumnail {
-          width: 200px;
-          height: 200px;
-          border-radius: 10px;
-        }
 
-        .myplaylist__count {
-          color: #aaaaaa;
-        }
-
-        .myplaylist__shareBtn {
-          float: rifght;
-          margin-left: 100px;
-        }
-
-        .myplaylist__shareBtn:hover {
-          cursor: pointer;
-        }
       }
     }
   }
 
-  
+
 
   .newplaylist {
     display: none;
@@ -118,10 +153,15 @@ li {
     top: 0;
     bottom: 0;
     margin: auto auto;
-    background: linear-gradient(to left, #2e1d30, #0e0e1f);
-    border: 1px solid rgb(56, 55, 55);
-    border-radius: 20px;
-    animation: fadein 0.5s;
+    padding: 24px 16px;
+    background: #200122;
+    opacity: 0.95;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #200122, #14023f);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #200122, #14023f);
+    border-radius: 10px;
+
 
     .newplaylist__container {
       width: 100%;
@@ -133,10 +173,11 @@ li {
       }
 
       div:nth-child(2),
-      div:nth-child(3){
+      div:nth-child(3) {
         border-bottom: 2px solid #adadad;
         margin: 50px;
         padding: 10px 10px;
+
         >input {
           width: 100%;
           border: none;
@@ -147,30 +188,60 @@ li {
           background: none;
         }
       }
-      div:nth-child(4){
-        >button {
+
+      div:nth-child(4) {
+        position: absolute;
+        right: 40px;
+
+        .closeBtn {
           padding: 0.5em 1.5em;
           border: 1px solid #eee;
           border-radius: 18px;
           font-size: 16px;
+          background: none;
+          font-weight: 700;
           cursor: pointer;
+          color: #fff;
           -webkit-transition: all 0.3s ease;
           transition: all 0.3s ease;
-          
-          
+          margin-right: 5px;
+
+          &:hover {
+            background: rgba(187, 187, 187,0.4);
+          }
         }
-      }
-      .btn__group{
-        position: absolute;
+
+        .saveBtn {
+          padding: 0.5em 1.5em;
+          border: 1px solid #eee;
+          border-radius: 18px;
+          font-size: 16px;
+          background: none;
+          cursor: pointer;
+          font-weight: 700;
+          color: #fff;
+          -webkit-transition: all 0.3s ease;
+          transition: all 0.3s ease;
+
+          &:hover {
+            background: rgba(187, 187, 187,0.4);
+          }
+        }
+
+        .btn__group {
+          position: absolute;
           right: 0;
           margin-right: 30px;
-        .saveBtn{
-          color: #fff;
-          background:none;
-          margin-right: 5px;
-        }
-        .closeBtn{
-          background: linear-gradient(125deg, #f0eaea, #aaa9a9, #e0dede);
+
+          .saveBtn {
+            color: #fff;
+            background: none;
+            margin-right: 5px;
+          }
+
+          .closeBtn {
+            background: linear-gradient(125deg, #f0eaea, #aaa9a9, #e0dede);
+          }
         }
       }
     }
@@ -178,13 +249,15 @@ li {
 }
 
 .cover.active {
-  position: absolute;
-  width: 100%;
-  height: 100vh;
-  background-color: rgba(75, 73, 73, 0.5);
-  backdrop-filter: blur(1px);
-  z-index: 1;
-}
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(75, 73, 73, 0.5);
+    backdrop-filter: blur(1px);
+    z-index: 1;
+  }
+
+
 @media screen and (max-width: 768px) {
   .container {
     flex-direction: row;
@@ -200,15 +273,17 @@ li {
         height: 100%;
         display: flex;
         flex-direction: row;
-        flex-wrap: wrap;    
+        flex-wrap: wrap;
       }
-    }    
+    }
+
     .newplaylist.active {
       width: 450px;
       height: 400px;
+
       .newplaylist__container {
         width: 100%;
-        height: 100%;  
+        height: 100%;
 
       }
     }
