@@ -29,7 +29,7 @@ function createSong(song) {
 
   const album = document.createElement("span");
   album.setAttribute("class", "album");
-  album.innerText = `#${song.album}`;
+  album.innerText = `${song.album}`;
 
   const addIcon = document.createElement("i");
   addIcon.setAttribute("class", "fas fa-list fa-lg");

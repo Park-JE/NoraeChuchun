@@ -16,9 +16,6 @@ function showNewPlaylist(list) {
 }
 
 function createPlaylist(playlist) {
-  const aTag = document.createElement("a");
-  aTag.setAttribute("href", "playlist.html");
-
   const playlistCard = document.createElement("div");
   playlistCard.setAttribute("class", "playlist");
 
@@ -44,7 +41,9 @@ function createPlaylist(playlist) {
 
   const filter2 = document.createElement("span");
   filter2.setAttribute("class", "filter");
-  filter2.innerText = `#${playlist.mood[1]}`;
+  if (playlist.mood[1] !== undefined) {
+    filter2.innerText = `#${playlist.mood[1]}`;
+  }
 
   const songs = document.createElement("div");
   songs.setAttribute("class", "songs");
@@ -54,7 +53,7 @@ function createPlaylist(playlist) {
 
   const count = document.createElement("span");
   count.setAttribute("class", "count");
-  count.innerText = "n곡";
+  count.innerText = `${playlist.musicList.length}곡`;
 
   songs.append(icon);
   songs.append(count);
@@ -65,9 +64,8 @@ function createPlaylist(playlist) {
   playlistCard.append(img);
   playlistCard.append(title);
   playlistCard.append(info);
-  aTag.append(playlistCard);
 
-  return aTag;
+  return playlistCard;
 }
 
 function onButtonClick(event, playlist) {
@@ -94,25 +92,6 @@ function updateItems(value, playlist) {
       }
     }
   });
+
   showNewPlaylist([newPlaylist]);
 }
-
-loadPlaylists()
-  .then((data) => {
-    const playlist = data.playlists.map(createPlaylist);
-    const playlistWrap = document.querySelector(".playlist-wrap");
-    playlistWrap.append(...playlist);
-
-    const optionBtns = filterBar.querySelectorAll(
-      ".titleAndFilters .filter-bar .option"
-    );
-
-    const playlistDiv = playlist.map((item) => item.firstChild);
-
-    optionBtns.forEach((optionBtn) => {
-      optionBtn.addEventListener("click", (event) => {
-        onButtonClick(event, [playlistDiv]);
-      });
-    });
-  })
-  .catch(console.log);

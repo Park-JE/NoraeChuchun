@@ -59,7 +59,17 @@ const onGeoOk = (position) => {
         loadItems()
           .then((data) => {
             const result = filterSongByWeather(data.music);
-            const music = result.map(createElement).splice(0, 8);
+            // console.log(result);
+            let newResult = [];
+            for (i = 0; i < 8; i++) {
+              const randomSong = result.splice(
+                Math.floor(Math.random() * result.length),
+                1
+              )[0];
+              newResult.push(randomSong);
+            }
+
+            const music = newResult.map(createElement);
             const container = document.querySelector(
               ".recommendation .currentWeather-playlist"
             );
@@ -92,7 +102,7 @@ const matchTemp = (temp) => {
 
 const matchWeather = (weather) => {
   if (weather === "Clear") {
-    return ["화창한 날", "비온 후/ 맑게 갠"];
+    return "화창한 날";
   } else if (weather === "Clouds") {
     return "비/ 흐림";
   } else if (
