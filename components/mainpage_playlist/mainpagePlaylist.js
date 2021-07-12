@@ -16,9 +16,6 @@ function showNewPlaylist(list) {
 }
 
 function createPlaylist(playlist) {
-  const aTag = document.createElement("a");
-  aTag.setAttribute("href", "playlist.html");
-
   const playlistCard = document.createElement("div");
   playlistCard.setAttribute("class", "playlist");
 
@@ -67,9 +64,8 @@ function createPlaylist(playlist) {
   playlistCard.append(img);
   playlistCard.append(title);
   playlistCard.append(info);
-  aTag.append(playlistCard);
 
-  return aTag;
+  return playlistCard;
 }
 
 function onButtonClick(event, playlist) {
@@ -85,6 +81,7 @@ function onButtonClick(event, playlist) {
 function updateItems(value, playlist) {
   newPlaylist = [];
   playlist[0].forEach((item) => {
+    console.log(item);
     const mood = item.firstChild.dataset.mood.split(",");
     for (let i = 0; i < mood.length; i++) {
       if (mood[i] === value) {
