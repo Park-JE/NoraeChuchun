@@ -1,12 +1,3 @@
-function loadSongs() {
-  const config = {
-    headers: { Accept: "application/json" },
-  };
-  return fetch("data/music.json", config)
-    .then((response) => response.json())
-    .catch((error) => console.log("error", error));
-}
-
 function createSong(song) {
   const music = document.createElement("div");
   music.setAttribute("class", "music");
@@ -44,7 +35,7 @@ function createSong(song) {
   return music;
 }
 
-loadSongs()
+loadItems()
   .then((data) => {
     const music = data.music.map(createSong);
     const contentWrap = document.querySelector(".playlist-main .content-wrap");

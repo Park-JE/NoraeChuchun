@@ -2,7 +2,7 @@ function loadPlaylists() {
   const config = {
     headers: { Accept: "application/json" },
   };
-  return fetch("data/playlist2.json", config)
+  return fetch("data/playlist.json", config)
     .then((response) => response.json())
     .catch((error) => console.log("error", error));
 }

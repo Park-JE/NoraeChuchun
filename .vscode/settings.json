@@ -1,3 +1,4 @@
 {
-  "liveServer.settings.multiRootWorkspaceName": "recommend-music-server"
+  "liveServer.settings.multiRootWorkspaceName": "recommend-music-server",
+  "git.ignoreLimitWarning": true
 }

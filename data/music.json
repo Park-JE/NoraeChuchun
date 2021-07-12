@@ -422,12 +422,12 @@
     },
     {
       "id": 43,
-      "title": "Dolphin",
-      "artist": "오마이걸(OH MY GIRL)",
-      "album": "NONSTOP",
-      "data": "2020.04.27",
-      "cover": "omg.jpeg",
-      "genre": ["댄스 팝"],
+      "title": "BLUE MOON (Prod. GroovyRoom)",
+      "artist": "효린, 창모(CHANGMO)",
+      "album": "BLUE MOON",
+      "data": "2017.04.14",
+      "cover": "bluemoon.jpeg",
+      "genre": ["댄스 팝", "팝"],
       "mood": ["여름", "폭염/ 더위"]
     },
     {

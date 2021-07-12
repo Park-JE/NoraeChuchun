@@ -31,7 +31,7 @@ inputBox.addEventListener("keypress", (e) => {
 });
 
 const handleSearch = async (searchText) => {
-  // window.location.href = "search.html";
+  window.location.href = "search.html";
   const result = await fetch("data/music.json")
     .then((response) => response.json())
     .then((json) => json.music)
