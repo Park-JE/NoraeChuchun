@@ -1,31 +1,56 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="shortcut icon" href="img/favicon.png" />
+    <link rel="shortcut icon" href="{% static 'img/favicon.png' %}" />
     <title>날씨에 맞는 음악 추천</title>
     <script
       src="https://kit.fontawesome.com/ef81e253aa.js"
       crossorigin="anonymous"
     ></script>
-    <link rel="stylesheet" href="css/style.css" />
-    <link rel="stylesheet" href="components/mainpage_playlist/playlist.css" />
-    <script defer src="./components/navbar/navbar.js"></script>
-    <script defer src="./components/navbar/search.js"></script>
-    <script defer src="components/playlist/playlist.js"></script>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    <link
+      rel="stylesheet"
+      href="{% static 'components/mainpage_playlist/playlist.css' %}"
+    />
+    <script defer src="{% static 'components/navbar/navbar.js' %}"></script>
+    <script defer src="{% static 'components/search/search.js' %}"></script>
+    <script
+      defer
+      src="{% static 'components/weatherMusic/weather.js' %}"
+    ></script>
+    <script
+      defer
+      src="{% static 'components/weatherMusic/music.js' %}"
+    ></script>
+    <script
+      defer
+      src="{% static 'components/mainpage_playlist/mainpagePlaylist.js' %}"
+    ></script>
+    <script
+      defer
+      src="{% static 'components/mainpage_playlist/filterPlaylist.js' %}"
+    ></script>
+    <script defer src="{% static 'components/playlist/playlist.js' %}"></script>
   </head>
   <body>
     <nav>
       <div class="logoAndName">
-        <a href="index.html"
-          ><img class="logo" src="img/favicon.png" alt="img"
+        <a href="{% url 'index' %}"
+          ><img class="logo" src="{% static 'img/favicon.png' %}" alt="img"
         /></a>
-        <a href="index.html" class="name">날씨음악</a>
+        <a href="{% url 'index' %}" class="name">날씨음악</a>
       </div>
       <div class="searchAndLogin">
-        <input type="search" class="searchInput" placeholder="검색" />
+        <input
+          id="index"
+          type="search"
+          class="searchInput"
+          placeholder="검색"
+        />
         <button class="btn search">
           <i class="fas fa-search fa-lg"></i>
         </button>
@@ -37,29 +62,12 @@
         <!-- <input type="submit" class="login" value="로그아웃" /> -->
         <!-- </form> -->
         <!-- {% else %} -->
-        <a href="login.html" class="login">로그인</a>
+        <a href="{% url 'login' %}" class="login">로그인</a>
         <!-- {% endif %} -->
       </div>
     </nav>
     <section class="playlist-main">
-      <div class="description-wrap">
-        <img
-          src="img/playlistCovers/night.jpeg"
-          alt="platlist-cover"
-          class="cover"
-        />
-        <div class="info">
-          <span class="title">모두가 잠든 새벽</span>
-          <div class="tags">
-            <span class="filter">#밤/새벽</span>
-            <span class="filter">#겨울</span>
-          </div>
-          <div class="songs">
-            <i class="fas fa-compact-disc"></i>
-            <span class="count">30곡</span>
-          </div>
-        </div>
-      </div>
+      <div class="description-wrap"></div>
       <div class="content-wrap">
         <div class="sort">
           <span class="name">곡</span>

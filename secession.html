@@ -5,14 +5,20 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href=".static/components/navbar/navbar.scss" />
-  <link rel="stylesheet" href="static/css/style.css" />
-  <link rel="stylesheet" href=".static/components/mypage/menu.css" />
-  <link rel="stylesheet" href=".static/components/mypage/secession.css" />
+  <link rel="shortcut icon" href="img/favicon.ico" />
+  <script src="https://kit.fontawesome.com/ef81e253aa.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="./components/navbar/navbar.scss" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="./components/mypage/menu.css" />
+  <link rel="stylesheet" href="./components/mypage/secession.css" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined">
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-  <script defer src=".static/components/mypage/secession.js"></script>
-  <title>Document</title>
+  <script defer src="./components/mypage/secession.js"></script>
+  <script defer src="components/navbar/navbar.js"></script>
+  <script defer src="components/weatherMusic/music.js"></script>
+  <script defer src="components/mainpage_playlist/mainpagePlaylist.js"></script>
+  <script defer src="components/search/search.js"></script>
+  <title>날씨에 맞는 음악 추천</title>
 </head>
 
 
@@ -23,7 +29,7 @@
       <a href="index" class="name">날씨음악</a>
     </div>
     <div class="searchAndLogin">
-      <input type="search" class="searchInput" placeholder="검색" />
+      <input id="secession" type="search" class="searchInput" placeholder="검색" />
       <button class="btn search">
         <i class="fas fa-search fa-lg"></i>
       </button>
