@@ -59,7 +59,7 @@
   cursor: pointer;
 }
 
-.container .share-main .description-wrap .info .title.active {
+.container .share-main .title.active {
   font-size: 20px;
   margin-bottom: 15px;
   border: 1px solid #eee;
@@ -69,7 +69,7 @@
   color: #160d35;
 }
 
-.container .share-main .description-wrap .info .find.active {
+.container .share-main .find.active {
   font-size: 20px;
   margin-bottom: 15px;
   border: 1px solid #eee;
@@ -88,7 +88,6 @@
   width: 100%;
   height: 550px;
   color: #eee;
-  overflow-y: scroll;
 }
 
 .container .share-main .title-wrap.active .sort {
@@ -106,13 +105,10 @@
 }
 
 .container .share-main .title-wrap.active .friends {
-<<<<<<< HEAD
   width: 100%;
 }
 
 .container .share-main .title-wrap.active .friends .friend {
-=======
->>>>>>> 2885cf403e903364d6cf151d0da84ae112fbb2cd
   line-height: 3;
   width: 100%;
   display: -ms-grid;
@@ -128,13 +124,28 @@
   font-size: 14px;
   padding: 5px 0 5px 16px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  overflow-y: scroll;
+  height: 500px;
 }
 
-<<<<<<< HEAD
+.container .share-main .title-wrap.active .friends .friend::-webkit-scrollbar {
+  width: 10px;
+  display: none;
+}
+
+.container .share-main .title-wrap.active .friends .friend::-webkit-scrollbar-thumb {
+  background-color: #eee;
+  border-radius: 10px;
+}
+
+.container .share-main .title-wrap.active .friends .friend::-webkit-scrollbar-track {
+  background-color: #2f3542;
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0px 0px 5px white;
+          box-shadow: inset 0px 0px 5px white;
+}
+
 .container .share-main .title-wrap.active .friends .friend .id {
-=======
-.container .share-main .title-wrap.active .friends .id {
->>>>>>> 2885cf403e903364d6cf151d0da84ae112fbb2cd
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -143,11 +154,7 @@
           align-items: center;
 }
 
-<<<<<<< HEAD
 .container .share-main .title-wrap.active .friends .friend .id span {
-=======
-.container .share-main .title-wrap.active .friends .id span {
->>>>>>> 2885cf403e903364d6cf151d0da84ae112fbb2cd
   margin-right: 3px;
 }
 
@@ -158,20 +165,14 @@
 .container .share-main .find-wrap.active {
   display: block;
   width: 100%;
-<<<<<<< HEAD
   height: 550px;
   color: #eee;
-  overflow-y: scroll;
-=======
-  color: #eee;
->>>>>>> 2885cf403e903364d6cf151d0da84ae112fbb2cd
 }
 
-.container .share-main .find-wrap.active .searchInput {
+.container .share-main .find-wrap.active .findInput {
   position: absolute;
   right: 30px;
   top: 50px;
-<<<<<<< HEAD
   border: 0;
   outline: none;
   padding: 8px 16px;
@@ -180,28 +181,14 @@
   width: 250px;
   padding: 8px 32px;
   background-color: #eee;
-=======
-  width: 250px;
-  padding: 8px 32px;
-  background-color: #eee;
-  border-radius: 18px;
-  margin-bottom: 10px;
->>>>>>> 2885cf403e903364d6cf151d0da84ae112fbb2cd
-}
-
-.container .share-main .find-wrap.active [type="search"]::-webkit-search-cancel-button,
-.container .share-main .find-wrap.active [type="search"]::-webkit-search-decoration {
-  -webkit-appearance: none;
-  appearance: none;
 }
 
 .container .share-main .find-wrap.active .sort {
   width: 100%;
-<<<<<<< HEAD
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 3fr 3fr 1fr 40px;
-      grid-template-columns: 3fr 3fr 1fr 40px;
+  -ms-grid-columns: 3fr 3fr 1.3fr 40px;
+      grid-template-columns: 3fr 3fr 1.3fr 40px;
   -webkit-column-gap: 5px;
           column-gap: 5px;
   border-top: 1px solid rgba(255, 255, 255, 0.2);
@@ -210,39 +197,41 @@
   padding: 4px 0 4px 16px;
 }
 
-.container .share-main .find-wrap.active .friends {
+.container .share-main .find-wrap.active .allUsers {
   width: 100%;
 }
 
-.container .share-main .find-wrap.active .friends .allUser .user-list {
+.container .share-main .find-wrap.active .allUsers .allUser {
+  overflow-y: scroll;
+  height: 500px;
+}
+
+.container .share-main .find-wrap.active .allUsers .allUser::-webkit-scrollbar {
+  width: 10px;
+  display: none;
+}
+
+.container .share-main .find-wrap.active .allUsers .allUser::-webkit-scrollbar-thumb {
+  background-color: #eee;
+  border-radius: 10px;
+}
+
+.container .share-main .find-wrap.active .allUsers .allUser::-webkit-scrollbar-track {
+  background-color: #2f3542;
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0px 0px 5px white;
+          box-shadow: inset 0px 0px 5px white;
+}
+
+.container .share-main .find-wrap.active .allUsers .allUser .user-list {
   line-height: 3;
   width: 100%;
-=======
->>>>>>> 2885cf403e903364d6cf151d0da84ae112fbb2cd
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: 3fr 3fr 1fr 40px;
       grid-template-columns: 3fr 3fr 1fr 40px;
   -webkit-column-gap: 5px;
           column-gap: 5px;
-<<<<<<< HEAD
-=======
-  border-top: 1px solid rgba(255, 255, 255, 0.2);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-  font-size: 14px;
-  padding: 4px 0 4px 16px;
-}
-
-.container .share-main .find-wrap.active .friends {
-  line-height: 3;
-  width: 100%;
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: 3fr 3fr 1fr 40px;
-      grid-template-columns: 3fr 3fr 1fr 40px;
-  -webkit-column-gap: 5px;
-          column-gap: 5px;
->>>>>>> 2885cf403e903364d6cf151d0da84ae112fbb2cd
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -252,11 +241,7 @@
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 }
 
-<<<<<<< HEAD
-.container .share-main .find-wrap.active .friends .allUser .id {
-=======
-.container .share-main .find-wrap.active .friends .id {
->>>>>>> 2885cf403e903364d6cf151d0da84ae112fbb2cd
+.container .share-main .find-wrap.active .allUsers .allUser .id {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -265,23 +250,19 @@
           align-items: center;
 }
 
-<<<<<<< HEAD
-.container .share-main .find-wrap.active .friends .allUser .id span {
-=======
-.container .share-main .find-wrap.active .friends .id span {
->>>>>>> 2885cf403e903364d6cf151d0da84ae112fbb2cd
+.container .share-main .find-wrap.active .allUsers .allUser .id span {
   margin-right: 3px;
+}
+
+.container .share-main .find-wrap.active .allUsers .allUser .id .addBtn:hover {
+  cursor: pointer;
 }
 
 @media (min-width: 768px) and (max-width: 1023px) {
   .share-main {
     width: 740px;
   }
-<<<<<<< HEAD
   .share-main .find-wrap .searchInput {
-=======
-  .container .share-main .find-wrap .searchInput {
->>>>>>> 2885cf403e903364d6cf151d0da84ae112fbb2cd
     width: 150px;
   }
 }
@@ -291,10 +272,10 @@
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    -webkit-box-orient: horizontal;
+    -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
-        -ms-flex-direction: row;
-            flex-direction: row;
+        -ms-flex-direction: column;
+            flex-direction: column;
     width: 100%;
     -ms-flex-wrap: wrap;
         flex-wrap: wrap;
@@ -357,6 +338,9 @@
   }
   .container .share-main .title-wrap .friends .id span {
     margin-right: 3px;
+  }
+  .container .share-main .find-wrap.active .findInput {
+    width: 150px;
   }
 }
 /*# sourceMappingURL=share.css.map */

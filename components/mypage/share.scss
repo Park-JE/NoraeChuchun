@@ -24,7 +24,6 @@
       color: $white;
       margin-bottom: $base-space * 2;
 
-
       .info {
         display: flex;
         flex-direction: row;
@@ -34,7 +33,6 @@
 
         span {
           font-size: 20px;
-<<<<<<< HEAD
           margin-bottom: 15px;
           border: 1px solid #eee;
           border-radius: 20px;
@@ -45,64 +43,29 @@
             cursor: pointer;
           }
         }
-
-        .title.active {
-          font-size: 20px;
-          margin-bottom: 15px;
-          border: 1px solid #eee;
-          border-radius: 18px;
-          padding: 0.5em 0.5em;
-          background: #eee;
-          color: #160d35;
-        }
-
-        .find.active {
-          font-size: 20px;
-          margin-bottom: 15px;
-          border: 1px solid #eee;
-          border-radius: 18px;
-          padding: 0.5em 0.5em;
-          background: #eee;
-          color: #160d35;
-        }
       }
     }
 
-=======
-          margin-bottom: 15px;
-          border: 1px solid #eee;
-          border-radius: 20px;
-          padding: 0.5em 0.5em;
-          margin-right: 10px;
-
-          &:hover {
-            cursor: pointer;
-          }
-        }
-
-        .title.active {
-          font-size: 20px;
-          margin-bottom: 15px;
-          border: 1px solid #eee;
-          border-radius: 18px;
-          padding: 0.5em 0.5em;
-          background: #eee;
-          color: #160d35;
-        }
-
-        .find.active {
-          font-size: 20px;
-          margin-bottom: 15px;
-          border: 1px solid #eee;
-          border-radius: 18px;
-          padding: 0.5em 0.5em;
-          background: #eee;
-          color: #160d35;
-        }
-      }
+    .title.active {
+      font-size: 20px;
+      margin-bottom: 15px;
+      border: 1px solid #eee;
+      border-radius: 18px;
+      padding: 0.5em 0.5em;
+      background: #eee;
+      color: #160d35;
     }
-    
->>>>>>> 2885cf403e903364d6cf151d0da84ae112fbb2cd
+
+    .find.active {
+      font-size: 20px;
+      margin-bottom: 15px;
+      border: 1px solid #eee;
+      border-radius: 18px;
+      padding: 0.5em 0.5em;
+      background: #eee;
+      color: #160d35;
+    }
+
     .title-wrap {
       display: none;
     }
@@ -110,13 +73,8 @@
     .title-wrap.active {
       display: block;
       width: 100%;
-<<<<<<< HEAD
       height: 550px;
       color: #eee;
-      overflow-y: scroll;
-=======
-      color: #eee;
->>>>>>> 2885cf403e903364d6cf151d0da84ae112fbb2cd
 
       .sort {
         width: 100%;
@@ -130,7 +88,7 @@
       }
 
       .friends {
-<<<<<<< HEAD
+
         width: 100%;
 
         .friend {
@@ -144,6 +102,24 @@
           font-size: $font-small;
           padding: 5px 0 5px $base-space;
           border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+          overflow-y: scroll;
+          height: 500px;
+
+          &::-webkit-scrollbar {
+            width: 10px;
+            display: none;
+          }
+
+          &::-webkit-scrollbar-thumb {
+            background-color: #eee;
+            border-radius: 10px;
+          }
+
+          &::-webkit-scrollbar-track {
+            background-color: #2f3542;
+            border-radius: 10px;
+            box-shadow: inset 0px 0px 5px white;
+          }
 
           .id {
             display: flex;
@@ -156,38 +132,7 @@
         }
       }
     }
-    .find-wrap{
-      display: none;
-    }
-    .find-wrap.active{
-      display: block;
-      width: 100%;
-      height: 550px;
-      color: #eee;
-      overflow-y: scroll;
-=======
-        line-height: 3;
-        width: 100%;
-        display: grid;
-        grid-template-columns: 3fr 3fr 1fr 40px;
-        column-gap: 5px;
-        align-items: center;
-        justify-items: flex-start;
-        font-size: $font-small;
-        padding: 5px 0 5px $base-space;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 
-        .id {
-          display: flex;
-          align-items: center;
-
-          span {
-            margin-right: 3px;
-          }
-        }
-      }
-
-    }
     .find-wrap {
       display: none;
     }
@@ -195,43 +140,58 @@
     .find-wrap.active {
       display: block;
       width: 100%;
+      height: 550px;
       color: #eee;
->>>>>>> 2885cf403e903364d6cf151d0da84ae112fbb2cd
-      .searchInput {
+
+      .findInput {
         position: absolute;
         right: 30px;
-        top:50px;
-<<<<<<< HEAD
+        top: 50px;
         border: 0;
         outline: none;
         padding: $base-space/2 $base-space;
         border-radius: $border-large;
-        background-color: transparent;  
+        background-color: transparent;
         width: 250px;
         padding: $base-space/2 $base-space * 2;
         background-color: $white;
+      }
 
-      }
-  
-      [type="search"]::-webkit-search-cancel-button,
-      [type="search"]::-webkit-search-decoration {
-        -webkit-appearance: none;
-        appearance: none;
-      }
       .sort {
         width: 100%;
         display: grid;
-        grid-template-columns: 3fr 3fr 1fr 40px;
+        grid-template-columns: 3fr 3fr 1.3fr 40px;
         column-gap: 5px;
         border-top: 1px solid rgba(255, 255, 255, 0.2);
         border-bottom: 1px solid rgba(255, 255, 255, 0.2);
         font-size: $font-small;
         padding: 4px 0 4px $base-space;
       }
-      .friends{
+
+      .allUsers {
         width: 100%;
-        .allUser{
-          .user-list{
+
+        .allUser {
+          overflow-y: scroll;
+          height: 500px;
+
+          &::-webkit-scrollbar {
+            width: 10px;
+            display: none;
+          }
+
+          &::-webkit-scrollbar-thumb {
+            background-color: #eee;
+            border-radius: 10px;
+          }
+
+          &::-webkit-scrollbar-track {
+            background-color: #2f3542;
+            border-radius: 10px;
+            box-shadow: inset 0px 0px 5px white;
+          }
+
+          .user-list {
 
             line-height: 3;
             width: 100%;
@@ -251,59 +211,21 @@
 
             span {
               margin-right: 3px;
+
             }
-=======
-        width: 250px;
-        padding: $base-space/2 $base-space * 2;
-        background-color: $white;
-        border-radius: $border-large;
-        margin-bottom: 10px;
-      }
-      [type="search"]::-webkit-search-cancel-button,
-      [type="search"]::-webkit-search-decoration {
-        -webkit-appearance: none;
-        appearance: none;
-      }
-      .sort {
-        width: 100%;
-        display: grid;
-        grid-template-columns: 3fr 3fr 1fr 40px;
-        column-gap: 5px;
-        border-top: 1px solid rgba(255, 255, 255, 0.2);
-        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-        font-size: $font-small;
-        padding: 4px 0 4px $base-space;
-      }
 
-      .friends {
-        line-height: 3;
-        width: 100%;
-        display: grid;
-        grid-template-columns: 3fr 3fr 1fr 40px;
-        column-gap: 5px;
-        align-items: center;
-        justify-items: flex-start;
-        font-size: $font-small;
-        padding: 5px 0 5px $base-space;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            .addBtn {
+              &:hover {
+                cursor: pointer;
+              }
+            }
 
-        .id {
-          display: flex;
-          align-items: center;
-
-          span {
-            margin-right: 3px;
->>>>>>> 2885cf403e903364d6cf151d0da84ae112fbb2cd
           }
         }
       }
-
     }
   }
-<<<<<<< HEAD
 }
-
-
 
 
 @media (min-width: 768px) and (max-width: 1023px) {
@@ -313,31 +235,19 @@
     .find-wrap {
       .searchInput {
         width: 150px;
-=======
-  
 
-
-  @media (min-width: 768px) and (max-width: 1023px) {
-    .share-main {
-      width: 740px;
-      .find-wrap{
-        .searchInput{
-          width: 150px;
-        }
->>>>>>> 2885cf403e903364d6cf151d0da84ae112fbb2cd
       }
     }
   }
 }
 
+
 @media screen and (max-width: 768px) {
   .container {
     display: flex;
-<<<<<<< HEAD
-    flex-direction: row;
-=======
+
     flex-direction: column;
->>>>>>> 2885cf403e903364d6cf151d0da84ae112fbb2cd
+
     width: 100%;
     flex-wrap: wrap;
 
@@ -398,7 +308,12 @@
           }
         }
       }
+
+      .find-wrap.active {
+        .findInput {
+          width: 150px;
+        }
+      }
     }
   }
 }
-
