@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="css/style.css" />
   <link rel="stylesheet" href="./components/mypage/menu.css" />
   <link rel="stylesheet" href="./components/mypage/share.css" />
+  <script defer src="./components/mypage/share.js"></script>
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined">
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <title>Document</title>
@@ -50,26 +51,48 @@
     <div class="share-main">
       <div class="description-wrap">
         <div class="info">
-          <h2 class="title">친구목록</h2>
+          <span class="title active">친구목록</span>
+          <span class="find">친구검색</span>
         </div>
       </div>
-      <div class="content-wrap">
+      <!-- 친구목록 -->
+      <div class="title-wrap active">
         <div class="sort">
           <span class=" id">아이디</span>
           <span class="name">이름</span>
           <span class="share">공유</span>
         </div>
         <div class="friends">
-
-          <span class="id"><span class="material-icons-outlined">
-              person
-            </span>gajeong</span>
-          <span class="name">김가궁</span>
-          <span class="material-icons-outlined share">
-            ios_share
-          </span>
+          <div class="friend">
+            <span class="id"><span class="material-icons-outlined">
+                person
+              </span>gajeong</span>
+            <span class="name">김가궁</span>
+            <span class="material-icons-outlined">
+              send_to_mobile
+            </span>
+          </div>
         </div>
-
+      </div>
+      <!-- 친구검색 -->
+      <div class="find-wrap">
+        <input type="search" class="searchInput" placeholder="검색">
+        <div class="sort">
+          <span class=" id">아이디</span>
+          <span class="name">이름</span>
+          <span class="share">추가</span>
+        </div>
+        <div class="friends">
+          <div class="allUser">
+            <span class="id"><span class="material-icons-outlined">
+                person
+              </span>gajeong</span>
+            <span class="name">김가궁</span>
+            <span class="material-icons-outlined">
+              person_add_alt
+            </span>
+          </div>
+        </div>
       </div>
     </div>
   </div>
