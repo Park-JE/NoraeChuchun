@@ -82,45 +82,45 @@ function createHTMLString(user) {
   </div>
   `;
 }
-// //친구 검색
-// function filter() {
-//   var name, id, i;
-//   let findInput = document.querySelector(".findInput").value.toUpperCase();
-//   userlist = document.getElementsByClassName("user-list");
+//친구 검색
+function filter() {
+  var name, id, i;
+  let findInput = document.querySelector(".findInput").value.toUpperCase();
+  userlist = document.getElementsByClassName("user-list");
 
-//   for (i = 0; i < userlist.length; i++) {
-//     id = userlist[i].getElementsByClassName("find-id");
-//     name = userlist[i].getElementsByClassName("find-name");
-//     if (id[0].innerHTML.toUpperCase().indexOf(findInput) != -1 ||
-//       name[0].innerHTML.toUpperCase().indexOf(findInput) != -1) {
-//       userlist[i].style.display = "grid";
-//     } else {
-//       userlist[i].style.display = "none";
-//     }
-//   }
-// }
-// loadUsers().then((users) => {
-//   displayUsers(users);
-// });
+  for (i = 0; i < userlist.length; i++) {
+    id = userlist[i].getElementsByClassName("find-id");
+    name = userlist[i].getElementsByClassName("find-name");
+    if (id[0].innerHTML.toUpperCase().indexOf(findInput) != -1 ||
+      name[0].innerHTML.toUpperCase().indexOf(findInput) != -1) {
+      userlist[i].style.display = "grid";
+    } else {
+      userlist[i].style.display = "none";
+    }
+  }
+}
+loadUsers().then((users) => {
+  displayUsers(users);
+});
 
-// //친구 추가 
-// function addFriend(obj) {
-//   const parent = obj.parentNode;
-//   const id = parent.querySelector(".find-id").innerText;
-//   const name = parent.querySelector(".find-name").innerText;
+//친구 추가 
+function addFriend(obj) {
+  const parent = obj.parentNode;
+  const id = parent.querySelector(".find-id").innerText;
+  const name = parent.querySelector(".find-name").innerText;
 
-//   let str = `
-//   <div class="friend">
-//     <span class="id"><span class="material-icons-outlined">
-//       person
-//     </span>${id}</span>
-//     <span class="name">${name}</span>
-//     <span class="material-icons-outlined shareBtn">
-//       send_to_mobile
-//     </span>
-//   </div>
-//   `
-//   $(".friends").append(str);
-//   alert("친구추가 되었습니다😃")
+  let str = `
+  <div class="friend">
+    <span class="id"><span class="material-icons-outlined">
+      person
+    </span>${id}</span>
+    <span class="name">${name}</span>
+    <span class="material-icons-outlined shareBtn">
+      send_to_mobile
+    </span>
+  </div>
+  `
+  $(".friends").append(str);
+  alert("친구추가 되었습니다😃")
 
-// }
+}

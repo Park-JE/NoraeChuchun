@@ -11,12 +11,16 @@
   <link rel="stylesheet" href="css/style.css" />
   <link rel="stylesheet" href="./components/mypage/menu.css" />
   <link rel="stylesheet" href="./components/mypage/share.css" />
+  <link rel="stylesheet" href="./components/mypage/myplaylist-list.css" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
   <script defer src="components/navbar/navbar.js"></script>
   <script defer src="components/weatherMusic/music.js"></script>
   <script defer src="components/mainpage_playlist/mainpagePlaylist.js"></script>
   <script defer src="components/search/search.js"></script>
+  <script defer src="components/mypage/myplaylist-list.js"></script>
+  <script defer src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
   <title>날씨에 맞는 음악 추천</title>
 </head>
 
@@ -45,30 +49,37 @@
   </nav>
 
   <div class="container">
-    <section class="playlist-main">
-      <div class="description-wrap">
-        <img src="img/playlistCovers/night.jpeg" alt="platlist-cover" class="cover" />
-        <div class="info">
-          <span class="title">모두가 잠든 새벽</span>
-          <div class="tags">
-            <span class="filter">#밤/새벽</span>
-            <span class="filter">#겨울</span>
-          </div>
-          <div class="songs">
-            <i class="fas fa-compact-disc"></i>
-            <span class="count">30곡</span>
-          </div>
+    <div class="playlist-info">
+      <div class="thumnail">
+        <img class="thumnail_img" src="./img/playlistCovers/between.jpeg" alt="playlist-thumbnail" />
+      </div>
+      <div class="info">
+        <div class="playlist-title">운동할 때 들어야징</div>
+        <div class="playlist-desc">운동할 때 들으려고 했는데 잘 모르겠어,,</div>
+        <div class="playlist-count"><span class="material-icons-outlined">
+            headphones
+          </span><span class="count">노래 9곡</span></div>
+      </div>
+    </div>
+    <div class="content-wrap">
+      <div class="sort">
+        <span class="sort-cover">커버</span>
+        <span class="sort-title">곡</span>
+        <span class="sort-artist">아티스트</span>
+        <span class="sort-album">앨범</span>
+        <span class="sort-remove">제거</span>
+      </div>
+      <div class="items">
+        <!-- item이란 이름으로 div 요소들 생성  -->
+        <div class="item">
+          <div class="cover"><img src="./img/albumCovers/AtMyWorst.jpg" alt="coverImg"></div>
+          <div class="title">At My Worst (feat. Kehlani)</div>
+          <div class="artist">Pink Sweat$</div>
+          <div class="album">At My Worst (feat. Kehlani)</div>
+          <div class="remove material-icons-outlined" onclick="onButton(this)">delete_outline</div>
         </div>
       </div>
-      <div class="content-wrap">
-        <div class="sort">
-          <span class="name">곡</span>
-          <span class="artist">아티스트</span>
-          <span class="album">앨범</span>
-          <span class="add">담기</span>
-        </div>
-      </div>
-    </section>
+    </div>
   </div>
   <div class="bg-1"></div>
   <div class="bg-2"></div>
