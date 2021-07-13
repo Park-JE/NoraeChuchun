@@ -37,11 +37,11 @@ const outputSearchHtml = (matches, searchText) => {
 
     addMusicBtn.forEach((addBtn) => {
       addBtn.addEventListener("click", () => {
-        // alert("내 플레이리스트에 추가 되었습니다.");
         if (addBtn.nextSibling.className === "addModal") {
           addBtn.nextSibling.remove();
           return;
         }
+
         addModal = document.createElement("div");
         addModal.setAttribute("class", "addModal");
         addModal.innerHTML = `<div class="myPlaylist">내 플레이리스트</div>
@@ -49,16 +49,31 @@ const outputSearchHtml = (matches, searchText) => {
         <div class="myPlaylist">집갈 때 들어야지</div>`;
         addBtn.after(addModal);
 
+        document.addEventListener("click", (e) => {
+          if (
+            e.target.className !== "addModal" &&
+            e.target.className !== "myPlaylist" &&
+            e.target.className !== "addMusicBtn" &&
+            e.target.className !== "fas fa-list fa-lg"
+          ) {
+            e.preventDefault();
+            addModal.remove();
+          }
+        });
+
         const modalPlaylist = addModal.querySelectorAll(
           ".search-wrap .musicList .music .addModal .myPlaylist"
         );
         modalPlaylist.forEach((playlist) => {
           playlist.addEventListener("click", () => {
-            // alert(`"${playlist.innerText}"에 추가되었습니다.`);
             alertAdd = document.createElement("div");
             alertAdd.setAttribute("class", "alertAdd");
-            alertAdd.textContent = `"${playlist.innerText}"에 추가되었습니다.`;
+            alertAdd.innerHTML = `<i class="fas fa-exclamation-circle"></i>
+            <span>"${playlist.innerText}"에 추가되었습니다.</span>`;
             searchWrap.append(alertAdd);
+            setTimeout(() => {
+              alertAdd.remove();
+            }, 2000);
           });
         });
       });

@@ -803,6 +803,7 @@ nav .mypage {
   margin: 150px 0;
   width: 1000px;
   color: #eee;
+  position: relative;
 }
 
 .search-wrap .value {
@@ -883,6 +884,7 @@ nav .mypage {
   font-size: 14px;
   padding: 5px 0 5px 16px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  position: relative;
 }
 
 .search-wrap .musicList .music .coverAndName {
@@ -906,6 +908,83 @@ nav .mypage {
   border: 0;
   background-color: transparent;
   color: #eee;
+  cursor: pointer;
+}
+
+.search-wrap .musicList .music .addModal {
+  width: 200px;
+  position: absolute;
+  z-index: 2;
+  right: 42px;
+  top: 36px;
+  border-radius: 8px;
+  padding: 8px 0;
+  background-color: rgba(255, 255, 255, 0.1);
+  -webkit-backdrop-filter: blur(50px);
+          backdrop-filter: blur(50px);
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  border-right: 1px solid rgba(255, 255, 255, 0.2);
+  -webkit-box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.search-wrap .musicList .music .addModal.deactive {
+  display: none;
+}
+
+.search-wrap .musicList .music .addModal .myPlaylist {
+  width: 100%;
+  padding: 16px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.search-wrap .musicList .music .addModal .myPlaylist:first-child {
+  padding: 8px 16px;
+  opacity: 0.8;
+  font-weight: 400;
+  pointer-events: none;
+}
+
+.search-wrap .musicList .music .addModal .myPlaylist:last-child {
+  border-bottom: 0;
+}
+
+@-webkit-keyframes fadeIn {
+  from {
+    opacity: 0;
+    -webkit-transform: translateY(20px);
+            transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    -webkit-transform: translateY(20px);
+            transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+}
+
+.search-wrap .alertAdd {
+  position: absolute;
+  top: 105%;
+  left: 30%;
+  padding: 16px 32px;
+  background-color: #0e0e22;
+  -webkit-animation: fadeIn 0.5s ease-in-out;
+          animation: fadeIn 0.5s ease-in-out;
 }
 
 @media (min-width: 768px) and (max-width: 1023px) {
@@ -936,6 +1015,15 @@ nav .mypage {
     padding: 5px 0 5px 8px;
     -ms-grid-columns: 4fr 3fr 3fr 30px;
         grid-template-columns: 4fr 3fr 3fr 30px;
+  }
+  .search-wrap .musicList .music .addModal {
+    width: 150px;
+    font-size: 12px;
+    right: 32px;
+  }
+  .search-wrap .alertAdd {
+    font-size: 12px;
+    left: 15%;
   }
 }
 /*# sourceMappingURL=style.css.map */
