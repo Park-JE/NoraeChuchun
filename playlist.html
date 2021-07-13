@@ -12,8 +12,16 @@
     ></script>
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="components/mainpage_playlist/playlist.css" />
-    <script defer src="./components/navbar/navbar.js"></script>
-    <script defer src="./components/navbar/search.js"></script>
+    <script defer src="components/navbar/navbar.js"></script>
+    <!-- <script defer src="components/search/search.js"></script> -->
+    <script defer src="components/weatherMusic/weather.js"></script>
+    <script defer src="components/weatherMusic/music.js"></script>
+    <script defer src="components/filterMusic/filterMusic.js"></script>
+    <script
+      defer
+      src="components/mainpage_playlist/mainpagePlaylist.js"
+    ></script>
+    <script defer src="components/mainpage_playlist/filterPlaylist.js"></script>
     <script defer src="components/playlist/playlist.js"></script>
   </head>
   <body>
@@ -25,7 +33,12 @@
         <a href="index.html" class="name">날씨음악</a>
       </div>
       <div class="searchAndLogin">
-        <input type="search" class="searchInput" placeholder="검색" />
+        <input
+          id="playlist"
+          type="search"
+          class="searchInput"
+          placeholder="검색"
+        />
         <button class="btn search">
           <i class="fas fa-search fa-lg"></i>
         </button>
@@ -43,7 +56,7 @@
     </nav>
     <section class="playlist-main">
       <div class="description-wrap">
-        <img
+        <!-- <img
           src="img/playlistCovers/night.jpeg"
           alt="platlist-cover"
           class="cover"
@@ -58,7 +71,7 @@
             <i class="fas fa-compact-disc"></i>
             <span class="count">30곡</span>
           </div>
-        </div>
+        </div> -->
       </div>
       <div class="content-wrap">
         <div class="sort">

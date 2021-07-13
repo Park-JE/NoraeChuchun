@@ -1,4 +1,6 @@
 let musicList = [];
+let newList = [];
+const playlistWrap = document.querySelector(".playlist-wrap");
 
 loadItems()
   .then((data) => {
@@ -8,7 +10,7 @@ loadItems()
 
 loadPlaylists()
   .then((data) => {
-    const newList = data.playlists.map((playlist) => {
+    newList = data.playlists.map((playlist) => {
       let playlistMood = playlist.mood;
       musicList.forEach((music) => {
         let musicMood = music.mood;
@@ -24,7 +26,6 @@ loadPlaylists()
     });
 
     const playlist = newList.map(createPlaylist);
-    const playlistWrap = document.querySelector(".playlist-wrap");
     playlistWrap.append(...playlist);
 
     const optionBtns = filterBar.querySelectorAll(
@@ -39,3 +40,50 @@ loadPlaylists()
     });
   })
   .catch(console.log);
+
+playlistWrap.addEventListener("click", (e) => {
+  const clickedTarget = e.target.offsetParent;
+  if (clickedTarget.className === "playlist") {
+    const clickedList = newList.filter((list) => {
+      if (list.title === clickedTarget.innerText.split("\n")[0]) {
+        return list;
+      }
+    });
+    const targetListInfo = [
+      clickedList[0].title,
+      clickedList[0].musicList,
+      clickedList[0].mood,
+      clickedList[0].cover,
+    ];
+
+    setCookie("playlist", JSON.stringify(targetListInfo), 1);
+    // console.log(getCookieArray("playlist"));
+    window.location.href = "playlist.html";
+    displayPlaylistCookies();
+  }
+});
+
+function getCookieArray(playlist) {
+  const cookie = document.cookie;
+  let playlistCookie;
+
+  if (cookie.length > 0) {
+    startIndex = cookie.indexOf(playlist);
+    if (startIndex != -1) {
+      startIndex += playlist.length;
+      endIndex = cookie.indexOf(";", startIndex);
+      if (endIndex == -1) endIndex = cookie.length;
+      playlistCookie = unescape(cookie.substring(startIndex + 1, endIndex));
+    } else {
+      return false;
+    }
+  } else {
+    return false;
+  }
+
+  return JSON.parse(playlistCookie);
+}
+
+const deleteCookie = function (name) {
+  document.cookie = `${name}=; expires=Thu, 01 Jan 1999 00:00:10 GMT;`;
+};
