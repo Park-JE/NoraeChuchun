@@ -2,9 +2,6 @@ const body = document.querySelector("body");
 const navBar = document.querySelector("nav");
 const navMain = navBar.querySelectorAll(".navMain");
 const toLogin = navBar.querySelector(".searchAndLogin .toLogin");
-const myPage = navBar.querySelector(".searchAndLogin .mypage");
-
-console.log(toLogin, myPage);
 
 let prevScrollPos = window.pageYOffset;
 
@@ -20,12 +17,9 @@ window.addEventListener("scroll", () => {
 
 navMain.forEach((mainBtn) => {
   mainBtn.addEventListener("click", () => {
+    console.log("시발");
     window.location.href = "index.html";
   });
-});
-
-myPage.addEventListener("click", () => {
-  window.location.href = "mypage.html";
 });
 
 toLogin.addEventListener("click", () => {

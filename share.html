@@ -60,8 +60,8 @@
         </button>
         <button class="btn close"><i class="fas fa-times fa-lg"></i></button>
         {% if user.is_authenticated %}
-        <span class="mypage">마이페이지</span>
-        <form action="{% url 'logout' %}" method="POST">
+        <a href="{% url 'mypage' %}" class="mypage">마이페이지</a>
+        <form action="logout" method="POST">
           {% csrf_token %}
           <input type="submit" class="login" value="로그아웃" />
         </form>
