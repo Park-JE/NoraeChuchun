@@ -144,7 +144,35 @@ li {
   display: none;
 }
 
+@-webkit-keyframes fadeIn {
+  from {
+    -webkit-transform: translateY(20px);
+            transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    -webkit-transform: none;
+            transform: none;
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    -webkit-transform: translateY(20px);
+            transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    -webkit-transform: none;
+            transform: none;
+    opacity: 1;
+  }
+}
+
 .container .newplaylist.active {
+  -webkit-animation: fadeIn 0.2s linear;
+          animation: fadeIn 0.2s linear;
   position: absolute;
   display: block;
   z-index: 2;

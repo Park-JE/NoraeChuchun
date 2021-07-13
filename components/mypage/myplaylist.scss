@@ -22,7 +22,6 @@ li {
 }
 
 @-moz-keyframes fadein {
-
   /* Firefox */
   from {
     opacity: 0;
@@ -34,7 +33,6 @@ li {
 }
 
 @-webkit-keyframes fadein {
-
   /* Safari and Chrome */
   from {
     opacity: 0;
@@ -44,7 +42,6 @@ li {
     opacity: 1;
   }
 }
-
 
 .container {
   width: 100%;
@@ -83,7 +80,7 @@ li {
           height: 200px;
           border-radius: 10px;
         }
-        .myplaylist__title{
+        .myplaylist__title {
           font-size: 15px;
         }
 
@@ -130,19 +127,27 @@ li {
         .myplaylist__add:hover {
           cursor: pointer;
         }
-
-
       }
     }
   }
-
-
 
   .newplaylist {
     display: none;
   }
 
+  @keyframes fadeIn {
+    from {
+      transform: translateY(20px);
+      opacity: 0;
+    }
+    to {
+      transform: none;
+      opacity: 1;
+    }
+  }
+
   .newplaylist.active {
+    animation: fadeIn 0.2s linear;
     position: absolute;
     display: block;
     z-index: 2;
@@ -162,7 +167,6 @@ li {
     background: linear-gradient(to right, #200122, #14023f);
     border-radius: 10px;
 
-
     .newplaylist__container {
       width: 100%;
       height: 100%;
@@ -178,7 +182,7 @@ li {
         margin: 50px;
         padding: 10px 10px;
 
-        >input {
+        > input {
           width: 100%;
           border: none;
           outline: none;
@@ -207,7 +211,7 @@ li {
           margin-right: 5px;
 
           &:hover {
-            background: rgba(187, 187, 187,0.4);
+            background: rgba(187, 187, 187, 0.4);
           }
         }
 
@@ -224,7 +228,7 @@ li {
           transition: all 0.3s ease;
 
           &:hover {
-            background: rgba(187, 187, 187,0.4);
+            background: rgba(187, 187, 187, 0.4);
           }
         }
 
@@ -249,14 +253,13 @@ li {
 }
 
 .cover.active {
-    position: absolute;
-    width: 100%;
-    height: 100vh;
-    background-color: rgba(75, 73, 73, 0.5);
-    backdrop-filter: blur(1px);
-    z-index: 1;
-  }
-
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(75, 73, 73, 0.5);
+  backdrop-filter: blur(1px);
+  z-index: 1;
+}
 
 @media screen and (max-width: 768px) {
   .container {
@@ -284,7 +287,6 @@ li {
       .newplaylist__container {
         width: 100%;
         height: 100%;
-
       }
     }
   }
