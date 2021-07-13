@@ -1,126 +1,151 @@
 <!DOCTYPE html>
 <html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="img/favicon.ico" />
+    <script
+      src="https://kit.fontawesome.com/ef81e253aa.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="./components/navbar/navbar.scss" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="./components/mypage/menu.css" />
+    <link rel="stylesheet" href="./components/mypage/share.css" />
+    <script defer src="./components/mypage/share.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />
+    <script defer src="components/navbar/navbar.js"></script>
+    <script defer src="components/weatherMusic/music.js"></script>
+    <script
+      defer
+      src="components/mainpage_playlist/mainpagePlaylist.js"
+    ></script>
+    <script defer src="components/search/search.js"></script>
+    <title>날씨에 맞는 음악 추천</title>
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="./components/navbar/navbar.scss" />
-  <link rel="stylesheet" href="css/style.css" />
-  <link rel="stylesheet" href="./components/mypage/menu.css" />
-  <link rel="stylesheet" href="./components/mypage/share.css" />
-  <script defer src="./components/mypage/share.js"></script>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-  <title>Document</title>
-</head>
-
-
-<body>
-  <nav>
-    <div class="logoAndName">
-      <a href="index.html"><img class="logo" src="img/favicon.png" alt="img" /></a>
-      <a href="index.html" class="name">날씨음악</a>
-    </div>
-    <div class="searchAndLogin">
-      <input type="search" class="searchInput" placeholder="검색" />
-      <button class="btn search">
-        <i class="fas fa-search fa-lg"></i>
-      </button>
-      <button class="btn close"><i class="fas fa-times fa-lg"></i></button>
-      <!-- {% if user.is_authenticated %} -->
-      <!-- <a href="mypage.html" class="mypage">마이페이지</a> -->
-      <!-- <form action="{% url 'logout' %}" method="POST"> -->
-      <!-- {% csrf_token %} -->
-      <!-- <input type="submit" class="login" value="로그아웃" /> -->
-      <!-- </form> -->
-      <!-- {% else %} -->
-      <a href="login.html" class="login">로그인</a>
-      <!-- {% endif %} -->
-    </div>
-  </nav>
-  <div class="container">
-    <div class="mypage__menu">
-      <ul class="menu__list">
-        <li class="list-group-item nonactive material-icons">account_circle<a href="/mypage.html">비밀번호 변경</a></li>
-        <li class="list-group-item nonactive material-icons">music_note<a href="/myplaylist.html">나의 플레이리스트</a></li>
-        <li class="list-group-item active material-icons">person_add<a href="/share.html">친구목록</a></li>
-        <li class="list-group-item nonactive material-icons">delete_forever<a href="/secession.html">회원탈퇴</a></li>
-      </ul>
-    </div>
-    <div class="share-main">
-      <div class="description-wrap">
-        <div class="info">
-          <span class="title active">친구목록</span>
-          <span class="find">친구검색</span>
-        </div>
+  <body>
+    <nav>
+      <div class="logoAndName">
+        <a href="index.html"
+          ><img class="logo" src="img/favicon.png" alt="img"
+        /></a>
+        <a href="index.html" class="name">날씨음악</a>
       </div>
-      <!-- 친구목록 -->
-      <div class="title-wrap active">
-        <div class="sort">
-          <span class=" id">아이디</span>
-          <span class="name">이름</span>
-          <span class="share">공유</span>
-        </div>
-        <div class="friends">
-<<<<<<< HEAD
-          <div class="friend">
-            <span class="id"><span class="material-icons-outlined">
-                person
-              </span>gajeong</span>
-            <span class="name">김가궁</span>
-            <span class="material-icons-outlined">
-              send_to_mobile
-            </span>
+      <div class="searchAndLogin">
+        <input
+          id="share"
+          type="search"
+          class="searchInput"
+          placeholder="검색"
+        />
+        <button class="btn search">
+          <i class="fas fa-search fa-lg"></i>
+        </button>
+        <button class="btn close"><i class="fas fa-times fa-lg"></i></button>
+        <!-- {% if user.is_authenticated %} -->
+        <!-- <a href="mypage.html" class="mypage">마이페이지</a> -->
+        <!-- <form action="{% url 'logout' %}" method="POST"> -->
+        <!-- {% csrf_token %} -->
+        <!-- <input type="submit" class="login" value="로그아웃" /> -->
+        <!-- </form> -->
+        <!-- {% else %} -->
+        <a href="login.html" class="login">로그인</a>
+        <!-- {% endif %} -->
+      </div>
+    </nav>
+    <div class="container">
+      <div class="mypage__menu">
+        <ul class="menu__list">
+          <li class="list-group-item nonactive material-icons">
+            account_circle<a href="/mypage.html">비밀번호 변경</a>
+          </li>
+          <li class="list-group-item nonactive material-icons">
+            music_note<a href="/myplaylist.html">나의 플레이리스트</a>
+          </li>
+          <li class="list-group-item active material-icons">
+            person_add<a href="/share.html">친구목록</a>
+          </li>
+          <li class="list-group-item nonactive material-icons">
+            delete_forever<a href="/secession.html">회원탈퇴</a>
+          </li>
+        </ul>
+      </div>
+      <div class="share-main">
+        <div class="description-wrap">
+          <div class="info">
+            <span class="title active">친구목록</span>
+            <span class="find">친구검색</span>
           </div>
-=======
-          <span class="id"><span class="material-icons-outlined">
-              person
-            </span>gajeong</span>
-          <span class="name">김가궁</span>
-          <span class="material-icons-outlined">
-            send_to_mobile
-          </span>
->>>>>>> 2885cf403e903364d6cf151d0da84ae112fbb2cd
         </div>
-      </div>
-      <!-- 친구검색 -->
-      <div class="find-wrap">
-        <input type="search" class="searchInput" placeholder="검색">
-        <div class="sort">
-          <span class=" id">아이디</span>
-          <span class="name">이름</span>
-          <span class="share">추가</span>
-        </div>
-        <div class="friends">
-<<<<<<< HEAD
-          <div class="allUser">
-            <span class="id"><span class="material-icons-outlined">
-                person
-              </span>gajeong</span>
-            <span class="name">김가궁</span>
-            <span class="material-icons-outlined">
-              person_add_alt
-            </span>
+        <!-- 친구목록 -->
+        <div class="title-wrap active">
+          <div class="sort">
+            <span class="id">아이디</span>
+            <span class="name">이름</span>
+            <span class="share">공유</span>
           </div>
-=======
-          <span class="id"><span class="material-icons-outlined">
-              person
-            </span>gajeong</span>
-          <span class="name">김가궁</span>
-          <span class="material-icons-outlined">
-            person_add_alt
-          </span>
->>>>>>> 2885cf403e903364d6cf151d0da84ae112fbb2cd
+          <div class="friends">
+            <<<<<<< HEAD
+            <div class="friend">
+              <span class="id"
+                ><span class="material-icons-outlined"> person </span
+                >gajeong</span
+              >
+              <span class="name">김가궁</span>
+              <span class="material-icons-outlined"> send_to_mobile </span>
+            </div>
+            =======
+            <span class="id"
+              ><span class="material-icons-outlined"> person </span
+              >gajeong</span
+            >
+            <span class="name">김가궁</span>
+            <span class="material-icons-outlined"> send_to_mobile </span>
+            >>>>>>> 2885cf403e903364d6cf151d0da84ae112fbb2cd
+          </div>
+        </div>
+        <!-- 친구검색 -->
+        <div class="find-wrap">
+          <input type="search" class="searchInput" placeholder="검색" />
+          <div class="sort">
+            <span class="id">아이디</span>
+            <span class="name">이름</span>
+            <span class="share">추가</span>
+          </div>
+          <div class="friends">
+            <<<<<<< HEAD
+            <div class="allUser">
+              <span class="id"
+                ><span class="material-icons-outlined"> person </span
+                >gajeong</span
+              >
+              <span class="name">김가궁</span>
+              <span class="material-icons-outlined"> person_add_alt </span>
+            </div>
+            =======
+            <span class="id"
+              ><span class="material-icons-outlined"> person </span
+              >gajeong</span
+            >
+            <span class="name">김가궁</span>
+            <span class="material-icons-outlined"> person_add_alt </span>
+            >>>>>>> 2885cf403e903364d6cf151d0da84ae112fbb2cd
+          </div>
         </div>
       </div>
     </div>
-  </div>
 
-  <div class="bg-1"></div>
-  <div class="bg-2"></div>
-  <div class="bg-3"></div>
-
-</body>
-
+    <div class="bg-1"></div>
+    <div class="bg-2"></div>
+    <div class="bg-3"></div>
+  </body>
 </html>
