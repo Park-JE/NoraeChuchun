@@ -57,8 +57,7 @@ playlistWrap.addEventListener("click", (e) => {
     ];
 
     setCookie("playlist", JSON.stringify(targetListInfo), 1);
-    // console.log(getCookieArray("playlist"));
-    window.location.href = "playlist.html";
+    window.location.href = "{% url 'playlist' %}";
     displayPlaylistCookies();
   }
 });
@@ -83,7 +82,3 @@ function getCookieArray(playlist) {
 
   return JSON.parse(playlistCookie);
 }
-
-const deleteCookie = function (name) {
-  document.cookie = `${name}=; expires=Thu, 01 Jan 1999 00:00:10 GMT;`;
-};

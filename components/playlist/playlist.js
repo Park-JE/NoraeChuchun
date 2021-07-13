@@ -7,7 +7,7 @@ function createSong(song) {
 
   const img = document.createElement("img");
   img.setAttribute("class", "cover");
-  img.setAttribute("src", `img/albumCovers/${song.cover}`);
+  img.setAttribute("src", `static/img/albumCovers/${song.cover}`);
   img.setAttribute("alt", "img");
 
   const name = document.createElement("span");
@@ -52,7 +52,7 @@ const displayPlaylistCookies = () => {
   );
 
   descripWrap.innerHTML = `<img
-    src="img/playlistCovers/${cookieArray[3]}"
+    src="static/img/playlistCovers/${cookieArray[3]}"
     alt="platlist-cover"
     class="cover"
   />
