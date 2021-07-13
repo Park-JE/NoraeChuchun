@@ -4,7 +4,9 @@ const inputBox = navBar.querySelector(".searchAndLogin input");
 
 searchBtn.addEventListener("click", () => {
   if (inputBox.classList.contains("active")) {
-    handleSearch(inputBox.value);
+    setCookie("value", inputBox.value, 1);
+    setCookie("inputId", inputBox.id, 1);
+    handleSearch();
   } else {
     inputBox.classList.add("active");
     searchBtn.classList.add("active");
@@ -26,19 +28,65 @@ cancelBtn.addEventListener("click", () => {
 
 inputBox.addEventListener("keypress", (e) => {
   if (e.key === "Enter") {
-    handleSearch(inputBox.value);
+    setCookie("inputId", inputBox.id, 1);
+    setCookie("value", inputBox.value, 1);
+    handleSearch();
   }
 });
 
-const handleSearch = async (searchText) => {
-  window.location.href = "search.html";
+function setCookie(name, value, expiredays) {
+  const todayDate = new Date();
+  todayDate.setDate(todayDate.getDate() + expiredays);
+  document.cookie = `${name}=${escape(
+    value
+  )};path=/;expires=${todayDate.toGMTString()};`;
+}
+
+function getCookie(id, value) {
+  const cookie = document.cookie;
+  let idCookie;
+  let valueCookie;
+
+  if (cookie.length > 0) {
+    startIndex = cookie.indexOf(id);
+    if (startIndex != -1) {
+      startIndex += id.length;
+      endIndex = cookie.indexOf(";", startIndex);
+      if (endIndex == -1) endIndex = cookie.length;
+      idCookie = unescape(cookie.substring(startIndex + 1, endIndex));
+    } else {
+      return false;
+    }
+  } else {
+    return false;
+  }
+
+  if (cookie.length > 0) {
+    startIndex = cookie.indexOf(value);
+    if (startIndex != -1) {
+      startIndex += value.length;
+      endIndex = cookie.indexOf(";", startIndex);
+      if (endIndex == -1) endIndex = cookie.length;
+      valueCookie = unescape(cookie.substring(startIndex + 1, endIndex));
+    } else {
+      return false;
+    }
+  } else {
+    return false;
+  }
+
+  return [idCookie, valueCookie];
+}
+
+const handleSearch = async () => {
+  const cookieArray = getCookie("inputId", "value");
   const result = await fetch("data/music.json")
     .then((response) => response.json())
     .then((json) => json.music)
     .catch((error) => console.log("error", error));
 
   let matches = result.filter((music) => {
-    const regEx = new RegExp(`${searchText}`, "gi");
+    const regEx = new RegExp(`${cookieArray[1]}`, "gi");
     return (
       music.title.match(regEx) ||
       music.artist.match(regEx) ||
@@ -46,11 +94,16 @@ const handleSearch = async (searchText) => {
     );
   });
 
-  if (searchText.length === 0) {
+  if (cookieArray[1].length === 0) {
     matches = [];
   }
 
-  outputSearchHtml(matches, searchText);
+  if (cookieArray[0] !== "search") {
+    window.location.href = "search.html";
+    outputSearchHtml(matches, cookieArray[1]);
+  }
+
+  outputSearchHtml(matches, cookieArray[1]);
 };
 
 const outputSearchHtml = (matches, searchText) => {

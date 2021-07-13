@@ -127,7 +127,7 @@ nav .mypage {
     padding: 20px;
     font-size: 16px;
   }
-  nav .searchAndLogin input.active {
+  nav .searchAndLogin .searchInput.active {
     width: 110px;
   }
   nav .searchAndLogin .btn.close.active {

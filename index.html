@@ -31,20 +31,17 @@
         <a href="index.html" class="name">날씨음악</a>
       </div>
       <div class="searchAndLogin">
-        <input type="search" class="searchInput" placeholder="검색" />
+        <input
+          id="index"
+          type="search"
+          class="searchInput"
+          placeholder="검색"
+        />
         <button class="btn search">
           <i class="fas fa-search fa-lg"></i>
         </button>
         <button class="btn close"><i class="fas fa-times fa-lg"></i></button>
-        <!-- {% if user.is_authenticated %} -->
-        <!-- <a href="mypage.html" class="mypage">마이페이지</a> -->
-        <!-- <form action="{% url 'logout' %}" method="POST"> -->
-        <!-- {% csrf_token %} -->
-        <!-- <input type="submit" class="login" value="로그아웃" /> -->
-        <!-- </form> -->
-        <!-- {% else %} -->
         <a href="login.html" class="login">로그인</a>
-        <!-- {% endif %} -->
       </div>
     </nav>
     <section class="recommendation-warp">
@@ -72,6 +69,7 @@
     </section>
     <section class="musicFilter-wrap">
       <div class="titleAndFilters">
+        <button onclick="deleteCookie('playlist')">쿠키삭제</button>
         <span class="title">날씨에 맞는 추천 플레이리스트</span>
         <button class="filter-btn">
           FILTERS <i class="fas fa-filter fa-xs"></i>
@@ -79,7 +77,7 @@
         <div class="filter-bar">
           <form class="filter-wrap">
             <div class="btn-box">
-              <button class="btn reset" type="reset">초기화</button>
+              <button class="btn reset">초기화</button>
               <button class="btn close">
                 <i class="fas fa-times fa-lg"></i>
               </button>

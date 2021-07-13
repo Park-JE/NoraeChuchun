@@ -35,10 +35,34 @@ function createSong(song) {
   return music;
 }
 
-loadItems()
-  .then((data) => {
-    const music = data.music.map(createSong);
-    const contentWrap = document.querySelector(".playlist-main .content-wrap");
-    contentWrap.append(...music);
-  })
-  .catch(console.log);
+const displayPlaylistCookies = () => {
+  getCookieArray("playlist")
+    .then((data) => {
+      const music = data[1].map(createSong);
+      const contentWrap = document.querySelector(
+        ".playlist-main .content-wrap"
+      );
+      const descripWrap = document.querySelector(
+        ".playlist-main .description-wrap"
+      );
+      contentWrap.append(...music);
+
+      descripWrap.innerHTML = `<img
+    src="img/playlistCovers/${data[3]}"
+    alt="platlist-cover"
+    class="cover"
+  />
+  <div class="info">
+    <span class="title">${data[0]}</span>
+    <div class="tags">
+      <span class="filter">#${data[2][0]}</span>
+      <span class="filter">#${data[2][1]}</span>
+    </div>
+    <div class="songs">
+      <i class="fas fa-compact-disc"></i>
+      <span class="count">${data[1].length}곡</span>
+    </div>
+  </div>`;
+    })
+    .catch(console.log);
+};

@@ -106,10 +106,13 @@
 }
 
 .container .share-main .title-wrap.active .friends {
+<<<<<<< HEAD
   width: 100%;
 }
 
 .container .share-main .title-wrap.active .friends .friend {
+=======
+>>>>>>> 2885cf403e903364d6cf151d0da84ae112fbb2cd
   line-height: 3;
   width: 100%;
   display: -ms-grid;
@@ -127,7 +130,11 @@
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 }
 
+<<<<<<< HEAD
 .container .share-main .title-wrap.active .friends .friend .id {
+=======
+.container .share-main .title-wrap.active .friends .id {
+>>>>>>> 2885cf403e903364d6cf151d0da84ae112fbb2cd
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -136,7 +143,11 @@
           align-items: center;
 }
 
+<<<<<<< HEAD
 .container .share-main .title-wrap.active .friends .friend .id span {
+=======
+.container .share-main .title-wrap.active .friends .id span {
+>>>>>>> 2885cf403e903364d6cf151d0da84ae112fbb2cd
   margin-right: 3px;
 }
 
@@ -147,15 +158,20 @@
 .container .share-main .find-wrap.active {
   display: block;
   width: 100%;
+<<<<<<< HEAD
   height: 550px;
   color: #eee;
   overflow-y: scroll;
+=======
+  color: #eee;
+>>>>>>> 2885cf403e903364d6cf151d0da84ae112fbb2cd
 }
 
 .container .share-main .find-wrap.active .searchInput {
   position: absolute;
   right: 30px;
   top: 50px;
+<<<<<<< HEAD
   border: 0;
   outline: none;
   padding: 8px 16px;
@@ -164,6 +180,13 @@
   width: 250px;
   padding: 8px 32px;
   background-color: #eee;
+=======
+  width: 250px;
+  padding: 8px 32px;
+  background-color: #eee;
+  border-radius: 18px;
+  margin-bottom: 10px;
+>>>>>>> 2885cf403e903364d6cf151d0da84ae112fbb2cd
 }
 
 .container .share-main .find-wrap.active [type="search"]::-webkit-search-cancel-button,
@@ -174,6 +197,7 @@
 
 .container .share-main .find-wrap.active .sort {
   width: 100%;
+<<<<<<< HEAD
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: 3fr 3fr 1fr 40px;
@@ -193,12 +217,32 @@
 .container .share-main .find-wrap.active .friends .allUser .user-list {
   line-height: 3;
   width: 100%;
+=======
+>>>>>>> 2885cf403e903364d6cf151d0da84ae112fbb2cd
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: 3fr 3fr 1fr 40px;
       grid-template-columns: 3fr 3fr 1fr 40px;
   -webkit-column-gap: 5px;
           column-gap: 5px;
+<<<<<<< HEAD
+=======
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  font-size: 14px;
+  padding: 4px 0 4px 16px;
+}
+
+.container .share-main .find-wrap.active .friends {
+  line-height: 3;
+  width: 100%;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 3fr 3fr 1fr 40px;
+      grid-template-columns: 3fr 3fr 1fr 40px;
+  -webkit-column-gap: 5px;
+          column-gap: 5px;
+>>>>>>> 2885cf403e903364d6cf151d0da84ae112fbb2cd
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -208,7 +252,11 @@
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 }
 
+<<<<<<< HEAD
 .container .share-main .find-wrap.active .friends .allUser .id {
+=======
+.container .share-main .find-wrap.active .friends .id {
+>>>>>>> 2885cf403e903364d6cf151d0da84ae112fbb2cd
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -217,7 +265,11 @@
           align-items: center;
 }
 
+<<<<<<< HEAD
 .container .share-main .find-wrap.active .friends .allUser .id span {
+=======
+.container .share-main .find-wrap.active .friends .id span {
+>>>>>>> 2885cf403e903364d6cf151d0da84ae112fbb2cd
   margin-right: 3px;
 }
 
@@ -225,7 +277,11 @@
   .share-main {
     width: 740px;
   }
+<<<<<<< HEAD
   .share-main .find-wrap .searchInput {
+=======
+  .container .share-main .find-wrap .searchInput {
+>>>>>>> 2885cf403e903364d6cf151d0da84ae112fbb2cd
     width: 150px;
   }
 }

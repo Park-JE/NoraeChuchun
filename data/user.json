@@ -1,5 +1,9 @@
 {
+<<<<<<< HEAD
   "users":[
+=======
+  "user":[
+>>>>>>> 2885cf403e903364d6cf151d0da84ae112fbb2cd
     {
       "id":"gajeong",
       "name":"김가정"
