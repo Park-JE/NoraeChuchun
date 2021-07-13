@@ -57,7 +57,7 @@ playlistWrap.addEventListener("click", (e) => {
     ];
 
     setCookie("playlist", JSON.stringify(targetListInfo), 1);
-    window.location.href = "{% url 'playlist' %}";
+    window.location.href = "playlist";
     displayPlaylistCookies();
   }
 });

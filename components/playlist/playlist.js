@@ -74,6 +74,12 @@ const displayPlaylistCookies = () => {
         addBtn.nextSibling.remove();
         return;
       }
+      addMusicBtn.forEach((btn) => {
+        if (btn.nextSibling && btn.nextSibling.className === "addModal") {
+          btn.nextSibling.remove();
+          return;
+        }
+      });
 
       addModal = document.createElement("div");
       addModal.setAttribute("class", "addModal");

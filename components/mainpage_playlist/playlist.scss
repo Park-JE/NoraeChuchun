@@ -109,8 +109,8 @@ body {
         top: 36px;
         border-radius: $border-small;
         padding: $base-space/2 0;
-        background-color: rgba(255, 255, 255, 0.1);
-        backdrop-filter: blur(50px);
+        background-color: #817585;
+        backdrop-filter: blur(5px);
         border-top: 1px solid rgba(255, 255, 255, 0.2);
         border-right: 1px solid rgba(255, 255, 255, 0.2);
         box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
@@ -204,7 +204,7 @@ body {
           .addModal {
             width: 150px;
             font-size: $font-xsmall;
-            // right: 32px;
+            right: 32px;
           }
         }
         .alertAdd {

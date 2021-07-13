@@ -42,6 +42,13 @@ const outputSearchHtml = (matches, searchText) => {
           return;
         }
 
+        addMusicBtn.forEach((btn) => {
+          if (btn.nextSibling && btn.nextSibling.className === "addModal") {
+            btn.nextSibling.remove();
+            return;
+          }
+        });
+
         addModal = document.createElement("div");
         addModal.setAttribute("class", "addModal");
         addModal.innerHTML = `<div class="myPlaylist">내 플레이리스트</div>
@@ -147,7 +154,7 @@ searchBtn.addEventListener("click", () => {
     setCookie("value", inputBox.value, 1);
     setCookie("inputId", inputBox.id, 1);
     if (getCookie("value") !== "search") {
-      window.location.href = "{% url 'index' %}";
+      window.location.href = "index";
     }
   } else {
     inputBox.classList.add("active");
@@ -173,7 +180,7 @@ inputBox.addEventListener("keypress", (e) => {
     setCookie("inputId", inputBox.id, 1);
     setCookie("value", inputBox.value, 1);
     if (getCookie("value") !== "search") {
-      window.location.href = "{% url 'index' %}";
+      window.location.href = "index";
     }
   }
 });
