@@ -13,6 +13,11 @@
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="components/search/search.css" />
     <script defer src="components/navbar/navbar.js"></script>
+    <script defer src="components/weatherMusic/music.js"></script>
+    <script
+      defer
+      src="components/mainpage_playlist/mainpagePlaylist.js"
+    ></script>
     <script defer src="components/search/search.js"></script>
   </head>
   <body>
@@ -30,10 +35,12 @@
           class="searchInput"
           placeholder="검색"
         />
-        <button class="btn search">
+        <button id="btnSearch" class="btn search">
           <i class="fas fa-search fa-lg"></i>
         </button>
-        <button class="btn close"><i class="fas fa-times fa-lg"></i></button>
+        <button id="btn" class="btn close">
+          <i class="fas fa-times fa-lg"></i>
+        </button>
         <!-- {% if user.is_authenticated %} -->
         <!-- <a href="mypage.html" class="mypage">마이페이지</a> -->
         <!-- <form action="{% url 'logout' %}" method="POST"> -->

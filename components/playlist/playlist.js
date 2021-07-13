@@ -36,33 +36,31 @@ function createSong(song) {
 }
 
 const displayPlaylistCookies = () => {
-  getCookieArray("playlist")
-    .then((data) => {
-      const music = data[1].map(createSong);
-      const contentWrap = document.querySelector(
-        ".playlist-main .content-wrap"
-      );
-      const descripWrap = document.querySelector(
-        ".playlist-main .description-wrap"
-      );
-      contentWrap.append(...music);
+  const cookieArray = getCookieArray("playlist");
+  const music = cookieArray[1].map(createSong);
+  const contentWrap = document.querySelector(".playlist-main .content-wrap");
+  const descripWrap = document.querySelector(
+    ".playlist-main .description-wrap"
+  );
 
-      descripWrap.innerHTML = `<img
-    src="img/playlistCovers/${data[3]}"
+  contentWrap.append(...music);
+  descripWrap.innerHTML = `<img
+    src="img/playlistCovers/${cookieArray[3]}"
     alt="platlist-cover"
     class="cover"
   />
   <div class="info">
-    <span class="title">${data[0]}</span>
+    <span class="title">${cookieArray[0]}</span>
     <div class="tags">
-      <span class="filter">#${data[2][0]}</span>
-      <span class="filter">#${data[2][1]}</span>
+      <span class="filter">#${cookieArray[2][0]}</span>
+      <span class="filter">#${cookieArray[2][1]}</span>
     </div>
     <div class="songs">
       <i class="fas fa-compact-disc"></i>
-      <span class="count">${data[1].length}곡</span>
+      <span class="count">${cookieArray[1].length}곡</span>
     </div>
   </div>`;
-    })
-    .catch(console.log);
 };
+
+// console.log(document.cookie);
+displayPlaylistCookies();
