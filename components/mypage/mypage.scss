@@ -5,12 +5,12 @@ html {
 body {
   min-height: 100%;
   color: #fff;
-  
 }
 
 .container {
   width: 100%;
   height: 100%;
+  padding: 0 20px;
 
   .menu__contents {
     margin: 0px 70px;
@@ -19,8 +19,6 @@ body {
 
     .menu__content {
       width: 700px;
-
-    
 
       .contents {
         width: 500px;
@@ -79,18 +77,17 @@ body {
     }
   }
 }
-@media screen and (max-width: 910px){
-  .container{
-    .menu__contents{
-      .menu__content{
+@media screen and (max-width: 910px) {
+  .container {
+    .menu__contents {
+      .menu__content {
         width: 500px;
-        .contents{
-
-          input{
+        .contents {
+          input {
             width: 400px;
           }
         }
-        button{
+        button {
           width: 400px;
         }
       }
@@ -115,7 +112,6 @@ body {
             margin-top: 20px;
           }
           input {
-            
             width: 400px;
             height: 40px;
           }

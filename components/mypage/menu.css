@@ -26,6 +26,10 @@
   padding: 10px;
   margin-bottom: 30px;
   font-size: 14px;
+  -webkit-transition: -webkit-transform 0.3s ease;
+  transition: -webkit-transform 0.3s ease;
+  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, -webkit-transform 0.3s ease;
 }
 
 .container .mypage__menu .menu__list li a {

@@ -11,7 +11,7 @@
     padding-left: 20px;
 
     .menu__list {
-      .active{
+      .active {
         border: solid #fff 2px;
         border-radius: 20px;
       }
@@ -21,58 +21,58 @@
         padding: 10px;
         margin-bottom: 30px;
         font-size: 14px;
+        transition: transform 0.3s ease;
 
         a {
           margin-left: 5px;
         }
       }
-      .nonactive:hover{
+      .nonactive:hover {
         transform: translateX(20px);
       }
     }
   }
 }
-@media screen and (max-width: 910px){
-  .container{
-    
-  .mypage__menu {
-    width: 240px;
-    margin-top: 30px;
+@media screen and (max-width: 910px) {
+  .container {
+    .mypage__menu {
+      width: 240px;
+      margin-top: 30px;
 
-    .menu__list {
-      .active{
-        border: solid #fff 2px;
-        border-radius: 20px;
-      }
+      .menu__list {
+        .active {
+          border: solid #fff 2px;
+          border-radius: 20px;
+        }
 
-      li {
-        display: flex;
-        padding: 10px;
-        margin-bottom: 30px;
-        font-size: 14px;
+        li {
+          display: flex;
+          padding: 10px;
+          margin-bottom: 30px;
+          font-size: 14px;
 
-        a {
-          margin-left: 5px;
+          a {
+            margin-left: 5px;
+          }
+        }
+        .nonactive:hover {
+          transform: translateX(20px);
         }
       }
-      .nonactive:hover{
-        transform: translateX(20px);
-      }
     }
-  }
   }
 }
 @media screen and (max-width: 768px) {
-  .container{
-    .mypage__menu{
+  .container {
+    .mypage__menu {
       width: 99%;
       height: fit-content;
       margin: 0 auto;
-      .menu__list{
+      .menu__list {
         display: flex;
         justify-content: space-evenly;
         flex-wrap: wrap;
-        .nonactive:hover{
+        .nonactive:hover {
           transform: translateY(-10px);
         }
       }
