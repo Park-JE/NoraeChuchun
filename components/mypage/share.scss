@@ -24,7 +24,6 @@
       color: $white;
       margin-bottom: $base-space * 2;
 
-
       .info {
         display: flex;
         flex-direction: row;
@@ -44,227 +43,55 @@
             cursor: pointer;
           }
         }
-
-        .title.active {
-          font-size: 20px;
-          margin-bottom: 15px;
-          border: 1px solid #eee;
-          border-radius: 18px;
-          padding: 0.5em 0.5em;
-          background: #eee;
-          color: #160d35;
-        }
-
-        .find.active {
-          font-size: 20px;
-          margin-bottom: 15px;
-          border: 1px solid #eee;
-          border-radius: 18px;
-          padding: 0.5em 0.5em;
-          background: #eee;
-          color: #160d35;
-        }
       }
     }
 
-
-    margin-bottom: 15px;
-    border: 1px solid #eee;
-    border-radius: 20px;
-    padding: 0.5em 0.5em;
-    margin-right: 10px;
-
-    &:hover {
-      cursor: pointer;
+    .title.active {
+      font-size: 20px;
+      margin-bottom: 15px;
+      border: 1px solid #eee;
+      border-radius: 18px;
+      padding: 0.5em 0.5em;
+      background: #eee;
+      color: #160d35;
     }
-  }
 
-  .title.active {
-    font-size: 20px;
-    margin-bottom: 15px;
-    border: 1px solid #eee;
-    border-radius: 18px;
-    padding: 0.5em 0.5em;
-    background: #eee;
-    color: #160d35;
-  }
+    .find.active {
+      font-size: 20px;
+      margin-bottom: 15px;
+      border: 1px solid #eee;
+      border-radius: 18px;
+      padding: 0.5em 0.5em;
+      background: #eee;
+      color: #160d35;
+    }
 
-  .find.active {
-    font-size: 20px;
-    margin-bottom: 15px;
-    border: 1px solid #eee;
-    border-radius: 18px;
-    padding: 0.5em 0.5em;
-    background: #eee;
-    color: #160d35;
-  }
-}
+    .title-wrap {
+      display: none;
+    }
 
-
-.title-wrap {
-  display: none;
-}
-
-.title-wrap.active {
-  display: block;
-  width: 100%;
-  height: 550px;
-  color: #eee;
-  overflow-y: scroll;
-
-  color: #eee;
-
-
-  .sort {
-    width: 100%;
-    display: grid;
-    grid-template-columns: 3fr 3fr 1fr 40px;
-    column-gap: 5px;
-    border-top: 1px solid rgba(255, 255, 255, 0.2);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-    font-size: $font-small;
-    padding: 4px 0 4px $base-space;
-  }
-
-  .friends {
-
-    width: 100%;
-
-    .friend {
-      line-height: 3;
+    .title-wrap.active {
+      display: block;
       width: 100%;
-      display: grid;
-      grid-template-columns: 3fr 3fr 1fr 40px;
-      column-gap: 5px;
-      align-items: center;
-      justify-items: flex-start;
-      font-size: $font-small;
-      padding: 5px 0 5px $base-space;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+      height: 550px;
+      color: #eee;
 
-      .id {
-        display: flex;
-        align-items: center;
-
-        span {
-          margin-right: 3px;
-        }
+      .sort {
+        width: 100%;
+        display: grid;
+        grid-template-columns: 3fr 3fr 1fr 40px;
+        column-gap: 5px;
+        border-top: 1px solid rgba(255, 255, 255, 0.2);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        font-size: $font-small;
+        padding: 4px 0 4px $base-space;
       }
-    }
-  }
-}
 
-.find-wrap {
-  display: none;
-}
+      .friends {
 
-.find-wrap.active {
-  display: block;
-  width: 100%;
-  height: 550px;
-  color: #eee;
-  overflow-y: scroll;
-  line-height: 3;
-  width: 100%;
-  overflow-y: scroll;
-  height: 500px;
+        width: 100%;
 
-  &::-webkit-scrollbar {
-    width: 10px;
-    display: none;
-  }
-
-  &::-webkit-scrollbar-thumb {
-    background-color: #eee;
-    border-radius: 10px;
-  }
-
-  &::-webkit-scrollbar-track {
-    background-color: #2f3542;
-    border-radius: 10px;
-    box-shadow: inset 0px 0px 5px white;
-  }
-
-
-  .friend {
-    line-height: 3;
-    width: 100%;
-    display: grid;
-    grid-template-columns: 3fr 3fr 1fr 40px;
-    column-gap: 5px;
-    align-items: center;
-    justify-items: flex-start;
-    font-size: $font-small;
-    padding: 5px 0 5px $base-space;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-
-
-    .id {
-      display: flex;
-      align-items: center;
-
-    }
-
-    .shareBtn:hover {
-      cursor: pointer;
-    }
-  }
-}
-
-
-.find-wrap {
-  display: none;
-}
-
-.find-wrap.active {
-  display: block;
-  width: 100%;
-  height: 550px;
-  color: #eee;
-
-  .findInput {
-    position: absolute;
-    right: 30px;
-    top: 50px;
-
-    .searchInput {
-      position: absolute;
-      right: 30px;
-      top: 50px;
-      border: 0;
-      outline: none;
-      padding: $base-space/2 $base-space;
-      border-radius: $border-large;
-      background-color: transparent;
-      width: 250px;
-      padding: $base-space/2 $base-space * 2;
-      background-color: $white;
-
-    }
-
-    [type="search"]::-webkit-search-cancel-button,
-    [type="search"]::-webkit-search-decoration {
-      -webkit-appearance: none;
-      appearance: none;
-    }
-
-    .sort {
-      width: 100%;
-      display: grid;
-      grid-template-columns: 3fr 3fr 1fr 40px;
-      column-gap: 5px;
-      border-top: 1px solid rgba(255, 255, 255, 0.2);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-      font-size: $font-small;
-      padding: 4px 0 4px $base-space;
-    }
-
-    .friends {
-      width: 100%;
-
-      .allUser {
-        .user-list {
-
+        .friend {
           line-height: 3;
           width: 100%;
           display: grid;
@@ -275,186 +102,216 @@
           font-size: $font-small;
           padding: 5px 0 5px $base-space;
           border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-        }
+          overflow-y: scroll;
+          height: 500px;
 
-        .id {
-          display: flex;
-          align-items: center;
-
-          span {
-            margin-right: 3px;
+          &::-webkit-scrollbar {
+            width: 10px;
+            display: none;
           }
 
-          width: 250px;
-          padding: $base-space/2 $base-space * 2;
-          background-color: $white;
-
-        }
-
-        [type="search"]::-webkit-search-cancel-button,
-        [type="search"]::-webkit-search-decoration {
-          -webkit-appearance: none;
-          appearance: none;
-        }
-
-        .sort {
-          width: 100%;
-          display: grid;
-          grid-template-columns: 3fr 3fr 1.3fr 40px;
-          column-gap: 5px;
-          border-top: 1px solid rgba(255, 255, 255, 0.2);
-          border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-          font-size: $font-small;
-          padding: 4px 0 4px $base-space;
-        }
-
-        .allUsers {
-          width: 100%;
-
-          .allUser {
-            overflow-y: scroll;
-            height: 500px;
-
-            &::-webkit-scrollbar {
-              width: 10px;
-            }
-
-            &::-webkit-scrollbar-thumb {
-              background-color: #eee;
-              border-radius: 10px;
-            }
-
-            &::-webkit-scrollbar-track {
-              background-color: #2f3542;
-              border-radius: 10px;
-              box-shadow: inset 0px 0px 5px white;
-            }
-
-            .user-list {
-
-              line-height: 3;
-              width: 100%;
-              display: grid;
-              grid-template-columns: 3fr 3fr 1fr 40px;
-              column-gap: 5px;
-              align-items: center;
-              justify-items: flex-start;
-              font-size: $font-small;
-              padding: 5px 0 5px $base-space;
-              border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-            }
-
-            .id {
-              display: flex;
-              align-items: center;
-
-              span {
-                margin-right: 3px;
-
-              }
-
-              .addBtn {
-                &:hover {
-                  cursor: pointer;
-                }
-              }
-
-            }
+          &::-webkit-scrollbar-thumb {
+            background-color: #eee;
+            border-radius: 10px;
           }
-        }
-      }
 
-    }
-  }
+          &::-webkit-scrollbar-track {
+            background-color: #2f3542;
+            border-radius: 10px;
+            box-shadow: inset 0px 0px 5px white;
+          }
 
-
-
-
-  @media (min-width: 768px) and (max-width: 1023px) {
-    .share-main {
-      width: 740px;
-
-      .find-wrap {
-        .searchInput {
-          width: 150px;
-
-        }
-      }
-    }
-  }
-
-
-  @media screen and (max-width: 768px) {
-    .container {
-      display: flex;
-
-      flex-direction: column;
-
-      width: 100%;
-      flex-wrap: wrap;
-
-      .share-main {
-        width: 90%;
-        margin-top: 10px;
-
-        .description-wrap {
-          height: 30px;
-
-          .info {
+          .id {
             display: flex;
-            flex-direction: row;
-            justify-content: space-between;
-            margin-left: 10px;
-            font-weight: 700;
+            align-items: center;
 
             span {
-              font-size: 16px;
-              margin-bottom: 15px;
-              border: 1px solid #eee;
-              border-radius: 18px;
-              padding: 0.5em 0.5em;
-              margin-right: 10px;
+              margin-right: 3px;
+            }
+          }
+        }
+      }
+    }
 
+    .find-wrap {
+      display: none;
+    }
+
+    .find-wrap.active {
+      display: block;
+      width: 100%;
+      height: 550px;
+      color: #eee;
+
+      .findInput {
+        position: absolute;
+        right: 30px;
+        top: 50px;
+        border: 0;
+        outline: none;
+        padding: $base-space/2 $base-space;
+        border-radius: $border-large;
+        background-color: transparent;
+        width: 250px;
+        padding: $base-space/2 $base-space * 2;
+        background-color: $white;
+      }
+
+      .sort {
+        width: 100%;
+        display: grid;
+        grid-template-columns: 3fr 3fr 1.3fr 40px;
+        column-gap: 5px;
+        border-top: 1px solid rgba(255, 255, 255, 0.2);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        font-size: $font-small;
+        padding: 4px 0 4px $base-space;
+      }
+
+      .allUsers {
+        width: 100%;
+
+        .allUser {
+          overflow-y: scroll;
+          height: 500px;
+
+          &::-webkit-scrollbar {
+            width: 10px;
+            display: none;
+          }
+
+          &::-webkit-scrollbar-thumb {
+            background-color: #eee;
+            border-radius: 10px;
+          }
+
+          &::-webkit-scrollbar-track {
+            background-color: #2f3542;
+            border-radius: 10px;
+            box-shadow: inset 0px 0px 5px white;
+          }
+
+          .user-list {
+
+            line-height: 3;
+            width: 100%;
+            display: grid;
+            grid-template-columns: 3fr 3fr 1fr 40px;
+            column-gap: 5px;
+            align-items: center;
+            justify-items: flex-start;
+            font-size: $font-small;
+            padding: 5px 0 5px $base-space;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+          }
+
+          .id {
+            display: flex;
+            align-items: center;
+
+            span {
+              margin-right: 3px;
+
+            }
+
+            .addBtn {
               &:hover {
                 cursor: pointer;
               }
             }
 
-            .title.active {
-              font-size: 16px;
-            }
+          }
+        }
+      }
+    }
+  }
+}
 
-            .find.active {
-              font-size: 16px;
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .share-main {
+    width: 740px;
+
+    .find-wrap {
+      .searchInput {
+        width: 150px;
+
+      }
+    }
+  }
+}
+
+
+@media screen and (max-width: 768px) {
+  .container {
+    display: flex;
+
+    flex-direction: column;
+
+    width: 100%;
+    flex-wrap: wrap;
+
+    .share-main {
+      width: 90%;
+      margin-top: 10px;
+
+      .description-wrap {
+        height: 30px;
+
+        .info {
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+          margin-left: 10px;
+          font-weight: 700;
+
+          span {
+            font-size: 16px;
+            margin-bottom: 15px;
+            border: 1px solid #eee;
+            border-radius: 18px;
+            padding: 0.5em 0.5em;
+            margin-right: 10px;
+
+            &:hover {
+              cursor: pointer;
+            }
+          }
+
+          .title.active {
+            font-size: 16px;
+          }
+
+          .find.active {
+            font-size: 16px;
+          }
+        }
+      }
+
+      .title-wrap {
+        .sort {
+          font-size: 12px;
+          grid-template-columns: 4fr 3fr 1fr 30px;
+        }
+
+        .friends {
+          font-size: 13px;
+          grid-template-columns: 4fr 3fr 1fr 30px;
+
+          .id {
+            display: flex;
+            align-items: center;
+
+            span {
+              margin-right: 3px;
             }
           }
         }
+      }
 
-        .title-wrap {
-          .sort {
-            font-size: 12px;
-            grid-template-columns: 4fr 3fr 1fr 30px;
-          }
-
-          .friends {
-            font-size: 13px;
-            grid-template-columns: 4fr 3fr 1fr 30px;
-
-            .id {
-              display: flex;
-              align-items: center;
-
-              span {
-                margin-right: 3px;
-              }
-            }
-          }
-        }
-
-        .find-wrap.active {
-          .findInput {
-            width: 150px;
-          }
+      .find-wrap.active {
+        .findInput {
+          width: 150px;
         }
       }
     }

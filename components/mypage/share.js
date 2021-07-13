@@ -1,15 +1,9 @@
-<<<<<<< HEAD
 const title = document.querySelector(".title");
 const find = document.querySelector(".find");
 const title_wrap = document.querySelector(".title-wrap");
 const find_wrap = document.querySelector(".find-wrap");
 
-=======
-title = document.querySelector(".title");
-<<<<<<< HEAD
-find = document.querySelector(".find");
-title_wrap = document.querySelector(".title-wrap");
-find_wrap = document.querySelector(".find-wrap");
+
 
 find.addEventListener("click", () => {
   title.classList.remove("active");
@@ -49,11 +43,11 @@ loadUsers().then((users) => {
   displayUsers(users);
   // setEventListeners(items)
 });
-=======
+
 find = document.querySelector(".find")
 title_wrap = document.querySelector(".title-wrap")
 find_wrap = document.querySelector(".find-wrap");
->>>>>>> 5dfff212aa77ccf75e97c757bdc2b5107eb9a404
+
 
 find.addEventListener("click", () => {
   title.classList.remove("active");
@@ -66,12 +60,11 @@ title.addEventListener("click", () => {
   title.classList.add("active");
   title_wrap.classList.add("active");
   find_wrap.classList.remove("active");
-<<<<<<< HEAD
 });
 
 
 function loadUsers() {
-  return fetch("static/data/user.json")
+  return fetch("data/user.json")
     .then((response) => response.json())
     .then((json) => json.users);
 }
@@ -89,49 +82,45 @@ function createHTMLString(user) {
   </div>
   `;
 }
-//친구 검색 
-function filter() {
-  var name, id, i;
-  let findInput = document.querySelector(".findInput").value.toUpperCase();
-  userlist = document.getElementsByClassName("user-list");
+// //친구 검색
+// function filter() {
+//   var name, id, i;
+//   let findInput = document.querySelector(".findInput").value.toUpperCase();
+//   userlist = document.getElementsByClassName("user-list");
 
-  for (i = 0; i < userlist.length; i++) {
-    id = userlist[i].getElementsByClassName("find-id");
-    name = userlist[i].getElementsByClassName("find-name");
-    if (id[0].innerHTML.toUpperCase().indexOf(findInput) != -1 ||
-      name[0].innerHTML.toUpperCase().indexOf(findInput) != -1) {
-      userlist[i].style.display = "grid";
-    } else {
-      userlist[i].style.display = "none";
-    }
-  }
-}
-loadUsers().then((users) => {
-  displayUsers(users);
-});
+//   for (i = 0; i < userlist.length; i++) {
+//     id = userlist[i].getElementsByClassName("find-id");
+//     name = userlist[i].getElementsByClassName("find-name");
+//     if (id[0].innerHTML.toUpperCase().indexOf(findInput) != -1 ||
+//       name[0].innerHTML.toUpperCase().indexOf(findInput) != -1) {
+//       userlist[i].style.display = "grid";
+//     } else {
+//       userlist[i].style.display = "none";
+//     }
+//   }
+// }
+// loadUsers().then((users) => {
+//   displayUsers(users);
+// });
 
-//친구 추가 
-function addFriend(obj) {
-  const parent = obj.parentNode;
-  const id = parent.querySelector(".find-id").innerText
-  const name = parent.querySelector(".find-name").innerText
+// //친구 추가 
+// function addFriend(obj) {
+//   const parent = obj.parentNode;
+//   const id = parent.querySelector(".find-id").innerText;
+//   const name = parent.querySelector(".find-name").innerText;
 
-  let str = `
-  <div class="friend">
-    <span class="id"><span class="material-icons-outlined">
-      person
-    </span>${id}</span>
-    <span class="name">${name}</span>
-    <span class="material-icons-outlined shareBtn">
-      send_to_mobile
-    </span>
-  </div>
-  `
-  $(".friends").append(str);
-  alert("친구추가 되었습니다😃")
+//   let str = `
+//   <div class="friend">
+//     <span class="id"><span class="material-icons-outlined">
+//       person
+//     </span>${id}</span>
+//     <span class="name">${name}</span>
+//     <span class="material-icons-outlined shareBtn">
+//       send_to_mobile
+//     </span>
+//   </div>
+//   `
+//   $(".friends").append(str);
+//   alert("친구추가 되었습니다😃")
 
-}
-=======
-});
->>>>>>> 2885cf403e903364d6cf151d0da84ae112fbb2cd
->>>>>>> 5dfff212aa77ccf75e97c757bdc2b5107eb9a404
+// }
