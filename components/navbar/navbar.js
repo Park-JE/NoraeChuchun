@@ -17,7 +17,6 @@ window.addEventListener("scroll", () => {
 
 navMain.forEach((mainBtn) => {
   mainBtn.addEventListener("click", () => {
-    console.log("시발");
     window.location.href = "index.html";
   });
 });
