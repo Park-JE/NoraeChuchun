@@ -194,6 +194,7 @@ nav .login:hover {
 
 nav .mypage {
   margin-left: 16px;
+  cursor: pointer;
 }
 
 @media (max-width: 767px) {

@@ -1,5 +1,10 @@
 const body = document.querySelector("body");
 const navBar = document.querySelector("nav");
+const navMain = navBar.querySelectorAll(".navMain");
+const toLogin = navBar.querySelector(".searchAndLogin .toLogin");
+const myPage = navBar.querySelector(".searchAndLogin .mypage");
+
+console.log(toLogin, myPage);
 
 let prevScrollPos = window.pageYOffset;
 
@@ -11,4 +16,18 @@ window.addEventListener("scroll", () => {
     navBar.style.top = "-70px";
   }
   prevScrollPos = currentScrollPos;
+});
+
+navMain.forEach((mainBtn) => {
+  mainBtn.addEventListener("click", () => {
+    window.location.href = "index.html";
+  });
+});
+
+myPage.addEventListener("click", () => {
+  window.location.href = "mypage.html";
+});
+
+toLogin.addEventListener("click", () => {
+  window.location.href = "login.html";
 });

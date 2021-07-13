@@ -28,10 +28,12 @@
   <body>
     <nav>
       <div class="logoAndName">
-        <a href="{% url 'index' %}"
-          ><img class="logo" src="{% static 'img/favicon.png' %}" alt="img"
-        /></a>
-        <a href="{% url 'index' %}" class="name">날씨음악</a>
+        <img
+          class="logo navMain"
+          src="{% static 'img/favicon.png' %}"
+          alt="img"
+        />
+        <span class="name navMain">날씨음악</span>
       </div>
       <div class="searchAndLogin">
         <input
@@ -45,13 +47,13 @@
         </button>
         <button class="btn close"><i class="fas fa-times fa-lg"></i></button>
         {% if user.is_authenticated %}
-        <a href="{% url 'mypage' %}" class="mypage">마이페이지</a>
+        <span class="mypage">마이페이지</span>
         <form action="{% url 'logout' %}" method="POST">
           {% csrf_token %}
           <input type="submit" class="login" value="로그아웃" />
         </form>
         {% else %}
-        <a href="{% url 'login' %}" class="login">로그인</a>
+        <span class="login toLogin">로그인</span>
         {% endif %}
       </div>
     </nav>
