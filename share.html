@@ -2,6 +2,7 @@
 <!DOCTYPE html>
 <html lang="ko">
 
+<<<<<<< HEAD
 <head>
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -70,6 +71,56 @@
           <span class="title active">친구목록</span>
           <span class="find">친구검색</span>
         </div>
+=======
+  <body>
+    <nav>
+      <div class="logoAndName">
+        <img
+          class="logo navMain"
+          src="{% static 'img/favicon.png' %}"
+          alt="img"
+        />
+        <span class="name navMain">날씨음악</span>
+      </div>
+      <div class="searchAndLogin">
+        <input
+          id="index"
+          type="search"
+          class="searchInput"
+          placeholder="검색"
+        />
+        <button class="btn search">
+          <i class="fas fa-search fa-lg"></i>
+        </button>
+        <button class="btn close"><i class="fas fa-times fa-lg"></i></button>
+        {% if user.is_authenticated %}
+        <a href="{% url 'mypage' %}" class="mypage">마이페이지</a>
+        <form action="logout" method="POST">
+          {% csrf_token %}
+          <input type="submit" class="login" value="로그아웃" />
+        </form>
+        {% else %}
+        <span class="login toLogin">로그인</span>
+        {% endif %}
+      </div>
+    </nav>
+    <div class="container">
+      <div class="mypage__menu">
+        <ul class="menu__list">
+          <li class="list-group-item nonactive material-icons">
+            account_circle<a href="/mypage">비밀번호 변경</a>
+          </li>
+          <li class="list-group-item nonactive material-icons">
+            music_note<a href="/myplaylist">나의 플레이리스트</a>
+          </li>
+          <li class="list-group-item active material-icons">
+            person_add<a href="/share">친구목록</a>
+          </li>
+          <li class="list-group-item nonactive material-icons">
+            delete_forever<a href="/secession">회원탈퇴</a>
+          </li>
+        </ul>
+>>>>>>> ace629db0e1ed475d9c240f92bd05b94df8da730
       </div>
       <!-- 친구목록 -->
       <div class="title-wrap active">
