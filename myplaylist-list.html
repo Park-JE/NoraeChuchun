@@ -19,6 +19,25 @@
     <title>Document</title>
   </head>
 
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./components/navbar/navbar.scss" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="./components/mypage/menu.css" />
+    <link rel="stylesheet" href="./components/mypage/share.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />
+    <title>Document</title>
+  </head>
+
   <body>
     <nav>
       <div class="logoAndName">
@@ -44,7 +63,37 @@
         <!-- {% endif %} -->
       </div>
     </nav>
-    <div class="container"></div>
+
+    <div class="container">
+      <section class="playlist-main">
+        <div class="description-wrap">
+          <img
+            src="img/playlistCovers/night.jpeg"
+            alt="platlist-cover"
+            class="cover"
+          />
+          <div class="info">
+            <span class="title">모두가 잠든 새벽</span>
+            <div class="tags">
+              <span class="filter">#밤/새벽</span>
+              <span class="filter">#겨울</span>
+            </div>
+            <div class="songs">
+              <i class="fas fa-compact-disc"></i>
+              <span class="count">30곡</span>
+            </div>
+          </div>
+        </div>
+        <div class="content-wrap">
+          <div class="sort">
+            <span class="name">곡</span>
+            <span class="artist">아티스트</span>
+            <span class="album">앨범</span>
+            <span class="add">담기</span>
+          </div>
+        </div>
+      </section>
+    </div>
     <div class="bg-1"></div>
     <div class="bg-2"></div>
     <div class="bg-3"></div>
