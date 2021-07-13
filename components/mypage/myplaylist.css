@@ -176,7 +176,7 @@ li {
   position: absolute;
   display: block;
   z-index: 2;
-  width: 640px;
+  width: 600px;
   height: 400px;
   left: 0;
   right: 0;
@@ -184,13 +184,9 @@ li {
   bottom: 0;
   margin: auto auto;
   padding: 24px 16px;
-  background: #200122;
-  opacity: 0.95;
-  /* fallback for old browsers */
-  /* Chrome 10-25, Safari 5.1-6 */
-  background: -webkit-gradient(linear, left top, right top, from(#200122), to(#14023f));
-  background: linear-gradient(to right, #200122, #14023f);
-  border-radius: 10px;
+  opacity: 0.9;
+  background-image: url("/img/bg.jpeg");
+  border-radius: 20px;
 }
 
 .container .newplaylist.active .newplaylist__container {
