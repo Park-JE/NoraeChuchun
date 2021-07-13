@@ -135,7 +135,7 @@ li {
     display: none;
   }
 
-  @keyframes fadeIn {
+  @keyframes addFadeIn {
     from {
       transform: translateY(20px);
       opacity: 0;
@@ -147,7 +147,7 @@ li {
   }
 
   .newplaylist.active {
-    animation: fadeIn 0.2s linear;
+    animation: addFadeIn 0.2s linear;
     position: absolute;
     display: block;
     z-index: 2;
