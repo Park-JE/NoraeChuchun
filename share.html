@@ -12,6 +12,8 @@
   <script defer src="./components/mypage/share.js"></script>
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined">
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
   <title>Document</title>
 </head>
 
@@ -63,31 +65,28 @@
           <span class="share">공유</span>
         </div>
         <div class="friends">
-          <span class="id"><span class="material-icons-outlined">
-              person
-            </span>gajeong</span>
-          <span class="name">김가궁</span>
-          <span class="material-icons-outlined">
-            send_to_mobile
-          </span>
+          <div class="friend">
+            <span class="id"><span class="material-icons-outlined">
+                person
+              </span>gajeong</span>
+            <span class="name">김가궁</span>
+            <span class="material-icons-outlined shareBtn">
+              send_to_mobile
+            </span>
+          </div>
         </div>
       </div>
       <!-- 친구검색 -->
       <div class="find-wrap">
-        <input type="search" class="searchInput" placeholder="검색">
+        <input type="search" onkeyup="filter()" class="findInput" placeholder="검색">
         <div class="sort">
           <span class=" id">아이디</span>
           <span class="name">이름</span>
           <span class="share">추가</span>
         </div>
-        <div class="friends">
-          <span class="id"><span class="material-icons-outlined">
-              person
-            </span>gajeong</span>
-          <span class="name">김가궁</span>
-          <span class="material-icons-outlined">
-            person_add_alt
-          </span>
+        <div class="allUsers">
+          <div class="allUser"></div>
+
         </div>
       </div>
     </div>
