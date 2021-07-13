@@ -106,6 +106,25 @@
 
 .container .share-main .title-wrap.active .friends {
   width: 100%;
+  height: 500px;
+  overflow-y: scroll;
+}
+
+.container .share-main .title-wrap.active .friends::-webkit-scrollbar {
+  width: 10px;
+  display: none;
+}
+
+.container .share-main .title-wrap.active .friends::-webkit-scrollbar-thumb {
+  background-color: #eee;
+  border-radius: 10px;
+}
+
+.container .share-main .title-wrap.active .friends::-webkit-scrollbar-track {
+  background-color: #2f3542;
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0px 0px 5px white;
+          box-shadow: inset 0px 0px 5px white;
 }
 
 .container .share-main .title-wrap.active .friends .friend {
@@ -124,25 +143,6 @@
   font-size: 14px;
   padding: 5px 0 5px 16px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-  overflow-y: scroll;
-  height: 500px;
-}
-
-.container .share-main .title-wrap.active .friends .friend::-webkit-scrollbar {
-  width: 10px;
-  display: none;
-}
-
-.container .share-main .title-wrap.active .friends .friend::-webkit-scrollbar-thumb {
-  background-color: #eee;
-  border-radius: 10px;
-}
-
-.container .share-main .title-wrap.active .friends .friend::-webkit-scrollbar-track {
-  background-color: #2f3542;
-  border-radius: 10px;
-  -webkit-box-shadow: inset 0px 0px 5px white;
-          box-shadow: inset 0px 0px 5px white;
 }
 
 .container .share-main .title-wrap.active .friends .friend .id {
@@ -187,8 +187,8 @@
   width: 100%;
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 3fr 3fr 1.3fr 40px;
-      grid-template-columns: 3fr 3fr 1.3fr 40px;
+  -ms-grid-columns: 3fr 3fr 1fr 40px;
+      grid-template-columns: 3fr 3fr 1fr 40px;
   -webkit-column-gap: 5px;
           column-gap: 5px;
   border-top: 1px solid rgba(255, 255, 255, 0.2);
@@ -241,7 +241,7 @@
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 }
 
-.container .share-main .find-wrap.active .allUsers .allUser .id {
+.container .share-main .find-wrap.active .allUsers .allUser .user-list .id {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -250,11 +250,7 @@
           align-items: center;
 }
 
-.container .share-main .find-wrap.active .allUsers .allUser .id span {
-  margin-right: 3px;
-}
-
-.container .share-main .find-wrap.active .allUsers .allUser .id .addBtn:hover {
+.container .share-main .find-wrap.active .allUsers .allUser .user-list .addBtn:hover {
   cursor: pointer;
 }
 

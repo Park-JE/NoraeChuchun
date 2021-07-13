@@ -1,84 +1,61 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="shortcut icon" href="{% static 'img/favicon.png' %}" />
-  <title>날씨에 맞는 음악 추천</title>
-  <script src="https://kit.fontawesome.com/ef81e253aa.js" crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="{% static 'css/style.css' %}" />
-  <link rel="stylesheet" href="{% static 'components/search/search.css' %}" />
-  <script defer src="{% static 'components/navbar/navbar.js' %}"></script>
-  <script defer src="{% static 'components/weatherMusic/music.js' %}"></script>
-  <script defer src="{% static 'components/mainpage_playlist/mainpagePlaylist.js' %}"></script>
-  <script defer src="{% static 'components/search/search.js' %}"></script>
-</head>
-
-<body>
-  <nav>
-    <div class="logoAndName">
-      <a href="{% url 'index' %}"><img class="logo" src="{% static 'img/favicon.png' %}" alt="img" /></a>
-      <a href="{% url 'index' %}" class="name">날씨음악</a>
-    </div>
-    <div class="searchAndLogin">
-      <input id="index" type="search" class="searchInput" placeholder="검색" />
-      <button class="btn search">
-        <i class="fas fa-search fa-lg"></i>
-      </button>
-      <button class="btn close"><i class="fas fa-times fa-lg"></i></button>
-      {% if user.is_authenticated %}
-      <a href="{% url 'mypage' %}" class="mypage">마이페이지</a>
-      <form action="{% url 'logout' %}" method="POST">
-      {% csrf_token %}
-      <input type="submit" class="login" value="로그아웃" />
-      </form>
-      {% else %}
-      <a href="{% url 'login' %}" class="login">로그인</a>
-      {% endif %}
-    </div>
-  </nav>
-  <section class="search-wrap">
-    <h2 class="value"></h2>
-    <div class="noResult">
-      <i class="fas fa-exclamation-triangle"></i>
-      <span class="text">검색 결과가 없습니다.</span>
-    </div>
-    <div class="sort">
-      <span class="name">곡</span>
-      <span class="artist">아티스트</span>
-      <span class="album">앨범</span>
-      <span class="add">담기</span>
-    </div>
-    <ul class="musicList"></ul>
-  </section>
-
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="{% static 'img/favicon.png' %}" />
+    <title>날씨에 맞는 음악 추천</title>
+    <script
+      src="https://kit.fontawesome.com/ef81e253aa.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    <link rel="stylesheet" href="{% static 'components/search/search.css' %}" />
+    <script defer src="{% static 'components/navbar/navbar.js' %}"></script>
+    <script
+      defer
+      src="{% static 'components/weatherMusic/music.js' %}"
+    ></script>
+    <script
+      defer
+      src="{% static 'components/mainpage_playlist/mainpagePlaylist.js' %}"
+    ></script>
+    <script defer src="{% static 'components/search/search.js' %}"></script>
+  </head>
   <body>
     <nav>
       <div class="logoAndName">
-        <a href="index"><img class="logo" src="img/favicon.png" alt="img" /></a>
-        <a href="index" class="name">날씨음악</a>
+        <img
+          class="logo navMain"
+          src="{% static 'img/favicon.png' %}"
+          alt="img"
+        />
+        <span class="name navMain">날씨음악</span>
       </div>
       <div class="searchAndLogin">
-        <input type="search" class="searchInput" placeholder="검색" />
+        <input
+          id="index"
+          type="search"
+          class="searchInput"
+          placeholder="검색"
+        />
         <button class="btn search">
           <i class="fas fa-search fa-lg"></i>
         </button>
         <button class="btn close"><i class="fas fa-times fa-lg"></i></button>
-        <!-- {% if user.is_authenticated %} -->
-        <!-- <a href="mypage.html" class="mypage">마이페이지</a> -->
-        <!-- <form action="{% url 'logout' %}" method="POST"> -->
-        <!-- {% csrf_token %} -->
-        <!-- <input type="submit" class="login" value="로그아웃" /> -->
-        <!-- </form> -->
-        <!-- {% else %} -->
-        <a href="login" class="login">로그인</a>
-        <!-- {% endif %} -->
+        {% if user.is_authenticated %}
+        <a href="{% url 'mypage' %}" class="mypage">마이페이지</a>
+        <form action="logout" method="POST">
+          {% csrf_token %}
+          <input type="submit" class="login" value="로그아웃" />
+        </form>
+        {% else %}
+        <span class="login toLogin">로그인</span>
+        {% endif %}
       </div>
     </nav>
-
     <section class="search-wrap">
       <h2 class="value"></h2>
       <div class="noResult">
@@ -93,10 +70,5 @@
       </div>
       <ul class="musicList"></ul>
     </section>
-
-    <div class="bg-1"></div>
-    <div class="bg-2"></div>
-    <div class="bg-3"></div>
   </body>
-
 </html>

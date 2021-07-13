@@ -37,7 +37,8 @@ document.addEventListener("click", (e) => {
       e.target.className !== "filters" &&
       e.target.className !== "btn-box" &&
       e.target.className !== "btn reset" &&
-      e.target.parentNode.className !== "filters") ||
+      e.target.parentNode.className !== "filters" &&
+      e.target.className !== "mypage") ||
     e.target.className === "btn close" ||
     e.target.className === "fas fa-times fa-lg"
   ) {
