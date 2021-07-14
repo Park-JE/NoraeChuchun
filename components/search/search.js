@@ -153,8 +153,8 @@ searchBtn.addEventListener("click", () => {
   if (inputBox.classList.contains("active")) {
     setCookie("value", inputBox.value, 1);
     setCookie("inputId", inputBox.id, 1);
-    if (getCookie("value") !== "search") {
-      window.location.href = "index";
+    if (getCookie("inputId") !== "search") {
+      window.location.href = "search";
     }
   } else {
     inputBox.classList.add("active");
@@ -179,8 +179,8 @@ inputBox.addEventListener("keypress", (e) => {
   if (e.key === "Enter") {
     setCookie("inputId", inputBox.id, 1);
     setCookie("value", inputBox.value, 1);
-    if (getCookie("value") !== "search") {
-      window.location.href = "index";
+    if (getCookie("inputId") !== "search") {
+      window.location.href = "search";
     }
   }
 });
