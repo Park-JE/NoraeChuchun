@@ -29,9 +29,12 @@ function addPlaylist() {
   if (title.value == "") {
     alert("제목을 입력해주세요😥");
   } else {
-    let str = `<li class="list-group-play" onclick="pageChange(this);">
-    <img class="myplaylist__thumnail" src="./static/img/albumCovers/22.jpg" alt="플레이리스트 이미지" />
-    <div class="myplaylist__title">`+ title.value + `</div>
+    let str =
+      `<li class="list-group-play" onclick="pageChange(this);">
+    <img class="myplaylist__thumnail" src="img/albumCovers/22.jpg" alt="플레이리스트 이미지" />
+    <div class="myplaylist__title">` +
+      title.value +
+      `</div>
     <span class="myplaylist__count">노래 0곡</span>
     <span title="공유하기" class="material-icons-outlined myplaylist__shareBtn">ios_share</span>
   </li>`;
@@ -43,7 +46,6 @@ function addPlaylist() {
     desc.value = "";
   }
 }
-
 
 function pageChange(obj) {
   console.log($($(obj).children()[1]).html());

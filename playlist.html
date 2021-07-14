@@ -1,49 +1,32 @@
-{% load static %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="shortcut icon" href="{% static 'img/favicon.png' %}" />
+    <link rel="shortcut icon" href="img/favicon.png" />
     <title>날씨에 맞는 음악 추천</title>
     <script
       src="https://kit.fontawesome.com/ef81e253aa.js"
       crossorigin="anonymous"
     ></script>
-    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
-    <link
-      rel="stylesheet"
-      href="{% static 'components/mainpage_playlist/playlist.css' %}"
-    />
-    <script defer src="{% static 'components/navbar/navbar.js' %}"></script>
-    <script defer src="{% static 'components/search/search.js' %}"></script>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="components/mainpage_playlist/playlist.css" />
+    <script defer src="components/navbar/navbar.js"></script>
+    <script defer src="components/search/search.js"></script>
+    <script defer src="components/weatherMusic/weather.js"></script>
+    <script defer src="components/weatherMusic/music.js"></script>
     <script
       defer
-      src="{% static 'components/weatherMusic/weather.js' %}"
+      src="components/mainpage_playlist/mainpagePlaylist.js"
     ></script>
-    <script
-      defer
-      src="{% static 'components/weatherMusic/music.js' %}"
-    ></script>
-    <script
-      defer
-      src="{% static 'components/mainpage_playlist/mainpagePlaylist.js' %}"
-    ></script>
-    <script
-      defer
-      src="{% static 'components/mainpage_playlist/filterPlaylist.js' %}"
-    ></script>
-    <script defer src="{% static 'components/playlist/playlist.js' %}"></script>
+    <script defer src="components/mainpage_playlist/filterPlaylist.js"></script>
+    <script defer src="components/playlist/playlist.js"></script>
   </head>
   <body>
     <nav>
       <div class="logoAndName">
-        <img
-          class="logo navMain"
-          src="{% static 'img/favicon.png' %}"
-          alt="img"
-        />
+        <img class="logo navMain" src="img/favicon.png" alt="img" />
         <span class="name navMain">날씨음악</span>
       </div>
       <div class="searchAndLogin">
@@ -56,16 +39,12 @@
         <button class="btn search">
           <i class="fas fa-search fa-lg"></i>
         </button>
-        <button class="btn close"><i class="fas fa-times fa-lg"></i></button>
-        {% if user.is_authenticated %}
-        <a href="{% url 'mypage' %}" class="mypage">마이페이지</a>
+        <!-- <button class="btn close"><i class="fas fa-times fa-lg"></i></button>
+        <a href="mypage.html" class="mypage">마이페이지</a>
         <form action="logout" method="POST">
-          {% csrf_token %}
           <input type="submit" class="login" value="로그아웃" />
-        </form>
-        {% else %}
+        </form> -->
         <span class="login toLogin">로그인</span>
-        {% endif %}
       </div>
     </nav>
     <section class="playlist-main">
