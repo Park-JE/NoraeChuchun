@@ -17,10 +17,10 @@ window.addEventListener("scroll", () => {
 
 navMain.forEach((mainBtn) => {
   mainBtn.addEventListener("click", () => {
-    window.location.href = "index.html";
+    window.location.href = "index";
   });
 });
 
 toLogin.addEventListener("click", () => {
-  window.location.href = "login.html";
+  window.location.href = "login";
 });

@@ -89,8 +89,8 @@ body .content-wrap .music {
   width: 100%;
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 2fr 4fr 3fr 3fr 40px;
-      grid-template-columns: 2fr 4fr 3fr 3fr 40px;
+  -ms-grid-columns: 4fr 3fr 3fr 40px;
+      grid-template-columns: 4fr 3fr 3fr 40px;
   -webkit-column-gap: 5px;
           column-gap: 5px;
   -webkit-box-align: center;
