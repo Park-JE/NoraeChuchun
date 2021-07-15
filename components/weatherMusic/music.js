@@ -1,3 +1,4 @@
+// music.json 불러오기
 function loadItems() {
   const config = {
     headers: { Accept: "application/json" },
@@ -7,6 +8,7 @@ function loadItems() {
     .catch((error) => console.log("error", error));
 }
 
+// 날씨에 맞는 추천 음악 요소 생성
 function createElement(music) {
   const li = document.createElement("li");
   li.setAttribute("class", "music");
@@ -21,11 +23,11 @@ function createElement(music) {
 
   const name = document.createElement("span");
   name.setAttribute("class", "name");
-  name.innerText = `${music.title}`;
+  name.textContent = `${music.title}`;
 
   const artist = document.createElement("span");
   artist.setAttribute("class", "artist");
-  artist.innerText = `${music.artist}`;
+  artist.textContent = `${music.artist}`;
 
   songInfo.append(name);
   songInfo.append(artist);
@@ -35,6 +37,7 @@ function createElement(music) {
   return li;
 }
 
+// 현재 날짜, 시간에 따라 카테고리 분류
 let today = new Date();
 let month = today.getMonth() + 1;
 let date = today.getDate;
@@ -63,5 +66,32 @@ const matchTime = () => {
     return "저녁";
   } else {
     return "밤/ 새벽";
+  }
+};
+
+// 현재 온도와 날씨 상태에 따라 카테고리 분류
+const matchTemp = (temp) => {
+  if (temp <= 4) {
+    return "눈오는 날";
+  } else if (5 <= temp && temp <= 10) {
+    return "환절기";
+  } else if (11 <= temp && temp <= 16) {
+    return "쌀쌀한 날";
+  } else if (17 <= temp && temp <= 22) {
+    return "선선한 날";
+  } else if (23 <= temp) {
+    return "폭염/ 더위";
+  }
+};
+
+const matchWeather = (weather1, weather2) => {
+  if (weather1 === "Clear") {
+    return "화창한 날";
+  } else if (weather1 === "Clouds" && (weather2 === 801 || weather2 === 803)) {
+    return "비온 후/ 맑게 갠";
+  } else if (weather1 === "Snow") {
+    return "눈오는 날";
+  } else {
+    return "비/ 흐림";
   }
 };

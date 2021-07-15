@@ -1,8 +1,6 @@
+// 스크롤 내릴 때 네비바 사라짐, 스크롤 올릴 때 네비바 등장
 const body = document.querySelector("body");
-const navBar = document.querySelector("nav");
-const navMain = navBar.querySelectorAll(".navMain");
-const toLogin = navBar.querySelector(".searchAndLogin .toLogin");
-
+const navBar = body.querySelector("nav");
 let prevScrollPos = window.pageYOffset;
 
 window.addEventListener("scroll", () => {
@@ -13,14 +11,4 @@ window.addEventListener("scroll", () => {
     navBar.style.top = "-70px";
   }
   prevScrollPos = currentScrollPos;
-});
-
-navMain.forEach((mainBtn) => {
-  mainBtn.addEventListener("click", () => {
-    window.location.href = "index";
-  });
-});
-
-toLogin.addEventListener("click", () => {
-  window.location.href = "login";
 });

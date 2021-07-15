@@ -20,7 +20,7 @@ const outputSearchHtml = (matches, searchText) => {
         (match) =>
           `<div class="music">
           <div class="coverAndName">
-          <img src="static/img/albumCovers/${match.cover}" alt="img" class="cover" />
+          <img src="img/albumCovers/${match.cover}" alt="img" class="cover" />
           <span class="name">${match.title}</span>
           </div>
           <span class="artist">${match.artist}</span>
@@ -63,7 +63,6 @@ const outputSearchHtml = (matches, searchText) => {
             e.target.className !== "addMusicBtn" &&
             e.target.className !== "fas fa-list fa-lg"
           ) {
-            e.preventDefault();
             addModal.remove();
           }
         });
@@ -154,7 +153,7 @@ searchBtn.addEventListener("click", () => {
     setCookie("value", inputBox.value, 1);
     setCookie("inputId", inputBox.id, 1);
     if (getCookie("inputId") !== "search") {
-      window.location.href = "search";
+      window.location.href = "search.html";
     }
   } else {
     inputBox.classList.add("active");
@@ -180,7 +179,7 @@ inputBox.addEventListener("keypress", (e) => {
     setCookie("inputId", inputBox.id, 1);
     setCookie("value", inputBox.value, 1);
     if (getCookie("inputId") !== "search") {
-      window.location.href = "search";
+      window.location.href = "search.html";
     }
   }
 });

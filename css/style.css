@@ -529,13 +529,28 @@ nav .mypage {
   cursor: pointer;
 }
 
+.musicFilter-wrap .titleAndFilters .blank-bar {
+  height: 100vh;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  z-index: 3;
+  left: 0;
+  top: 0;
+  display: none;
+}
+
+.musicFilter-wrap .titleAndFilters .blank-bar.active {
+  display: block;
+}
+
 .musicFilter-wrap .titleAndFilters .filter-bar {
   position: fixed;
   right: -300px;
   top: 0;
-  height: 100%;
+  height: 100vh;
   width: 300px;
-  z-index: 3;
+  z-index: 4;
   padding: 0 25px;
   -webkit-transition: all 0.3s ease;
   transition: all 0.3s ease;

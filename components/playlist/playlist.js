@@ -38,6 +38,10 @@ function createSong(song) {
   return music;
 }
 
+document.addEventListener("click", (e) => {
+  console.dir(e.target.classList);
+});
+
 const displayPlaylistCookies = () => {
   const cookieArray = getCookieArray("playlist");
   const music = cookieArray[1].map(createSong);
@@ -87,7 +91,6 @@ const displayPlaylistCookies = () => {
       <div class="myPlaylist">운동할 때 들어야지</div>
       <div class="myPlaylist">집갈 때 들어야지</div>`;
       addBtn.after(addModal);
-
       document.addEventListener("click", (e) => {
         if (
           e.target.className !== "addModal" &&
@@ -95,7 +98,6 @@ const displayPlaylistCookies = () => {
           e.target.className !== "addMusicBtn" &&
           e.target.className !== "fas fa-list fa-lg"
         ) {
-          e.preventDefault();
           addModal.remove();
         }
       });

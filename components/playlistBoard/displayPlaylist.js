@@ -1,3 +1,7 @@
+let musicList = [];
+let newList = [];
+const playlistWrap = document.querySelector(".playlist-wrap");
+
 function loadPlaylists() {
   const config = {
     headers: { Accept: "application/json" },
@@ -7,8 +11,42 @@ function loadPlaylists() {
     .catch((error) => console.log("error", error));
 }
 
+loadItems()
+  .then((data) => {
+    musicList = data.music;
+  })
+  .catch(console.log);
+
+loadPlaylists()
+  .then((data) => {
+    newList = data.playlists.map((playlist) => {
+      let playlistMood = playlist.mood;
+      musicList.forEach((music) => {
+        let musicMood = music.mood;
+        const checkArray = playlistMood.filter((category) =>
+          musicMood.includes(category)
+        );
+        if (JSON.stringify(playlistMood) === JSON.stringify(checkArray)) {
+          playlist.musicList.push(music);
+          return musicList;
+        }
+      });
+      return playlist;
+    });
+
+    const playlist = newList.map(createPlaylist);
+    playlistWrap.append(...playlist);
+    const playlistDiv = playlist.map((item) => item);
+
+    optionBtns.forEach((optionBtn) => {
+      optionBtn.addEventListener("click", (event) => {
+        onButtonClick(event, [playlistDiv]);
+      });
+    });
+  })
+  .catch(console.log);
+
 function showNewPlaylist(list) {
-  const playlistWrap = document.querySelector(".playlist-wrap");
   while (playlistWrap.firstChild) {
     playlistWrap.removeChild(playlistWrap.firstChild);
   }
