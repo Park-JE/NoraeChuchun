@@ -6,13 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="shortcut icon" href="img/favicon.ico" />
     <script
+      defer
       src="https://kit.fontawesome.com/ef81e253aa.js"
       crossorigin="anonymous"
     ></script>
-    <link rel="stylesheet" href="css/style.css" />
-    <link rel="stylesheet" href=".components/navbar/navbar.scss" />
-    <link rel="stylesheet" href=".components/mypage/menu.css" />
-    <link rel="stylesheet" href="./components/mypage/myplaylist.css" />
     <link
       rel="stylesheet"
       href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined"
@@ -21,14 +18,13 @@
       rel="stylesheet"
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
     />
-    <script defer src=".components/mypage/myplaylist.js"></script>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="components/mypage/menu.css" />
+    <link rel="stylesheet" href="components/mypage/myplaylist.css" />
+
     <script defer src="components/navbar/navbar.js"></script>
-    <script defer src="components/weatherMusic/music.js"></script>
-    <script
-      defer
-      src="components/mainpage_playlist/mainpagePlaylist.js"
-    ></script>
     <script defer src="components/search/search.js"></script>
+    <script defer src="components/mypage/myplaylist.js"></script>
     <script
       defer
       src="https://code.jquery.com/jquery-3.6.0.min.js"
@@ -40,10 +36,10 @@
 
   <body>
     <nav>
-      <div class="logoAndName">
-        <img class="logo navMain" src="img/favicon.png" alt="img" />
-        <span class="name navMain">날씨음악</span>
-      </div>
+      <a href="index.html" class="logoAndName">
+        <img class="logo" src="img/favicon.png" alt="img" />
+        <span class="name">날씨음악</span>
+      </a>
       <div class="searchAndLogin">
         <input
           id="index"
@@ -55,11 +51,12 @@
           <i class="fas fa-search fa-lg"></i>
         </button>
         <button class="btn close"><i class="fas fa-times fa-lg"></i></button>
-        <!-- <a href="mypage.html" class="mypage">마이페이지</a>
-      <form action="logout" method="POST">
-        <input type="submit" class="login" value="로그아웃" />
-      </form> -->
-        <span class="login toLogin">로그인</span>
+        <a href="mypage.html" class="mypage">마이페이지</a>
+        <form action="logout" method="POST">
+          <label for="logout" class="login">로그아웃</label>
+          <input id="logout" type="submit" class="logout" value="로그아웃" />
+        </form>
+        <!-- <a href="login.html"><span class="login">로그인</span></a> -->
       </div>
     </nav>
     <div class="container">
@@ -91,7 +88,7 @@
           <li class="list-group-play" onclick="pageChange(this);">
             <img
               class="myplaylist__thumnail"
-              src=".img/albumCovers/하루살이.jpeg"
+              src="img/albumCovers/rum.jpeg"
               alt="플레이리스트 이미지"
             />
             <div class="myplaylist__title">운동할때 들어야징</div>

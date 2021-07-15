@@ -6,14 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="shortcut icon" href="img/favicon.ico" />
     <script
+      defer
       src="https://kit.fontawesome.com/ef81e253aa.js"
       crossorigin="anonymous"
     ></script>
-    <link rel="stylesheet" href=".components/navbar/navbar.scss" />
-    <link rel="stylesheet" href="css/style.css" />
-    <link rel="stylesheet" href=".components/mypage/menu.css" />
-    <link rel="stylesheet" href=".components/mypage/share.css" />
-    <link rel="stylesheet" href=".components/mypage/myplaylist-list.css" />
     <link
       rel="stylesheet"
       href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined"
@@ -22,12 +18,11 @@
       rel="stylesheet"
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
     />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="components/mypage/menu.css" />
+    <link rel="stylesheet" href="components/mypage/share.css" />
+    <link rel="stylesheet" href="components/mypage/myplaylist-list.css" />
     <script defer src="components/navbar/navbar.js"></script>
-    <script defer src="components/weatherMusic/music.js"></script>
-    <script
-      defer
-      src="components/mainpage_playlist/mainpagePlaylist.js"
-    ></script>
     <script defer src="components/search/search.js"></script>
     <script defer src="components/mypage/myplaylist-list.js"></script>
     <script
@@ -41,13 +36,13 @@
 
   <body>
     <nav>
-      <div class="logoAndName">
-        <a href="index"><img class="logo" src="img/favicon.png" alt="img" /></a>
-        <a href="index" class="name">날씨음악</a>
-      </div>
+      <a href="index.html" class="logoAndName">
+        <img class="logo" src="img/favicon.png" alt="img" />
+        <span class="name">날씨음악</span>
+      </a>
       <div class="searchAndLogin">
         <input
-          id="myplaylistList"
+          id="index"
           type="search"
           class="searchInput"
           placeholder="검색"
@@ -56,15 +51,12 @@
           <i class="fas fa-search fa-lg"></i>
         </button>
         <button class="btn close"><i class="fas fa-times fa-lg"></i></button>
-        <!-- {% if user.is_authenticated %} -->
-        <!-- <a href="mypage.html" class="mypage">마이페이지</a> -->
-        <!-- <form action="{% url 'logout' %}" method="POST"> -->
-        <!-- {% csrf_token %} -->
-        <!-- <input type="submit" class="login" value="로그아웃" /> -->
-        <!-- </form> -->
-        <!-- {% else %} -->
-        <a href="login" class="login">로그인</a>
-        <!-- {% endif %} -->
+        <a href="mypage.html" class="mypage">마이페이지</a>
+        <form action="logout" method="POST">
+          <label for="logout" class="login">로그아웃</label>
+          <input id="logout" type="submit" class="logout" value="로그아웃" />
+        </form>
+        <!-- <a href="login.html"><span class="login">로그인</span></a> -->
       </div>
     </nav>
 
@@ -73,7 +65,7 @@
         <div class="thumnail">
           <img
             class="thumnail_img"
-            src="./img/playlistCovers/between.jpeg"
+            src="img/playlistCovers/between.jpeg"
             alt="playlist-thumbnail"
           />
         </div>

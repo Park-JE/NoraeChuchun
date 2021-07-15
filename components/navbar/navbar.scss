@@ -98,6 +98,10 @@ nav {
     }
   }
 
+  .logout {
+    display: none;
+  }
+
   .mypage {
     margin-left: $base-space;
     cursor: pointer;

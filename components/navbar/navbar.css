@@ -118,6 +118,10 @@ nav .login:hover {
   background-color: rgba(255, 255, 255, 0.1);
 }
 
+nav .logout {
+  display: none;
+}
+
 nav .mypage {
   margin-left: 16px;
   cursor: pointer;
