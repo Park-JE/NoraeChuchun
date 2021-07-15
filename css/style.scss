@@ -13,6 +13,7 @@ body {
   align-items: center;
   background: linear-gradient(to left, #242359, #0e0e1f);
   overscroll-behavior: none;
+  overflow-x: hidden;
 
   a {
     text-decoration: none;

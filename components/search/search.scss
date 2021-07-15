@@ -38,7 +38,7 @@
   .sort {
     width: 100%;
     display: grid;
-    grid-template-columns: 4fr 3fr 3fr 40px;
+    grid-template-columns: 13fr 8fr 8fr 40px;
     column-gap: 5px;
     border-top: 1px solid rgba(255, 255, 255, 0.2);
     border-bottom: 1px solid rgba(255, 255, 255, 0.2);
@@ -47,10 +47,6 @@
 
     .name {
       padding-left: $base-space;
-    }
-
-    &.deactive {
-      display: none;
     }
   }
 
@@ -61,25 +57,73 @@
 
     .music {
       width: 100%;
-      display: grid;
-      grid-template-columns: 4fr 3fr 3fr 40px;
-      column-gap: 5px;
-      align-items: center;
-      justify-items: flex-start;
       font-size: $font-small;
-      padding: 5px 0 5px $base-space;
+      padding: 5px $base-space/2;
       border-bottom: 1px solid rgba(255, 255, 255, 0.2);
       position: relative;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
 
-      .coverAndName {
+      .content {
+        width: 100%;
         display: grid;
-        grid-template-columns: 70px 1fr;
+        grid-template-columns: 72px 4fr;
         align-items: center;
+        margin-right: 8px;
+        position: relative;
+
+        .manipul {
+          position: absolute;
+          width: 55px;
+          height: 55px;
+          border-radius: $border-small;
+          background-color: $black;
+          display: none;
+          justify-content: center;
+          align-items: center;
+          font-size: $font-medium;
+          opacity: 0.9;
+          border: 0;
+          outline: none;
+          color: $white;
+
+          &.play:hover {
+            display: flex;
+          }
+
+          &.pause.active {
+            display: flex;
+          }
+        }
 
         .cover {
           width: 55px;
           height: 55px;
           border-radius: $border-small;
+
+          &:hover ~ .play {
+            display: flex;
+          }
+        }
+
+        .info {
+          width: 100%;
+          height: 80%;
+          display: grid;
+          grid-template-columns: 2fr 3fr;
+          align-items: center;
+          gap: 5px;
+
+          .descrip {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4px;
+
+            .dot {
+              display: none;
+            }
+          }
         }
       }
 
@@ -88,7 +132,7 @@
         border: 0;
         background-color: transparent;
         color: $white;
-        cursor: pointer;
+        margin-right: $base-space/2;
       }
 
       .addModal {
@@ -99,8 +143,8 @@
         top: 36px;
         border-radius: $border-small;
         padding: $base-space/2 0;
-        background-color: rgba(255, 255, 255, 0.1);
-        backdrop-filter: blur(50px);
+        background-color: #817585;
+        backdrop-filter: blur(5px);
         border-top: 1px solid rgba(255, 255, 255, 0.2);
         border-right: 1px solid rgba(255, 255, 255, 0.2);
         box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
@@ -173,20 +217,45 @@
 
     .sort {
       font-size: $font-xsmall;
-      padding: 4px 0 4px $base-space/2;
-      grid-template-columns: 4fr 3fr 3fr 30px;
+      padding: 3px 0 3px $base-space;
+      grid-template-columns: 1fr 30px;
+
+      .artist {
+        display: none;
+      }
+
+      .album {
+        display: none;
+      }
     }
 
     .musicList {
       .music {
         font-size: $font-xsmall;
-        padding: 5px 0 5px $base-space/2;
-        grid-template-columns: 4fr 3fr 3fr 30px;
 
-        .addModal {
-          width: 150px;
-          font-size: $font-xsmall;
-          right: 32px;
+        .content {
+          .info {
+            grid-template-columns: 1fr;
+            grid-template-rows: 1fr 1fr;
+
+            .descrip {
+              display: flex;
+              justify-content: flex-start;
+              display: -webkit-box;
+              -webkit-box-orient: vertical;
+              -webkit-line-clamp: 1;
+              overflow: hidden;
+
+              .dot {
+                display: inline;
+                margin: 0 3px;
+              }
+            }
+          }
+        }
+
+        .add {
+          margin-right: 3px;
         }
       }
     }

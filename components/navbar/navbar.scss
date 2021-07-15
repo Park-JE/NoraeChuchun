@@ -2,6 +2,7 @@
 
 nav {
   width: 100vw;
+  min-width: 380px;
   position: fixed;
   top: 0;
   display: flex;
@@ -81,30 +82,31 @@ nav {
         }
       }
     }
-  }
-  .login {
-    padding: 0.5em 1.5em;
-    border: 1px solid $white;
-    border-radius: $border-large;
-    font-size: $font-medium;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    margin-left: $base-space;
-    background-color: transparent;
-    color: $white;
 
-    &:hover {
-      background-color: rgba(255, 255, 255, 0.1);
+    .login {
+      padding: 0.5em 1.5em;
+      border: 1px solid $white;
+      border-radius: $border-large;
+      font-size: $font-medium;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      margin-left: $base-space;
+      background-color: transparent;
+      color: $white;
+
+      &:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+      }
     }
-  }
 
-  .logout {
-    display: none;
-  }
+    #logout {
+      display: none;
+    }
 
-  .mypage {
-    margin-left: $base-space;
-    cursor: pointer;
+    .mypage {
+      margin-left: $base-space;
+      cursor: pointer;
+    }
   }
 }
 
@@ -121,11 +123,20 @@ nav {
       .btn.close.active {
         left: 83px;
       }
-    }
 
-    .login {
-      font-size: $font-small;
-      margin-left: $base-space/2;
+      .login {
+        font-size: $font-small;
+        margin-left: $base-space/2;
+        margin-left: $base-space/2;
+
+        &.logout {
+          display: none;
+        }
+      }
+
+      .mypage {
+        margin-left: $base-space/2;
+      }
     }
   }
 }

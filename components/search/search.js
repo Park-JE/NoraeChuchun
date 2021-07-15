@@ -19,14 +19,21 @@ const outputSearchHtml = (matches, searchText) => {
       .map(
         (match) =>
           `<div class="music">
-          <div class="coverAndName">
-          <img src="img/albumCovers/${match.cover}" alt="img" class="cover" />
-          <span class="name">${match.title}</span>
-          </div>
-          <span class="artist">${match.artist}</span>
-          <span class="album">${match.album}</span>
-        <button class="add"><i class="fas fa-list fa-lg"></i></button >
-        </div>`
+              <div class="content">
+               <img src="img/albumCovers/${match.cover}" alt="img" class="cover" />
+                <button class="manipul play"><i class="fas fa-play"></i></button>
+                <button class="manipul pause"><i class="fas fa-pause"></i></button>
+                 <div class="info">
+                   <span class="name">${match.title}</span>
+                   <div class="descrip">
+                      <span class="artist">${match.artist}</span>
+                      <span class="dot">∙</span>
+                      <span class="album">${match.album}</span>
+                    </div>
+                 </div>
+             </div>
+             <button class="add"><i class="fas fa-list fa-lg"></i></button >
+           </div>`
       )
       .join("");
     musicTable.innerHTML = html;
@@ -152,6 +159,7 @@ searchBtn.addEventListener("click", () => {
   if (inputBox.classList.contains("active")) {
     setCookie("value", inputBox.value, 1);
     setCookie("inputId", inputBox.id, 1);
+    handleSearch();
     if (getCookie("inputId") !== "search") {
       window.location.href = "search.html";
     }
@@ -178,6 +186,7 @@ inputBox.addEventListener("keypress", (e) => {
   if (e.key === "Enter") {
     setCookie("inputId", inputBox.id, 1);
     setCookie("value", inputBox.value, 1);
+    handleSearch();
     if (getCookie("inputId") !== "search") {
       window.location.href = "search.html";
     }

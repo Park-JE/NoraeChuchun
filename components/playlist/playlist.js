@@ -2,45 +2,67 @@ function createSong(song) {
   const music = document.createElement("div");
   music.setAttribute("class", "music");
 
-  const coverAndName = document.createElement("div");
-  coverAndName.setAttribute("class", "coverAndName");
+  const content = document.createElement("div");
+  content.setAttribute("class", "content");
+  music.append(content);
 
   const img = document.createElement("img");
   img.setAttribute("class", "cover");
   img.setAttribute("src", `img/albumCovers/${song.cover}`);
   img.setAttribute("alt", "img");
+  content.append(img);
+
+  const play = document.createElement("button");
+  play.setAttribute("class", "manipul play");
+  const playIcon = document.createElement("i");
+  playIcon.setAttribute("class", "fas fa-play");
+  play.append(playIcon);
+  content.append(play);
+
+  const pause = document.createElement("button");
+  pause.setAttribute("class", "manipul pause");
+  const pauseIcon = document.createElement("i");
+  pauseIcon.setAttribute("class", "fas fa-pause");
+  pause.append(pauseIcon);
+  content.append(pause);
+
+  const info = document.createElement("div");
+  info.setAttribute("class", "info");
+  content.append(info);
 
   const name = document.createElement("span");
   name.setAttribute("class", "name");
   name.innerText = `${song.title}`;
+  info.append(name);
+
+  const descrip = document.createElement("div");
+  descrip.setAttribute("class", "descrip");
+  info.append(descrip);
 
   const artist = document.createElement("span");
   artist.setAttribute("class", "artist");
   artist.innerText = `${song.artist}`;
+  descrip.append(artist);
+
+  const dot = document.createElement("span");
+  dot.setAttribute("class", "dot");
+  dot.innerText = "∙";
+  descrip.append(dot);
 
   const album = document.createElement("span");
   album.setAttribute("class", "album");
   album.innerText = `${song.album}`;
+  descrip.append(album);
 
   const addBtn = document.createElement("button");
   addBtn.setAttribute("class", "add");
   const addIcon = document.createElement("i");
   addIcon.setAttribute("class", "fas fa-list fa-lg");
-
   addBtn.append(addIcon);
-  coverAndName.append(img);
-  coverAndName.append(name);
-  music.append(coverAndName);
-  music.append(artist);
-  music.append(album);
   music.append(addBtn);
 
   return music;
 }
-
-document.addEventListener("click", (e) => {
-  console.dir(e.target.classList);
-});
 
 const displayPlaylistCookies = () => {
   const cookieArray = getCookieArray("playlist");
@@ -62,13 +84,15 @@ const displayPlaylistCookies = () => {
   />
   <div class="info">
     <span class="title">${cookieArray[0]}</span>
-    <div class="tags">
-      <span class="filter">#${cookieArray[2][0]}</span>
-      <span class="filter">#${cookieArray[2][1]}</span>
-    </div>
-    <div class="songs">
-      <i class="fas fa-compact-disc"></i>
-      <span class="count">${cookieArray[1].length}곡</span>
+    <div class="tagAndSong">
+       <div class="tags">
+         <span class="filter">#${cookieArray[2][0]}</span>
+         <span class="filter">#${cookieArray[2][1]}</span>
+       </div>
+      <div class="songs">
+        <i class="fas fa-compact-disc"></i>
+        <span class="count">${cookieArray[1].length}곡</span>
+      </div>
     </div>
   </div>`;
 

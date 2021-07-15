@@ -1,5 +1,6 @@
 nav {
   width: 100vw;
+  min-width: 380px;
   position: fixed;
   top: 0;
   display: -webkit-box;
@@ -101,7 +102,7 @@ nav .searchAndLogin .btn.close.active {
   visibility: visible;
 }
 
-nav .login {
+nav .searchAndLogin .login {
   padding: 0.5em 1.5em;
   border: 1px solid #eee;
   border-radius: 18px;
@@ -114,15 +115,15 @@ nav .login {
   color: #eee;
 }
 
-nav .login:hover {
+nav .searchAndLogin .login:hover {
   background-color: rgba(255, 255, 255, 0.1);
 }
 
-nav .logout {
+nav .searchAndLogin #logout {
   display: none;
 }
 
-nav .mypage {
+nav .searchAndLogin .mypage {
   margin-left: 16px;
   cursor: pointer;
 }
@@ -138,8 +139,15 @@ nav .mypage {
   nav .searchAndLogin .btn.close.active {
     left: 83px;
   }
-  nav .login {
+  nav .searchAndLogin .login {
     font-size: 14px;
+    margin-left: 8px;
+    margin-left: 8px;
+  }
+  nav .searchAndLogin .login.logout {
+    display: none;
+  }
+  nav .searchAndLogin .mypage {
     margin-left: 8px;
   }
 }
