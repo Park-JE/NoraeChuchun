@@ -281,12 +281,17 @@ body .content-wrap .alertAdd {
   body .playlist-main {
     width: 350px;
     padding: 24px 16px;
+    margin: 80px 0;
   }
   body .playlist-main .description-wrap .info {
     width: 50%;
   }
   body .playlist-main .description-wrap .info .title {
     font-size: 18px;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
   }
   body .playlist-main .description-wrap .info .tags {
     font-size: 12px;

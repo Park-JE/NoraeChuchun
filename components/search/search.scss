@@ -48,6 +48,10 @@
     .name {
       padding-left: $base-space;
     }
+
+    &.deactive {
+      display: none;
+    }
   }
 
   .musicList {
@@ -209,6 +213,7 @@
 @media (max-width: 767px) {
   .search-wrap {
     width: 350px;
+    margin-top: 90px;
 
     .noResult {
       width: 350px;

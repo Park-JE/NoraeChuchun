@@ -19,8 +19,7 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  background: -webkit-gradient(linear, right top, left top, from(#242359), to(#0e0e1f));
-  background: linear-gradient(to left, #242359, #0e0e1f);
+  background-color: #eee;
   overscroll-behavior: none;
   overflow-x: hidden;
 }
@@ -36,7 +35,7 @@ body a :active {
 
 body .bg-1 {
   position: fixed;
-  right: -20px;
+  right: 20px;
   top: -20px;
   width: 350px;
   height: 350px;
@@ -51,25 +50,25 @@ body .bg-2 {
   position: fixed;
   left: -20px;
   top: 50%;
-  width: 200px;
-  height: 200px;
+  width: 220px;
+  height: 220px;
   background: -webkit-gradient(linear, left top, left bottom, from(#da57e1), to(#01adf7));
   background: linear-gradient(#da57e1, #01adf7);
-  -webkit-filter: blur(140px);
-          filter: blur(140px);
+  -webkit-filter: blur(120px);
+          filter: blur(120px);
   z-index: -1;
 }
 
 body .bg-3 {
   position: fixed;
   right: 30%;
-  bottom: -20px;
+  bottom: 20px;
   width: 200px;
   height: 200px;
   background: -webkit-gradient(linear, left top, left bottom, from(#747008), to(#436f1d));
   background: linear-gradient(#747008, #436f1d);
-  -webkit-filter: blur(120px);
-          filter: blur(120px);
+  -webkit-filter: blur(150px);
+          filter: blur(150px);
   z-index: -1;
 }
 
@@ -89,11 +88,17 @@ nav {
           align-items: center;
   font-size: 18px;
   font-weight: 600;
-  padding: 30px 40px;
-  color: #eee;
+  padding: 15px 40px;
+  color: #111;
   z-index: 3;
   -webkit-transition: top 0.3s ease-in;
   transition: top 0.3s ease-in;
+  background-color: rgba(255, 255, 255, 0.1);
+  -webkit-backdrop-filter: blur(5px);
+          backdrop-filter: blur(5px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  -webkit-box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
 }
 
 nav .logoAndName {
@@ -152,13 +157,14 @@ nav .searchAndLogin .btn {
   border: 0;
   outline: none;
   background-color: transparent;
-  color: #eee;
+  color: #111;
   padding: 6px;
   border-radius: 50%;
   position: absolute;
   left: 2px;
   -webkit-transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
   transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  cursor: pointer;
 }
 
 nav .searchAndLogin .btn.search.active {
@@ -177,9 +183,22 @@ nav .searchAndLogin .btn.close.active {
   visibility: visible;
 }
 
-nav .searchAndLogin .login {
+nav .searchAndLogin .userAndDarkMode {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+nav .searchAndLogin .userAndDarkMode #logout {
+  display: none;
+}
+
+nav .searchAndLogin .userAndDarkMode .login {
   padding: 0.5em 1.5em;
-  border: 1px solid #eee;
+  border: 1px solid #111;
   border-radius: 18px;
   font-size: 16px;
   cursor: pointer;
@@ -187,43 +206,119 @@ nav .searchAndLogin .login {
   transition: all 0.3s ease;
   margin-left: 16px;
   background-color: transparent;
-  color: #eee;
+  color: #111;
 }
 
-nav .searchAndLogin .login:hover {
+nav .searchAndLogin .userAndDarkMode .login:hover {
   background-color: rgba(255, 255, 255, 0.1);
 }
 
-nav .searchAndLogin #logout {
-  display: none;
-}
-
-nav .searchAndLogin .mypage {
+nav .searchAndLogin .userAndDarkMode .mypage {
   margin-left: 16px;
   cursor: pointer;
 }
 
+nav .searchAndLogin .userAndDarkMode .dark-mode .mode-btn {
+  border: 0;
+  outline: none;
+  background-color: transparent;
+  padding: 6px 0 6px 6px;
+  cursor: pointer;
+  margin-left: 8px;
+}
+
+nav .searchAndLogin .userAndDarkMode .dark-mode .mode-btn .modeText {
+  display: none;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+nav .searchAndLogin .userAndDarkMode .dark-mode .mode-btn.light.deactive {
+  display: none;
+}
+
+nav .searchAndLogin .userAndDarkMode .dark-mode .mode-btn.light.active {
+  display: block;
+}
+
+nav .searchAndLogin .userAndDarkMode .dark-mode .mode-btn.dark {
+  display: none;
+}
+
+nav .searchAndLogin .userAndDarkMode .dark-mode .mode-btn.dark.active {
+  display: block;
+}
+
+nav .searchAndLogin .ellipsis {
+  border: 0;
+  outline: none;
+  background-color: transparent;
+  padding: 6px 0 6px 6px;
+  display: none;
+  cursor: pointer;
+  margin-left: 8px;
+}
+
 @media (max-width: 767px) {
   nav {
-    padding: 20px;
+    padding: 12px 20px;
     font-size: 16px;
   }
   nav .searchAndLogin .searchInput.active {
-    width: 110px;
+    width: 150px;
   }
   nav .searchAndLogin .btn.close.active {
-    left: 83px;
+    left: 122px;
   }
-  nav .searchAndLogin .login {
-    font-size: 14px;
-    margin-left: 8px;
-    margin-left: 8px;
-  }
-  nav .searchAndLogin .login.logout {
+  nav .searchAndLogin .userAndDarkMode {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    position: absolute;
+    right: -8px;
+    top: 45px;
+    width: 120px;
     display: none;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background-color: rgba(239, 223, 206, 0.5);
+    -webkit-backdrop-filter: blur(50px);
+            backdrop-filter: blur(50px);
+    -webkit-box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
   }
-  nav .searchAndLogin .mypage {
-    margin-left: 8px;
+  nav .searchAndLogin .userAndDarkMode .login,
+  nav .searchAndLogin .userAndDarkMode .mypage {
+    display: block;
+    margin-left: 0;
+    text-align: center;
+    border: none;
+    font-size: 14px;
+    padding: 8px 16px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 0;
+    font-weight: 600;
+  }
+  nav .searchAndLogin .userAndDarkMode .login:hover,
+  nav .searchAndLogin .userAndDarkMode .mypage:hover {
+    background-color: transparent;
+  }
+  nav .searchAndLogin .userAndDarkMode.active {
+    display: block;
+  }
+  nav .searchAndLogin .userAndDarkMode .dark-mode .mode-btn {
+    padding: 8px 16px;
+    margin-left: 0;
+  }
+  nav .searchAndLogin .userAndDarkMode .dark-mode .mode-btn .modeText {
+    display: inline;
+  }
+  nav .searchAndLogin .ellipsis {
+    display: block;
   }
 }
 
@@ -231,7 +326,7 @@ nav .searchAndLogin .mypage {
   width: 950px;
   margin-bottom: 130px;
   margin-top: 150px;
-  color: #eee;
+  color: #111;
 }
 
 .recommendation-warp .title {
@@ -436,7 +531,7 @@ nav .searchAndLogin .mypage {
   font-size: 14px;
   padding: 8px;
   cursor: default;
-  color: #eee;
+  color: #111;
 }
 
 .recommendation-warp .recommendation .currentWeather-playlist .music .song-info .artist {
@@ -475,6 +570,7 @@ nav .searchAndLogin .mypage {
 @media (max-width: 767px) {
   .recommendation-warp {
     width: 350px;
+    margin-top: 110px;
   }
   .recommendation-warp .recommendation {
     -webkit-box-orient: vertical;
@@ -529,7 +625,7 @@ nav .searchAndLogin .mypage {
 .musicFilter-wrap .titleAndFilters .title {
   font-size: 18px;
   font-weight: 600;
-  color: #eee;
+  color: #111;
 }
 
 .musicFilter-wrap .titleAndFilters .filter-btn {
@@ -538,7 +634,7 @@ nav .searchAndLogin .mypage {
   outline: none;
   font-size: 16px;
   font-weight: 500;
-  color: #eee;
+  color: #111;
   cursor: pointer;
 }
 
@@ -890,6 +986,10 @@ nav .searchAndLogin .mypage {
   padding-left: 16px;
 }
 
+.search-wrap .sort.deactive {
+  display: none;
+}
+
 .search-wrap .musicList.deactive {
   display: none;
 }
@@ -1089,6 +1189,7 @@ nav .searchAndLogin .mypage {
 @media (max-width: 767px) {
   .search-wrap {
     width: 350px;
+    margin-top: 90px;
   }
   .search-wrap .noResult {
     width: 350px;

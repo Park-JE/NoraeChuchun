@@ -14,7 +14,8 @@
     .title {
       font-size: $font-large;
       font-weight: $font-bold;
-      color: $white;
+      // color: $white;
+      color: $black;
     }
 
     .filter-btn {
@@ -23,7 +24,8 @@
       outline: none;
       font-size: $font-medium;
       font-weight: 500;
-      color: $white;
+      // color: $white;
+      color: $black;
       cursor: pointer;
     }
 

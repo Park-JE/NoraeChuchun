@@ -4,7 +4,8 @@
   width: $content-width;
   margin-bottom: $content-bottom;
   margin-top: 150px;
-  color: $white;
+  // color: $white;
+  color: $black;
 
   .title {
     display: block;
@@ -23,7 +24,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    // justify-content: space-between;
     border-radius: $border-small;
     padding: $base-space * 1.5 $base-space;
     background-color: rgba(255, 255, 255, 0.1);
@@ -143,6 +143,8 @@
           height: 50px;
           width: 50px;
           border-radius: $border-small;
+          // box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+          // border: 1px solid rgba(255, 255, 255, 0.2);
         }
 
         .song-info {
@@ -152,7 +154,8 @@
           font-size: $font-small;
           padding: $base-space/2;
           cursor: default;
-          color: $white;
+          // color: $white;
+          color: $black;
 
           .artist {
             font-size: $font-xsmall;
@@ -201,6 +204,7 @@
 
   .recommendation-warp {
     width: $content-width;
+    margin-top: 110px;
 
     .recommendation {
       flex-direction: column;

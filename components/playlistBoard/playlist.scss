@@ -227,12 +227,17 @@ body {
     .playlist-main {
       width: 350px;
       padding: $base-space * 1.5 $base-space;
+      margin: 80px 0;
 
       .description-wrap {
         .info {
           width: 50%;
           .title {
             font-size: $font-large;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 3;
+            overflow: hidden;
           }
 
           .tags {

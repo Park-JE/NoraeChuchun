@@ -10,10 +10,15 @@ nav {
   align-items: center;
   font-size: $font-large;
   font-weight: $font-bold;
-  padding: 30px 40px;
-  color: $white;
+  padding: 15px 40px;
+  // color: $white;
+  color: $black;
   z-index: 3;
   transition: top 0.3s ease-in;
+  background-color: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(5px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
 
   .logoAndName {
     display: flex;
@@ -59,12 +64,14 @@ nav {
       border: 0;
       outline: none;
       background-color: transparent;
-      color: $white;
+      // color: $white;
+      color: $black;
       padding: 6px;
       border-radius: 50%;
       position: absolute;
       left: 2px;
       transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+      cursor: pointer;
 
       &.search.active {
         color: $black;
@@ -83,59 +90,148 @@ nav {
       }
     }
 
-    .login {
-      padding: 0.5em 1.5em;
-      border: 1px solid $white;
-      border-radius: $border-large;
-      font-size: $font-medium;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      margin-left: $base-space;
-      background-color: transparent;
-      color: $white;
+    .userAndDarkMode {
+      display: flex;
+      align-items: center;
 
-      &:hover {
-        background-color: rgba(255, 255, 255, 0.1);
+      #logout {
+        display: none;
+      }
+
+      .login {
+        padding: 0.5em 1.5em;
+        // border: 1px solid $white;
+        border: 1px solid $black;
+        border-radius: $border-large;
+        font-size: $font-medium;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        margin-left: $base-space;
+        background-color: transparent;
+        // color: $white;
+        color: $black;
+
+        &:hover {
+          background-color: rgba(255, 255, 255, 0.1);
+        }
+      }
+
+      .mypage {
+        margin-left: $base-space;
+        cursor: pointer;
+      }
+
+      .dark-mode {
+        .mode-btn {
+          border: 0;
+          outline: none;
+          background-color: transparent;
+          padding: 6px 0 6px 6px;
+          cursor: pointer;
+          margin-left: $base-space/2;
+
+          .modeText {
+            display: none;
+            font-size: $font-small;
+            font-weight: $font-bold;
+          }
+
+          &.light {
+            &.deactive {
+              display: none;
+            }
+
+            &.active {
+              display: block;
+            }
+          }
+
+          &.dark {
+            display: none;
+
+            &.active {
+              display: block;
+            }
+          }
+        }
       }
     }
 
-    #logout {
+    .ellipsis {
+      border: 0;
+      outline: none;
+      background-color: transparent;
+      padding: 6px 0 6px 6px;
       display: none;
-    }
-
-    .mypage {
-      margin-left: $base-space;
       cursor: pointer;
+      margin-left: $base-space/2;
     }
   }
 }
 
 @media (max-width: 767px) {
   nav {
-    padding: 20px;
+    padding: 12px 20px;
     font-size: $font-medium;
 
     .searchAndLogin {
       .searchInput.active {
-        width: 110px;
+        width: 150px;
       }
 
       .btn.close.active {
-        left: 83px;
+        left: 122px;
       }
 
-      .login {
-        font-size: $font-small;
-        margin-left: $base-space/2;
-        margin-left: $base-space/2;
+      .userAndDarkMode {
+        flex-direction: column;
+        justify-content: center;
+        position: absolute;
+        right: -$base-space/2;
+        top: 45px;
+        width: 120px;
+        display: none;
+        border-radius: $border-small;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        background-color: rgba(239, 223, 206, 0.5);
+        backdrop-filter: blur(50px);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
 
-        &.logout {
-          display: none;
+        .login,
+        .mypage {
+          display: block;
+          margin-left: 0;
+          text-align: center;
+          border: none;
+          font-size: $font-small;
+          padding: $base-space/2 $base-space;
+          border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+          border-radius: 0;
+          font-weight: $font-bold;
+
+          &:hover {
+            background-color: transparent;
+          }
+        }
+
+        &.active {
+          display: block;
+        }
+
+        .dark-mode {
+          .mode-btn {
+            padding: $base-space/2 $base-space;
+            margin-left: 0;
+
+            .modeText {
+              display: inline;
+            }
+          }
         }
       }
 
-      .mypage {
-        margin-left: $base-space/2;
+      .ellipsis {
+        display: block;
       }
     }
   }

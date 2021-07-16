@@ -2,7 +2,7 @@
   width: 950px;
   margin-bottom: 130px;
   margin-top: 150px;
-  color: #eee;
+  color: #111;
 }
 
 .recommendation-warp .title {
@@ -207,7 +207,7 @@
   font-size: 14px;
   padding: 8px;
   cursor: default;
-  color: #eee;
+  color: #111;
 }
 
 .recommendation-warp .recommendation .currentWeather-playlist .music .song-info .artist {
@@ -246,6 +246,7 @@
 @media (max-width: 767px) {
   .recommendation-warp {
     width: 350px;
+    margin-top: 110px;
   }
   .recommendation-warp .recommendation {
     -webkit-box-orient: vertical;

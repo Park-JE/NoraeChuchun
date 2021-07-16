@@ -60,6 +60,10 @@
   padding-left: 16px;
 }
 
+.search-wrap .sort.deactive {
+  display: none;
+}
+
 .search-wrap .musicList.deactive {
   display: none;
 }
@@ -259,6 +263,7 @@
 @media (max-width: 767px) {
   .search-wrap {
     width: 350px;
+    margin-top: 90px;
   }
   .search-wrap .noResult {
     width: 350px;
