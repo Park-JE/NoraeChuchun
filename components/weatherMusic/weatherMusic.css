@@ -1,8 +1,33 @@
+:root[color-theme="light"] {
+  --background: #edecdd;
+  --font-color: #111;
+  --border: 1px solid #111;
+  --bouncer1: #ffc931;
+  --bouncer2: #d74639;
+  --nav-bgc: rgba(239, 222, 205, 0.2);
+  --sm-nav-bgc: rgba(239, 222, 205, 0.9);
+  --sm-nav-border: 1px solid rgba(2, 2, 2, 0.2);
+  --filter-bar-border: 1px solid rgba(25, 25, 25, 0.5);
+}
+
+:root[color-theme="dark"] {
+  --background: linear-gradient(to left, #242359, #0e0e1f);
+  --font-color: #eee;
+  --border: 1px solid #eee;
+  --bouncer1: #d557e1;
+  --bouncer2: #01adf7;
+  --nav-bgc: rgba(92, 66, 75, 0.2);
+  --sm-nav-bgc: rgba(92, 66, 75, 0.9);
+  --sm-nav-border: 1px solid rgba(255, 255, 255, 0.2);
+  --filter-bar-border: 1px solid rgba(238, 238, 238, 0.5);
+}
+
 .recommendation-warp {
   width: 950px;
   margin-bottom: 130px;
   margin-top: 150px;
   color: #111;
+  color: var(--font-color, #111);
 }
 
 .recommendation-warp .title {
@@ -60,7 +85,7 @@
 .recommendation-warp .recommendation .loading .bouncer {
   width: 10px;
   height: 10px;
-  background: linear-gradient(135deg, #d557e1, #01adf7);
+  background: linear-gradient(135deg, var(--bouncer1, #ffc931), var(--bouncer2, #d74639));
   border-radius: 50%;
   -webkit-animation: bouncer 0.5s cubic-bezier(0.19, 0.57, 0.3, 0.98) infinite alternate;
           animation: bouncer 0.5s cubic-bezier(0.19, 0.57, 0.3, 0.98) infinite alternate;
@@ -208,6 +233,7 @@
   padding: 8px;
   cursor: default;
   color: #111;
+  color: var(--font-color, #111);
 }
 
 .recommendation-warp .recommendation .currentWeather-playlist .music .song-info .artist {
@@ -246,7 +272,7 @@
 @media (max-width: 767px) {
   .recommendation-warp {
     width: 350px;
-    margin-top: 110px;
+    margin-top: 90px;
   }
   .recommendation-warp .recommendation {
     -webkit-box-orient: vertical;
@@ -263,7 +289,7 @@
   }
   .recommendation-warp .recommendation .weather {
     width: 90%;
-    height: 280px;
+    height: 260px;
   }
   .recommendation-warp .recommendation .weather .icon {
     width: 180px;

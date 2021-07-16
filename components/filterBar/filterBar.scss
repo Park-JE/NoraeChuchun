@@ -14,8 +14,7 @@
     .title {
       font-size: $font-large;
       font-weight: $font-bold;
-      // color: $white;
-      color: $black;
+      @include color-var(color, font-color);
     }
 
     .filter-btn {
@@ -24,8 +23,7 @@
       outline: none;
       font-size: $font-medium;
       font-weight: 500;
-      // color: $white;
-      color: $black;
+      @include color-var(color, font-color);
       cursor: pointer;
     }
 
@@ -82,7 +80,7 @@
             outline: none;
             border: 0;
             background-color: transparent;
-            color: $white;
+            @include color-var(color, font-color);
             padding: 0.5em;
             transition: opacity 0.3s ease;
             cursor: pointer;
@@ -95,7 +93,7 @@
         }
 
         .filters {
-          color: $white;
+          @include color-var(color, font-color);
           width: 100%;
           display: flex;
           flex-direction: column;
@@ -105,7 +103,7 @@
           .category {
             margin-bottom: 4px;
             cursor: pointer;
-            border-bottom: 1px solid rgba(238, 238, 238, 0.5);
+            @include color-var(border-bottom, filter-bar-border);
             cursor: default;
             padding-bottom: 4px;
             margin-top: $base-space;

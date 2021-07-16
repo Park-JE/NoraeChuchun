@@ -1,4 +1,28 @@
 @charset "UTF-8";
+:root[color-theme="light"] {
+  --background: #edecdd;
+  --font-color: #111;
+  --border: 1px solid #111;
+  --bouncer1: #ffc931;
+  --bouncer2: #d74639;
+  --nav-bgc: rgba(239, 222, 205, 0.2);
+  --sm-nav-bgc: rgba(239, 222, 205, 0.9);
+  --sm-nav-border: 1px solid rgba(2, 2, 2, 0.2);
+  --filter-bar-border: 1px solid rgba(25, 25, 25, 0.5);
+}
+
+:root[color-theme="dark"] {
+  --background: linear-gradient(to left, #242359, #0e0e1f);
+  --font-color: #eee;
+  --border: 1px solid #eee;
+  --bouncer1: #d557e1;
+  --bouncer2: #01adf7;
+  --nav-bgc: rgba(92, 66, 75, 0.2);
+  --sm-nav-bgc: rgba(92, 66, 75, 0.9);
+  --sm-nav-border: 1px solid rgba(255, 255, 255, 0.2);
+  --filter-bar-border: 1px solid rgba(238, 238, 238, 0.5);
+}
+
 .musicFilter-wrap {
   width: 950px;
   margin-bottom: 130px;
@@ -20,6 +44,7 @@
   font-size: 18px;
   font-weight: 600;
   color: #111;
+  color: var(--font-color, #111);
 }
 
 .musicFilter-wrap .titleAndFilters .filter-btn {
@@ -29,6 +54,7 @@
   font-size: 16px;
   font-weight: 500;
   color: #111;
+  color: var(--font-color, #111);
   cursor: pointer;
 }
 
@@ -104,7 +130,8 @@
   outline: none;
   border: 0;
   background-color: transparent;
-  color: #eee;
+  color: #111;
+  color: var(--font-color, #111);
   padding: 0.5em;
   -webkit-transition: opacity 0.3s ease;
   transition: opacity 0.3s ease;
@@ -117,7 +144,8 @@
 }
 
 .musicFilter-wrap .titleAndFilters .filter-bar .filter-wrap .filters {
-  color: #eee;
+  color: #111;
+  color: var(--font-color, #111);
   width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -133,7 +161,8 @@
 .musicFilter-wrap .titleAndFilters .filter-bar .filter-wrap .filters .category {
   margin-bottom: 4px;
   cursor: pointer;
-  border-bottom: 1px solid rgba(238, 238, 238, 0.5);
+  border-bottom: 1px solid rgba(25, 25, 25, 0.5);
+  border-bottom: var(--filter-bar-border, 1px solid rgba(25, 25, 25, 0.5));
   cursor: default;
   padding-bottom: 4px;
   margin-top: 16px;

@@ -10,15 +10,17 @@ nav {
   align-items: center;
   font-size: $font-large;
   font-weight: $font-bold;
-  padding: 15px 40px;
-  // color: $white;
-  color: $black;
+  padding: 20px 40px;
+  @include color-var(color, font-color);
   z-index: 3;
   transition: top 0.3s ease-in;
-  background-color: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(5px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
   box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+  @include color-var(background-color, nav-bgc);
+
+  &.scrollDown {
+    top: -70px;
+  }
 
   .logoAndName {
     display: flex;
@@ -64,8 +66,7 @@ nav {
       border: 0;
       outline: none;
       background-color: transparent;
-      // color: $white;
-      color: $black;
+      @include color-var(color, font-color);
       padding: 6px;
       border-radius: 50%;
       position: absolute;
@@ -100,16 +101,14 @@ nav {
 
       .login {
         padding: 0.5em 1.5em;
-        // border: 1px solid $white;
-        border: 1px solid $black;
+        @include color-var(border, border);
         border-radius: $border-large;
         font-size: $font-medium;
         cursor: pointer;
         transition: all 0.3s ease;
         margin-left: $base-space;
         background-color: transparent;
-        // color: $white;
-        color: $black;
+        @include color-var(color, font-color);
 
         &:hover {
           background-color: rgba(255, 255, 255, 0.1);
@@ -129,6 +128,7 @@ nav {
           padding: 6px 0 6px 6px;
           cursor: pointer;
           margin-left: $base-space/2;
+          @include color-var(color, font-color);
 
           .modeText {
             display: none;
@@ -137,9 +137,7 @@ nav {
           }
 
           &.light {
-            &.deactive {
-              display: none;
-            }
+            display: none;
 
             &.active {
               display: block;
@@ -147,10 +145,8 @@ nav {
           }
 
           &.dark {
-            display: none;
-
-            &.active {
-              display: block;
+            &.deactive {
+              display: none;
             }
           }
         }
@@ -158,6 +154,7 @@ nav {
     }
 
     .ellipsis {
+      @include color-var(color, font-color);
       border: 0;
       outline: none;
       background-color: transparent;
@@ -190,11 +187,11 @@ nav {
         right: -$base-space/2;
         top: 45px;
         width: 120px;
+        z-index: 4;
         display: none;
         border-radius: $border-small;
         border: 1px solid rgba(255, 255, 255, 0.2);
-        background-color: rgba(239, 223, 206, 0.5);
-        backdrop-filter: blur(50px);
+        @include color-var(background-color, sm-nav-bgc);
         box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
 
         .login,
@@ -205,7 +202,7 @@ nav {
           border: none;
           font-size: $font-small;
           padding: $base-space/2 $base-space;
-          border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+          @include color-var(border-bottom, sm-nav-border);
           border-radius: 0;
           font-weight: $font-bold;
 

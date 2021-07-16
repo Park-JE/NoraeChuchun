@@ -1,3 +1,5 @@
+@import "./variables";
+
 * {
   margin: 0;
   padding: 0;
@@ -11,8 +13,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  // background: linear-gradient(to left, #242359, #0e0e1f);
-  background-color: #eee;
+  @include color-var(background, background);
   overscroll-behavior: none;
   overflow-x: hidden;
 
@@ -26,13 +27,11 @@ body {
 
   .bg-1 {
     position: fixed;
-    // right: -20px;
     right: 20px;
     top: -20px;
     width: 350px;
     height: 350px;
     background: linear-gradient(#ffc931, #cf3b2e);
-    // background-color: #df63a1;
     filter: blur(150px);
     z-index: -1;
   }
@@ -40,12 +39,10 @@ body {
   .bg-2 {
     position: fixed;
     left: -20px;
-    // left: 20px;
     top: 50%;
     width: 220px;
     height: 220px;
     background: linear-gradient(#da57e1, #01adf7);
-    // background-color: #fffd87;
     filter: blur(120px);
     z-index: -1;
   }
@@ -53,12 +50,10 @@ body {
   .bg-3 {
     position: fixed;
     right: 30%;
-    // bottom: -20px;
     bottom: 20px;
     width: 200px;
     height: 200px;
     background: linear-gradient(#747008, #436f1d);
-    // background-color: #00d2ff;
     filter: blur(150px);
     z-index: -1;
   }

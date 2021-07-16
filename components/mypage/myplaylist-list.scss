@@ -1,4 +1,4 @@
-@import "../../static/css/variables";
+@import "../../css/variables";
 
 .container {
   width: 100%;
@@ -97,7 +97,7 @@
             border-radius: 5px;
           }
         }
-        .remove:hover{
+        .remove:hover {
           cursor: pointer;
         }
       }

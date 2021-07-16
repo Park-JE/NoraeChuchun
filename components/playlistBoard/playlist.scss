@@ -17,7 +17,7 @@ body {
       height: 150px;
       display: flex;
       align-items: flex-start;
-      color: $white;
+      @include color-var(color, font-color);
       margin-bottom: $base-space * 2;
 
       .cover {
@@ -55,15 +55,15 @@ body {
 
   .content-wrap {
     width: 100%;
-    color: $white;
+    @include color-var(color, font-color);
 
     .sort {
       width: 100%;
       display: grid;
       grid-template-columns: 13fr 8fr 8fr 40px;
       column-gap: 5px;
-      border-top: 1px solid rgba(255, 255, 255, 0.2);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+      @include color-var(border-top, sm-nav-border);
+      @include color-var(border-bottom, sm-nav-border);
       font-size: $font-small;
       padding: 4px 0 4px $base-space;
 
@@ -76,7 +76,7 @@ body {
       width: 100%;
       font-size: $font-small;
       padding: 5px $base-space/2;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+      @include color-var(border-bottom, sm-nav-border);
       position: relative;
       display: flex;
       justify-content: space-between;
@@ -102,7 +102,7 @@ body {
           opacity: 0.9;
           border: 0;
           outline: none;
-          color: $white;
+          @include color-var(color, font-color);
 
           &.play:hover {
             display: flex;
@@ -147,7 +147,7 @@ body {
         outline: none;
         border: 0;
         background-color: transparent;
-        color: $white;
+        @include color-var(color, font-color);
         margin-right: $base-space/2;
       }
 

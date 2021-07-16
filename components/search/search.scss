@@ -3,7 +3,7 @@
 .search-wrap {
   margin: 150px 0;
   width: 1000px;
-  color: $white;
+  @include color-var(color, font-color);
   position: relative;
 
   .value {
@@ -40,8 +40,8 @@
     display: grid;
     grid-template-columns: 13fr 8fr 8fr 40px;
     column-gap: 5px;
-    border-top: 1px solid rgba(255, 255, 255, 0.2);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    @include color-var(border-top, sm-nav-border);
+    @include color-var(border-bottom, sm-nav-border);
     font-size: $font-small;
     padding: 4px 0 4px $base-space;
 
@@ -63,7 +63,7 @@
       width: 100%;
       font-size: $font-small;
       padding: 5px $base-space/2;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+      @include color-var(border-bottom, sm-nav-border);
       position: relative;
       display: flex;
       justify-content: space-between;
@@ -135,7 +135,7 @@
         outline: none;
         border: 0;
         background-color: transparent;
-        color: $white;
+        @include color-var(color, font-color);
         margin-right: $base-space/2;
       }
 

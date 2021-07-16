@@ -4,8 +4,7 @@
   width: $content-width;
   margin-bottom: $content-bottom;
   margin-top: 150px;
-  // color: $white;
-  color: $black;
+  @include color-var(color, font-color);
 
   .title {
     display: block;
@@ -46,7 +45,11 @@
       .bouncer {
         width: 10px;
         height: 10px;
-        background: linear-gradient(135deg, #d557e1, #01adf7);
+        background: linear-gradient(
+          135deg,
+          var(--bouncer1, map-get($colors, bouncer1)),
+          var(--bouncer2, map-get($colors, bouncer2))
+        );
         border-radius: 50%;
         animation: bouncer 0.5s cubic-bezier(0.19, 0.57, 0.3, 0.98) infinite
           alternate;
@@ -154,8 +157,7 @@
           font-size: $font-small;
           padding: $base-space/2;
           cursor: default;
-          // color: $white;
-          color: $black;
+          @include color-var(color, font-color);
 
           .artist {
             font-size: $font-xsmall;
@@ -204,7 +206,7 @@
 
   .recommendation-warp {
     width: $content-width;
-    margin-top: 110px;
+    margin-top: 90px;
 
     .recommendation {
       flex-direction: column;
@@ -217,7 +219,7 @@
 
       .weather {
         width: 90%;
-        height: 280px;
+        height: 260px;
 
         .icon {
           width: 180px;
