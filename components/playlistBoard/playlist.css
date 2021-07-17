@@ -177,6 +177,12 @@ body .content-wrap .music .content .manipul.play:hover {
   display: flex;
 }
 
+body .content-wrap .music .content .manipul.play.active {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
 body .content-wrap .music .content .manipul.pause.active {
   display: -webkit-box;
   display: -ms-flexbox;

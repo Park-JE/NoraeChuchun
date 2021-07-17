@@ -20,7 +20,7 @@ const outputSearchHtml = (matches, searchText) => {
         (match) =>
           `<div class="music">
               <div class="content">
-               <img src="img/albumCovers/${match.cover}" alt="img" class="cover" />
+               <img src="static/img/albumCovers/${match.cover}" alt="img" class="cover" />
                 <button class="manipul play"><i class="fas fa-play"></i></button>
                 <button class="manipul pause"><i class="fas fa-pause"></i></button>
                  <div class="info">
@@ -45,6 +45,12 @@ const outputSearchHtml = (matches, searchText) => {
     playMusic.forEach((play) => {
       play.addEventListener("click", () => {
         pauseMusic.forEach((otherPlays) => {
+          if (otherPlays.classList.contains("active")) {
+            otherPlays.classList.toggle("active");
+            return;
+          }
+        });
+        playMusic.forEach((otherPlays) => {
           if (otherPlays.classList.contains("active")) {
             otherPlays.classList.toggle("active");
             return;
@@ -183,7 +189,7 @@ searchBtn.addEventListener("click", () => {
     setCookie("inputId", inputBox.id, 1);
     handleSearch();
     if (getCookie("inputId") !== "search") {
-      window.location.href = "search.html";
+      window.location.href = "search";
     }
   } else {
     inputBox.classList.add("active");
@@ -210,7 +216,7 @@ inputBox.addEventListener("keypress", (e) => {
     setCookie("value", inputBox.value, 1);
     handleSearch();
     if (getCookie("inputId") !== "search") {
-      window.location.href = "search.html";
+      window.location.href = "search";
     }
   }
 });

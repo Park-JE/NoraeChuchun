@@ -108,6 +108,10 @@ body {
             display: flex;
           }
 
+          &.play.active {
+            display: flex;
+          }
+
           &.pause.active {
             display: flex;
           }

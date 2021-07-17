@@ -8,7 +8,7 @@ function createSong(song) {
 
   const img = document.createElement("img");
   img.setAttribute("class", "cover");
-  img.setAttribute("src", `img/albumCovers/${song.cover}`);
+  img.setAttribute("src", `static/img/albumCovers/${song.cover}`);
   img.setAttribute("alt", "img");
   content.append(img);
 
@@ -78,7 +78,7 @@ const displayPlaylistCookies = () => {
   );
 
   descripWrap.innerHTML = `<img
-    src="img/playlistCovers/${cookieArray[3]}"
+    src="static/img/playlistCovers/${cookieArray[3]}"
     alt="platlist-cover"
     class="cover"
   />
@@ -102,6 +102,12 @@ const displayPlaylistCookies = () => {
   playMusic.forEach((play) => {
     play.addEventListener("click", () => {
       pauseMusic.forEach((otherPlays) => {
+        if (otherPlays.classList.contains("active")) {
+          otherPlays.classList.toggle("active");
+          return;
+        }
+      });
+      playMusic.forEach((otherPlays) => {
         if (otherPlays.classList.contains("active")) {
           otherPlays.classList.toggle("active");
           return;

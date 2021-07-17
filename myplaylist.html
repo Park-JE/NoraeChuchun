@@ -1,10 +1,11 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="shortcut icon" href="img/favicon.ico" />
+    <link rel="shortcut icon" href="{% static 'img/favicon.ico' %}" />
     <script
       defer
       src="https://kit.fontawesome.com/ef81e253aa.js"
@@ -18,13 +19,15 @@
       rel="stylesheet"
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
     />
-    <link rel="stylesheet" href="css/style.css" />
-    <link rel="stylesheet" href="components/mypage/menu.css" />
-    <link rel="stylesheet" href="components/mypage/myplaylist.css" />
-
-    <script defer src="components/navbar/navbar.js"></script>
-    <script defer src="components/search/search.js"></script>
-    <script defer src="components/mypage/myplaylist.js"></script>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    <link rel="stylesheet" href="{% static 'components/mypage/menu.css' %}" />
+    <link
+      rel="stylesheet"
+      href="{% static 'components/mypage/myplaylist.css' %}"
+    />
+    <script defer src="{% static 'components/navbar/navbar.js' %}"></script>
+    <script defer src="{% static 'components/search/search.js' %}"></script>
+    <script defer src="{% static 'components/mypage/myplaylist.js' %}"></script>
     <script
       defer
       src="https://code.jquery.com/jquery-3.6.0.min.js"
@@ -36,8 +39,8 @@
 
   <body>
     <nav>
-      <a href="index.html" class="logoAndName">
-        <img class="logo" src="img/favicon.png" alt="img" />
+      <a href="{% url 'index' %}" class="logoAndName">
+        <img class="logo" src="{% static 'img/favicon.png' %}" alt="img" />
         <span class="name">날씨음악</span>
       </a>
       <div class="searchAndLogin">
@@ -52,12 +55,16 @@
         </button>
         <button class="btn close"><i class="fas fa-times fa-lg"></i></button>
         <div class="userAndDarkMode">
-          <a href="mypage.html" class="mypage">마이페이지</a>
+          {% if user.is_authenticated %}
+          <a href="{% url 'mypage' %}" class="mypage">마이페이지</a>
           <form action="logout" method="POST">
+            {% csrf_token %}
             <label for="logout" class="login logout">로그아웃</label>
             <input id="logout" type="submit" class="logout" value="로그아웃" />
           </form>
-          <!-- <a href="login.html"><span class="login">로그인</span></a> -->
+          {% else %}
+          <a href="{% url 'login' %}"><span class="login">로그인</span></a>
+          {% endif %}
           <div class="dark-mode">
             <button class="light mode-btn">
               <i class="fas fa-sun fa-lg"></i>
@@ -77,17 +84,17 @@
     <div class="container">
       <div class="mypage__menu">
         <ul class="menu__list">
-          <li class="list-group-item nonactive material-icons">
-            account_circle<a href="/mypage">비밀번호 변경</a>
-          </li>
           <li class="list-group-item active material-icons">
-            music_note<a href="/myplaylist">나의 플레이리스트</a>
+            account_circle<a href="{% url 'mypage' %}">비밀번호 변경</a>
           </li>
           <li class="list-group-item nonactive material-icons">
-            person_add<a href="/share">친구목록</a>
+            music_note<a href="{% url 'myplaylist' %}">나의 플레이리스트</a>
           </li>
           <li class="list-group-item nonactive material-icons">
-            delete_forever<a href="/secession">회원탈퇴</a>
+            person_add<a href="{% url 'share' %}">친구목록</a>
+          </li>
+          <li class="list-group-item nonactive material-icons">
+            delete_forever<a href="{% url 'secession' %}">회원탈퇴</a>
           </li>
         </ul>
       </div>
@@ -103,7 +110,7 @@
           <li class="list-group-play" onclick="pageChange(this);">
             <img
               class="myplaylist__thumnail"
-              src="img/albumCovers/rum.jpeg"
+              src="static/img/albumCovers/rum.jpeg"
               alt="플레이리스트 이미지"
             />
             <div class="myplaylist__title">운동할때 들어야징</div>
