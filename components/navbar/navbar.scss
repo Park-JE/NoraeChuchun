@@ -53,6 +53,8 @@ nav {
         width: 250px;
         padding: $base-space/2 $base-space * 2;
         background-color: $white;
+        box-shadow: inset 5px 5px 5px rgba(0, 0, 0, 0.05),
+          5px 5px 5px rgba(0, 0, 0, 0.1);
       }
     }
 

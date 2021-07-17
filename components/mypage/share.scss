@@ -21,7 +21,7 @@
       height: 40px;
       display: flex;
       align-items: flex-start;
-      color: $white;
+      @include color-var(color, font-color);
       margin-bottom: $base-space * 2;
 
       .info {
@@ -34,7 +34,7 @@
         span {
           font-size: 20px;
           margin-bottom: 15px;
-          border: 1px solid #eee;
+          border: 1px solid var(--font-color, map-get($colors, font-color));
           border-radius: 20px;
           padding: 0.5em 0.5em;
           margin-right: 10px;
@@ -49,21 +49,21 @@
     .title.active {
       font-size: 20px;
       margin-bottom: 15px;
-      border: 1px solid #eee;
+      border: 1px solid var(--font-color, map-get($colors, font-color));
       border-radius: 18px;
       padding: 0.5em 0.5em;
-      background: #eee;
-      color: #160d35;
+      @include color-var(background-color, font-color);
+      @include color-var(color, secession-btn);
     }
 
     .find.active {
       font-size: 20px;
       margin-bottom: 15px;
-      border: 1px solid #eee;
+      border: 1px solid var(--font-color, map-get($colors, font-color));
       border-radius: 18px;
       padding: 0.5em 0.5em;
-      background: #eee;
-      color: #160d35;
+      @include color-var(background-color, font-color);
+      @include color-var(color, secession-btn);
     }
 
     .title-wrap {
@@ -74,15 +74,15 @@
       display: block;
       width: 100%;
       height: 550px;
-      color: #eee;
+      @include color-var(color, font-color);
 
       .sort {
         width: 100%;
         display: grid;
         grid-template-columns: 3fr 3fr 1fr 40px;
         column-gap: 5px;
-        border-top: 1px solid rgba(255, 255, 255, 0.2);
-        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        @include color-var(border-top, sm-nav-border);
+        @include color-var(border-bottom, sm-nav-border);
         font-size: $font-small;
         padding: 4px 0 4px $base-space;
       }
@@ -139,7 +139,7 @@
       display: block;
       width: 100%;
       height: 550px;
-      color: #eee;
+      @include color-var(color, font-color);
 
       .findInput {
         position: absolute;
@@ -160,8 +160,8 @@
         display: grid;
         grid-template-columns: 3fr 3fr 1fr 40px;
         column-gap: 5px;
-        border-top: 1px solid rgba(255, 255, 255, 0.2);
-        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        @include color-var(border-top, sm-nav-border);
+        @include color-var(border-bottom, sm-nav-border);
         font-size: $font-small;
         padding: 4px 0 4px $base-space;
       }
@@ -229,11 +229,8 @@
 @media screen and (max-width: 768px) {
   .container {
     display: flex;
-
     flex-direction: column;
-
     width: 100%;
-    flex-wrap: wrap;
 
     .share-main {
       width: 90%;
@@ -252,7 +249,7 @@
           span {
             font-size: 16px;
             margin-bottom: 15px;
-            border: 1px solid #eee;
+            border: 1px solid var(--font-color, map-get($colors, font-color));
             border-radius: 18px;
             padding: 0.5em 0.5em;
             margin-right: 10px;

@@ -9,6 +9,10 @@
   --sm-nav-bgc: rgba(239, 222, 205, 0.9);
   --sm-nav-border: 1px solid rgba(2, 2, 2, 0.2);
   --filter-bar-border: 1px solid rgba(25, 25, 25, 0.5);
+  --login-btn: linear-gradient(125deg, #f5d270, #d77253, #f5d270);
+  --login-border: 2px solid #707070;
+  --count-color: #454545;
+  --secession-btn: #e1dec8;
 }
 
 :root[color-theme="dark"] {
@@ -21,6 +25,10 @@
   --sm-nav-bgc: rgba(92, 66, 75, 0.9);
   --sm-nav-border: 1px solid rgba(255, 255, 255, 0.2);
   --filter-bar-border: 1px solid rgba(238, 238, 238, 0.5);
+  --login-btn: linear-gradient(125deg, #81ecec, #6c5ce7, #81ecec);
+  --login-border: 2px solid #adadad;
+  --count-color: #aaaaaa;
+  --secession-btn: #242359;
 }
 
 .musicFilter-wrap {

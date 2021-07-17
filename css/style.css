@@ -9,6 +9,10 @@
   --sm-nav-bgc: rgba(239, 222, 205, 0.9);
   --sm-nav-border: 1px solid rgba(2, 2, 2, 0.2);
   --filter-bar-border: 1px solid rgba(25, 25, 25, 0.5);
+  --login-btn: linear-gradient(125deg, #f5d270, #d77253, #f5d270);
+  --login-border: 2px solid #707070;
+  --count-color: #454545;
+  --secession-btn: #e1dec8;
 }
 
 :root[color-theme="dark"] {
@@ -21,6 +25,10 @@
   --sm-nav-bgc: rgba(92, 66, 75, 0.9);
   --sm-nav-border: 1px solid rgba(255, 255, 255, 0.2);
   --filter-bar-border: 1px solid rgba(238, 238, 238, 0.5);
+  --login-btn: linear-gradient(125deg, #81ecec, #6c5ce7, #81ecec);
+  --login-border: 2px solid #adadad;
+  --count-color: #aaaaaa;
+  --secession-btn: #242359;
 }
 
 * {
@@ -107,6 +115,10 @@ body .bg-3 {
   --sm-nav-bgc: rgba(239, 222, 205, 0.9);
   --sm-nav-border: 1px solid rgba(2, 2, 2, 0.2);
   --filter-bar-border: 1px solid rgba(25, 25, 25, 0.5);
+  --login-btn: linear-gradient(125deg, #f5d270, #d77253, #f5d270);
+  --login-border: 2px solid #707070;
+  --count-color: #454545;
+  --secession-btn: #e1dec8;
 }
 
 :root[color-theme="dark"] {
@@ -119,6 +131,10 @@ body .bg-3 {
   --sm-nav-bgc: rgba(92, 66, 75, 0.9);
   --sm-nav-border: 1px solid rgba(255, 255, 255, 0.2);
   --filter-bar-border: 1px solid rgba(238, 238, 238, 0.5);
+  --login-btn: linear-gradient(125deg, #81ecec, #6c5ce7, #81ecec);
+  --login-border: 2px solid #adadad;
+  --count-color: #aaaaaa;
+  --secession-btn: #242359;
 }
 
 nav {
@@ -199,6 +215,8 @@ nav .searchAndLogin .searchInput.active {
   width: 250px;
   padding: 8px 32px;
   background-color: #eee;
+  -webkit-box-shadow: inset 5px 5px 5px rgba(0, 0, 0, 0.05), 5px 5px 5px rgba(0, 0, 0, 0.1);
+          box-shadow: inset 5px 5px 5px rgba(0, 0, 0, 0.05), 5px 5px 5px rgba(0, 0, 0, 0.1);
 }
 
 nav .searchAndLogin [type="search"]::-webkit-search-cancel-button,
@@ -390,6 +408,10 @@ nav .searchAndLogin .ellipsis {
   --sm-nav-bgc: rgba(239, 222, 205, 0.9);
   --sm-nav-border: 1px solid rgba(2, 2, 2, 0.2);
   --filter-bar-border: 1px solid rgba(25, 25, 25, 0.5);
+  --login-btn: linear-gradient(125deg, #f5d270, #d77253, #f5d270);
+  --login-border: 2px solid #707070;
+  --count-color: #454545;
+  --secession-btn: #e1dec8;
 }
 
 :root[color-theme="dark"] {
@@ -402,6 +424,10 @@ nav .searchAndLogin .ellipsis {
   --sm-nav-bgc: rgba(92, 66, 75, 0.9);
   --sm-nav-border: 1px solid rgba(255, 255, 255, 0.2);
   --filter-bar-border: 1px solid rgba(238, 238, 238, 0.5);
+  --login-btn: linear-gradient(125deg, #81ecec, #6c5ce7, #81ecec);
+  --login-border: 2px solid #adadad;
+  --count-color: #aaaaaa;
+  --secession-btn: #242359;
 }
 
 .recommendation-warp {
@@ -699,6 +725,10 @@ nav .searchAndLogin .ellipsis {
   --sm-nav-bgc: rgba(239, 222, 205, 0.9);
   --sm-nav-border: 1px solid rgba(2, 2, 2, 0.2);
   --filter-bar-border: 1px solid rgba(25, 25, 25, 0.5);
+  --login-btn: linear-gradient(125deg, #f5d270, #d77253, #f5d270);
+  --login-border: 2px solid #707070;
+  --count-color: #454545;
+  --secession-btn: #e1dec8;
 }
 
 :root[color-theme="dark"] {
@@ -711,6 +741,10 @@ nav .searchAndLogin .ellipsis {
   --sm-nav-bgc: rgba(92, 66, 75, 0.9);
   --sm-nav-border: 1px solid rgba(255, 255, 255, 0.2);
   --filter-bar-border: 1px solid rgba(238, 238, 238, 0.5);
+  --login-btn: linear-gradient(125deg, #81ecec, #6c5ce7, #81ecec);
+  --login-border: 2px solid #adadad;
+  --count-color: #aaaaaa;
+  --secession-btn: #242359;
 }
 
 .musicFilter-wrap {
@@ -1047,6 +1081,10 @@ nav .searchAndLogin .ellipsis {
   --sm-nav-bgc: rgba(239, 222, 205, 0.9);
   --sm-nav-border: 1px solid rgba(2, 2, 2, 0.2);
   --filter-bar-border: 1px solid rgba(25, 25, 25, 0.5);
+  --login-btn: linear-gradient(125deg, #f5d270, #d77253, #f5d270);
+  --login-border: 2px solid #707070;
+  --count-color: #454545;
+  --secession-btn: #e1dec8;
 }
 
 :root[color-theme="dark"] {
@@ -1059,6 +1097,10 @@ nav .searchAndLogin .ellipsis {
   --sm-nav-bgc: rgba(92, 66, 75, 0.9);
   --sm-nav-border: 1px solid rgba(255, 255, 255, 0.2);
   --filter-bar-border: 1px solid rgba(238, 238, 238, 0.5);
+  --login-btn: linear-gradient(125deg, #81ecec, #6c5ce7, #81ecec);
+  --login-border: 2px solid #adadad;
+  --count-color: #aaaaaa;
+  --secession-btn: #242359;
 }
 
 .search-wrap {

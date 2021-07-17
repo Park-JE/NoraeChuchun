@@ -8,6 +8,10 @@
   --sm-nav-bgc: rgba(239, 222, 205, 0.9);
   --sm-nav-border: 1px solid rgba(2, 2, 2, 0.2);
   --filter-bar-border: 1px solid rgba(25, 25, 25, 0.5);
+  --login-btn: linear-gradient(125deg, #f5d270, #d77253, #f5d270);
+  --login-border: 2px solid #707070;
+  --count-color: #454545;
+  --secession-btn: #e1dec8;
 }
 
 :root[color-theme="dark"] {
@@ -20,6 +24,10 @@
   --sm-nav-bgc: rgba(92, 66, 75, 0.9);
   --sm-nav-border: 1px solid rgba(255, 255, 255, 0.2);
   --filter-bar-border: 1px solid rgba(238, 238, 238, 0.5);
+  --login-btn: linear-gradient(125deg, #81ecec, #6c5ce7, #81ecec);
+  --login-border: 2px solid #adadad;
+  --count-color: #aaaaaa;
+  --secession-btn: #242359;
 }
 
 .container {
@@ -51,7 +59,8 @@
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: flex-start;
-  color: #eee;
+  color: #111;
+  color: var(--font-color, #111);
   margin-bottom: 32px;
 }
 
@@ -73,7 +82,7 @@
 .container .share-main .description-wrap .info span {
   font-size: 20px;
   margin-bottom: 15px;
-  border: 1px solid #eee;
+  border: 1px solid var(--font-color, #111);
   border-radius: 20px;
   padding: 0.5em 0.5em;
   margin-right: 10px;
@@ -86,21 +95,25 @@
 .container .share-main .title.active {
   font-size: 20px;
   margin-bottom: 15px;
-  border: 1px solid #eee;
+  border: 1px solid var(--font-color, #111);
   border-radius: 18px;
   padding: 0.5em 0.5em;
-  background: #eee;
-  color: #160d35;
+  background-color: #111;
+  background-color: var(--font-color, #111);
+  color: #e1dec8;
+  color: var(--secession-btn, #e1dec8);
 }
 
 .container .share-main .find.active {
   font-size: 20px;
   margin-bottom: 15px;
-  border: 1px solid #eee;
+  border: 1px solid var(--font-color, #111);
   border-radius: 18px;
   padding: 0.5em 0.5em;
-  background: #eee;
-  color: #160d35;
+  background-color: #111;
+  background-color: var(--font-color, #111);
+  color: #e1dec8;
+  color: var(--secession-btn, #e1dec8);
 }
 
 .container .share-main .title-wrap {
@@ -111,7 +124,8 @@
   display: block;
   width: 100%;
   height: 550px;
-  color: #eee;
+  color: #111;
+  color: var(--font-color, #111);
 }
 
 .container .share-main .title-wrap.active .sort {
@@ -122,8 +136,10 @@
       grid-template-columns: 3fr 3fr 1fr 40px;
   -webkit-column-gap: 5px;
           column-gap: 5px;
-  border-top: 1px solid rgba(255, 255, 255, 0.2);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  border-top: 1px solid rgba(2, 2, 2, 0.2);
+  border-top: var(--sm-nav-border, 1px solid rgba(2, 2, 2, 0.2));
+  border-bottom: 1px solid rgba(2, 2, 2, 0.2);
+  border-bottom: var(--sm-nav-border, 1px solid rgba(2, 2, 2, 0.2));
   font-size: 14px;
   padding: 4px 0 4px 16px;
 }
@@ -190,7 +206,8 @@
   display: block;
   width: 100%;
   height: 550px;
-  color: #eee;
+  color: #111;
+  color: var(--font-color, #111);
 }
 
 .container .share-main .find-wrap.active .findInput {
@@ -215,8 +232,10 @@
       grid-template-columns: 3fr 3fr 1fr 40px;
   -webkit-column-gap: 5px;
           column-gap: 5px;
-  border-top: 1px solid rgba(255, 255, 255, 0.2);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  border-top: 1px solid rgba(2, 2, 2, 0.2);
+  border-top: var(--sm-nav-border, 1px solid rgba(2, 2, 2, 0.2));
+  border-bottom: 1px solid rgba(2, 2, 2, 0.2);
+  border-bottom: var(--sm-nav-border, 1px solid rgba(2, 2, 2, 0.2));
   font-size: 14px;
   padding: 4px 0 4px 16px;
 }
@@ -297,8 +316,6 @@
         -ms-flex-direction: column;
             flex-direction: column;
     width: 100%;
-    -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
   }
   .container .share-main {
     width: 90%;
@@ -324,7 +341,7 @@
   .container .share-main .description-wrap .info span {
     font-size: 16px;
     margin-bottom: 15px;
-    border: 1px solid #eee;
+    border: 1px solid var(--font-color, #111);
     border-radius: 18px;
     padding: 0.5em 0.5em;
     margin-right: 10px;

@@ -1,3 +1,35 @@
+:root[color-theme="light"] {
+  --background: #edecdd;
+  --font-color: #111;
+  --border: 1px solid #111;
+  --bouncer1: #ffc931;
+  --bouncer2: #d74639;
+  --nav-bgc: rgba(239, 222, 205, 0.2);
+  --sm-nav-bgc: rgba(239, 222, 205, 0.9);
+  --sm-nav-border: 1px solid rgba(2, 2, 2, 0.2);
+  --filter-bar-border: 1px solid rgba(25, 25, 25, 0.5);
+  --login-btn: linear-gradient(125deg, #f5d270, #d77253, #f5d270);
+  --login-border: 2px solid #707070;
+  --count-color: #454545;
+  --secession-btn: #e1dec8;
+}
+
+:root[color-theme="dark"] {
+  --background: linear-gradient(to left, #242359, #0e0e1f);
+  --font-color: #eee;
+  --border: 1px solid #eee;
+  --bouncer1: #d557e1;
+  --bouncer2: #01adf7;
+  --nav-bgc: rgba(92, 66, 75, 0.2);
+  --sm-nav-bgc: rgba(92, 66, 75, 0.9);
+  --sm-nav-border: 1px solid rgba(255, 255, 255, 0.2);
+  --filter-bar-border: 1px solid rgba(238, 238, 238, 0.5);
+  --login-btn: linear-gradient(125deg, #81ecec, #6c5ce7, #81ecec);
+  --login-border: 2px solid #adadad;
+  --count-color: #aaaaaa;
+  --secession-btn: #242359;
+}
+
 .container {
   width: 100%;
   height: 80vh;
@@ -5,7 +37,8 @@
   display: -ms-flexbox;
   display: flex;
   margin-top: 85px;
-  color: #fff;
+  color: #111;
+  color: var(--font-color, #111);
   padding: 0 18px;
 }
 
@@ -16,7 +49,7 @@
 }
 
 .container .mypage__menu .menu__list .active {
-  border: solid #fff 2px;
+  border: 2px solid var(--font-color, #111);
   border-radius: 20px;
 }
 
@@ -46,10 +79,6 @@
   .container .mypage__menu {
     width: 240px;
     margin-top: 30px;
-  }
-  .container .mypage__menu .menu__list .active {
-    border: solid #fff 2px;
-    border-radius: 20px;
   }
   .container .mypage__menu .menu__list li {
     display: -webkit-box;
