@@ -218,9 +218,11 @@ nav {
         }
 
         .dark-mode {
+          width: 100%;
           .mode-btn {
             padding: $base-space/2 $base-space;
             margin-left: 0;
+            width: 100%;
 
             .modeText {
               display: inline;

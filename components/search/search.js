@@ -38,9 +38,31 @@ const outputSearchHtml = (matches, searchText) => {
       .join("");
     musicTable.innerHTML = html;
 
-    const addMusicBtn = document.querySelectorAll(
-      ".search-wrap .musicList .music .add"
-    );
+    const addMusicBtn = musicTable.querySelectorAll(".music .add");
+    const playMusic = musicTable.querySelectorAll(".music .content .play");
+    const pauseMusic = musicTable.querySelectorAll(".music .content .pause");
+
+    playMusic.forEach((play) => {
+      play.addEventListener("click", () => {
+        pauseMusic.forEach((otherPlays) => {
+          if (otherPlays.classList.contains("active")) {
+            otherPlays.classList.toggle("active");
+            return;
+          }
+        });
+        play.nextElementSibling.classList.toggle("active");
+        if (play.classList.contains("active")) {
+          play.classList.toggle("active");
+        }
+      });
+    });
+
+    pauseMusic.forEach((pause) => {
+      pause.addEventListener("click", () => {
+        pause.classList.toggle("active");
+        pause.previousElementSibling.classList.toggle("active");
+      });
+    });
 
     addMusicBtn.forEach((addBtn) => {
       addBtn.addEventListener("click", () => {

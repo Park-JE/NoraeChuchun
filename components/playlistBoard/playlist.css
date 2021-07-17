@@ -168,8 +168,7 @@ body .content-wrap .music .content .manipul {
   opacity: 0.9;
   border: 0;
   outline: none;
-  color: #111;
-  color: var(--font-color, #111);
+  color: #eee;
 }
 
 body .content-wrap .music .content .manipul.play:hover {
@@ -238,11 +237,11 @@ body .content-wrap .music .addModal {
   top: 36px;
   border-radius: 8px;
   padding: 8px 0;
-  background-color: #817585;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background-color: rgba(239, 222, 205, 0.9);
+  background-color: var(--sm-nav-bgc, rgba(239, 222, 205, 0.9));
   -webkit-backdrop-filter: blur(5px);
           backdrop-filter: blur(5px);
-  border-top: 1px solid rgba(255, 255, 255, 0.2);
-  border-right: 1px solid rgba(255, 255, 255, 0.2);
   -webkit-box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
           box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
 }
@@ -254,7 +253,8 @@ body .content-wrap .music .addModal.deactive {
 body .content-wrap .music .addModal .myPlaylist {
   width: 100%;
   padding: 16px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  border-bottom: 1px solid rgba(2, 2, 2, 0.2);
+  border-bottom: var(--sm-nav-border, 1px solid rgba(2, 2, 2, 0.2));
   font-weight: 600;
   cursor: pointer;
 }
@@ -381,6 +381,10 @@ body .content-wrap .alertAdd {
     width: 150px;
     font-size: 12px;
     right: 32px;
+    padding: 4px 0;
+  }
+  body .playlist-main .content-wrap .addModal .myPlaylist {
+    padding: 10.66667px 16px;
   }
   body .playlist-main .alertAdd {
     font-size: 12px;

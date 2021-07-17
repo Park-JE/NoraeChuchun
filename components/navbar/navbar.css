@@ -279,9 +279,13 @@ nav .searchAndLogin .ellipsis {
   nav .searchAndLogin .userAndDarkMode.active {
     display: block;
   }
+  nav .searchAndLogin .userAndDarkMode .dark-mode {
+    width: 100%;
+  }
   nav .searchAndLogin .userAndDarkMode .dark-mode .mode-btn {
     padding: 8px 16px;
     margin-left: 0;
+    width: 100%;
   }
   nav .searchAndLogin .userAndDarkMode .dark-mode .mode-btn .modeText {
     display: inline;
