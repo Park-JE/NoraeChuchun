@@ -31,7 +31,7 @@ function addPlaylist() {
   } else {
     let str =
       `<li class="list-group-play" onclick="pageChange(this);">
-    <img class="myplaylist__thumnail" src="static/img/albumCovers/22.jpg" alt="플레이리스트 이미지" />
+    <img class="myplaylist__thumnail" src="img/albumCovers/22.jpg" alt="플레이리스트 이미지" />
     <div class="myplaylist__title">` +
       title.value +
       `</div>

@@ -6,7 +6,7 @@ function loadPlaylists() {
   const config = {
     headers: { Accept: "application/json" },
   };
-  return fetch("static/data/playlist.json", config)
+  return fetch("data/playlist.json", config)
     .then((response) => response.json())
     .catch((error) => console.log("error", error));
 }
@@ -58,7 +58,7 @@ function createPlaylist(playlist) {
   playlistCard.setAttribute("class", "playlist");
 
   const img = document.createElement("img");
-  img.setAttribute("src", `static/img/playlistCovers/${playlist.cover}`);
+  img.setAttribute("src", `img/playlistCovers/${playlist.cover}`);
   img.setAttribute("alt", "platlist-cover");
   img.setAttribute("class", "cover");
   img.setAttribute("data-mood", playlist.mood);

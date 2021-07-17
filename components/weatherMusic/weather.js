@@ -3,7 +3,7 @@ function loadWeatherInKo() {
   const config = {
     headers: { Accept: "application/json" },
   };
-  return fetch("static/data/ko.json", config)
+  return fetch("data/ko.json", config)
     .then((response) => response.json())
     .catch((error) => console.log("error", error));
 }

@@ -1311,8 +1311,8 @@ nav .searchAndLogin .ellipsis {
   height: 80%;
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 2fr 3fr;
-      grid-template-columns: 2fr 3fr;
+  -ms-grid-columns: 3fr 4fr;
+      grid-template-columns: 3fr 4fr;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;

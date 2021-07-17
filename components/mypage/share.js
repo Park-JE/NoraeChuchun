@@ -27,7 +27,7 @@ function createHTMLString(user) {
 }
 
 function loadUsers() {
-  return fetch("static/data/user.json")
+  return fetch("data/user.json")
     .then((response) => response.json())
     .then((json) => json.users);
 }

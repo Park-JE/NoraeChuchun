@@ -1,11 +1,10 @@
-{% load static %}
 <!DOCTYPE html>
 <html lang="ko">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="shortcut icon" href="{% static 'img/favicon.ico' %}" />
+    <link rel="shortcut icon" href="img/favicon.ico" />
     <script
       defer
       src="https://kit.fontawesome.com/ef81e253aa.js"
@@ -19,19 +18,13 @@
       rel="stylesheet"
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
     />
-    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
-    <link rel="stylesheet" href="{% static 'components/mypage/menu.css' %}" />
-    <link rel="stylesheet" href="{% static 'components/mypage/share.css' %}" />
-    <link
-      rel="stylesheet"
-      href="{% static 'components/mypage/myplaylist-list.css' %}"
-    />
-    <script defer src="{% static 'components/navbar/navbar.js' %}"></script>
-    <script defer src="{% static 'components/search/search.js' %}"></script>
-    <script
-      defer
-      src="{% static 'components/mypage/myplaylist-list.js' %}"
-    ></script>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="components/mypage/menu.css" />
+    <link rel="stylesheet" href="components/mypage/share.css" />
+    <link rel="stylesheet" href="components/mypage/myplaylist-list.css" />
+    <script defer src="components/navbar/navbar.js"></script>
+    <script defer src="components/search/search.js"></script>
+    <script defer src="components/mypage/myplaylist-list.js"></script>
     <script
       defer
       src="https://code.jquery.com/jquery-3.6.0.min.js"
@@ -43,8 +36,8 @@
 
   <body>
     <nav>
-      <a href="{% url 'index' %}" class="logoAndName">
-        <img class="logo" src="{% static 'img/favicon.png' %}" alt="img" />
+      <a href="index.html" class="logoAndName">
+        <img class="logo" src="img/favicon.png" alt="img" />
         <span class="name">날씨음악</span>
       </a>
       <div class="searchAndLogin">
@@ -59,16 +52,16 @@
         </button>
         <button class="btn close"><i class="fas fa-times fa-lg"></i></button>
         <div class="userAndDarkMode">
-          {% if user.is_authenticated %}
-          <a href="{% url 'mypage' %}" class="mypage">마이페이지</a>
+          <!-- {% if user.is_authenticated %} -->
+          <a href="mypage.html" class="mypage">마이페이지</a>
           <form action="logout" method="POST">
-            {% csrf_token %}
+            <!-- {% csrf_token %} -->
             <label for="logout" class="login logout">로그아웃</label>
             <input id="logout" type="submit" class="logout" value="로그아웃" />
           </form>
-          {% else %}
-          <a href="{% url 'login' %}"><span class="login">로그인</span></a>
-          {% endif %}
+          <!-- {% else %} -->
+          <!-- <a href="login.html"><span class="login">로그인</span></a> -->
+          <!-- {% endif %} -->
           <div class="dark-mode">
             <button class="light mode-btn">
               <i class="fas fa-sun fa-lg"></i>
@@ -91,7 +84,7 @@
         <div class="thumnail">
           <img
             class="thumnail_img"
-            src="static/img/playlistCovers/between.jpeg"
+            src="img/playlistCovers/between.jpeg"
             alt="playlist-thumbnail"
           />
         </div>

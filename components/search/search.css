@@ -297,10 +297,14 @@
 
 @media (min-width: 768px) and (max-width: 1023px) {
   .search-wrap {
-    width: 680px;
+    width: 740px;
   }
   .search-wrap .noResult {
-    width: 680px;
+    width: 740px;
+  }
+  .search-wrap .sort {
+    -ms-grid-columns: 7fr 4fr 4fr 40px;
+        grid-template-columns: 7fr 4fr 4fr 40px;
   }
 }
 
