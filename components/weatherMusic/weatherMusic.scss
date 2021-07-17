@@ -141,13 +141,44 @@
         display: grid;
         grid-template-columns: 60px auto;
         align-items: center;
+        position: relative;
 
         .album-cover {
           height: 50px;
           width: 50px;
           border-radius: $border-small;
-          // box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
-          // border: 1px solid rgba(255, 255, 255, 0.2);
+
+          &:hover + .play {
+            display: flex;
+          }
+        }
+
+        .manipul {
+          position: absolute;
+          width: 50px;
+          height: 50px;
+          border-radius: $border-small;
+          background-color: $black;
+          display: none;
+          justify-content: center;
+          align-items: center;
+          font-size: $font-medium;
+          opacity: 0.9;
+          border: 0;
+          outline: none;
+          color: $white;
+
+          &.play:hover {
+            display: flex;
+          }
+
+          &.play.active {
+            display: flex;
+          }
+
+          &.pause.active {
+            display: flex;
+          }
         }
 
         .song-info {

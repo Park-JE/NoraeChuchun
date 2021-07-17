@@ -218,12 +218,57 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  position: relative;
 }
 
 .recommendation-warp .recommendation .currentWeather-playlist .music .album-cover {
   height: 50px;
   width: 50px;
   border-radius: 8px;
+}
+
+.recommendation-warp .recommendation .currentWeather-playlist .music .album-cover:hover + .play {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.recommendation-warp .recommendation .currentWeather-playlist .music .manipul {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  border-radius: 8px;
+  background-color: #111;
+  display: none;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 16px;
+  opacity: 0.9;
+  border: 0;
+  outline: none;
+  color: #eee;
+}
+
+.recommendation-warp .recommendation .currentWeather-playlist .music .manipul.play:hover {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.recommendation-warp .recommendation .currentWeather-playlist .music .manipul.play.active {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.recommendation-warp .recommendation .currentWeather-playlist .music .manipul.pause.active {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 .recommendation-warp .recommendation .currentWeather-playlist .music .song-info {

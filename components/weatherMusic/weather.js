@@ -3,7 +3,7 @@ function loadWeatherInKo() {
   const config = {
     headers: { Accept: "application/json" },
   };
-  return fetch("data/ko.json", config)
+  return fetch("static/data/ko.json", config)
     .then((response) => response.json())
     .catch((error) => console.log("error", error));
 }
@@ -91,6 +91,37 @@ const onGeoOk = (position) => {
           );
           container.classList.add("active");
           container.append(...music);
+
+          const playMusic = container.querySelectorAll(".music .play");
+          const pauseMusic = container.querySelectorAll(".music .pause");
+
+          playMusic.forEach((play) => {
+            play.addEventListener("click", () => {
+              pauseMusic.forEach((otherPlays) => {
+                if (otherPlays.classList.contains("active")) {
+                  otherPlays.classList.toggle("active");
+                  return;
+                }
+              });
+              playMusic.forEach((otherPlays) => {
+                if (otherPlays.classList.contains("active")) {
+                  otherPlays.classList.toggle("active");
+                  return;
+                }
+              });
+              play.nextElementSibling.classList.toggle("active");
+              if (play.classList.contains("active")) {
+                play.classList.toggle("active");
+              }
+            });
+          });
+
+          pauseMusic.forEach((pause) => {
+            pause.addEventListener("click", () => {
+              pause.classList.toggle("active");
+              pause.previousElementSibling.classList.toggle("active");
+            });
+          });
         })
         .catch(console.log);
     })

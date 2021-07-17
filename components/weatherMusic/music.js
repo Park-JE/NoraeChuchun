@@ -3,7 +3,7 @@ function loadItems() {
   const config = {
     headers: { Accept: "application/json" },
   };
-  return fetch("data/music.json", config)
+  return fetch("static/data/music.json", config)
     .then((response) => response.json())
     .catch((error) => console.log("error", error));
 }
@@ -15,8 +15,20 @@ function createElement(music) {
 
   const img = document.createElement("img");
   img.setAttribute("class", "album-cover");
-  img.setAttribute("src", `img/albumCovers/${music.cover}`);
+  img.setAttribute("src", `static/img/albumCovers/${music.cover}`);
   img.setAttribute("alt", "album-cover");
+
+  const play = document.createElement("button");
+  play.setAttribute("class", "manipul play");
+  const playIcon = document.createElement("i");
+  playIcon.setAttribute("class", "fas fa-play");
+  play.append(playIcon);
+
+  const pause = document.createElement("button");
+  pause.setAttribute("class", "manipul pause");
+  const pauseIcon = document.createElement("i");
+  pauseIcon.setAttribute("class", "fas fa-pause");
+  pause.append(pauseIcon);
 
   const songInfo = document.createElement("div");
   songInfo.setAttribute("class", "song-info");
@@ -32,6 +44,8 @@ function createElement(music) {
   songInfo.append(name);
   songInfo.append(artist);
   li.append(img);
+  li.append(play);
+  li.append(pause);
   li.append(songInfo);
 
   return li;
