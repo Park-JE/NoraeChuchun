@@ -55,10 +55,8 @@ li {
       .list-group-play {
         max-width: 100%;
         margin: 20px;
-
-        &:hover {
-          cursor: pointer;
-        }
+        height: 280px;
+        position: relative;
 
         div {
           width: fit-content;
@@ -72,28 +70,85 @@ li {
           width: 200px;
           height: 200px;
           border-radius: 10px;
+          &:hover{
+            filter:brightness(70%);
+            cursor: pointer;
+          }
         }
+
+
+        .myplaylist-menu{
+          display: block;
+          position: absolute;
+          width: fit-content;
+          padding: 10px;
+          bottom:35px;
+          right:-15px;
+          font-size: 30px;
+          z-index: 2;
+          &:hover {
+            cursor: pointer;
+          }
+        }
+
         .myplaylist__title {
           font-size: 15px;
+          margin-top: 5px;
         }
 
         .myplaylist__count {
-          @include color-var(color, count-color);
+          color: #aaaaaa;
+          font-size: 14px;
+          position: relative;
         }
-
-        .myplaylist__shareBtn {
-          float: rifght;
-          margin-left: 100px;
+        .menu-list {
+          display: none;
         }
-
-        .myplaylist__shareBtn:hover {
-          cursor: pointer;
+        .menu-list.active{
+          display: block;
+          position: absolute;
+          font-size: 16px;
+          top:0px;
+          left: 210px;
+          width: 200px;
+          background-color: #282829;
+          border: 1px solid #242323;
+          border-radius: 10px;
+          color: #e0dede;
+          z-index: 2;
+          ul{
+            li{
+              display: flex;
+              align-items: center;
+              padding:8px;
+              height: 48px;
+              span{
+                margin: 0px 8px;
+                font-size: 17px;
+              }
+              &:hover{
+                background-color: #585757;
+              }
+            }
+          }
         }
+        .lock-state{
+          display: none;
+        }
+        .lock-state.active{
+          display: block;
+          position:absolute;
+          left: 150px;
+          bottom: 48px;
+        }
+          
+        
       }
 
       .list-group-add {
         max-width: 100%;
         margin: 20px;
+        height: 280px;
 
         &:hover {
           cursor: pointer;
@@ -120,6 +175,9 @@ li {
         .myplaylist__add:hover {
           cursor: pointer;
         }
+        .myplaylist__title{
+          margin-top: 5px;
+        }
       }
     }
   }
@@ -143,7 +201,7 @@ li {
     animation: addFadeIn 0.2s linear;
     position: absolute;
     display: block;
-    z-index: 2;
+    z-index: 5;
     width: 600px;
     height: 400px;
     left: 0;
@@ -159,42 +217,112 @@ li {
     .newplaylist__container {
       width: 100%;
       height: 100%;
+      position: relative;
+      color:#fff;
 
       h2 {
         width: fit-content;
-        margin: 30px auto 0px auto;
+        font-size: 22px;
+        margin: 20px auto 0px auto;
+        color: #fff;
       }
-
-      div:nth-child(2),
-      div:nth-child(3) {
-        @include color-var(border-bottom, login-border);
-        margin: 50px;
-        padding: 10px 10px;
-
-        > input {
-          width: 100%;
-          border: none;
-          outline: none;
-          @include color-var(color, font-color);
+      .new__title{
+        width: 90%;
+        margin:20px auto;
+        input{
+          color:#fff;
           font-size: 16px;
-          height: 25px;
-          background: none;
+          width: 100%;
+          height: 40px;
+          border-top: none;
+          border-left: none;
+          border-right: none;
+          @include color-var(border-bottom, login-border);
+          background-color: rgba(0, 0, 0, 0);
         }
       }
+      .new__tags{
+        width: 90%;
+        margin: 0px auto;
+        color:rgb(179, 177, 177);
+        .tags{
+          color:#fff;
+          font-size: 16px;
+          width: 100%;
+          height: 40px;
+          border-top: none;
+          border-left: none;
+          border-right: none;
+          @include color-var(border-bottom, login-border);
+          background-color: rgba(0, 0, 0, 0);
+        }
+        .tags__season{
+          display: flex;
+          align-items: center;
+          margin-bottom: 10px;
+          .tag_sort{
+            width: 50px;
+          }
+          label{
+            margin-left: 5px;
+            line-height: 1.6;
+            width: fit-content;
+            input{
+              padding: 2px;
+            }
+          }
+        }
+        .tags__time{
+          display: flex;
+          align-items: center;
+          margin-bottom: 10px;
+          .tag_sort{
+            width: 50px;
+          }
+          label{
+            margin-left: 5px;
+            line-height: 1.6;
+            width: fit-content;
+            input{
+              padding: 2px;
+            }
+          }
+        }
+        .tags__weather{
+          display: flex;
+          align-items: center;
+          .tag_sort{
+            width: 50px;
+          }
+          .radio_group{
+            width: calc(100%-50px);       
+            margin-left: 17px;  
+            label{
+              line-height: 1.5;
+            }
+          }
+        }
+        
+ 
+      }
 
-      div:nth-child(4) {
+      
+
+      .btn__group{
         position: absolute;
-        right: 40px;
+        right: 20px;
+        bottom: 20px;
+        color: #fff;
 
         .closeBtn {
           padding: 0.5em 1.5em;
-          border: 1px solid var(--font-color, map-get($colors, font-color));
+          border: 1px solid  #fff;
           border-radius: 18px;
           font-size: 16px;
           background: none;
           font-weight: 700;
           cursor: pointer;
-          @include color-var(color, font-color);
+          color: #fff;
           -webkit-transition: all 0.3s ease;
           transition: all 0.3s ease;
           margin-right: 5px;
@@ -206,13 +334,13 @@ li {
 
         .saveBtn {
           padding: 0.5em 1.5em;
-          border: 1px solid var(--font-color, map-get($colors, font-color));
+          border: 1px solid  #fff;
+          color: #fff;
           border-radius: 18px;
           font-size: 16px;
           background: none;
           cursor: pointer;
           font-weight: 700;
-          @include color-var(color, font-color);
           -webkit-transition: all 0.3s ease;
           transition: all 0.3s ease;
 
@@ -242,11 +370,18 @@ li {
 }
 
 .cover.active {
-  position: absolute;
+  position: fixed;
   width: 100%;
   height: 100vh;
   background-color: rgba(75, 73, 73, 0.5);
   backdrop-filter: blur(1px);
+  z-index: 4;
+}
+.cover2.active {
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  background-color:none;
   z-index: 1;
 }
 
@@ -271,11 +406,12 @@ li {
 
     .newplaylist.active {
       width: 450px;
-      height: 400px;
+      height: 600px;
 
       .newplaylist__container {
         width: 100%;
         height: 100%;
+        
       }
     }
   }
