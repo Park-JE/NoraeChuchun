@@ -84,7 +84,7 @@
   font-weight: 700;
 }
 
-.container .playlist-info .info .playlist-desc {
+.container .playlist-info .info .playlist-tags {
   margin-top: 20px;
   font-size: 18px;
 }
@@ -97,11 +97,39 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  position: relative;
 }
 
 .container .playlist-info .info .playlist-count span {
   font-size: 16px;
   margin-right: 5px;
+}
+
+.container .playlist-info .info .playlist-count .unlike {
+  display: none;
+}
+
+.container .playlist-info .info .playlist-count .unlike.active {
+  display: block;
+  position: absolute;
+  font-size: 26px;
+  left: 95px;
+}
+
+.container .playlist-info .info .playlist-count .unlike.active:hover {
+  cursor: pointer;
+}
+
+.container .playlist-info .info .playlist-count .like {
+  display: none;
+}
+
+.container .playlist-info .info .playlist-count .like.active {
+  display: block;
+  position: absolute;
+  font-size: 26px;
+  left: 95px;
+  color: rebeccapurple;
 }
 
 .container .content-wrap {

@@ -41,7 +41,7 @@
         font-weight: 700;
       }
 
-      .playlist-desc {
+      .playlist-tags {
         margin-top: 20px;
         font-size: 18px;
       }
@@ -50,10 +50,33 @@
         margin-top: 10px;
         display: flex;
         align-items: center;
+        position: relative;
 
         span {
           font-size: 16px;
           margin-right: 5px;
+        }
+        .unlike{
+          display: none;
+        }
+        .unlike.active{
+          display: block;
+          position: absolute;
+          font-size: 26px;
+          left: 95px;
+          &:hover{
+            cursor: pointer;
+          }
+        }
+        .like{
+          display: none;
+        }
+        .like.active{
+          display: block;
+          position: absolute;
+          font-size: 26px;
+          left: 95px;
+          color: rebeccapurple;
         }
       }
     }
