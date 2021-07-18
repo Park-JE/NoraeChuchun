@@ -62,10 +62,8 @@ li {
       .list-group-play {
         max-width: 100%;
         margin: 20px;
-
-        &:hover {
-          cursor: pointer;
-        }
+        height: 280px;
+        position: relative;
 
         div {
           width: fit-content;
@@ -79,28 +77,85 @@ li {
           width: 200px;
           height: 200px;
           border-radius: 10px;
+          &:hover{
+            filter:brightness(70%);
+            cursor: pointer;
+          }
         }
+
+
+        .myplaylist-menu{
+          display: block;
+          position: absolute;
+          width: fit-content;
+          padding: 10px;
+          bottom:35px;
+          right:-15px;
+          font-size: 30px;
+          z-index: 2;
+          &:hover {
+            cursor: pointer;
+          }
+        }
+
         .myplaylist__title {
           font-size: 15px;
+          margin-top: 5px;
         }
 
         .myplaylist__count {
           color: #aaaaaa;
+          font-size: 14px;
+          position: relative;
         }
-
-        .myplaylist__shareBtn {
-          float: rifght;
-          margin-left: 100px;
+        .menu-list {
+          display: none;
         }
-
-        .myplaylist__shareBtn:hover {
-          cursor: pointer;
+        .menu-list.active{
+          display: block;
+          position: absolute;
+          font-size: 16px;
+          top:0px;
+          left: 210px;
+          width: 200px;
+          background-color: #282829;
+          border: 1px solid #242323;
+          border-radius: 10px;
+          color: #e0dede;
+          z-index: 2;
+          ul{
+            li{
+              display: flex;
+              align-items: center;
+              padding:8px;
+              height: 48px;
+              span{
+                margin: 0px 8px;
+                font-size: 17px;
+              }
+              &:hover{
+                background-color: #585757;
+              }
+            }
+          }
         }
+        .lock-state{
+          display: none;
+        }
+        .lock-state.active{
+          display: block;
+          position:absolute;
+          left: 150px;
+          bottom: 48px;
+        }
+          
+        
       }
 
       .list-group-add {
         max-width: 100%;
         margin: 20px;
+        height: 280px;
 
         &:hover {
           cursor: pointer;
@@ -127,6 +182,9 @@ li {
         .myplaylist__add:hover {
           cursor: pointer;
         }
+        .myplaylist__title{
+          margin-top: 5px;
+        }
       }
     }
   }
@@ -150,7 +208,7 @@ li {
     animation: addFadeIn 0.2s linear;
     position: absolute;
     display: block;
-    z-index: 2;
+    z-index: 5;
     width: 600px;
     height: 400px;
     left: 0;
@@ -254,6 +312,13 @@ li {
   height: 100vh;
   background-color: rgba(75, 73, 73, 0.5);
   backdrop-filter: blur(1px);
+  z-index: 4;
+}
+.cover2.active {
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  background-color:none;
   z-index: 1;
 }
 
