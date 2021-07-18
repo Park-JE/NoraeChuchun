@@ -1,11 +1,4 @@
-html {
-  height: 100%;
-}
-
-body {
-  min-height: 100%;
-  color: #fff;
-}
+@import "../../css/variables";
 
 li {
   list-style: none;
@@ -70,7 +63,7 @@ li {
           height: fit-content;
           vertical-align: middle;
           font-size: 50px;
-          color: #fff;
+          @include color-var(color, font-color);
         }
 
         .myplaylist__thumnail {
@@ -104,9 +97,13 @@ li {
         }
 
         .myplaylist__count {
+<<<<<<< HEAD
           color: #aaaaaa;
           font-size: 14px;
           position: relative;
+=======
+          @include color-var(color, count-color);
+>>>>>>> 6c8423ee02c29086a5d0630d6523ff51b03a3399
         }
         .menu-list {
           display: none;
@@ -175,7 +172,7 @@ li {
             height: fit-content;
             vertical-align: middle;
             font-size: 50px;
-            color: #fff;
+            color: $white;
           }
         }
 
@@ -218,7 +215,7 @@ li {
     margin: auto auto;
     padding: 24px 16px;
     opacity: 0.9;
-    background-image: url('/static/img/bg.jpeg');
+    background-image: url("../../img/bg.jpeg");
     border-radius: 20px;
 
     .newplaylist__container {
@@ -232,7 +229,7 @@ li {
 
       div:nth-child(2),
       div:nth-child(3) {
-        border-bottom: 2px solid #adadad;
+        @include color-var(border-bottom, login-border);
         margin: 50px;
         padding: 10px 10px;
 
@@ -240,7 +237,7 @@ li {
           width: 100%;
           border: none;
           outline: none;
-          color: #fff;
+          @include color-var(color, font-color);
           font-size: 16px;
           height: 25px;
           background: none;
@@ -253,13 +250,13 @@ li {
 
         .closeBtn {
           padding: 0.5em 1.5em;
-          border: 1px solid #eee;
+          border: 1px solid var(--font-color, map-get($colors, font-color));
           border-radius: 18px;
           font-size: 16px;
           background: none;
           font-weight: 700;
           cursor: pointer;
-          color: #fff;
+          @include color-var(color, font-color);
           -webkit-transition: all 0.3s ease;
           transition: all 0.3s ease;
           margin-right: 5px;
@@ -271,13 +268,13 @@ li {
 
         .saveBtn {
           padding: 0.5em 1.5em;
-          border: 1px solid #eee;
+          border: 1px solid var(--font-color, map-get($colors, font-color));
           border-radius: 18px;
           font-size: 16px;
           background: none;
           cursor: pointer;
           font-weight: 700;
-          color: #fff;
+          @include color-var(color, font-color);
           -webkit-transition: all 0.3s ease;
           transition: all 0.3s ease;
 

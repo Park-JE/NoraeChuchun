@@ -2,6 +2,7 @@
 
 nav {
   width: 100vw;
+  min-width: 380px;
   position: fixed;
   top: 0;
   display: flex;
@@ -9,10 +10,17 @@ nav {
   align-items: center;
   font-size: $font-large;
   font-weight: $font-bold;
-  padding: 30px 40px;
-  color: $white;
+  padding: 20px 40px;
+  @include color-var(color, font-color);
   z-index: 3;
   transition: top 0.3s ease-in;
+  backdrop-filter: blur(5px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+  @include color-var(background-color, nav-bgc);
+
+  &.scrollDown {
+    top: -70px;
+  }
 
   .logoAndName {
     display: flex;
@@ -45,6 +53,8 @@ nav {
         width: 250px;
         padding: $base-space/2 $base-space * 2;
         background-color: $white;
+        box-shadow: inset 5px 5px 5px rgba(0, 0, 0, 0.05),
+          5px 5px 5px rgba(0, 0, 0, 0.1);
       }
     }
 
@@ -58,12 +68,13 @@ nav {
       border: 0;
       outline: none;
       background-color: transparent;
-      color: $white;
+      @include color-var(color, font-color);
       padding: 6px;
       border-radius: 50%;
       position: absolute;
       left: 2px;
       transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+      cursor: pointer;
 
       &.search.active {
         color: $black;
@@ -81,47 +92,148 @@ nav {
         }
       }
     }
-  }
-  .login {
-    padding: 0.5em 1.5em;
-    border: 1px solid $white;
-    border-radius: $border-large;
-    font-size: $font-medium;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    margin-left: $base-space;
-    background-color: transparent;
-    color: $white;
 
-    &:hover {
-      background-color: rgba(255, 255, 255, 0.1);
+    .userAndDarkMode {
+      display: flex;
+      align-items: center;
+
+      #logout {
+        display: none;
+      }
+
+      .login {
+        padding: 0.5em 1.5em;
+        @include color-var(border, border);
+        border-radius: $border-large;
+        font-size: $font-medium;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        margin-left: $base-space;
+        background-color: transparent;
+        @include color-var(color, font-color);
+
+        &:hover {
+          background-color: rgba(255, 255, 255, 0.1);
+        }
+      }
+
+      .mypage {
+        margin-left: $base-space;
+        cursor: pointer;
+      }
+
+      .dark-mode {
+        .mode-btn {
+          border: 0;
+          outline: none;
+          background-color: transparent;
+          padding: 6px 0 6px 6px;
+          cursor: pointer;
+          margin-left: $base-space/2;
+          @include color-var(color, font-color);
+
+          .modeText {
+            display: none;
+            font-size: $font-small;
+            font-weight: $font-bold;
+          }
+
+          &.light {
+            display: none;
+
+            &.active {
+              display: block;
+            }
+          }
+
+          &.dark {
+            &.deactive {
+              display: none;
+            }
+          }
+        }
+      }
     }
-  }
 
-  .mypage {
-    margin-left: $base-space;
-    cursor: pointer;
+    .ellipsis {
+      @include color-var(color, font-color);
+      border: 0;
+      outline: none;
+      background-color: transparent;
+      padding: 6px 0 6px 6px;
+      display: none;
+      cursor: pointer;
+      margin-left: $base-space/2;
+    }
   }
 }
 
 @media (max-width: 767px) {
   nav {
-    padding: 20px;
+    padding: 12px 20px;
     font-size: $font-medium;
 
     .searchAndLogin {
       .searchInput.active {
-        width: 110px;
+        width: 150px;
       }
 
       .btn.close.active {
-        left: 83px;
+        left: 122px;
       }
-    }
 
-    .login {
-      font-size: $font-small;
-      margin-left: $base-space/2;
+      .userAndDarkMode {
+        flex-direction: column;
+        justify-content: center;
+        position: absolute;
+        right: -$base-space/2;
+        top: 45px;
+        width: 120px;
+        z-index: 4;
+        display: none;
+        border-radius: $border-small;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        @include color-var(background-color, sm-nav-bgc);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+
+        .login,
+        .mypage {
+          display: block;
+          margin-left: 0;
+          text-align: center;
+          border: none;
+          font-size: $font-small;
+          padding: $base-space/2 $base-space;
+          @include color-var(border-bottom, sm-nav-border);
+          border-radius: 0;
+          font-weight: $font-bold;
+
+          &:hover {
+            background-color: transparent;
+          }
+        }
+
+        &.active {
+          display: block;
+        }
+
+        .dark-mode {
+          width: 100%;
+          .mode-btn {
+            padding: $base-space/2 $base-space;
+            margin-left: 0;
+            width: 100%;
+
+            .modeText {
+              display: inline;
+            }
+          }
+        }
+      }
+
+      .ellipsis {
+        display: block;
+      }
     }
   }
 }

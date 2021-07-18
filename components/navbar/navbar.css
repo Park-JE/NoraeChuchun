@@ -1,5 +1,38 @@
+:root[color-theme="light"] {
+  --background: #edecdd;
+  --font-color: #111;
+  --border: 1px solid #111;
+  --bouncer1: #ffc931;
+  --bouncer2: #d74639;
+  --nav-bgc: rgba(239, 222, 205, 0.2);
+  --sm-nav-bgc: rgba(239, 222, 205, 0.9);
+  --sm-nav-border: 1px solid rgba(2, 2, 2, 0.2);
+  --filter-bar-border: 1px solid rgba(25, 25, 25, 0.5);
+  --login-btn: linear-gradient(125deg, #f5d270, #d77253, #f5d270);
+  --login-border: 2px solid #707070;
+  --count-color: #454545;
+  --secession-btn: #e1dec8;
+}
+
+:root[color-theme="dark"] {
+  --background: linear-gradient(to left, #242359, #0e0e1f);
+  --font-color: #eee;
+  --border: 1px solid #eee;
+  --bouncer1: #d557e1;
+  --bouncer2: #01adf7;
+  --nav-bgc: rgba(92, 66, 75, 0.2);
+  --sm-nav-bgc: rgba(92, 66, 75, 0.9);
+  --sm-nav-border: 1px solid rgba(255, 255, 255, 0.2);
+  --filter-bar-border: 1px solid rgba(238, 238, 238, 0.5);
+  --login-btn: linear-gradient(125deg, #81ecec, #6c5ce7, #81ecec);
+  --login-border: 2px solid #adadad;
+  --count-color: #aaaaaa;
+  --secession-btn: #242359;
+}
+
 nav {
   width: 100vw;
+  min-width: 380px;
   position: fixed;
   top: 0;
   display: -webkit-box;
@@ -13,11 +46,22 @@ nav {
           align-items: center;
   font-size: 18px;
   font-weight: 600;
-  padding: 30px 40px;
-  color: #eee;
+  padding: 20px 40px;
+  color: #111;
+  color: var(--font-color, #111);
   z-index: 3;
   -webkit-transition: top 0.3s ease-in;
   transition: top 0.3s ease-in;
+  -webkit-backdrop-filter: blur(5px);
+          backdrop-filter: blur(5px);
+  -webkit-box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+  background-color: rgba(239, 222, 205, 0.2);
+  background-color: var(--nav-bgc, rgba(239, 222, 205, 0.2));
+}
+
+nav.scrollDown {
+  top: -70px;
 }
 
 nav .logoAndName {
@@ -64,6 +108,8 @@ nav .searchAndLogin .searchInput.active {
   width: 250px;
   padding: 8px 32px;
   background-color: #eee;
+  -webkit-box-shadow: inset 5px 5px 5px rgba(0, 0, 0, 0.05), 5px 5px 5px rgba(0, 0, 0, 0.1);
+          box-shadow: inset 5px 5px 5px rgba(0, 0, 0, 0.05), 5px 5px 5px rgba(0, 0, 0, 0.1);
 }
 
 nav .searchAndLogin [type="search"]::-webkit-search-cancel-button,
@@ -76,13 +122,15 @@ nav .searchAndLogin .btn {
   border: 0;
   outline: none;
   background-color: transparent;
-  color: #eee;
+  color: #111;
+  color: var(--font-color, #111);
   padding: 6px;
   border-radius: 50%;
   position: absolute;
   left: 2px;
   -webkit-transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
   transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  cursor: pointer;
 }
 
 nav .searchAndLogin .btn.search.active {
@@ -101,9 +149,23 @@ nav .searchAndLogin .btn.close.active {
   visibility: visible;
 }
 
-nav .login {
+nav .searchAndLogin .userAndDarkMode {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+nav .searchAndLogin .userAndDarkMode #logout {
+  display: none;
+}
+
+nav .searchAndLogin .userAndDarkMode .login {
   padding: 0.5em 1.5em;
-  border: 1px solid #eee;
+  border: 1px solid #111;
+  border: var(--border, 1px solid #111);
   border-radius: 18px;
   font-size: 16px;
   cursor: pointer;
@@ -111,32 +173,125 @@ nav .login {
   transition: all 0.3s ease;
   margin-left: 16px;
   background-color: transparent;
-  color: #eee;
+  color: #111;
+  color: var(--font-color, #111);
 }
 
-nav .login:hover {
+nav .searchAndLogin .userAndDarkMode .login:hover {
   background-color: rgba(255, 255, 255, 0.1);
 }
 
-nav .mypage {
+nav .searchAndLogin .userAndDarkMode .mypage {
   margin-left: 16px;
   cursor: pointer;
 }
 
+nav .searchAndLogin .userAndDarkMode .dark-mode .mode-btn {
+  border: 0;
+  outline: none;
+  background-color: transparent;
+  padding: 6px 0 6px 6px;
+  cursor: pointer;
+  margin-left: 8px;
+  color: #111;
+  color: var(--font-color, #111);
+}
+
+nav .searchAndLogin .userAndDarkMode .dark-mode .mode-btn .modeText {
+  display: none;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+nav .searchAndLogin .userAndDarkMode .dark-mode .mode-btn.light {
+  display: none;
+}
+
+nav .searchAndLogin .userAndDarkMode .dark-mode .mode-btn.light.active {
+  display: block;
+}
+
+nav .searchAndLogin .userAndDarkMode .dark-mode .mode-btn.dark.deactive {
+  display: none;
+}
+
+nav .searchAndLogin .ellipsis {
+  color: #111;
+  color: var(--font-color, #111);
+  border: 0;
+  outline: none;
+  background-color: transparent;
+  padding: 6px 0 6px 6px;
+  display: none;
+  cursor: pointer;
+  margin-left: 8px;
+}
+
 @media (max-width: 767px) {
   nav {
-    padding: 20px;
+    padding: 12px 20px;
     font-size: 16px;
   }
   nav .searchAndLogin .searchInput.active {
-    width: 110px;
+    width: 150px;
   }
   nav .searchAndLogin .btn.close.active {
-    left: 83px;
+    left: 122px;
   }
-  nav .login {
+  nav .searchAndLogin .userAndDarkMode {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    position: absolute;
+    right: -8px;
+    top: 45px;
+    width: 120px;
+    z-index: 4;
+    display: none;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background-color: rgba(239, 222, 205, 0.9);
+    background-color: var(--sm-nav-bgc, rgba(239, 222, 205, 0.9));
+    -webkit-box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+  }
+  nav .searchAndLogin .userAndDarkMode .login,
+  nav .searchAndLogin .userAndDarkMode .mypage {
+    display: block;
+    margin-left: 0;
+    text-align: center;
+    border: none;
     font-size: 14px;
-    margin-left: 8px;
+    padding: 8px 16px;
+    border-bottom: 1px solid rgba(2, 2, 2, 0.2);
+    border-bottom: var(--sm-nav-border, 1px solid rgba(2, 2, 2, 0.2));
+    border-radius: 0;
+    font-weight: 600;
+  }
+  nav .searchAndLogin .userAndDarkMode .login:hover,
+  nav .searchAndLogin .userAndDarkMode .mypage:hover {
+    background-color: transparent;
+  }
+  nav .searchAndLogin .userAndDarkMode.active {
+    display: block;
+  }
+  nav .searchAndLogin .userAndDarkMode .dark-mode {
+    width: 100%;
+  }
+  nav .searchAndLogin .userAndDarkMode .dark-mode .mode-btn {
+    padding: 8px 16px;
+    margin-left: 0;
+    width: 100%;
+  }
+  nav .searchAndLogin .userAndDarkMode .dark-mode .mode-btn .modeText {
+    display: inline;
+  }
+  nav .searchAndLogin .ellipsis {
+    display: block;
   }
 }
 /*# sourceMappingURL=navbar.css.map */

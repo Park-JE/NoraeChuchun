@@ -1,3 +1,35 @@
+:root[color-theme="light"] {
+  --background: #edecdd;
+  --font-color: #111;
+  --border: 1px solid #111;
+  --bouncer1: #ffc931;
+  --bouncer2: #d74639;
+  --nav-bgc: rgba(239, 222, 205, 0.2);
+  --sm-nav-bgc: rgba(239, 222, 205, 0.9);
+  --sm-nav-border: 1px solid rgba(2, 2, 2, 0.2);
+  --filter-bar-border: 1px solid rgba(25, 25, 25, 0.5);
+  --login-btn: linear-gradient(125deg, #f5d270, #d77253, #f5d270);
+  --login-border: 2px solid #707070;
+  --count-color: #454545;
+  --secession-btn: #e1dec8;
+}
+
+:root[color-theme="dark"] {
+  --background: linear-gradient(to left, #242359, #0e0e1f);
+  --font-color: #eee;
+  --border: 1px solid #eee;
+  --bouncer1: #d557e1;
+  --bouncer2: #01adf7;
+  --nav-bgc: rgba(92, 66, 75, 0.2);
+  --sm-nav-bgc: rgba(92, 66, 75, 0.9);
+  --sm-nav-border: 1px solid rgba(255, 255, 255, 0.2);
+  --filter-bar-border: 1px solid rgba(238, 238, 238, 0.5);
+  --login-btn: linear-gradient(125deg, #81ecec, #6c5ce7, #81ecec);
+  --login-border: 2px solid #adadad;
+  --count-color: #aaaaaa;
+  --secession-btn: #242359;
+}
+
 .container {
   width: 100%;
   display: -webkit-box;
@@ -18,6 +50,8 @@
           box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
   padding: 32px;
   margin: 100px auto;
+  color: #111;
+  color: var(--font-color, #111);
 }
 
 .container .playlist-info {
@@ -53,11 +87,9 @@
 .container .playlist-info .info .playlist-desc {
   margin-top: 20px;
   font-size: 18px;
-  color: #dad4d4;
 }
 
 .container .playlist-info .info .playlist-count {
-  color: #dad4d4;
   margin-top: 10px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -74,7 +106,8 @@
 
 .container .content-wrap {
   width: 100%;
-  color: #eee;
+  color: #111;
+  color: var(--font-color, #111);
 }
 
 .container .content-wrap .sort {
@@ -88,8 +121,10 @@
       grid-template-columns: 1fr 3fr 3fr 3fr 40px;
   -webkit-column-gap: 5px;
           column-gap: 5px;
-  border-top: 1px solid rgba(255, 255, 255, 0.2);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  border-top: 1px solid rgba(2, 2, 2, 0.2);
+  border-top: var(--sm-nav-border, 1px solid rgba(2, 2, 2, 0.2));
+  border-bottom: 1px solid rgba(2, 2, 2, 0.2);
+  border-bottom: var(--sm-nav-border, 1px solid rgba(2, 2, 2, 0.2));
   font-size: 14px;
   padding: 4px 0 4px 16px;
   margin: 0px auto;
@@ -106,8 +141,10 @@
       grid-template-columns: 1fr 3fr 3fr 3fr 40px;
   -webkit-column-gap: 5px;
           column-gap: 5px;
-  border-top: 1px solid rgba(255, 255, 255, 0.2);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  border-top: 1px solid rgba(2, 2, 2, 0.2);
+  border-top: var(--sm-nav-border, 1px solid rgba(2, 2, 2, 0.2));
+  border-bottom: 1px solid rgba(2, 2, 2, 0.2);
+  border-bottom: var(--sm-nav-border, 1px solid rgba(2, 2, 2, 0.2));
   font-size: 14px;
   padding: 4px 0 4px 16px;
   margin: 0px auto;

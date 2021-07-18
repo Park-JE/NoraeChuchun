@@ -1,6 +1,9 @@
+@import "../../css/variables";
+
 .container {
   width: 100%;
   height: 100%;
+  @include color-var(color, font-color);
 
   .secession_container {
     margin: 0px 70px;
@@ -13,7 +16,7 @@
     p {
       margin: 10px 0px 5px 0px;
       font-size: 14px;
-      color: darkgrey;
+      @include color-var(color, count-color);
       line-height: 1.5;
     }
 
@@ -36,7 +39,7 @@
 
       .checkBtn.active {
         display: inline;
-        color: #fff;
+        @include color-var(color, font-color);
         font-size: 20px;
         vertical-align: middle;
 
@@ -51,7 +54,7 @@
 
       .circleBtn.active {
         display: inline;
-        color: #fff;
+        @include color-var(color, font-color);
         font-size: 20px;
         vertical-align: middle;
         &:hover {
@@ -60,26 +63,26 @@
       }
 
       span:nth-child(3) {
-        color: #fff;
+        @include color-var(color, font-color);
         font-size: 16px;
         vertical-align: middle;
       }
-
     }
 
     button {
       padding: 0.5em 1.5em;
-      border: 2px solid #eee;
+      border: 2px solid var(--font-color, map-get($colors, font-color));
       border-radius: 18px;
       font-size: 16px;
       background: none;
-      color: #fff;
+      @include color-var(color, font-color);
       font-weight: 700;
       cursor: pointer;
-      margin:80px 0% 0px 80%;
-      &:hover{
-        background-color: #fff;
-        color: #242359;
+      margin: 80px 0% 0px 80%;
+      transition: all 0.2s ease-in-out;
+      &:hover {
+        @include color-var(background-color, font-color);
+        @include color-var(color, secession-btn);
       }
     }
   }
@@ -90,22 +93,15 @@
     flex-direction: row;
     width: 100%;
     flex-wrap: wrap;
-    .secession_container{
+    .secession_container {
       margin-top: -20px;
-      h2{
+      h2 {
         margin: 10px 0;
       }
       button {
         width: fit-content;
         padding: 0.5em 1.5em;
-        border: 2px solid #eee;
-        border-radius: 18px;
-        font-size: 16px;
-        background: none;
-        color: #fff;
-        font-weight: 700;
-        cursor: pointer;
-        margin:20px auto;
+        margin: 20px auto;
       }
     }
   }

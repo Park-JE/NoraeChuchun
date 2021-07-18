@@ -1,10 +1,33 @@
-html {
-  height: 100%;
+:root[color-theme="light"] {
+  --background: #edecdd;
+  --font-color: #111;
+  --border: 1px solid #111;
+  --bouncer1: #ffc931;
+  --bouncer2: #d74639;
+  --nav-bgc: rgba(239, 222, 205, 0.2);
+  --sm-nav-bgc: rgba(239, 222, 205, 0.9);
+  --sm-nav-border: 1px solid rgba(2, 2, 2, 0.2);
+  --filter-bar-border: 1px solid rgba(25, 25, 25, 0.5);
+  --login-btn: linear-gradient(125deg, #f5d270, #d77253, #f5d270);
+  --login-border: 2px solid #707070;
+  --count-color: #454545;
+  --secession-btn: #e1dec8;
 }
 
-body {
-  min-height: 100%;
-  color: #fff;
+:root[color-theme="dark"] {
+  --background: linear-gradient(to left, #242359, #0e0e1f);
+  --font-color: #eee;
+  --border: 1px solid #eee;
+  --bouncer1: #d557e1;
+  --bouncer2: #01adf7;
+  --nav-bgc: rgba(92, 66, 75, 0.2);
+  --sm-nav-bgc: rgba(92, 66, 75, 0.9);
+  --sm-nav-border: 1px solid rgba(255, 255, 255, 0.2);
+  --filter-bar-border: 1px solid rgba(238, 238, 238, 0.5);
+  --login-btn: linear-gradient(125deg, #81ecec, #6c5ce7, #81ecec);
+  --login-border: 2px solid #adadad;
+  --count-color: #aaaaaa;
+  --secession-btn: #242359;
 }
 
 li {
@@ -71,7 +94,8 @@ li {
   height: fit-content;
   vertical-align: middle;
   font-size: 50px;
-  color: #fff;
+  color: #111;
+  color: var(--font-color, #111);
 }
 
 .container .myplaylist .myplaylist__list .list-group-play .myplaylist__thumnail {
@@ -109,9 +133,14 @@ li {
 }
 
 .container .myplaylist .myplaylist__list .list-group-play .myplaylist__count {
+<<<<<<< HEAD
   color: #aaaaaa;
   font-size: 14px;
   position: relative;
+=======
+  color: #454545;
+  color: var(--count-color, #454545);
+>>>>>>> 6c8423ee02c29086a5d0630d6523ff51b03a3399
 }
 
 .container .myplaylist .myplaylist__list .list-group-play .menu-list {
@@ -198,7 +227,7 @@ li {
   height: fit-content;
   vertical-align: middle;
   font-size: 50px;
-  color: #fff;
+  color: #eee;
 }
 
 .container .myplaylist .myplaylist__list .list-group-add .myplaylist__add:hover {
@@ -254,7 +283,7 @@ li {
   margin: auto auto;
   padding: 24px 16px;
   opacity: 0.9;
-  background-image: url("/static/img/bg.jpeg");
+  background-image: url("../../img/bg.jpeg");
   border-radius: 20px;
 }
 
@@ -272,7 +301,8 @@ li {
 
 .container .newplaylist.active .newplaylist__container div:nth-child(2),
 .container .newplaylist.active .newplaylist__container div:nth-child(3) {
-  border-bottom: 2px solid #adadad;
+  border-bottom: 2px solid #707070;
+  border-bottom: var(--login-border, 2px solid #707070);
   margin: 50px;
   padding: 10px 10px;
 }
@@ -282,7 +312,8 @@ li {
   width: 100%;
   border: none;
   outline: none;
-  color: #fff;
+  color: #111;
+  color: var(--font-color, #111);
   font-size: 16px;
   height: 25px;
   background: none;
@@ -295,13 +326,14 @@ li {
 
 .container .newplaylist.active .newplaylist__container div:nth-child(4) .closeBtn {
   padding: 0.5em 1.5em;
-  border: 1px solid #eee;
+  border: 1px solid var(--font-color, #111);
   border-radius: 18px;
   font-size: 16px;
   background: none;
   font-weight: 700;
   cursor: pointer;
-  color: #fff;
+  color: #111;
+  color: var(--font-color, #111);
   -webkit-transition: all 0.3s ease;
   transition: all 0.3s ease;
   margin-right: 5px;
@@ -313,13 +345,14 @@ li {
 
 .container .newplaylist.active .newplaylist__container div:nth-child(4) .saveBtn {
   padding: 0.5em 1.5em;
-  border: 1px solid #eee;
+  border: 1px solid var(--font-color, #111);
   border-radius: 18px;
   font-size: 16px;
   background: none;
   cursor: pointer;
   font-weight: 700;
-  color: #fff;
+  color: #111;
+  color: var(--font-color, #111);
   -webkit-transition: all 0.3s ease;
   transition: all 0.3s ease;
 }

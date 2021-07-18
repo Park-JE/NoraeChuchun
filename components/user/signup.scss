@@ -1,28 +1,19 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+@import "../../css/variables";
 
 body {
-  width: 100vw;
   height: 100vh;
-  background: linear-gradient(to left, #242359, #0e0e1f);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 
   .loginForm {
     position: absolute;
     width: 300px;
-    height: 400px;
+    min-height: 400px;
     padding: 30px, 20px;
     background-color: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(5px);
-    border-top: 1px solid rgba(255, 255, 255, 0.2);
-    border-right: 1px solid rgba(255, 255, 255, 0.2);
+    border-top: 2px solid rgba(255, 255, 255, 0.2);
+    border-right: 2px solid rgba(255, 255, 255, 0.2);
     box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
-    color: #eee;
+    @include color-var(color, font-color);
     text-align: center;
     top: 50%;
     left: 50%;
@@ -35,7 +26,7 @@ body {
     }
 
     .idForm {
-      border-bottom: 2px solid #adadad;
+      @include color-var(border-bottom, login-border);
       margin: 30px;
       padding: 10px 10px;
 
@@ -51,7 +42,7 @@ body {
     }
 
     .passForm {
-      border-bottom: 2px solid #adadad;
+      @include color-var(border-bottom, login-border);
       margin: 30px;
       padding: 10px 10px;
 
@@ -66,7 +57,7 @@ body {
       }
     }
     .passForm_chck {
-      border-bottom: 2px solid #adadad;
+      @include color-var(border-bottom, login-border);
       margin: 30px;
       padding: 10px 10px;
 
@@ -88,7 +79,7 @@ body {
       margin-bottom: 40px;
       width: 80%;
       height: 40px;
-      background: linear-gradient(125deg, #81ecec, #6c5ce7, #81ecec);
+      @include color-var(background, login-btn);
       background-position: left;
       background-size: 200%;
       color: white;

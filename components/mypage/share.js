@@ -26,10 +26,9 @@ function createHTMLString(user) {
   `;
 }
 
-
 function loadUsers() {
-  return fetch("static/data/user.json")
-    .then(response => response.json())
+  return fetch("data/user.json")
+    .then((response) => response.json())
     .then((json) => json.users);
 }
 function displayUsers(users) {
@@ -41,13 +40,15 @@ function displayUsers(users) {
 function filter() {
   var name, id, i;
   let findInput = document.querySelector(".findInput").value.toUpperCase();
-  console.log(findInput)
+  console.log(findInput);
   userlist = document.getElementsByClassName("user-list");
   for (i = 0; i < userlist.length; i++) {
     id = userlist[i].getElementsByClassName("find-id");
     name = userlist[i].getElementsByClassName("find-name");
-    if (id[0].innerHTML.toUpperCase().indexOf(findInput) != -1 ||
-      name[0].innerHTML.toUpperCase().indexOf(findInput) != -1) {
+    if (
+      id[0].innerHTML.toUpperCase().indexOf(findInput) != -1 ||
+      name[0].innerHTML.toUpperCase().indexOf(findInput) != -1
+    ) {
       userlist[i].style.display = "grid";
     } else {
       userlist[i].style.display = "none";
@@ -55,11 +56,11 @@ function filter() {
   }
 }
 
-//친구 추가 
+//친구 추가
 function addFriend(obj) {
   const parent = obj.parentNode;
   const id = parent.querySelector(".find-id").innerText;
-  console.log(id)
+  console.log(id);
   const name = parent.querySelector(".find-name").innerText;
 
   let str = `
@@ -72,15 +73,14 @@ function addFriend(obj) {
       send_to_mobile
     </span>
   </div>
-  `
+  `;
   $(".friends").append(str);
-  alert("친구추가 되었습니다😃")
-
+  alert("친구추가 되었습니다😃");
 }
 
 //main
 loadUsers()
-  .then(users => {
+  .then((users) => {
     displayUsers(users);
   })
   .catch(console.log);

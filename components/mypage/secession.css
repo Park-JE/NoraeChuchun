@@ -1,6 +1,40 @@
+:root[color-theme="light"] {
+  --background: #edecdd;
+  --font-color: #111;
+  --border: 1px solid #111;
+  --bouncer1: #ffc931;
+  --bouncer2: #d74639;
+  --nav-bgc: rgba(239, 222, 205, 0.2);
+  --sm-nav-bgc: rgba(239, 222, 205, 0.9);
+  --sm-nav-border: 1px solid rgba(2, 2, 2, 0.2);
+  --filter-bar-border: 1px solid rgba(25, 25, 25, 0.5);
+  --login-btn: linear-gradient(125deg, #f5d270, #d77253, #f5d270);
+  --login-border: 2px solid #707070;
+  --count-color: #454545;
+  --secession-btn: #e1dec8;
+}
+
+:root[color-theme="dark"] {
+  --background: linear-gradient(to left, #242359, #0e0e1f);
+  --font-color: #eee;
+  --border: 1px solid #eee;
+  --bouncer1: #d557e1;
+  --bouncer2: #01adf7;
+  --nav-bgc: rgba(92, 66, 75, 0.2);
+  --sm-nav-bgc: rgba(92, 66, 75, 0.9);
+  --sm-nav-border: 1px solid rgba(255, 255, 255, 0.2);
+  --filter-bar-border: 1px solid rgba(238, 238, 238, 0.5);
+  --login-btn: linear-gradient(125deg, #81ecec, #6c5ce7, #81ecec);
+  --login-border: 2px solid #adadad;
+  --count-color: #aaaaaa;
+  --secession-btn: #242359;
+}
+
 .container {
   width: 100%;
   height: 100%;
+  color: #111;
+  color: var(--font-color, #111);
 }
 
 .container .secession_container {
@@ -15,7 +49,8 @@
 .container .secession_container p {
   margin: 10px 0px 5px 0px;
   font-size: 14px;
-  color: darkgrey;
+  color: #454545;
+  color: var(--count-color, #454545);
   line-height: 1.5;
 }
 
@@ -39,7 +74,8 @@
 
 .container .secession_container .check_guide .checkBtn.active {
   display: inline;
-  color: #fff;
+  color: #111;
+  color: var(--font-color, #111);
   font-size: 20px;
   vertical-align: middle;
 }
@@ -54,7 +90,8 @@
 
 .container .secession_container .check_guide .circleBtn.active {
   display: inline;
-  color: #fff;
+  color: #111;
+  color: var(--font-color, #111);
   font-size: 20px;
   vertical-align: middle;
 }
@@ -64,26 +101,32 @@
 }
 
 .container .secession_container .check_guide span:nth-child(3) {
-  color: #fff;
+  color: #111;
+  color: var(--font-color, #111);
   font-size: 16px;
   vertical-align: middle;
 }
 
 .container .secession_container button {
   padding: 0.5em 1.5em;
-  border: 2px solid #eee;
+  border: 2px solid var(--font-color, #111);
   border-radius: 18px;
   font-size: 16px;
   background: none;
-  color: #fff;
+  color: #111;
+  color: var(--font-color, #111);
   font-weight: 700;
   cursor: pointer;
   margin: 80px 0% 0px 80%;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
 }
 
 .container .secession_container button:hover {
-  background-color: #fff;
-  color: #242359;
+  background-color: #111;
+  background-color: var(--font-color, #111);
+  color: #e1dec8;
+  color: var(--secession-btn, #e1dec8);
 }
 
 @media screen and (max-width: 768px) {
@@ -107,13 +150,6 @@
     width: -moz-fit-content;
     width: fit-content;
     padding: 0.5em 1.5em;
-    border: 2px solid #eee;
-    border-radius: 18px;
-    font-size: 16px;
-    background: none;
-    color: #fff;
-    font-weight: 700;
-    cursor: pointer;
     margin: 20px auto;
   }
 }

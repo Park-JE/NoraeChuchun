@@ -17,5 +17,5 @@ okayBtn.addEventListener("click", () => {
   } else {
     alert("안내사항 체크여부를 확인해주세요.");
   }
-  window.location.href = "./index.html"
+  window.location.href = "index";
 });

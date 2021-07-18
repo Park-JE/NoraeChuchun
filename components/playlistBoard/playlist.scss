@@ -17,7 +17,7 @@ body {
       height: 150px;
       display: flex;
       align-items: flex-start;
-      color: $white;
+      @include color-var(color, font-color);
       margin-bottom: $base-space * 2;
 
       .cover {
@@ -32,20 +32,22 @@ body {
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-        padding: $base-space * 1.5 $base-space;
+        padding: $base-space;
 
         .title {
           font-size: $font-xlarge;
           font-weight: $font-bold;
-          margin-bottom: $base-space * 2;
         }
 
-        .tags {
-          font-size: $font-small;
-        }
+        .tagAndSong {
+          .tags {
+            font-size: $font-small;
+            margin-bottom: 4px;
+          }
 
-        .songs {
-          font-size: $font-small;
+          .songs {
+            font-size: $font-small;
+          }
         }
       }
     }
@@ -53,15 +55,15 @@ body {
 
   .content-wrap {
     width: 100%;
-    color: $white;
+    @include color-var(color, font-color);
 
     .sort {
       width: 100%;
       display: grid;
-      grid-template-columns: 4fr 3fr 3fr 40px;
+      grid-template-columns: 13fr 8fr 8fr 40px;
       column-gap: 5px;
-      border-top: 1px solid rgba(255, 255, 255, 0.2);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+      @include color-var(border-top, sm-nav-border);
+      @include color-var(border-bottom, sm-nav-border);
       font-size: $font-small;
       padding: 4px 0 4px $base-space;
 
@@ -72,25 +74,76 @@ body {
 
     .music {
       width: 100%;
-      display: grid;
-      grid-template-columns: 4fr 3fr 3fr 40px;
-      column-gap: 5px;
-      align-items: center;
-      justify-items: flex-start;
       font-size: $font-small;
-      padding: 5px 0 5px $base-space;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+      padding: 5px $base-space/2;
+      @include color-var(border-bottom, sm-nav-border);
       position: relative;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
 
-      .coverAndName {
+      .content {
+        width: 100%;
         display: grid;
-        grid-template-columns: 70px 1fr;
+        grid-template-columns: 72px 4fr;
         align-items: center;
+        margin-right: 8px;
+
+        .manipul {
+          position: absolute;
+          width: 55px;
+          height: 55px;
+          border-radius: $border-small;
+          background-color: $black;
+          display: none;
+          justify-content: center;
+          align-items: center;
+          font-size: $font-medium;
+          opacity: 0.9;
+          border: 0;
+          outline: none;
+          color: $white;
+
+          &.play:hover {
+            display: flex;
+          }
+
+          &.play.active {
+            display: flex;
+          }
+
+          &.pause.active {
+            display: flex;
+          }
+        }
 
         .cover {
           width: 55px;
           height: 55px;
           border-radius: $border-small;
+
+          &:hover ~ .play {
+            display: flex;
+          }
+        }
+
+        .info {
+          width: 100%;
+          height: 80%;
+          display: grid;
+          grid-template-columns: 2fr 3fr;
+          align-items: center;
+          gap: 5px;
+
+          .descrip {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4px;
+
+            .dot {
+              display: none;
+            }
+          }
         }
       }
 
@@ -98,7 +151,8 @@ body {
         outline: none;
         border: 0;
         background-color: transparent;
-        color: $white;
+        @include color-var(color, font-color);
+        margin-right: $base-space/2;
       }
 
       .addModal {
@@ -109,10 +163,9 @@ body {
         top: 36px;
         border-radius: $border-small;
         padding: $base-space/2 0;
-        background-color: #817585;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        @include color-var(background-color, sm-nav-bgc);
         backdrop-filter: blur(5px);
-        border-top: 1px solid rgba(255, 255, 255, 0.2);
-        border-right: 1px solid rgba(255, 255, 255, 0.2);
         box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
 
         &.deactive {
@@ -122,7 +175,7 @@ body {
         .myPlaylist {
           width: 100%;
           padding: $base-space;
-          border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+          @include color-var(border-bottom, sm-nav-border);
           font-weight: $font-bold;
           cursor: pointer;
 
@@ -164,6 +217,12 @@ body {
   @media (min-width: 768px) and (max-width: 1023px) {
     .playlist-main {
       width: 740px;
+
+      .content-wrap {
+        .sort {
+          grid-template-columns: 7fr 4fr 4fr 40px;
+        }
+      }
     }
   }
 
@@ -171,12 +230,17 @@ body {
     .playlist-main {
       width: 350px;
       padding: $base-space * 1.5 $base-space;
+      margin: 80px 0;
 
       .description-wrap {
         .info {
           width: 50%;
           .title {
             font-size: $font-large;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 3;
+            overflow: hidden;
           }
 
           .tags {
@@ -192,25 +256,60 @@ body {
       .content-wrap {
         .sort {
           font-size: $font-xsmall;
-          padding: 4px 0 4px $base-space/2;
-          grid-template-columns: 4fr 3fr 3fr 30px;
+          padding: 3px 0 3px $base-space;
+          grid-template-columns: 1fr 30px;
+
+          .artist {
+            display: none;
+          }
+
+          .album {
+            display: none;
+          }
         }
 
         .music {
           font-size: $font-xsmall;
-          padding: 5px 0 5px $base-space/2;
-          grid-template-columns: 4fr 3fr 3fr 30px;
+          .content {
+            .info {
+              grid-template-columns: 1fr;
+              grid-template-rows: 1fr 1fr;
 
-          .addModal {
-            width: 150px;
-            font-size: $font-xsmall;
-            right: 32px;
+              .descrip {
+                display: flex;
+                justify-content: flex-start;
+                display: -webkit-box;
+                -webkit-box-orient: vertical;
+                -webkit-line-clamp: 1;
+                overflow: hidden;
+
+                .dot {
+                  display: inline;
+                  margin: 0 3px;
+                }
+              }
+            }
+          }
+
+          .add {
+            margin-right: 3px;
           }
         }
-        .alertAdd {
+
+        .addModal {
+          width: 150px;
           font-size: $font-xsmall;
-          left: 15%;
+          right: 32px;
+          padding: $base-space/4 0;
+
+          .myPlaylist {
+            padding: $base-space * 2/3 $base-space;
+          }
         }
+      }
+      .alertAdd {
+        font-size: $font-xsmall;
+        left: 15%;
       }
     }
   }

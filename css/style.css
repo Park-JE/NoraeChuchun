@@ -1,4 +1,36 @@
 @charset "UTF-8";
+:root[color-theme="light"] {
+  --background: #edecdd;
+  --font-color: #111;
+  --border: 1px solid #111;
+  --bouncer1: #ffc931;
+  --bouncer2: #d74639;
+  --nav-bgc: rgba(239, 222, 205, 0.2);
+  --sm-nav-bgc: rgba(239, 222, 205, 0.9);
+  --sm-nav-border: 1px solid rgba(2, 2, 2, 0.2);
+  --filter-bar-border: 1px solid rgba(25, 25, 25, 0.5);
+  --login-btn: linear-gradient(125deg, #f5d270, #d77253, #f5d270);
+  --login-border: 2px solid #707070;
+  --count-color: #454545;
+  --secession-btn: #e1dec8;
+}
+
+:root[color-theme="dark"] {
+  --background: linear-gradient(to left, #242359, #0e0e1f);
+  --font-color: #eee;
+  --border: 1px solid #eee;
+  --bouncer1: #d557e1;
+  --bouncer2: #01adf7;
+  --nav-bgc: rgba(92, 66, 75, 0.2);
+  --sm-nav-bgc: rgba(92, 66, 75, 0.9);
+  --sm-nav-border: 1px solid rgba(255, 255, 255, 0.2);
+  --filter-bar-border: 1px solid rgba(238, 238, 238, 0.5);
+  --login-btn: linear-gradient(125deg, #81ecec, #6c5ce7, #81ecec);
+  --login-border: 2px solid #adadad;
+  --count-color: #aaaaaa;
+  --secession-btn: #242359;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -19,9 +51,10 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  background: -webkit-gradient(linear, right top, left top, from(#242359), to(#0e0e1f));
-  background: linear-gradient(to left, #242359, #0e0e1f);
+  background: #edecdd;
+  background: var(--background, #edecdd);
   overscroll-behavior: none;
+  overflow-x: hidden;
 }
 
 body a {
@@ -35,7 +68,7 @@ body a :active {
 
 body .bg-1 {
   position: fixed;
-  right: -20px;
+  right: 20px;
   top: -20px;
   width: 350px;
   height: 350px;
@@ -50,30 +83,63 @@ body .bg-2 {
   position: fixed;
   left: -20px;
   top: 50%;
-  width: 200px;
-  height: 200px;
+  width: 220px;
+  height: 220px;
   background: -webkit-gradient(linear, left top, left bottom, from(#da57e1), to(#01adf7));
   background: linear-gradient(#da57e1, #01adf7);
-  -webkit-filter: blur(140px);
-          filter: blur(140px);
+  -webkit-filter: blur(120px);
+          filter: blur(120px);
   z-index: -1;
 }
 
 body .bg-3 {
   position: fixed;
   right: 30%;
-  bottom: -20px;
+  bottom: 20px;
   width: 200px;
   height: 200px;
   background: -webkit-gradient(linear, left top, left bottom, from(#747008), to(#436f1d));
   background: linear-gradient(#747008, #436f1d);
-  -webkit-filter: blur(120px);
-          filter: blur(120px);
+  -webkit-filter: blur(150px);
+          filter: blur(150px);
   z-index: -1;
+}
+
+:root[color-theme="light"] {
+  --background: #edecdd;
+  --font-color: #111;
+  --border: 1px solid #111;
+  --bouncer1: #ffc931;
+  --bouncer2: #d74639;
+  --nav-bgc: rgba(239, 222, 205, 0.2);
+  --sm-nav-bgc: rgba(239, 222, 205, 0.9);
+  --sm-nav-border: 1px solid rgba(2, 2, 2, 0.2);
+  --filter-bar-border: 1px solid rgba(25, 25, 25, 0.5);
+  --login-btn: linear-gradient(125deg, #f5d270, #d77253, #f5d270);
+  --login-border: 2px solid #707070;
+  --count-color: #454545;
+  --secession-btn: #e1dec8;
+}
+
+:root[color-theme="dark"] {
+  --background: linear-gradient(to left, #242359, #0e0e1f);
+  --font-color: #eee;
+  --border: 1px solid #eee;
+  --bouncer1: #d557e1;
+  --bouncer2: #01adf7;
+  --nav-bgc: rgba(92, 66, 75, 0.2);
+  --sm-nav-bgc: rgba(92, 66, 75, 0.9);
+  --sm-nav-border: 1px solid rgba(255, 255, 255, 0.2);
+  --filter-bar-border: 1px solid rgba(238, 238, 238, 0.5);
+  --login-btn: linear-gradient(125deg, #81ecec, #6c5ce7, #81ecec);
+  --login-border: 2px solid #adadad;
+  --count-color: #aaaaaa;
+  --secession-btn: #242359;
 }
 
 nav {
   width: 100vw;
+  min-width: 380px;
   position: fixed;
   top: 0;
   display: -webkit-box;
@@ -87,11 +153,22 @@ nav {
           align-items: center;
   font-size: 18px;
   font-weight: 600;
-  padding: 30px 40px;
-  color: #eee;
+  padding: 20px 40px;
+  color: #111;
+  color: var(--font-color, #111);
   z-index: 3;
   -webkit-transition: top 0.3s ease-in;
   transition: top 0.3s ease-in;
+  -webkit-backdrop-filter: blur(5px);
+          backdrop-filter: blur(5px);
+  -webkit-box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+  background-color: rgba(239, 222, 205, 0.2);
+  background-color: var(--nav-bgc, rgba(239, 222, 205, 0.2));
+}
+
+nav.scrollDown {
+  top: -70px;
 }
 
 nav .logoAndName {
@@ -138,6 +215,8 @@ nav .searchAndLogin .searchInput.active {
   width: 250px;
   padding: 8px 32px;
   background-color: #eee;
+  -webkit-box-shadow: inset 5px 5px 5px rgba(0, 0, 0, 0.05), 5px 5px 5px rgba(0, 0, 0, 0.1);
+          box-shadow: inset 5px 5px 5px rgba(0, 0, 0, 0.05), 5px 5px 5px rgba(0, 0, 0, 0.1);
 }
 
 nav .searchAndLogin [type="search"]::-webkit-search-cancel-button,
@@ -150,13 +229,15 @@ nav .searchAndLogin .btn {
   border: 0;
   outline: none;
   background-color: transparent;
-  color: #eee;
+  color: #111;
+  color: var(--font-color, #111);
   padding: 6px;
   border-radius: 50%;
   position: absolute;
   left: 2px;
   -webkit-transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
   transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  cursor: pointer;
 }
 
 nav .searchAndLogin .btn.search.active {
@@ -175,9 +256,23 @@ nav .searchAndLogin .btn.close.active {
   visibility: visible;
 }
 
-nav .login {
+nav .searchAndLogin .userAndDarkMode {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+nav .searchAndLogin .userAndDarkMode #logout {
+  display: none;
+}
+
+nav .searchAndLogin .userAndDarkMode .login {
   padding: 0.5em 1.5em;
-  border: 1px solid #eee;
+  border: 1px solid #111;
+  border: var(--border, 1px solid #111);
   border-radius: 18px;
   font-size: 16px;
   cursor: pointer;
@@ -185,40 +280,166 @@ nav .login {
   transition: all 0.3s ease;
   margin-left: 16px;
   background-color: transparent;
-  color: #eee;
+  color: #111;
+  color: var(--font-color, #111);
 }
 
-nav .login:hover {
+nav .searchAndLogin .userAndDarkMode .login:hover {
   background-color: rgba(255, 255, 255, 0.1);
 }
 
-nav .mypage {
+nav .searchAndLogin .userAndDarkMode .mypage {
   margin-left: 16px;
   cursor: pointer;
 }
 
+nav .searchAndLogin .userAndDarkMode .dark-mode .mode-btn {
+  border: 0;
+  outline: none;
+  background-color: transparent;
+  padding: 6px 0 6px 6px;
+  cursor: pointer;
+  margin-left: 8px;
+  color: #111;
+  color: var(--font-color, #111);
+}
+
+nav .searchAndLogin .userAndDarkMode .dark-mode .mode-btn .modeText {
+  display: none;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+nav .searchAndLogin .userAndDarkMode .dark-mode .mode-btn.light {
+  display: none;
+}
+
+nav .searchAndLogin .userAndDarkMode .dark-mode .mode-btn.light.active {
+  display: block;
+}
+
+nav .searchAndLogin .userAndDarkMode .dark-mode .mode-btn.dark.deactive {
+  display: none;
+}
+
+nav .searchAndLogin .ellipsis {
+  color: #111;
+  color: var(--font-color, #111);
+  border: 0;
+  outline: none;
+  background-color: transparent;
+  padding: 6px 0 6px 6px;
+  display: none;
+  cursor: pointer;
+  margin-left: 8px;
+}
+
 @media (max-width: 767px) {
   nav {
-    padding: 20px;
+    padding: 12px 20px;
     font-size: 16px;
   }
   nav .searchAndLogin .searchInput.active {
-    width: 110px;
+    width: 150px;
   }
   nav .searchAndLogin .btn.close.active {
-    left: 83px;
+    left: 122px;
   }
-  nav .login {
+  nav .searchAndLogin .userAndDarkMode {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    position: absolute;
+    right: -8px;
+    top: 45px;
+    width: 120px;
+    z-index: 4;
+    display: none;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background-color: rgba(239, 222, 205, 0.9);
+    background-color: var(--sm-nav-bgc, rgba(239, 222, 205, 0.9));
+    -webkit-box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+  }
+  nav .searchAndLogin .userAndDarkMode .login,
+  nav .searchAndLogin .userAndDarkMode .mypage {
+    display: block;
+    margin-left: 0;
+    text-align: center;
+    border: none;
     font-size: 14px;
-    margin-left: 8px;
+    padding: 8px 16px;
+    border-bottom: 1px solid rgba(2, 2, 2, 0.2);
+    border-bottom: var(--sm-nav-border, 1px solid rgba(2, 2, 2, 0.2));
+    border-radius: 0;
+    font-weight: 600;
   }
+  nav .searchAndLogin .userAndDarkMode .login:hover,
+  nav .searchAndLogin .userAndDarkMode .mypage:hover {
+    background-color: transparent;
+  }
+  nav .searchAndLogin .userAndDarkMode.active {
+    display: block;
+  }
+  nav .searchAndLogin .userAndDarkMode .dark-mode {
+    width: 100%;
+  }
+  nav .searchAndLogin .userAndDarkMode .dark-mode .mode-btn {
+    padding: 8px 16px;
+    margin-left: 0;
+    width: 100%;
+  }
+  nav .searchAndLogin .userAndDarkMode .dark-mode .mode-btn .modeText {
+    display: inline;
+  }
+  nav .searchAndLogin .ellipsis {
+    display: block;
+  }
+}
+
+:root[color-theme="light"] {
+  --background: #edecdd;
+  --font-color: #111;
+  --border: 1px solid #111;
+  --bouncer1: #ffc931;
+  --bouncer2: #d74639;
+  --nav-bgc: rgba(239, 222, 205, 0.2);
+  --sm-nav-bgc: rgba(239, 222, 205, 0.9);
+  --sm-nav-border: 1px solid rgba(2, 2, 2, 0.2);
+  --filter-bar-border: 1px solid rgba(25, 25, 25, 0.5);
+  --login-btn: linear-gradient(125deg, #f5d270, #d77253, #f5d270);
+  --login-border: 2px solid #707070;
+  --count-color: #454545;
+  --secession-btn: #e1dec8;
+}
+
+:root[color-theme="dark"] {
+  --background: linear-gradient(to left, #242359, #0e0e1f);
+  --font-color: #eee;
+  --border: 1px solid #eee;
+  --bouncer1: #d557e1;
+  --bouncer2: #01adf7;
+  --nav-bgc: rgba(92, 66, 75, 0.2);
+  --sm-nav-bgc: rgba(92, 66, 75, 0.9);
+  --sm-nav-border: 1px solid rgba(255, 255, 255, 0.2);
+  --filter-bar-border: 1px solid rgba(238, 238, 238, 0.5);
+  --login-btn: linear-gradient(125deg, #81ecec, #6c5ce7, #81ecec);
+  --login-border: 2px solid #adadad;
+  --count-color: #aaaaaa;
+  --secession-btn: #242359;
 }
 
 .recommendation-warp {
   width: 950px;
   margin-bottom: 130px;
   margin-top: 150px;
-  color: #eee;
+  color: #111;
+  color: var(--font-color, #111);
 }
 
 .recommendation-warp .title {
@@ -276,7 +497,7 @@ nav .mypage {
 .recommendation-warp .recommendation .loading .bouncer {
   width: 10px;
   height: 10px;
-  background: linear-gradient(135deg, #d557e1, #01adf7);
+  background: linear-gradient(135deg, var(--bouncer1, #ffc931), var(--bouncer2, #d74639));
   border-radius: 50%;
   -webkit-animation: bouncer 0.5s cubic-bezier(0.19, 0.57, 0.3, 0.98) infinite alternate;
           animation: bouncer 0.5s cubic-bezier(0.19, 0.57, 0.3, 0.98) infinite alternate;
@@ -401,12 +622,57 @@ nav .mypage {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  position: relative;
 }
 
 .recommendation-warp .recommendation .currentWeather-playlist .music .album-cover {
   height: 50px;
   width: 50px;
   border-radius: 8px;
+}
+
+.recommendation-warp .recommendation .currentWeather-playlist .music .album-cover:hover + .play {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.recommendation-warp .recommendation .currentWeather-playlist .music .manipul {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  border-radius: 8px;
+  background-color: #111;
+  display: none;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 16px;
+  opacity: 0.9;
+  border: 0;
+  outline: none;
+  color: #eee;
+}
+
+.recommendation-warp .recommendation .currentWeather-playlist .music .manipul.play:hover {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.recommendation-warp .recommendation .currentWeather-playlist .music .manipul.play.active {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.recommendation-warp .recommendation .currentWeather-playlist .music .manipul.pause.active {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 .recommendation-warp .recommendation .currentWeather-playlist .music .song-info {
@@ -423,7 +689,8 @@ nav .mypage {
   font-size: 14px;
   padding: 8px;
   cursor: default;
-  color: #eee;
+  color: #111;
+  color: var(--font-color, #111);
 }
 
 .recommendation-warp .recommendation .currentWeather-playlist .music .song-info .artist {
@@ -462,6 +729,7 @@ nav .mypage {
 @media (max-width: 767px) {
   .recommendation-warp {
     width: 350px;
+    margin-top: 90px;
   }
   .recommendation-warp .recommendation {
     -webkit-box-orient: vertical;
@@ -478,7 +746,7 @@ nav .mypage {
   }
   .recommendation-warp .recommendation .weather {
     width: 90%;
-    height: 280px;
+    height: 260px;
   }
   .recommendation-warp .recommendation .weather .icon {
     width: 180px;
@@ -494,6 +762,38 @@ nav .mypage {
     -ms-grid-rows: (1fr)[8];
         grid-template-rows: repeat(8, 1fr);
   }
+}
+
+:root[color-theme="light"] {
+  --background: #edecdd;
+  --font-color: #111;
+  --border: 1px solid #111;
+  --bouncer1: #ffc931;
+  --bouncer2: #d74639;
+  --nav-bgc: rgba(239, 222, 205, 0.2);
+  --sm-nav-bgc: rgba(239, 222, 205, 0.9);
+  --sm-nav-border: 1px solid rgba(2, 2, 2, 0.2);
+  --filter-bar-border: 1px solid rgba(25, 25, 25, 0.5);
+  --login-btn: linear-gradient(125deg, #f5d270, #d77253, #f5d270);
+  --login-border: 2px solid #707070;
+  --count-color: #454545;
+  --secession-btn: #e1dec8;
+}
+
+:root[color-theme="dark"] {
+  --background: linear-gradient(to left, #242359, #0e0e1f);
+  --font-color: #eee;
+  --border: 1px solid #eee;
+  --bouncer1: #d557e1;
+  --bouncer2: #01adf7;
+  --nav-bgc: rgba(92, 66, 75, 0.2);
+  --sm-nav-bgc: rgba(92, 66, 75, 0.9);
+  --sm-nav-border: 1px solid rgba(255, 255, 255, 0.2);
+  --filter-bar-border: 1px solid rgba(238, 238, 238, 0.5);
+  --login-btn: linear-gradient(125deg, #81ecec, #6c5ce7, #81ecec);
+  --login-border: 2px solid #adadad;
+  --count-color: #aaaaaa;
+  --secession-btn: #242359;
 }
 
 .musicFilter-wrap {
@@ -516,7 +816,8 @@ nav .mypage {
 .musicFilter-wrap .titleAndFilters .title {
   font-size: 18px;
   font-weight: 600;
-  color: #eee;
+  color: #111;
+  color: var(--font-color, #111);
 }
 
 .musicFilter-wrap .titleAndFilters .filter-btn {
@@ -525,17 +826,33 @@ nav .mypage {
   outline: none;
   font-size: 16px;
   font-weight: 500;
-  color: #eee;
+  color: #111;
+  color: var(--font-color, #111);
   cursor: pointer;
+}
+
+.musicFilter-wrap .titleAndFilters .blank-bar {
+  height: 100vh;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  z-index: 3;
+  left: 0;
+  top: 0;
+  display: none;
+}
+
+.musicFilter-wrap .titleAndFilters .blank-bar.active {
+  display: block;
 }
 
 .musicFilter-wrap .titleAndFilters .filter-bar {
   position: fixed;
   right: -300px;
   top: 0;
-  height: 100%;
+  height: 100vh;
   width: 300px;
-  z-index: 3;
+  z-index: 4;
   padding: 0 25px;
   -webkit-transition: all 0.3s ease;
   transition: all 0.3s ease;
@@ -586,7 +903,8 @@ nav .mypage {
   outline: none;
   border: 0;
   background-color: transparent;
-  color: #eee;
+  color: #111;
+  color: var(--font-color, #111);
   padding: 0.5em;
   -webkit-transition: opacity 0.3s ease;
   transition: opacity 0.3s ease;
@@ -599,7 +917,8 @@ nav .mypage {
 }
 
 .musicFilter-wrap .titleAndFilters .filter-bar .filter-wrap .filters {
-  color: #eee;
+  color: #111;
+  color: var(--font-color, #111);
   width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -615,7 +934,8 @@ nav .mypage {
 .musicFilter-wrap .titleAndFilters .filter-bar .filter-wrap .filters .category {
   margin-bottom: 4px;
   cursor: pointer;
-  border-bottom: 1px solid rgba(238, 238, 238, 0.5);
+  border-bottom: 1px solid rgba(25, 25, 25, 0.5);
+  border-bottom: var(--filter-bar-border, 1px solid rgba(25, 25, 25, 0.5));
   cursor: default;
   padding-bottom: 4px;
   margin-top: 16px;
@@ -800,10 +1120,43 @@ nav .mypage {
   }
 }
 
+:root[color-theme="light"] {
+  --background: #edecdd;
+  --font-color: #111;
+  --border: 1px solid #111;
+  --bouncer1: #ffc931;
+  --bouncer2: #d74639;
+  --nav-bgc: rgba(239, 222, 205, 0.2);
+  --sm-nav-bgc: rgba(239, 222, 205, 0.9);
+  --sm-nav-border: 1px solid rgba(2, 2, 2, 0.2);
+  --filter-bar-border: 1px solid rgba(25, 25, 25, 0.5);
+  --login-btn: linear-gradient(125deg, #f5d270, #d77253, #f5d270);
+  --login-border: 2px solid #707070;
+  --count-color: #454545;
+  --secession-btn: #e1dec8;
+}
+
+:root[color-theme="dark"] {
+  --background: linear-gradient(to left, #242359, #0e0e1f);
+  --font-color: #eee;
+  --border: 1px solid #eee;
+  --bouncer1: #d557e1;
+  --bouncer2: #01adf7;
+  --nav-bgc: rgba(92, 66, 75, 0.2);
+  --sm-nav-bgc: rgba(92, 66, 75, 0.9);
+  --sm-nav-border: 1px solid rgba(255, 255, 255, 0.2);
+  --filter-bar-border: 1px solid rgba(238, 238, 238, 0.5);
+  --login-btn: linear-gradient(125deg, #81ecec, #6c5ce7, #81ecec);
+  --login-border: 2px solid #adadad;
+  --count-color: #aaaaaa;
+  --secession-btn: #242359;
+}
+
 .search-wrap {
   margin: 150px 0;
   width: 1000px;
-  color: #eee;
+  color: #111;
+  color: var(--font-color, #111);
   position: relative;
 }
 
@@ -848,12 +1201,14 @@ nav .mypage {
   width: 100%;
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 4fr 3fr 3fr 40px;
-      grid-template-columns: 4fr 3fr 3fr 40px;
+  -ms-grid-columns: 13fr 8fr 8fr 40px;
+      grid-template-columns: 13fr 8fr 8fr 40px;
   -webkit-column-gap: 5px;
           column-gap: 5px;
-  border-top: 1px solid rgba(255, 255, 255, 0.2);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  border-top: 1px solid rgba(2, 2, 2, 0.2);
+  border-top: var(--sm-nav-border, 1px solid rgba(2, 2, 2, 0.2));
+  border-bottom: 1px solid rgba(2, 2, 2, 0.2);
+  border-bottom: var(--sm-nav-border, 1px solid rgba(2, 2, 2, 0.2));
   font-size: 14px;
   padding: 4px 0 4px 16px;
 }
@@ -872,44 +1227,117 @@ nav .mypage {
 
 .search-wrap .musicList .music {
   width: 100%;
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: 4fr 3fr 3fr 40px;
-      grid-template-columns: 4fr 3fr 3fr 40px;
-  -webkit-column-gap: 5px;
-          column-gap: 5px;
+  font-size: 14px;
+  padding: 5px 8px;
+  border-bottom: 1px solid rgba(2, 2, 2, 0.2);
+  border-bottom: var(--sm-nav-border, 1px solid rgba(2, 2, 2, 0.2));
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  justify-items: flex-start;
-  font-size: 14px;
-  padding: 5px 0 5px 16px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.search-wrap .musicList .music .content {
+  width: 100%;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 72px 4fr;
+      grid-template-columns: 72px 4fr;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-right: 8px;
   position: relative;
 }
 
-.search-wrap .musicList .music .coverAndName {
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: 70px 1fr;
-      grid-template-columns: 70px 1fr;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-.search-wrap .musicList .music .coverAndName .cover {
+.search-wrap .musicList .music .content .manipul {
+  position: absolute;
   width: 55px;
   height: 55px;
   border-radius: 8px;
+  background-color: #111;
+  display: none;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 16px;
+  opacity: 0.9;
+  border: 0;
+  outline: none;
+  color: #eee;
+}
+
+.search-wrap .musicList .music .content .manipul.play:hover {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.search-wrap .musicList .music .content .manipul.play.active {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.search-wrap .musicList .music .content .manipul.pause.active {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.search-wrap .musicList .music .content .cover {
+  width: 55px;
+  height: 55px;
+  border-radius: 8px;
+}
+
+.search-wrap .musicList .music .content .cover:hover ~ .play {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.search-wrap .musicList .music .content .info {
+  width: 100%;
+  height: 80%;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 3fr 4fr;
+      grid-template-columns: 3fr 4fr;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 5px;
+}
+
+.search-wrap .musicList .music .content .info .descrip {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+  gap: 4px;
+}
+
+.search-wrap .musicList .music .content .info .descrip .dot {
+  display: none;
 }
 
 .search-wrap .musicList .music .add {
   outline: none;
   border: 0;
   background-color: transparent;
-  color: #eee;
-  cursor: pointer;
+  color: #111;
+  color: var(--font-color, #111);
+  margin-right: 8px;
 }
 
 .search-wrap .musicList .music .addModal {
@@ -920,11 +1348,11 @@ nav .mypage {
   top: 36px;
   border-radius: 8px;
   padding: 8px 0;
-  background-color: rgba(255, 255, 255, 0.1);
-  -webkit-backdrop-filter: blur(50px);
-          backdrop-filter: blur(50px);
-  border-top: 1px solid rgba(255, 255, 255, 0.2);
-  border-right: 1px solid rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background-color: rgba(239, 222, 205, 0.9);
+  background-color: var(--sm-nav-bgc, rgba(239, 222, 205, 0.9));
+  -webkit-backdrop-filter: blur(5px);
+          backdrop-filter: blur(5px);
   -webkit-box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
           box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
 }
@@ -936,7 +1364,8 @@ nav .mypage {
 .search-wrap .musicList .music .addModal .myPlaylist {
   width: 100%;
   padding: 16px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  border-bottom: 1px solid rgba(2, 2, 2, 0.2);
+  border-bottom: var(--sm-nav-border, 1px solid rgba(2, 2, 2, 0.2));
   font-weight: 600;
   cursor: pointer;
 }
@@ -1000,6 +1429,7 @@ nav .mypage {
 @media (max-width: 767px) {
   .search-wrap {
     width: 350px;
+    margin-top: 90px;
   }
   .search-wrap .noResult {
     width: 350px;
@@ -1007,20 +1437,51 @@ nav .mypage {
   }
   .search-wrap .sort {
     font-size: 12px;
-    padding: 4px 0 4px 8px;
-    -ms-grid-columns: 4fr 3fr 3fr 30px;
-        grid-template-columns: 4fr 3fr 3fr 30px;
+    padding: 3px 0 3px 16px;
+    -ms-grid-columns: 1fr 30px;
+        grid-template-columns: 1fr 30px;
+  }
+  .search-wrap .sort .artist {
+    display: none;
+  }
+  .search-wrap .sort .album {
+    display: none;
   }
   .search-wrap .musicList .music {
     font-size: 12px;
-    padding: 5px 0 5px 8px;
-    -ms-grid-columns: 4fr 3fr 3fr 30px;
-        grid-template-columns: 4fr 3fr 3fr 30px;
+  }
+  .search-wrap .musicList .music .content .info {
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+    -ms-grid-rows: 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+  }
+  .search-wrap .musicList .music .content .info .descrip {
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    overflow: hidden;
+  }
+  .search-wrap .musicList .music .content .info .descrip .dot {
+    display: inline;
+    margin: 0 3px;
+  }
+  .search-wrap .musicList .music .add {
+    margin-right: 3px;
   }
   .search-wrap .musicList .music .addModal {
     width: 150px;
     font-size: 12px;
     right: 32px;
+    padding: 4px 0;
+  }
+  .search-wrap .musicList .music .addModal .myPlaylist {
+    padding: 10.66667px 16px;
   }
   .search-wrap .alertAdd {
     font-size: 12px;
