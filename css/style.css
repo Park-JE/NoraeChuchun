@@ -1282,7 +1282,7 @@ nav .searchAndLogin .ellipsis {
   display: flex;
 }
 
-.search-wrap .musicList .music .content .manipul.play.active {
+.search-wrap .musicList .music .content .manipul.playing.active {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1311,8 +1311,8 @@ nav .searchAndLogin .ellipsis {
   height: 80%;
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 3fr 4fr;
-      grid-template-columns: 3fr 4fr;
+  -ms-grid-columns: 2fr 3fr;
+      grid-template-columns: 2fr 3fr;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -1419,10 +1419,14 @@ nav .searchAndLogin .ellipsis {
 
 @media (min-width: 768px) and (max-width: 1023px) {
   .search-wrap {
-    width: 680px;
+    width: 740px;
   }
   .search-wrap .noResult {
-    width: 680px;
+    width: 740px;
+  }
+  .search-wrap .sort {
+    -ms-grid-columns: 7fr 4fr 4fr 40px;
+        grid-template-columns: 7fr 4fr 4fr 40px;
   }
 }
 

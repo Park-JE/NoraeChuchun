@@ -1,68 +1,68 @@
-function createSong(song) {
-  const music = document.createElement("div");
-  music.setAttribute("class", "music");
+// function createSong(song) {
+//   const music = document.createElement("div");
+//   music.setAttribute("class", "music");
 
-  const content = document.createElement("div");
-  content.setAttribute("class", "content");
-  music.append(content);
+//   const content = document.createElement("div");
+//   content.setAttribute("class", "content");
+//   music.append(content);
 
-  const img = document.createElement("img");
-  img.setAttribute("class", "cover");
-  img.setAttribute("src", `img/albumCovers/${song.cover}`);
-  img.setAttribute("alt", "img");
-  content.append(img);
+//   const img = document.createElement("img");
+//   img.setAttribute("class", "cover");
+//   img.setAttribute("src", `${song.album.images[2].url}`);
+//   img.setAttribute("alt", "img");
+//   content.append(img);
 
-  const play = document.createElement("button");
-  play.setAttribute("class", "manipul play");
-  const playIcon = document.createElement("i");
-  playIcon.setAttribute("class", "fas fa-play");
-  play.append(playIcon);
-  content.append(play);
+//   const play = document.createElement("button");
+//   play.setAttribute("class", "manipul play");
+//   const playIcon = document.createElement("i");
+//   playIcon.setAttribute("class", "fas fa-play");
+//   play.append(playIcon);
+//   content.append(play);
 
-  const pause = document.createElement("button");
-  pause.setAttribute("class", "manipul pause");
-  const pauseIcon = document.createElement("i");
-  pauseIcon.setAttribute("class", "fas fa-pause");
-  pause.append(pauseIcon);
-  content.append(pause);
+//   const pause = document.createElement("button");
+//   pause.setAttribute("class", "manipul pause");
+//   const pauseIcon = document.createElement("i");
+//   pauseIcon.setAttribute("class", "fas fa-pause");
+//   pause.append(pauseIcon);
+//   content.append(pause);
 
-  const info = document.createElement("div");
-  info.setAttribute("class", "info");
-  content.append(info);
+//   const info = document.createElement("div");
+//   info.setAttribute("class", "info");
+//   content.append(info);
 
-  const name = document.createElement("span");
-  name.setAttribute("class", "name");
-  name.innerText = `${song.title}`;
-  info.append(name);
+//   const name = document.createElement("span");
+//   name.setAttribute("class", "name");
+//   name.innerText = `${song.name}`;
+//   info.append(name);
 
-  const descrip = document.createElement("div");
-  descrip.setAttribute("class", "descrip");
-  info.append(descrip);
+//   const descrip = document.createElement("div");
+//   descrip.setAttribute("class", "descrip");
+//   info.append(descrip);
 
-  const artist = document.createElement("span");
-  artist.setAttribute("class", "artist");
-  artist.innerText = `${song.artist}`;
-  descrip.append(artist);
+//   const artist = document.createElement("span");
+//   artist.setAttribute("class", "artist");
+//   artist.innerText = `${song.artists[0].name}`;
+//   descrip.append(artist);
 
-  const dot = document.createElement("span");
-  dot.setAttribute("class", "dot");
-  dot.innerText = "∙";
-  descrip.append(dot);
+//   const dot = document.createElement("span");
+//   dot.setAttribute("class", "dot");
+//   dot.innerText = "∙";
+//   descrip.append(dot);
 
-  const album = document.createElement("span");
-  album.setAttribute("class", "album");
-  album.innerText = `${song.album}`;
-  descrip.append(album);
+//   const album = document.createElement("span");
+//   album.setAttribute("class", "album");
+//   album.innerText = `${song.album.name}`;
+//   descrip.append(album);
 
-  const addBtn = document.createElement("button");
-  addBtn.setAttribute("class", "add");
-  const addIcon = document.createElement("i");
-  addIcon.setAttribute("class", "fas fa-list fa-lg");
-  addBtn.append(addIcon);
-  music.append(addBtn);
+//   const addBtn = document.createElement("button");
+//   addBtn.setAttribute("class", "add");
+//   const addIcon = document.createElement("i");
+//   addIcon.setAttribute("class", "fas fa-list fa-lg");
+//   addBtn.append(addIcon);
+//   music.append(addBtn);
 
-  return music;
-}
+//   return music;
+// }
 
 const displayPlaylistCookies = () => {
   const cookieArray = getCookieArray("playlist");

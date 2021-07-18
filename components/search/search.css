@@ -160,7 +160,7 @@
   display: flex;
 }
 
-.search-wrap .musicList .music .content .manipul.play.active {
+.search-wrap .musicList .music .content .manipul.playing.active {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
