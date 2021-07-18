@@ -97,13 +97,9 @@ li {
         }
 
         .myplaylist__count {
-<<<<<<< HEAD
           color: #aaaaaa;
           font-size: 14px;
           position: relative;
-=======
-          @include color-var(color, count-color);
->>>>>>> 6c8423ee02c29086a5d0630d6523ff51b03a3399
         }
         .menu-list {
           display: none;
@@ -221,42 +217,112 @@ li {
     .newplaylist__container {
       width: 100%;
       height: 100%;
+      position: relative;
+      color:#fff;
 
       h2 {
         width: fit-content;
-        margin: 30px auto 0px auto;
+        font-size: 22px;
+        margin: 20px auto 0px auto;
+        color: #fff;
       }
-
-      div:nth-child(2),
-      div:nth-child(3) {
-        @include color-var(border-bottom, login-border);
-        margin: 50px;
-        padding: 10px 10px;
-
-        > input {
-          width: 100%;
-          border: none;
-          outline: none;
-          @include color-var(color, font-color);
+      .new__title{
+        width: 90%;
+        margin:20px auto;
+        input{
+          color:#fff;
           font-size: 16px;
-          height: 25px;
-          background: none;
+          width: 100%;
+          height: 40px;
+          border-top: none;
+          border-left: none;
+          border-right: none;
+          @include color-var(border-bottom, login-border);
+          background-color: rgba(0, 0, 0, 0);
         }
       }
+      .new__tags{
+        width: 90%;
+        margin: 0px auto;
+        color:rgb(179, 177, 177);
+        .tags{
+          color:#fff;
+          font-size: 16px;
+          width: 100%;
+          height: 40px;
+          border-top: none;
+          border-left: none;
+          border-right: none;
+          @include color-var(border-bottom, login-border);
+          background-color: rgba(0, 0, 0, 0);
+        }
+        .tags__season{
+          display: flex;
+          align-items: center;
+          margin-bottom: 10px;
+          .tag_sort{
+            width: 50px;
+          }
+          label{
+            margin-left: 5px;
+            line-height: 1.6;
+            width: fit-content;
+            input{
+              padding: 2px;
+            }
+          }
+        }
+        .tags__time{
+          display: flex;
+          align-items: center;
+          margin-bottom: 10px;
+          .tag_sort{
+            width: 50px;
+          }
+          label{
+            margin-left: 5px;
+            line-height: 1.6;
+            width: fit-content;
+            input{
+              padding: 2px;
+            }
+          }
+        }
+        .tags__weather{
+          display: flex;
+          align-items: center;
+          .tag_sort{
+            width: 50px;
+          }
+          .radio_group{
+            width: calc(100%-50px);       
+            margin-left: 17px;  
+            label{
+              line-height: 1.5;
+            }
+          }
+        }
+        
+ 
+      }
 
-      div:nth-child(4) {
+      
+
+      .btn__group{
         position: absolute;
-        right: 40px;
+        right: 20px;
+        bottom: 20px;
+        color: #fff;
 
         .closeBtn {
           padding: 0.5em 1.5em;
-          border: 1px solid var(--font-color, map-get($colors, font-color));
+          border: 1px solid  #fff;
           border-radius: 18px;
           font-size: 16px;
           background: none;
           font-weight: 700;
           cursor: pointer;
-          @include color-var(color, font-color);
+          color: #fff;
           -webkit-transition: all 0.3s ease;
           transition: all 0.3s ease;
           margin-right: 5px;
@@ -268,13 +334,13 @@ li {
 
         .saveBtn {
           padding: 0.5em 1.5em;
-          border: 1px solid var(--font-color, map-get($colors, font-color));
+          border: 1px solid  #fff;
+          color: #fff;
           border-radius: 18px;
           font-size: 16px;
           background: none;
           cursor: pointer;
           font-weight: 700;
-          @include color-var(color, font-color);
           -webkit-transition: all 0.3s ease;
           transition: all 0.3s ease;
 
@@ -304,7 +370,7 @@ li {
 }
 
 .cover.active {
-  position: absolute;
+  position: fixed;
   width: 100%;
   height: 100vh;
   background-color: rgba(75, 73, 73, 0.5);
@@ -340,11 +406,12 @@ li {
 
     .newplaylist.active {
       width: 450px;
-      height: 400px;
+      height: 600px;
 
       .newplaylist__container {
         width: 100%;
         height: 100%;
+        
       }
     }
   }

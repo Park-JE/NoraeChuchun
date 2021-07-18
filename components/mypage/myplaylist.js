@@ -27,20 +27,11 @@ function addPlaylist() {
   if (title.value == "") {
     alert("제목을 입력해주세요😥");
   } else {
-<<<<<<< HEAD
     let str = `<li class="list-group-play">
     <img class="myplaylist__thumnail" onclick="pageChange(this);" src="./static/img/albumCovers/92.jpg"
       alt="플레이리스트 이미지" />
     <span class="material-icons myplaylist-menu" onclick="displayMenu(this);">more_vert</span>
     <div class="myplaylist__title">`+ title.value + `</div>
-=======
-    let str =
-      `<li class="list-group-play" onclick="pageChange(this);">
-    <img class="myplaylist__thumnail" src="img/albumCovers/22.jpg" alt="플레이리스트 이미지" />
-    <div class="myplaylist__title">` +
-      title.value +
-      `</div>
->>>>>>> 6c8423ee02c29086a5d0630d6523ff51b03a3399
     <span class="myplaylist__count">노래 0곡</span>
     <div class="menu-list">
       <ul>
@@ -82,7 +73,6 @@ function pageChange(obj) {
   form.title.value = $(obj.parentNode.children[2]).html();
   form.submit();
 }
-<<<<<<< HEAD
 
 function displayMenu(obj) {
   const menu = obj.parentNode.children[4];
@@ -113,5 +103,3 @@ function displayMenu(obj) {
   })
   //공유랑 수정,,, 해야함 
 }
-=======
->>>>>>> 6c8423ee02c29086a5d0630d6523ff51b03a3399
