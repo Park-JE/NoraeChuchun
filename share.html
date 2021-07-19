@@ -12,8 +12,6 @@
   <link rel="stylesheet" href="static/components/mypage/menu.css" />
   <link rel="stylesheet" href="static/components/mypage/share.css" />
   <script defer src="static/components/mypage/share.js"></script>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
   <script defer src="static/components/navbar/navbar.js"></script>
   <script defer src="static/components/weatherMusic/music.js"></script>
   <script defer src="static/components/mainpage_playlist/mainpagePlaylist.js"></script>
@@ -26,7 +24,7 @@
 <body>
   <nav>
     <div class="logoAndName">
-      <a href="index"><img class="logo" src="{% static 'img/favicon.png' %}" alt="img" /></a>
+      <a href="index"><img class="logo" src="static/img/favicon.png" alt="img" /></a>
       <a href="index" class="name">날씨음악</a>
     </div>
     <div class="searchAndLogin">
@@ -35,31 +33,30 @@
         <i class="fas fa-search fa-lg"></i>
       </button>
       <button class="btn close"><i class="fas fa-times fa-lg"></i></button>
-      {% if user.is_authenticated %}
+      <!-- {% if user.is_authenticated %} -->
       <a href="{% url 'mypage' %}" class="mypage">마이페이지</a>
       <form action="{% url 'logout' %}" method="POST">
-        {% csrf_token %}
+        <!-- {% csrf_token %} -->
         <input type="submit" class="login" value="로그아웃" />
       </form>
-      {% else %}
+      <!-- {% else %} -->
       <a href="login" class="login">로그인</a>
-      {% endif %}
+      <!-- {% endif %} -->
     </div>
   </nav>
   <div class="container">
     <div class="mypage__menu">
       <ul class="menu__list">
-        <li class="list-group-item nonactive material-icons">
-          account_circle<a href="/mypage">비밀번호 변경</a>
+        <li class="list-group-item nonactive fas fa-key"><a href="mypage">비밀번호 변경</a>
         </li>
-        <li class="list-group-item nonactive material-icons">
-          music_note<a href="/myplaylist">나의 플레이리스트</a>
+        <li class="list-group-item nonactive fas fa-music">
+          <a href="myplaylist">나의 플레이리스트</a>
         </li>
-        <li class="list-group-item active material-icons">
-          person_add<a href="/share">친구목록</a>
+        <li class="list-group-item active fas fa-user-plus">
+          <a href="share">친구목록</a>
         </li>
-        <li class="list-group-item nonactive material-icons">
-          delete_forever<a href="/secession">회원탈퇴</a>
+        <li class="list-group-item nonactive fas fa-user-minus">
+          <a href="secession">회원탈퇴</a>
         </li>
       </ul>
     </div>
@@ -70,40 +67,33 @@
           <span class="find">친구검색</span>
         </div>
       </div>
-      <div class="share-main">
-        <div class="description-wrap">
-          <div class="info">
-            <span class="title active">친구목록</span>
-            <span class="find">친구검색</span>
-          </div>
+      <!-- 친구목록 -->
+      <div class="title-wrap active">
+        <div class="sort">
+          <span class="id">아이디</span>
+          <span class="name">이름</span>
+          <span class="share">공유</span>
         </div>
-        <!-- 친구목록 -->
-        <div class="title-wrap active">
-          <div class="sort">
-            <span class="id">아이디</span>
-            <span class="name">이름</span>
-            <span class="share">공유</span>
-          </div>
-          <div class="friends"></div>
+        <div class="friends"></div>
+      </div>
+      <!-- 친구검색 -->
+      <div class="find-wrap">
+        <input type="search" class="findInput" onkeyup="filter()" placeholder="검색" />
+        <div class="sort">
+          <span class="id">아이디</span>
+          <span class="name">이름</span>
+          <span class="share">추가</span>
         </div>
-        <!-- 친구검색 -->
-        <div class="find-wrap">
-          <input type="search" class="findInput" onkeyup="filter()" placeholder="검색" />
-          <div class="sort">
-            <span class="id">아이디</span>
-            <span class="name">이름</span>
-            <span class="share">추가</span>
-          </div>
-          <div class="allUsers">
-            <div class="allUser"></div>
-          </div>
+        <div class="allUsers">
+          <div class="allUser"></div>
         </div>
       </div>
     </div>
+  </div>
 
-    <div class="bg-1"></div>
-    <div class="bg-2"></div>
-    <div class="bg-3"></div>
+  <div class="bg-1"></div>
+  <div class="bg-2"></div>
+  <div class="bg-3"></div>
 </body>
 
 </html>

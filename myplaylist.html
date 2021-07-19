@@ -1,4 +1,3 @@
-{% load static %}
 <!DOCTYPE html>
 <html lang="ko">
 
@@ -6,62 +5,74 @@
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="shortcut icon" href="img/favicon.ico" />
+  <link rel="shortcut icon" href="static/img/favicon.ico" />
   <script src="https://kit.fontawesome.com/ef81e253aa.js" crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="./components/navbar/navbar.scss" />
-  <link rel="stylesheet" href="/css/style.css" />
-  <link rel="stylesheet" href="./components/mypage/menu.css" />
-  <link rel="stylesheet" href="./components/mypage/myplaylist.css" />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
-  <script defer src=".//components/mypage/myplaylist.js"></script>
-  <script defer src="/components/navbar/navbar.js"></script>
-  <script defer src="/components/weatherMusic/music.js"></script>
-  <script defer src="/components/mainpage_playlist/mainpagePlaylist.js"></script>
-  <script defer src="/components/search/search.js"></script>
+  <link rel="stylesheet" href="static/components/navbar/navbar.scss" />
+  <link rel="stylesheet" href="static/css/style.css" />
+  <link rel="stylesheet" href="static/components/mypage/menu.css" />
+  <link rel="stylesheet" href="static/components/mypage/myplaylist.css" />
+  <script defer src="static/components/mypage/myplaylist.js"></script>
+  <script defer src="static/components/navbar/navbar.js"></script>
+  <script defer src="static/components/weatherMusic/music.js"></script>
+  <script defer src="static/components/mainpage_playlist/mainpagePlaylist.js"></script>
+  <script defer src="static/components/search/search.js"></script>
   <script defer src="https://code.jquery.com/jquery-3.6.0.min.js"
     integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css">
   <title>날씨에 맞는 음악 추천</title>
 </head>
 
 <body>
   <nav>
-    <div class="logoAndName">
-      <img class="logo navMain" src="{% static 'img/favicon.png' %}" alt="img" />
-      <span class="name navMain">날씨음악</span>
-    </div>
+    <a href="index" class="logoAndName">
+      <img class="logo" src="static/img/favicon.png" alt="img" />
+      <span class="name">날씨음악</span>
+    </a>
     <div class="searchAndLogin">
       <input id="index" type="search" class="searchInput" placeholder="검색" />
       <button class="btn search">
         <i class="fas fa-search fa-lg"></i>
       </button>
       <button class="btn close"><i class="fas fa-times fa-lg"></i></button>
-      {% if user.is_authenticated %}
-      <a href="{% url 'mypage' %}" class="mypage">마이페이지</a>
-      <form action="logout" method="POST">
-        {% csrf_token %}
-        <input type="submit" class="login" value="로그아웃" />
-      </form>
-      {% else %}
-      <span class="login toLogin">로그인</span>
-      {% endif %}
+      <div class="userAndDarkMode">
+        <!-- {% if user.is_authenticated %} -->
+        <a href="mypage" class="mypage">마이페이지</a>
+        <form action="logout" method="POST">
+          <!-- {% csrf_token %} -->
+          <label for="logout" class="login logout">로그아웃</label>
+          <input id="logout" type="submit" class="logout" value="로그아웃" />
+        </form>
+        <!-- {% else %} -->
+        <!-- <a href="loginl"><span class="login">로그인</span></a> -->
+        <!-- {% endif %} -->
+        <div class="dark-mode">
+          <button class="light mode-btn">
+            <i class="fas fa-sun fa-lg"></i>
+            <span class="modeText">라이트 모드</span>
+          </button>
+          <button class="dark mode-btn">
+            <i class="fas fa-moon fa-lg"></i>
+            <span class="modeText">다크 모드</span>
+          </button>
+        </div>
+      </div>
+      <button class="ellipsis">
+        <i class="fas fa-bars fa-lg"></i>
+      </button>
     </div>
   </nav>
   <div class="container">
     <div class="mypage__menu">
       <ul class="menu__list">
-        <li class="list-group-item nonactive material-icons">
-          account_circle<a href="/mypage">비밀번호 변경</a>
+        <li class="list-group-item nonactive fas fa-key"><a href="mypage">비밀번호 변경</a>
         </li>
-        <li class="list-group-item active material-icons">
-          music_note<a href="/myplaylist">나의 플레이리스트</a>
+        <li class="list-group-item active fas fa-music">
+          <a href="myplaylist">나의 플레이리스트</a>
         </li>
-        <li class="list-group-item nonactive material-icons">
-          person_add<a href="/share">친구목록</a>
+        <li class="list-group-item nonactive fas fa-user-plus">
+          <a href="share">친구목록</a>
         </li>
-        <li class="list-group-item nonactive material-icons">
-          delete_forever<a href="/secession">회원탈퇴</a>
+        <li class="list-group-item nonactive fas fa-user-minus">
+          <a href="secession">회원탈퇴</a>
         </li>
       </ul>
     </div>
@@ -70,43 +81,27 @@
       <ul class="myplaylist__list">
         <li class="list-group-add">
           <div class="myplaylist__add" title="새 재생목록 생성">
-            <div class="material-icons-outlined">add</div>
+            <div class="fas fa-plus"></div>
           </div>
           <div class="myplaylist__title">새 재생목록</div>
         </li>
         <li class="list-group-play">
           <img class="myplaylist__thumnail" onclick="pageChange(this);" src="./static/img/albumCovers/92.jpg"
             alt="플레이리스트 이미지" />
-          <div class="material-icons myplaylist-menu" onclick="displayMenu(this);">more_vert</div>
+          <div class="fas fa-caret-down myplaylist-menu" onclick="displayMenu(this);"></div>
           <div class="myplaylist__title">운동할때 들어야징</div>
           <span class="myplaylist__count">노래 9곡</span>
           <div class="menu-list">
             <ul>
-              <li class="list-open"><span class="material-icons">
-                  lock_open
-                </span>공개</li>
-              <li class="list-close"><span class="material-icons">
-                  lock
-                </span>
-                비공개</li>
-              <li class="list-share"><span class="material-icons">
-                  share
-                </span>재생목록 공유</li>
-              <li class="list-modify">
-                <span class="material-icons">
-                  border_color
-                </span>재생목록 수정
-              </li>
-              <li class="list-remove">
-                <span class="material-icons">
-                  delete
-                </span>재생목록 삭제
+              <li class="list-open"><span class="fas fa-lock-open"></span>공개</li>
+              <li class="list-close"><span class="fas fa-lock"></span>비공개</li>
+              <li class="list-share"><span class="fas fa-share-alt"></span>재생목록 공유</li>
+              <li class="list-modify"><span class="fas fa-edit"></span>재생목록 수정</li>
+              <li class="list-remove"><span class="fas fa-trash"></span>재생목록 삭제
               </li>
             </ul>
           </div>
-          <span class="material-icons lock-state">
-            lock
-          </span>
+          <span class="fas fa-lock lock-state"></span>
         </li>
       </ul>
     </div>
