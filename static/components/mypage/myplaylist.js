@@ -5,7 +5,7 @@ const closeBtn = document.querySelector(".closeBtn");
 const saveBtn = document.querySelector(".saveBtn");
 const myplaylist_list = document.querySelector(".myplaylist__list");
 let title = document.querySelector(".title");
-let desc = document.querySelector(".desc");
+let tags = document.querySelector(".tags");
 const list_group_play = document.querySelector(".list-group-play");
 
 newplayBtn.addEventListener("click", () => {
@@ -27,47 +27,29 @@ function addPlaylist() {
   if (title.value == "") {
     alert("제목을 입력해주세요😥");
   } else {
-    let str =
-      `<li class="list-group-play">
+    let str = `<li class="list-group-play">
     <img class="myplaylist__thumnail" onclick="pageChange(this);" src="./static/img/albumCovers/92.jpg"
       alt="플레이리스트 이미지" />
-    <span class="material-icons myplaylist-menu" onclick="displayMenu(this);">more_vert</span>
-    <div class="myplaylist__title">` +
-      title.value +
-      `</div>
-    <span class="myplaylist__count">노래 0곡</span>
+    <div class="fas fa-caret-down myplaylist-menu" onclick="displayMenu(this);"></div>
+    <div class="myplaylist__title">`+ title.value + `</div>
+    <span class="myplaylist__count">노래 9곡</span>
     <div class="menu-list">
       <ul>
-        <li class="list-open"><span class="material-icons">
-            lock_open
-          </span>공개</li>
-        <li class="list-close"><span class="material-icons">
-            lock
-          </span>
-          비공개</li>
-        <li class="list-share"><span class="material-icons">
-            share
-          </span>재생목록 공유</li>
-        <li class="list-modify">
-          <span class="material-icons">
-            border_color
-          </span>재생목록 수정
-        </li>
-        <li class="list-remove">
-          <span class="material-icons">
-            delete
-          </span>재생목록 삭제
+        <li class="list-open"><span class="fas fa-lock-open"></span>공개</li>
+        <li class="list-close"><span class="fas fa-lock"></span>비공개</li>
+        <li class="list-share"><span class="fas fa-share-alt"></span>재생목록 공유</li>
+        <li class="list-modify"><span class="fas fa-edit"></span>재생목록 수정</li>
+        <li class="list-remove"><span class="fas fa-trash"></span>재생목록 삭제
         </li>
       </ul>
     </div>
-    <span class="material-icons lock-state">lock</span>
+    <span class="fas fa-lock lock-state"></span>
   </li>`;
     $(".myplaylist__list").append(str);
 
     cover.classList.remove("active");
     modal.classList.remove("active");
     title.value = "";
-    desc.value = "";
   }
 }
 
@@ -86,23 +68,23 @@ function displayMenu(obj) {
   const share = menu.children[0].children[2];
   const modify = menu.children[0].children[3];
   const remove = menu.children[0].children[4];
-  console.log(open);
+  console.log(open)
   obj.addEventListener("click", () => {
     menu.classList.add("active");
     cover.classList.add("active");
-  });
+  })
   cover.addEventListener("click", () => {
     menu.classList.remove("active");
     cover.classList.remove("active");
-  });
+  })
   open.addEventListener("click", () => {
     lock_state.classList.remove("active");
-  });
+  })
   close.addEventListener("click", () => {
     lock_state.classList.add("active");
-  });
+  })
   remove.addEventListener("click", () => {
     myplaylist_list.removeChild(obj.parentNode);
-  });
-  //공유랑 수정,,, 해야함
+  })
+  //공유랑 수정,,, 해야함 
 }
