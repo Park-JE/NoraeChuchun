@@ -21,13 +21,13 @@ function createHTMLString(user) {
   <div class="user-list">
     <span class="find-id">${user.id}</span>
     <span class="find-name">${user.name}</span>
-    <span class="fas fa-user-plus addBtn" onclick="addFriend(this)"></span>
+    <span class="material-icons-outlined addBtn" onclick="addFriend(this)">person_add_alt</span>
   </div>
   `;
 }
 
 function loadUsers() {
-  return fetch("/static/data/user.json")
+  return fetch("data/user.json")
     .then((response) => response.json())
     .then((json) => json.users);
 }
@@ -65,10 +65,12 @@ function addFriend(obj) {
 
   let str = `
   <div class="friend">
-    <span class="id"><span class="fas fa-user">
+    <span class="id"><span class="material-icons-outlined">
+      person
     </span>${id}</span>
     <span class="name">${name}</span>
-    <span class="fas fa-share shareBtn">
+    <span class="material-icons-outlined shareBtn">
+      send_to_mobile
     </span>
   </div>
   `;

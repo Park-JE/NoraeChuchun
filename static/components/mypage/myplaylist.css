@@ -118,8 +118,8 @@ li {
   width: fit-content;
   padding: 10px;
   bottom: 35px;
-  right: -15px;
-  font-size: 30px;
+  right: 0px;
+  font-size: 25px;
   z-index: 2;
 }
 
@@ -184,7 +184,7 @@ li {
   display: block;
   position: absolute;
   left: 150px;
-  bottom: 48px;
+  bottom: 53px;
 }
 
 .container .myplaylist .myplaylist__list .list-group-add {

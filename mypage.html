@@ -7,23 +7,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="shortcut icon" href="static/img/favicon.ico" />
   <script src="https://kit.fontawesome.com/ef81e253aa.js" crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="{% static 'components/navbar/navbar.scss' %}" />
-  <link rel="stylesheet" href="{% static './css/style.css' %}" />
-  <link rel="stylesheet" href="{% static '.static/components/mypage/mypage.css' %}" />
-  <link rel="stylesheet" href="{% static '/components/mypage/menu.css' %}" />
+  <link rel="stylesheet" href="static/components/navbar/navbar.scss" />
+  <link rel="stylesheet" href="static/css/style.css" />
+  <link rel="stylesheet" href="static/components/mypage/mypage.css" />
+  <link rel="stylesheet" href="static/components/mypage/menu.css" />
   <title>마이페이지</title>
   <script defer src=".static/components/mypage/mypage.js"></script>
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-  <script defer src="{% static 'components/navbar/navbar.js' %}"></script>
-  <script defer src="{% static 'components/weatherMusic/music.js' %}"></script>
-  <script defer src="{% static 'components/mainpage_playlist/mainpagePlaylist.js' %}"></script>
-  <script defer src="{% static 'components/search/search.js' %}"></script>
+  <script defer src="static/components/navbar/navbar.js"></script>
+  <script defer src="static/components/weatherMusic/music.js"></script>
+  <script defer src="static/components/mainpage_playlist/mainpagePlaylist.js"></script>
+  <script defer src="static/components/search/search.js"></script>
 </head>
 
 <body>
   <nav>
     <div class="logoAndName">
-      <img class="logo navMain" src="{% static 'img/favicon.png' %}" alt="img" />
+      <img class="logo navMain" src="static/img/favicon.png" alt="img" />
       <span class="name navMain">날씨음악</span>
     </div>
     <div class="searchAndLogin">
@@ -32,25 +32,31 @@
         <i class="fas fa-search fa-lg"></i>
       </button>
       <button class="btn close"><i class="fas fa-times fa-lg"></i></button>
-      {% if user.is_authenticated %}
+      <!-- {% if user.is_authenticated %} -->
       <a href="{% url 'mypage' %}" class="mypage">마이페이지</a>
       <form action="logout" method="POST">
-        {% csrf_token %}
+        <!-- {% csrf_token %} -->
         <input type="submit" class="login" value="로그아웃" />
       </form>
-      {% else %}
+      <!-- {% else %} -->
       <span class="login toLogin">로그인</span>
-      {% endif %}
+      <!-- {% endif %} -->
     </div>
   </nav>
   <div class="container">
     <div class="mypage__menu">
       <ul class="menu__list">
-        <li class="list-group-item active material-icons">account_circle<a href="/mypage">비밀번호 변경</a></li>
-        <li class="list-group-item nonactive material-icons">music_note<a href="/myplaylist">나의 플레이리스트</a></li>
-        <li class="list-group-item nonactive material-icons">person_add<a href="/share">친구목록</a></li>
-        <li class="list-group-item nonactive material-icons">delete_forever<a href="/secession">회원탈퇴</a></li>
-      </ul>
+        <li class="list-group-item active fas fa-key"><a href="mypage">비밀번호 변경</a>
+        </li>
+        <li class="list-group-item nonactive fas fa-music">
+          <a href="myplaylist">나의 플레이리스트</a>
+        </li>
+        <li class="list-group-item nonactive fas fa-user-plus">
+          <a href="share">친구목록</a>
+        </li>
+        <li class="list-group-item nonactive fas fa-user-minus">
+          <a href="secession">회원탈퇴</a>
+        </li>
       </ul>
     </div>
     <div class="menu__contents">
@@ -59,63 +65,29 @@
         <div class="contents">
           <div class="contents_tag">아이디</div>
           <!-- 아이디 표시되도록  -->
-          <input class="mypage_username content" type="text" disabled>
+          <input class="mypage_username content" type="text" disabled />
         </div>
         <div class="contents">
           <div class="contents_tag">기존 비밀번호</div>
-          <input class="mypage_old_pw content" type="password">
+          <input class="mypage_old_pw content" type="password" />
         </div>
-        <button class="ellipsis">
-          <i class="fas fa-bars fa-lg"></i>
-        </button>
+        <div class="contents">
+          <div class="contents_tag">새 비밀번호</div>
+          <input class="mypage_new_pw1 content" type="password" />
+        </div>
+        <span class="pw1_error error"></span>
+        <div class="contents">
+          <div class="contents_tag">새 비밀번호 확인</div>
+          <input class="mypage_new_pw2 content" type="password" />
+        </div>
+        <span class="pw2_error error"></span>
+        <button class="change_pwBtn">비밀번호 변경</button>
       </div>
-      </nav>
-      <div class="container">
-        <div class="mypage__menu">
-          <ul class="menu__list">
-            <li class="list-group-item active material-icons">
-              account_circle<a href="mypage">비밀번호 변경</a>
-            </li>
-            <li class="list-group-item nonactive material-icons">
-              music_note<a href="myplaylist">나의 플레이리스트</a>
-            </li>
-            <li class="list-group-item nonactive material-icons">
-              person_add<a href="share">친구목록</a>
-            </li>
-            <li class="list-group-item nonactive material-icons">
-              delete_forever<a href="secession">회원탈퇴</a>
-            </li>
-          </ul>
-        </div>
-        <div class="menu__contents">
-          <div class="menu__content">
-            <h2>비밀번호 변경</h2>
-            <div class="contents">
-              <div class="contents_tag">아이디</div>
-              <!-- 아이디 표시되도록  -->
-              <input class="mypage_username content" type="text" disabled />
-            </div>
-            <div class="contents">
-              <div class="contents_tag">기존 비밀번호</div>
-              <input class="mypage_old_pw content" type="password" />
-            </div>
-            <div class="contents">
-              <div class="contents_tag">새 비밀번호</div>
-              <input class="mypage_new_pw1 content" type="password" />
-            </div>
-            <span class="pw1_error error"></span>
-            <div class="contents">
-              <div class="contents_tag">새 비밀번호 확인</div>
-              <input class="mypage_new_pw2 content" type="password" />
-            </div>
-            <span class="pw2_error error"></span>
-            <button class="change_pwBtn">비밀번호 변경</button>
-          </div>
-        </div>
-      </div>
-      <div class="bg-1"></div>
-      <div class="bg-2"></div>
-      <div class="bg-3"></div>
+    </div>
+  </div>
+  <div class="bg-1"></div>
+  <div class="bg-2"></div>
+  <div class="bg-3"></div>
 </body>
 
 </html>

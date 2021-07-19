@@ -79,7 +79,7 @@
       .sort {
         width: 100%;
         display: grid;
-        grid-template-columns: 3fr 3fr 1fr 40px;
+        grid-template-columns: 3fr 3fr 1fr 60px;
         column-gap: 5px;
         @include color-var(border-top, sm-nav-border);
         @include color-var(border-bottom, sm-nav-border);
@@ -111,7 +111,7 @@
           line-height: 3;
           width: 100%;
           display: grid;
-          grid-template-columns: 3fr 3fr 1fr 40px;
+          grid-template-columns: 3fr 3fr 1fr 60px;
           column-gap: 5px;
           align-items: center;
           justify-items: flex-start;
@@ -124,8 +124,11 @@
             align-items: center;
 
             span {
-              margin-right: 3px;
+              margin-right: 10px;
             }
+          }
+          .shareBtn{
+            margin-left: 10px;
           }
         }
       }
@@ -203,6 +206,9 @@
             .id {
               display: flex;
               align-items: center;
+            }
+            .addBtn{
+              margin-left: 8px;
             }
             .addBtn:hover {
               cursor: pointer;

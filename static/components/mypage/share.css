@@ -132,8 +132,8 @@
   width: 100%;
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 3fr 3fr 1fr 40px;
-      grid-template-columns: 3fr 3fr 1fr 40px;
+  -ms-grid-columns: 3fr 3fr 1fr 60px;
+      grid-template-columns: 3fr 3fr 1fr 60px;
   -webkit-column-gap: 5px;
           column-gap: 5px;
   border-top: 1px solid rgba(2, 2, 2, 0.2);
@@ -172,8 +172,8 @@
   width: 100%;
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 3fr 3fr 1fr 40px;
-      grid-template-columns: 3fr 3fr 1fr 40px;
+  -ms-grid-columns: 3fr 3fr 1fr 60px;
+      grid-template-columns: 3fr 3fr 1fr 60px;
   -webkit-column-gap: 5px;
           column-gap: 5px;
   -webkit-box-align: center;
@@ -195,7 +195,11 @@
 }
 
 .container .share-main .title-wrap.active .friends .friend .id span {
-  margin-right: 3px;
+  margin-right: 10px;
+}
+
+.container .share-main .title-wrap.active .friends .friend .shareBtn {
+  margin-left: 10px;
 }
 
 .container .share-main .find-wrap {
@@ -291,6 +295,10 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+
+.container .share-main .find-wrap.active .allUsers .allUser .user-list .addBtn {
+  margin-left: 8px;
 }
 
 .container .share-main .find-wrap.active .allUsers .allUser .user-list .addBtn:hover {
