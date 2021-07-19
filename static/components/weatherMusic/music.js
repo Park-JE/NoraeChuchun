@@ -3,7 +3,7 @@ function loadItems() {
   const config = {
     headers: { Accept: "application/json" },
   };
-  return fetch("data/music.json", config)
+  return fetch("static/data/music.json", config)
     .then((response) => response.json())
     .catch((error) => console.log("error", error));
 }
@@ -15,7 +15,7 @@ function createElement(music) {
 
   const img = document.createElement("img");
   img.setAttribute("class", "album-cover");
-  img.setAttribute("src", `img/albumCovers/${music.cover}`);
+  img.setAttribute("src", `static/img/albumCovers/${music.cover}`);
   img.setAttribute("alt", "album-cover");
 
   const play = document.createElement("button");

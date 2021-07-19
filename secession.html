@@ -1,103 +1,113 @@
 <!DOCTYPE html>
 <html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="static/img/favicon.png" />
+    <script
+      defer
+      src="https://kit.fontawesome.com/ef81e253aa.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="static/css/style.css" />
+    <link rel="stylesheet" href="static/components/mypage/menu.css" />
+    <link rel="stylesheet" href="static/components/mypage/secession.css" />
+    <script defer src="static/components/navbar/navbar.js"></script>
+    <script defer src="static/components/search/search.js"></script>
+    <script defer src="static/components/mypage/secession.js"></script>
+    <title>날씨에 맞는 음악 추천</title>
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="shortcut icon" href="img/favicon.ico" />
-  <script defer src="https://kit.fontawesome.com/ef81e253aa.js" crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="static/css/style.css" />
-  <link rel="stylesheet" href="static/components/mypage/menu.css" />
-  <link rel="stylesheet" href="static/components/mypage/secession.css" />
-  <script defer src="static/components/navbar/navbar.js"></script>
-  <script defer src="static/components/search/search.js"></script>
-  <script defer src="static/components/mypage/secession.js"></script>
-  <title>날씨에 맞는 음악 추천</title>
-</head>
-
-<body>
-  <nav>
-    <a href="index" class="logoAndName">
-      <img class="logo" src="static/img/favicon.png" alt="img" />
-      <span class="name">날씨음악</span>
-    </a>
-    <div class="searchAndLogin">
-      <input id="index" type="search" class="searchInput" placeholder="검색" />
-      <button class="btn search">
-        <i class="fas fa-search fa-lg"></i>
-      </button>
-      <button class="btn close"><i class="fas fa-times fa-lg"></i></button>
-      <div class="userAndDarkMode">
-        <!-- {% if user.is_authenticated %} -->
-        <a href="mypage" class="mypage">마이페이지</a>
-        <form action="logout" method="POST">
-          <!-- {% csrf_token %} -->
-          <label for="logout" class="login logout">로그아웃</label>
-          <input id="logout" type="submit" class="logout" value="로그아웃" />
-        </form>
-        <!-- {% else %} -->
-        <!-- <a href="loginl"><span class="login">로그인</span></a> -->
-        <!-- {% endif %} -->
-        <div class="dark-mode">
-          <button class="light mode-btn">
-            <i class="fas fa-sun fa-lg"></i>
-            <span class="modeText">라이트 모드</span>
-          </button>
-          <button class="dark mode-btn">
-            <i class="fas fa-moon fa-lg"></i>
-            <span class="modeText">다크 모드</span>
-          </button>
+  <body>
+    <nav>
+      <a href="index" class="logoAndName">
+        <img class="logo" src="static/img/favicon.png" alt="img" />
+        <span class="name">날씨음악</span>
+      </a>
+      <div class="searchAndLogin">
+        <input
+          id="index"
+          type="search"
+          class="searchInput"
+          placeholder="검색"
+        />
+        <button class="btn search">
+          <i class="fas fa-search fa-lg"></i>
+        </button>
+        <button class="btn close"><i class="fas fa-times fa-lg"></i></button>
+        <div class="userAndDarkMode">
+          <!-- {% if user.is_authenticated %} -->
+          <a href="mypage" class="mypage">마이페이지</a>
+          <form action="logout" method="POST">
+            <!-- {% csrf_token %} -->
+            <label for="logout" class="login logout">로그아웃</label>
+            <input id="logout" type="submit" class="logout" value="로그아웃" />
+          </form>
+          <!-- {% else %} -->
+          <!-- <a href="loginl"><span class="login">로그인</span></a> -->
+          <!-- {% endif %} -->
+          <div class="dark-mode">
+            <button class="light mode-btn">
+              <i class="fas fa-sun fa-lg"></i>
+              <span class="modeText">라이트 모드</span>
+            </button>
+            <button class="dark mode-btn">
+              <i class="fas fa-moon fa-lg"></i>
+              <span class="modeText">다크 모드</span>
+            </button>
+          </div>
         </div>
+        <button class="ellipsis">
+          <i class="fas fa-bars fa-lg"></i>
+        </button>
       </div>
-      <button class="ellipsis">
-        <i class="fas fa-bars fa-lg"></i>
-      </button>
-    </div>
-  </nav>
-  <div class="container">
-    <div class="mypage__menu">
-      <ul class="menu__list">
-        <li class="list-group-item nonactive fas fa-key"><a href="mypage">비밀번호 변경</a>
-        </li>
-        <li class="list-group-item nonactive fas fa-music">
-          <a href="myplaylist">나의 플레이리스트</a>
-        </li>
-        <li class="list-group-item nonactive fas fa-user-plus">
-          <a href="share">친구목록</a>
-        </li>
-        <li class="list-group-item active fas fa-user-minus">
-          <a href="secession">회원탈퇴</a>
-        </li>
-      </ul>
-    </div>
-    <div class="secession_container">
-      <h2>탈퇴 안내</h2>
-      <p>회원탈퇴를 신청하기 전에 안내 사항을 꼭 확인해주세요.</p>
-      <span class="fas fa-check"></span>
-      <span>사용하고 계신 아이디(rlarkwjd123)는 탈퇴할 경우 재사용 및 복구가
-        불가능합니다. 탈퇴한 아이디는 본인과 타인 모두 재사용 및 복구가
-        불가하오니 신중하게 선택하시기 바랍니다.</span>
-      <p>
-        회원정보 및 플레이리스트 등 개인형 서비스 이용기록은 모두 삭제되며,
-        삭제된 데이터는 복구되지 않습니다. 삭제되는 내용을 확인하시고 필요한
-        데이터는 미리 백업을 해주세요.
-      </p>
-
-      <div class="check_guide">
-        <i class="far fa-circle circleBtn active"></i>
-        <i class="fas fa-check-circle checkBtn"></i>
-        <span>안내 사항을 모두 확인하였으며, 이에 동의합니다.</span>
+    </nav>
+    <div class="container">
+      <div class="mypage__menu">
+        <ul class="menu__list">
+          <li class="list-group-item nonactive fas fa-key">
+            <a href="mypage">비밀번호 변경</a>
+          </li>
+          <li class="list-group-item nonactive fas fa-music">
+            <a href="myplaylist">나의 플레이리스트</a>
+          </li>
+          <li class="list-group-item nonactive fas fa-user-plus">
+            <a href="share">친구목록</a>
+          </li>
+          <li class="list-group-item active fas fa-user-minus">
+            <a href="secession">회원탈퇴</a>
+          </li>
+        </ul>
       </div>
-      <form action="delete" method="POST">
-        <!-- {% csrf_token %} -->
-        <button type="submit" value="회원탈퇴" class="okayBtn">확인</button>
-      </form>
-    </div>
-  </div>
-  <div class="bg-1"></div>
-  <div class="bg-2"></div>
-  <div class="bg-3"></div>
-</body>
+      <div class="secession_container">
+        <h2>탈퇴 안내</h2>
+        <p>회원탈퇴를 신청하기 전에 안내 사항을 꼭 확인해주세요.</p>
+        <span class="fas fa-check"></span>
+        <span
+          >사용하고 계신 아이디(rlarkwjd123)는 탈퇴할 경우 재사용 및 복구가
+          불가능합니다. 탈퇴한 아이디는 본인과 타인 모두 재사용 및 복구가
+          불가하오니 신중하게 선택하시기 바랍니다.</span
+        >
+        <p>
+          회원정보 및 플레이리스트 등 개인형 서비스 이용기록은 모두 삭제되며,
+          삭제된 데이터는 복구되지 않습니다. 삭제되는 내용을 확인하시고 필요한
+          데이터는 미리 백업을 해주세요.
+        </p>
 
+        <div class="check_guide">
+          <i class="far fa-circle circleBtn active"></i>
+          <i class="fas fa-check-circle checkBtn"></i>
+          <span>안내 사항을 모두 확인하였으며, 이에 동의합니다.</span>
+        </div>
+        <form action="delete" method="POST">
+          <!-- {% csrf_token %} -->
+          <button type="submit" value="회원탈퇴" class="okayBtn">확인</button>
+        </form>
+      </div>
+    </div>
+    <div class="bg-1"></div>
+    <div class="bg-2"></div>
+    <div class="bg-3"></div>
+  </body>
 </html>
