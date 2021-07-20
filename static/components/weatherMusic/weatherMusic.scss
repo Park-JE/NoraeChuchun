@@ -2,8 +2,8 @@
 
 .recommendation-warp {
   width: $content-width;
-  margin-bottom: $content-bottom;
-  margin-top: 150px;
+  margin-bottom: 100px;
+  margin-top: 130px;
   @include color-var(color, font-color);
 
   .title {

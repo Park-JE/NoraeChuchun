@@ -50,6 +50,7 @@ lightBtn.addEventListener("click", () => {
   darkBtn.classList.toggle("deactive");
   localStorage.setItem("color-theme", "light");
   document.documentElement.setAttribute("color-theme", "light");
+  displayDarkModePlaylist();
 });
 
 darkBtn.addEventListener("click", () => {
@@ -57,6 +58,7 @@ darkBtn.addEventListener("click", () => {
   darkBtn.classList.toggle("deactive");
   localStorage.setItem("color-theme", "dark");
   document.documentElement.setAttribute("color-theme", "dark");
+  displayDarkModePlaylist();
 });
 
 ellipsisBtn.addEventListener("click", () => {

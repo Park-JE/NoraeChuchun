@@ -10,7 +10,7 @@ nav {
   align-items: center;
   font-size: $font-large;
   font-weight: $font-bold;
-  padding: 20px 40px;
+  padding: 18px 40px;
   @include color-var(color, font-color);
   z-index: 3;
   transition: top 0.3s ease-in;

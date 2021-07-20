@@ -32,8 +32,8 @@
 
 .recommendation-warp {
   width: 950px;
-  margin-bottom: 130px;
-  margin-top: 150px;
+  margin-bottom: 100px;
+  margin-top: 130px;
   color: #111;
   color: var(--font-color, #111);
 }

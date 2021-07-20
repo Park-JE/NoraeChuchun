@@ -156,16 +156,17 @@
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-auto-rows: auto;
-    gap: $base-space $base-space/2;
+    gap: $base-space;
 
     .playlist {
       display: flex;
       flex-direction: column;
       align-items: flex-start;
       justify-content: center;
-      height: 300px;
+      height: 225px;
       position: relative;
       overflow: hidden;
+      @include color-var(color, font-color);
 
       &.invisible {
         display: none;
@@ -192,7 +193,6 @@
         margin-bottom: $base-space/2;
         position: absolute;
         bottom: 0;
-        color: $white;
         font-weight: $font-bold;
         font-size: $font-xlarge;
         transition: bottom 0.5s ease;
@@ -202,7 +202,6 @@
         width: 100%;
         height: 75px;
         backdrop-filter: blur(15px);
-        box-shadow: 0 -10px 10px rgba(0, 0, 0, 0.1);
         border-top: 1px solid rgba(255, 255, 255, 0.2);
         border-bottom-left-radius: $border-large;
         border-bottom-right-radius: $border-large;
@@ -212,7 +211,6 @@
         position: absolute;
         bottom: -80px;
         padding: $base-space;
-        color: $white;
         transition: bottom 0.5s ease;
 
         .tags {
@@ -240,6 +238,10 @@
 
     .playlist-wrap {
       grid-template-columns: repeat(3, 1fr);
+
+      .playlist {
+        height: 215px;
+      }
     }
   }
 }
@@ -254,7 +256,7 @@
       grid-template-columns: repeat(2, 1fr);
 
       .playlist {
-        height: 250px;
+        height: 165px;
 
         .title {
           font-size: $font-large;

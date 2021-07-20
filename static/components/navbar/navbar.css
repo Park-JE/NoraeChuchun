@@ -46,7 +46,7 @@ nav {
           align-items: center;
   font-size: 18px;
   font-weight: 600;
-  padding: 20px 40px;
+  padding: 18px 40px;
   color: #111;
   color: var(--font-color, #111);
   z-index: 3;

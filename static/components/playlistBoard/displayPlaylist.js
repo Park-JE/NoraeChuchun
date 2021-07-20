@@ -1,4 +1,3 @@
-let musicList = [];
 let newList = [];
 const playlistWrap = document.querySelector(".playlist-wrap");
 
@@ -10,34 +9,23 @@ function loadPlaylists() {
     .then((response) => response.json())
     .catch((error) => console.log("error", error));
 }
-
-loadItems()
-  .then((data) => {
-    musicList = data.music;
-  })
-  .catch(console.log);
+const displayDarkModePlaylist = () => {
+  loadPlaylists()
+    .then((data) => {
+      while (playlistWrap.firstChild) {
+        playlistWrap.removeChild(playlistWrap.firstChild);
+      }
+      const currentPlaylists = data.playlists.map(createPlaylist);
+      playlistWrap.append(...currentPlaylists);
+    })
+    .catch(console.log);
+};
 
 loadPlaylists()
   .then((data) => {
-    newList = data.playlists.map((playlist) => {
-      let playlistMood = playlist.mood;
-      musicList.forEach((music) => {
-        let musicMood = music.mood;
-        const checkArray = playlistMood.filter((category) =>
-          musicMood.includes(category)
-        );
-        if (JSON.stringify(playlistMood) === JSON.stringify(checkArray)) {
-          playlist.musicList.push(music);
-          return musicList;
-        }
-      });
-      return playlist;
-    });
-
-    const playlist = newList.map(createPlaylist);
-    playlistWrap.append(...playlist);
-    const playlistDiv = playlist.map((item) => item);
-
+    const playlists = data.playlists.map(createPlaylist);
+    playlistWrap.append(...playlists);
+    const playlistDiv = playlists.map((item) => item);
     optionBtns.forEach((optionBtn) => {
       optionBtn.addEventListener("click", (event) => {
         onButtonClick(event, [playlistDiv]);
@@ -57,8 +45,15 @@ function createPlaylist(playlist) {
   const playlistCard = document.createElement("div");
   playlistCard.setAttribute("class", "playlist");
 
+  let imgUrl = "lp3.png";
+  if (
+    document.documentElement.attributes[1] &&
+    document.documentElement.attributes[1].value === "dark"
+  ) {
+    imgUrl = "lp10.png";
+  }
   const img = document.createElement("img");
-  img.setAttribute("src", `static/img/playlistCovers/${playlist.cover}`);
+  img.setAttribute("src", `static/img/playlistCovers/${imgUrl}`);
   img.setAttribute("alt", "platlist-cover");
   img.setAttribute("class", "cover");
   img.setAttribute("data-mood", playlist.mood);

@@ -101,7 +101,7 @@ const playMusic = (musicTable) => {
   });
 };
 
-const createSong = (song) => {
+const createSong = (musicInfo) => {
   const music = document.createElement("div");
   music.setAttribute("class", "music");
 
@@ -111,13 +111,13 @@ const createSong = (song) => {
 
   const img = document.createElement("img");
   img.setAttribute("class", "cover");
-  img.setAttribute("src", `${song[3]}`);
+  img.setAttribute("src", `${musicInfo.albumCover}`);
   img.setAttribute("alt", "img");
   content.append(img);
 
   const audio = document.createElement("audio");
   audio.setAttribute("class", "play-audio");
-  audio.setAttribute("src", `${song[4]}`);
+  audio.setAttribute("src", `${musicInfo.playMusic}`);
   content.append(audio);
 
   const play = document.createElement("div");
@@ -147,7 +147,7 @@ const createSong = (song) => {
 
   const name = document.createElement("span");
   name.setAttribute("class", "name");
-  name.innerText = `${song[0]}`;
+  name.innerText = `${musicInfo.songName}`;
   info.append(name);
 
   const descrip = document.createElement("div");
@@ -156,7 +156,7 @@ const createSong = (song) => {
 
   const artist = document.createElement("span");
   artist.setAttribute("class", "artist");
-  artist.innerText = `${song[1]}`;
+  artist.innerText = `${musicInfo.artist}`;
   descrip.append(artist);
 
   const dot = document.createElement("span");
@@ -166,7 +166,7 @@ const createSong = (song) => {
 
   const album = document.createElement("span");
   album.setAttribute("class", "album");
-  album.innerText = `${song[2]}`;
+  album.innerText = `${musicInfo.album}`;
   descrip.append(album);
 
   const addBtn = document.createElement("button");
@@ -209,9 +209,15 @@ const setSearchAni = () => {
 };
 
 const handleSearch = (inputValue) => {
-  const url = `https://nochu.pw/spotify/${inputValue}`;
-  fetch(url)
-    .then((response) => response.json())
+  const url = `https://nochu.pw/spotify?inputValue=${inputValue}`;
+  fetch(url, {
+    // method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(data),
+  })
+    // .then((response) => response.json())
     .then((data) => {
       {
         const songInfo = data.tracks.items;
@@ -221,42 +227,15 @@ const handleSearch = (inputValue) => {
           const album = song.album.name;
           const albumCover = song.album.images[2].url;
           const playMusic = song.preview_url;
-          const resultArray = [songName, artist, album, albumCover, playMusic];
-          outputSearchHtml([resultArray], inputValue);
+          const musicInfo = { songName, artist, album, albumCover, playMusic };
+          // const resultArray = [songName, artist, album, albumCover, playMusic];
+          outputSearchHtml(musicInfo, inputValue);
           setSearchAni();
         });
       }
     })
     .catch((error) => console.log("error", error));
 };
-
-// function getCookie(cname) {
-//   const cookie = document.cookie;
-//   let value;
-
-//   if (cookie.length > 0) {
-//     startIndex = cookie.indexOf(cname);
-//     if (startIndex != -1) {
-//       startIndex += cname.length;
-//       endIndex = cookie.indexOf(";", startIndex);
-//       if (endIndex == -1) endIndex = cookie.length;
-//       value = unescape(cookie.substring(startIndex + 1, endIndex));
-//     } else {
-//       return false;
-//     }
-//   } else {
-//     return false;
-//   }
-//   return value;
-// }
-
-// function setCookie(name, value, expiredays) {
-//   const todayDate = new Date();
-//   todayDate.setDate(todayDate.getDate() + expiredays);
-//   document.cookie = `${name}=${escape(
-//     value
-//   )};path=/;expires=${todayDate.toGMTString()};`;
-// }
 
 searchBtn.addEventListener("click", () => {
   if (inputBox.classList.contains("active")) {
