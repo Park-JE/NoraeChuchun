@@ -23,8 +23,10 @@ body {
       .cover {
         height: 150px;
         width: 150px;
-        border-radius: $border-large;
+        border-radius: 50%;
         box-shadow: 10px 5px 16px 5px rgba(0, 0, 0, 0.4);
+        @include color-var(background-image, playlist-cover);
+        background-size: cover;
       }
 
       .info {

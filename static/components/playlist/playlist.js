@@ -77,18 +77,15 @@ const displayPlaylistCookies = () => {
     ".playlist-main .content-wrap .music .add"
   );
 
-  descripWrap.innerHTML = `<img
-    src="img/playlistCovers/${cookieArray[3]}"
-    alt="platlist-cover"
-    class="cover"
-  />
+  descripWrap.innerHTML = `<div
+    class="cover"></div>
   <div class="info">
     <span class="title">${cookieArray[0]}</span>
     <div class="tagAndSong">
        <div class="tags">
          <span class="filter">#${cookieArray[2][0]}</span>
          <span class="filter">#${cookieArray[2][1]}</span>
-       </div>
+      </div>
       <div class="songs">
         <i class="fas fa-compact-disc"></i>
         <span class="count">${cookieArray[1].length}곡</span>

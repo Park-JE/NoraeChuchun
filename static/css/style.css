@@ -15,6 +15,8 @@
   --secession-btn: #e1dec8;
   --addPlaylist-modal: url("../../img/lightBg.png");
   --addPlaylist-btn: rgba(254, 254, 254, 0.7);
+  --playlists-cover: url("../img/playlistCovers/lp3.png");
+  --playlist-cover: url("../../img/playlistCovers/lp3.png");
 }
 
 :root[color-theme="dark"] {
@@ -33,6 +35,8 @@
   --secession-btn: #242359;
   --addPlaylist-modal: url("../../img/darkBg.png");
   --addPlaylist-btn: rgba(187, 187, 187, 0.4);
+  --playlists-cover: url("../img/playlistCovers/lp10.png");
+  --playlist-cover: url("../../img/playlistCovers/lp10.png");
 }
 
 * {
@@ -125,6 +129,8 @@ body .bg-3 {
   --secession-btn: #e1dec8;
   --addPlaylist-modal: url("../../img/lightBg.png");
   --addPlaylist-btn: rgba(254, 254, 254, 0.7);
+  --playlists-cover: url("../img/playlistCovers/lp3.png");
+  --playlist-cover: url("../../img/playlistCovers/lp3.png");
 }
 
 :root[color-theme="dark"] {
@@ -143,6 +149,8 @@ body .bg-3 {
   --secession-btn: #242359;
   --addPlaylist-modal: url("../../img/darkBg.png");
   --addPlaylist-btn: rgba(187, 187, 187, 0.4);
+  --playlists-cover: url("../img/playlistCovers/lp10.png");
+  --playlist-cover: url("../../img/playlistCovers/lp10.png");
 }
 
 nav {
@@ -426,6 +434,8 @@ nav .searchAndLogin .ellipsis {
   --secession-btn: #e1dec8;
   --addPlaylist-modal: url("../../img/lightBg.png");
   --addPlaylist-btn: rgba(254, 254, 254, 0.7);
+  --playlists-cover: url("../img/playlistCovers/lp3.png");
+  --playlist-cover: url("../../img/playlistCovers/lp3.png");
 }
 
 :root[color-theme="dark"] {
@@ -444,6 +454,8 @@ nav .searchAndLogin .ellipsis {
   --secession-btn: #242359;
   --addPlaylist-modal: url("../../img/darkBg.png");
   --addPlaylist-btn: rgba(187, 187, 187, 0.4);
+  --playlists-cover: url("../img/playlistCovers/lp10.png");
+  --playlist-cover: url("../../img/playlistCovers/lp10.png");
 }
 
 .recommendation-warp {
@@ -627,32 +639,37 @@ nav .searchAndLogin .ellipsis {
 
 .recommendation-warp .recommendation .currentWeather-playlist .music {
   width: 100%;
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: 60px auto;
-      grid-template-columns: 60px auto;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  font-size: 14px;
+  padding: 5px 8px;
   position: relative;
-}
-
-.recommendation-warp .recommendation .currentWeather-playlist .music .album-cover {
-  height: 50px;
-  width: 50px;
-  border-radius: 8px;
-}
-
-.recommendation-warp .recommendation .currentWeather-playlist .music .album-cover:hover + .play {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
-.recommendation-warp .recommendation .currentWeather-playlist .music .manipul {
+.recommendation-warp .recommendation .currentWeather-playlist .music .content {
+  width: 100%;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 72px 4fr;
+      grid-template-columns: 72px 4fr;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-right: 8px;
+  position: relative;
+}
+
+.recommendation-warp .recommendation .currentWeather-playlist .music .content .manipul {
   position: absolute;
-  width: 50px;
-  height: 50px;
+  width: 55px;
+  height: 55px;
   border-radius: 8px;
   background-color: #111;
   display: none;
@@ -669,46 +686,117 @@ nav .searchAndLogin .ellipsis {
   color: #eee;
 }
 
-.recommendation-warp .recommendation .currentWeather-playlist .music .manipul.play:hover {
+.recommendation-warp .recommendation .currentWeather-playlist .music .content .manipul.play:hover {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
 }
 
-.recommendation-warp .recommendation .currentWeather-playlist .music .manipul.play.active {
+.recommendation-warp .recommendation .currentWeather-playlist .music .content .manipul.playing.active {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
 }
 
-.recommendation-warp .recommendation .currentWeather-playlist .music .manipul.pause.active {
+.recommendation-warp .recommendation .currentWeather-playlist .music .content .manipul.pause.active {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
 }
 
-.recommendation-warp .recommendation .currentWeather-playlist .music .song-info {
+.recommendation-warp .recommendation .currentWeather-playlist .music .content .cover {
+  width: 50px;
+  height: 50px;
+  border-radius: 8px;
+}
+
+.recommendation-warp .recommendation .currentWeather-playlist .music .content .cover:hover ~ .play {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+}
+
+.recommendation-warp .recommendation .currentWeather-playlist .music .content .info {
+  width: 100%;
+  height: 80%;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr;
+      grid-template-columns: 1fr;
+  -ms-grid-rows: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 5px;
+}
+
+.recommendation-warp .recommendation .currentWeather-playlist .music .content .info .descrip {
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  display: -webkit-box;
   -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  font-size: 14px;
-  padding: 8px;
-  cursor: default;
+  -webkit-line-clamp: 1;
+  overflow: hidden;
+}
+
+.recommendation-warp .recommendation .currentWeather-playlist .music .content .info .descrip .dot {
+  display: inline;
+  margin: 0 3px;
+}
+
+.recommendation-warp .recommendation .currentWeather-playlist .music .add {
+  outline: none;
+  border: 0;
+  background-color: transparent;
   color: #111;
   color: var(--font-color, #111);
+  margin-right: 3px;
 }
 
-.recommendation-warp .recommendation .currentWeather-playlist .music .song-info .artist {
+.recommendation-warp .recommendation .currentWeather-playlist .music .addModal {
+  width: 150px;
   font-size: 12px;
-  opacity: 80%;
-  margin-top: 2px;
+  right: 32px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 2;
+  top: 36px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background-color: rgba(239, 222, 205, 0.9);
+  background-color: var(--sm-nav-bgc, rgba(239, 222, 205, 0.9));
+  -webkit-backdrop-filter: blur(5px);
+          backdrop-filter: blur(5px);
+  -webkit-box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.recommendation-warp .recommendation .currentWeather-playlist .music .addModal.deactive {
+  display: none;
+}
+
+.recommendation-warp .recommendation .currentWeather-playlist .music .addModal .myPlaylist {
+  width: 100%;
+  padding: 16px;
+  border-bottom: 1px solid rgba(2, 2, 2, 0.2);
+  border-bottom: var(--sm-nav-border, 1px solid rgba(2, 2, 2, 0.2));
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.recommendation-warp .recommendation .currentWeather-playlist .music .addModal .myPlaylist:first-child {
+  padding: 8px 16px;
+  opacity: 0.8;
+  font-weight: 400;
+  pointer-events: none;
+}
+
+.recommendation-warp .recommendation .currentWeather-playlist .music .addModal .myPlaylist:last-child {
+  border-bottom: 0;
 }
 
 @media (min-width: 768px) and (max-width: 1023px) {
@@ -792,6 +880,8 @@ nav .searchAndLogin .ellipsis {
   --secession-btn: #e1dec8;
   --addPlaylist-modal: url("../../img/lightBg.png");
   --addPlaylist-btn: rgba(254, 254, 254, 0.7);
+  --playlists-cover: url("../img/playlistCovers/lp3.png");
+  --playlist-cover: url("../../img/playlistCovers/lp3.png");
 }
 
 :root[color-theme="dark"] {
@@ -810,6 +900,8 @@ nav .searchAndLogin .ellipsis {
   --secession-btn: #242359;
   --addPlaylist-modal: url("../../img/darkBg.png");
   --addPlaylist-btn: rgba(187, 187, 187, 0.4);
+  --playlists-cover: url("../img/playlistCovers/lp10.png");
+  --playlist-cover: url("../../img/playlistCovers/lp10.png");
 }
 
 .musicFilter-wrap {
@@ -1045,9 +1137,8 @@ nav .searchAndLogin .ellipsis {
 .musicFilter-wrap .playlist-wrap .playlist .cover {
   width: 100%;
   height: 100%;
-  border-radius: 18px;
-  -o-object-fit: cover;
-     object-fit: cover;
+  background-image: var(--playlists-cover, );
+  background-size: cover;
 }
 
 .musicFilter-wrap .playlist-wrap .playlist .title {
@@ -1153,6 +1244,8 @@ nav .searchAndLogin .ellipsis {
   --secession-btn: #e1dec8;
   --addPlaylist-modal: url("../../img/lightBg.png");
   --addPlaylist-btn: rgba(254, 254, 254, 0.7);
+  --playlists-cover: url("../img/playlistCovers/lp3.png");
+  --playlist-cover: url("../../img/playlistCovers/lp3.png");
 }
 
 :root[color-theme="dark"] {
@@ -1171,6 +1264,8 @@ nav .searchAndLogin .ellipsis {
   --secession-btn: #242359;
   --addPlaylist-modal: url("../../img/darkBg.png");
   --addPlaylist-btn: rgba(187, 187, 187, 0.4);
+  --playlists-cover: url("../img/playlistCovers/lp10.png");
+  --playlist-cover: url("../../img/playlistCovers/lp10.png");
 }
 
 .search-wrap {

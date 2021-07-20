@@ -9,17 +9,6 @@ function loadPlaylists() {
     .then((response) => response.json())
     .catch((error) => console.log("error", error));
 }
-const displayDarkModePlaylist = () => {
-  loadPlaylists()
-    .then((data) => {
-      while (playlistWrap.firstChild) {
-        playlistWrap.removeChild(playlistWrap.firstChild);
-      }
-      const currentPlaylists = data.playlists.map(createPlaylist);
-      playlistWrap.append(...currentPlaylists);
-    })
-    .catch(console.log);
-};
 
 loadPlaylists()
   .then((data) => {
@@ -45,16 +34,7 @@ function createPlaylist(playlist) {
   const playlistCard = document.createElement("div");
   playlistCard.setAttribute("class", "playlist");
 
-  let imgUrl = "lp3.png";
-  if (
-    document.documentElement.attributes[1] &&
-    document.documentElement.attributes[1].value === "dark"
-  ) {
-    imgUrl = "lp10.png";
-  }
-  const img = document.createElement("img");
-  img.setAttribute("src", `static/img/playlistCovers/${imgUrl}`);
-  img.setAttribute("alt", "platlist-cover");
+  const img = document.createElement("div");
   img.setAttribute("class", "cover");
   img.setAttribute("data-mood", playlist.mood);
 

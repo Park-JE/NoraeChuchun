@@ -9,47 +9,125 @@ function loadItems() {
 }
 
 // 날씨에 맞는 추천 음악 요소 생성
-function createElement(music) {
-  const li = document.createElement("li");
-  li.setAttribute("class", "music");
+const createElement = (musicInfo) => {
+  const music = document.createElement("li");
+  music.setAttribute("class", "music");
+
+  const content = document.createElement("div");
+  content.setAttribute("class", "content");
+  music.append(content);
 
   const img = document.createElement("img");
-  img.setAttribute("class", "album-cover");
-  img.setAttribute("src", `static/img/albumCovers/${music.cover}`);
-  img.setAttribute("alt", "album-cover");
+  img.setAttribute("class", "cover");
+  img.setAttribute("src", `static/img/albumCovers/${musicInfo.cover}`);
+  img.setAttribute("alt", "img");
+  content.append(img);
 
-  const play = document.createElement("button");
+  const audio = document.createElement("audio");
+  audio.setAttribute("class", "play-audio");
+  audio.setAttribute("src", "");
+  content.append(audio);
+
+  const play = document.createElement("div");
   play.setAttribute("class", "manipul play");
   const playIcon = document.createElement("i");
   playIcon.setAttribute("class", "fas fa-play");
   play.append(playIcon);
+  content.append(play);
+
+  const playing = document.createElement("div");
+  playing.setAttribute("class", "manipul playing");
+  const playingIcon = document.createElement("i");
+  playingIcon.setAttribute("class", "fas fa-volume-up");
+  playing.append(playingIcon);
+  content.append(playing);
 
   const pause = document.createElement("button");
   pause.setAttribute("class", "manipul pause");
   const pauseIcon = document.createElement("i");
   pauseIcon.setAttribute("class", "fas fa-pause");
   pause.append(pauseIcon);
+  content.append(pause);
 
-  const songInfo = document.createElement("div");
-  songInfo.setAttribute("class", "song-info");
+  const info = document.createElement("div");
+  info.setAttribute("class", "info");
+  content.append(info);
 
   const name = document.createElement("span");
   name.setAttribute("class", "name");
-  name.textContent = `${music.title}`;
+  name.innerText = `${musicInfo.title}`;
+  info.append(name);
+
+  const descrip = document.createElement("div");
+  descrip.setAttribute("class", "descrip");
+  info.append(descrip);
 
   const artist = document.createElement("span");
   artist.setAttribute("class", "artist");
-  artist.textContent = `${music.artist}`;
+  artist.innerText = `${musicInfo.artist}`;
+  descrip.append(artist);
 
-  songInfo.append(name);
-  songInfo.append(artist);
-  li.append(img);
-  li.append(play);
-  li.append(pause);
-  li.append(songInfo);
+  const dot = document.createElement("span");
+  dot.setAttribute("class", "dot");
+  dot.innerText = "∙";
+  descrip.append(dot);
 
-  return li;
-}
+  const album = document.createElement("span");
+  album.setAttribute("class", "album");
+  album.innerText = `${musicInfo.album}`;
+  descrip.append(album);
+
+  const addBtn = document.createElement("button");
+  addBtn.setAttribute("class", "add");
+  const addIcon = document.createElement("i");
+  addIcon.setAttribute("class", "fas fa-list fa-lg");
+  addBtn.append(addIcon);
+  music.append(addBtn);
+
+  return music;
+};
+
+// function createElement(music) {
+//   const li = document.createElement("li");
+//   li.setAttribute("class", "music");
+
+//   const img = document.createElement("img");
+//   img.setAttribute("class", "album-cover");
+//   img.setAttribute("src", `static/img/albumCovers/${music.cover}`);
+//   img.setAttribute("alt", "album-cover");
+
+//   const play = document.createElement("button");
+//   play.setAttribute("class", "manipul play");
+//   const playIcon = document.createElement("i");
+//   playIcon.setAttribute("class", "fas fa-play");
+//   play.append(playIcon);
+
+//   const pause = document.createElement("button");
+//   pause.setAttribute("class", "manipul pause");
+//   const pauseIcon = document.createElement("i");
+//   pauseIcon.setAttribute("class", "fas fa-pause");
+//   pause.append(pauseIcon);
+
+//   const songInfo = document.createElement("div");
+//   songInfo.setAttribute("class", "song-info");
+
+//   const name = document.createElement("span");
+//   name.setAttribute("class", "name");
+//   name.textContent = `${music.title}`;
+
+//   const artist = document.createElement("span");
+//   artist.setAttribute("class", "artist");
+//   artist.textContent = `${music.artist}`;
+
+//   songInfo.append(name);
+//   songInfo.append(artist);
+//   li.append(img);
+//   li.append(play);
+//   li.append(pause);
+//   li.append(songInfo);
+
+//   return li;
+// }
 
 // 현재 날짜, 시간에 따라 카테고리 분류
 let today = new Date();

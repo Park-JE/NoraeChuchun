@@ -183,8 +183,8 @@
       .cover {
         width: 100%;
         height: 100%;
-        border-radius: $border-large;
-        object-fit: cover;
+        @include color-var(background-image, playlists-cover);
+        background-size: cover;
       }
 
       .title {

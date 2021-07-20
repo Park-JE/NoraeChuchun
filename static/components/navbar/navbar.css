@@ -14,6 +14,8 @@
   --secession-btn: #e1dec8;
   --addPlaylist-modal: url("../../img/lightBg.png");
   --addPlaylist-btn: rgba(254, 254, 254, 0.7);
+  --playlists-cover: url("../img/playlistCovers/lp3.png");
+  --playlist-cover: url("../../img/playlistCovers/lp3.png");
 }
 
 :root[color-theme="dark"] {
@@ -32,6 +34,8 @@
   --secession-btn: #242359;
   --addPlaylist-modal: url("../../img/darkBg.png");
   --addPlaylist-btn: rgba(187, 187, 187, 0.4);
+  --playlists-cover: url("../img/playlistCovers/lp10.png");
+  --playlist-cover: url("../../img/playlistCovers/lp10.png");
 }
 
 nav {
