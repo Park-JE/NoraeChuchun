@@ -70,20 +70,19 @@ li {
           width: 200px;
           height: 200px;
           border-radius: 10px;
-          &:hover{
-            filter:brightness(70%);
+          &:hover {
+            filter: brightness(70%);
             cursor: pointer;
           }
         }
 
-
-        .myplaylist-menu{
+        .myplaylist-menu {
           display: block;
           position: absolute;
           width: fit-content;
           padding: 10px;
-          bottom:35px;
-          right:0px;
+          bottom: 35px;
+          right: 0px;
           font-size: 25px;
           z-index: 2;
           &:hover {
@@ -104,11 +103,11 @@ li {
         .menu-list {
           display: none;
         }
-        .menu-list.active{
+        .menu-list.active {
           display: block;
           position: absolute;
           font-size: 16px;
-          top:0px;
+          top: 0px;
           left: 210px;
           width: 200px;
           background-color: #282829;
@@ -116,33 +115,31 @@ li {
           border-radius: 10px;
           color: #e0dede;
           z-index: 2;
-          ul{
-            li{
+          ul {
+            li {
               display: flex;
               align-items: center;
-              padding:8px;
+              padding: 8px;
               height: 48px;
-              span{
+              span {
                 margin: 0px 8px;
                 font-size: 17px;
               }
-              &:hover{
+              &:hover {
                 background-color: #585757;
               }
             }
           }
         }
-        .lock-state{
+        .lock-state {
           display: none;
         }
-        .lock-state.active{
+        .lock-state.active {
           display: block;
-          position:absolute;
+          position: absolute;
           left: 150px;
           bottom: 53px;
         }
-          
-        
       }
 
       .list-group-add {
@@ -175,7 +172,7 @@ li {
         .myplaylist__add:hover {
           cursor: pointer;
         }
-        .myplaylist__title{
+        .myplaylist__title {
           margin-top: 5px;
         }
       }
@@ -210,132 +207,125 @@ li {
     bottom: 0;
     margin: auto auto;
     padding: 24px 16px;
-    opacity: 0.9;
-    background-image: url("../../img/bg.jpeg");
+    @include color-var(background-image, addPlaylist-modal);
     border-radius: 20px;
 
     .newplaylist__container {
       width: 100%;
       height: 100%;
       position: relative;
-      color:#fff;
+      @include color-var(color, font-color);
 
       h2 {
         width: fit-content;
         font-size: 22px;
         margin: 20px auto 0px auto;
-        color: #fff;
       }
-      .new__title{
+      .new__title {
         width: 90%;
-        margin:20px auto;
-        input{
-          color:#fff;
+        margin: 20px auto;
+        input {
+          @include color-var(color, font-color);
           font-size: 16px;
           width: 100%;
           height: 40px;
-          border-top: none;
-          border-left: none;
-          border-right: none;
+          border: 0;
           @include color-var(border-bottom, login-border);
           background-color: rgba(0, 0, 0, 0);
+          outline: none;
         }
       }
-      .new__tags{
+      .new__tags {
         width: 90%;
         margin: 0px auto;
-        color:rgb(179, 177, 177);
-        .tags{
-          color:#fff;
+        @include color-var(color, count-color);
+
+        .tags {
           font-size: 16px;
           width: 100%;
           height: 40px;
-          border-top: none;
-          border-left: none;
-          border-right: none;
-          @include color-var(border-bottom, login-border);
+          border: 0;
           background-color: rgba(0, 0, 0, 0);
         }
-        .tags__season{
+        .tags__season {
           display: flex;
           align-items: center;
           margin-bottom: 10px;
-          .tag_sort{
+          .tag_sort {
             width: 50px;
           }
-          label{
+          label {
+            @include color-var(color, font-color);
             margin-left: 5px;
             line-height: 1.6;
             width: fit-content;
-            input{
+            input {
               padding: 2px;
             }
           }
         }
-        .tags__time{
+        .tags__time {
           display: flex;
           align-items: center;
           margin-bottom: 10px;
-          .tag_sort{
+          .tag_sort {
             width: 50px;
           }
-          label{
+          label {
+            @include color-var(color, font-color);
             margin-left: 5px;
             line-height: 1.6;
             width: fit-content;
-            input{
+            input {
               padding: 2px;
             }
           }
         }
-        .tags__weather{
+        .tags__weather {
           display: flex;
           align-items: center;
-          .tag_sort{
+          .tag_sort {
             width: 50px;
           }
-          .radio_group{
-            width: calc(100%-50px);       
-            margin-left: 17px;  
-            label{
+          .radio_group {
+            width: calc(100%-50px);
+            margin-left: 17px;
+            label {
+              @include color-var(color, font-color);
               line-height: 1.5;
             }
           }
         }
-        
- 
       }
 
-      
-
-      .btn__group{
+      .btn__group {
         position: absolute;
         right: 20px;
         bottom: 20px;
-        color: #fff;
+        @include color-var(color, font-color);
 
         .closeBtn {
           padding: 0.5em 1.5em;
-          border: 1px solid  #fff;
+          border: 1px solid var(--font-color, map-get($colors, font-color));
+          @include color-var(color, font-color);
           border-radius: 18px;
           font-size: 16px;
           background: none;
           font-weight: 700;
           cursor: pointer;
-          color: #fff;
           -webkit-transition: all 0.3s ease;
           transition: all 0.3s ease;
           margin-right: 5px;
 
           &:hover {
-            background: rgba(187, 187, 187, 0.4);
+            @include color-var(background-color, addPlaylist-btn);
           }
         }
 
         .saveBtn {
           padding: 0.5em 1.5em;
-          border: 1px solid  #fff;
-          color: #fff;
+          border: 1px solid var(--font-color, map-get($colors, font-color));
+          @include color-var(color, font-color);
           border-radius: 18px;
           font-size: 16px;
           background: none;
@@ -381,7 +371,7 @@ li {
   position: absolute;
   width: 100%;
   height: 100vh;
-  background-color:none;
+  background-color: none;
   z-index: 1;
 }
 
@@ -411,7 +401,6 @@ li {
       .newplaylist__container {
         width: 100%;
         height: 100%;
-        
       }
     }
   }

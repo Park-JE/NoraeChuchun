@@ -12,6 +12,8 @@
   --login-border: 2px solid #707070;
   --count-color: #454545;
   --secession-btn: #e1dec8;
+  --addPlaylist-modal: url("../../img/lightBg.png");
+  --addPlaylist-btn: rgba(254, 254, 254, 0.7);
 }
 
 :root[color-theme="dark"] {
@@ -28,6 +30,8 @@
   --login-border: 2px solid #adadad;
   --count-color: #aaaaaa;
   --secession-btn: #242359;
+  --addPlaylist-modal: url("../../img/darkBg.png");
+  --addPlaylist-btn: rgba(187, 187, 187, 0.4);
 }
 
 body {
