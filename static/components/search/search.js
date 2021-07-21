@@ -1,56 +1,53 @@
 const searchBtn = navBar.querySelector(".searchAndLogin .search");
 const cancelBtn = navBar.querySelector(".searchAndLogin .close");
 const inputBox = navBar.querySelector(".searchAndLogin input");
+const searchWrap = document.querySelector(".search-wrap");
 
-const addMusic = (musicTable) => {
-  const addMusicBtn = musicTable.querySelectorAll(".music .add");
-  addMusicBtn.forEach((addBtn) => {
-    addBtn.addEventListener("click", () => {
-      if (addBtn.nextSibling != null) {
-        addBtn.nextSibling.remove();
-        console.log("1");
-        return;
-      } else {
-        addMusicBtn.forEach((btn) => {
-          if (btn.nextSibling) {
-            btn.nextSibling.remove();
-            console.log("2");
-          }
-        });
-        addModal = document.createElement("div");
-        addModal.setAttribute("class", "addModal");
-        addModal.innerHTML = `<div class="myPlaylist">내 플레이리스트</div>
-        <div class="myPlaylist">운동할 때 들어야지</div>
-        <div class="myPlaylist">집갈 때 들어야지</div>`;
-        addBtn.after(addModal);
-        console.log("3");
-      }
-
-      document.addEventListener("click", (e) => {
-        if (
-          e.target.className !== "addModal" &&
-          e.target.className !== "myPlaylist" &&
-          e.target.className !== "addMusicBtn" &&
-          e.target.className !== "fas fa-list fa-lg"
-        ) {
-          addModal.remove();
+const addMusic = (searchResult, musicTable) => {
+  const addMusicBtn = searchResult[0].querySelector(".add");
+  const musicTableBtn = musicTable.querySelectorAll(".music .add");
+  addMusicBtn.addEventListener("click", () => {
+    if (addMusicBtn.nextSibling != null) {
+      addMusicBtn.nextSibling.remove();
+      return;
+    } else {
+      musicTableBtn.forEach((btn) => {
+        if (btn.nextSibling) {
+          btn.nextSibling.remove();
         }
       });
+      addModal = document.createElement("div");
+      addModal.setAttribute("class", "addModal");
+      addModal.innerHTML = `<div class="myPlaylist">내 플레이리스트</div>
+        <div class="myPlaylist">운동할 때 들어야지</div>
+        <div class="myPlaylist">집갈 때 들어야지</div>`;
+      addMusicBtn.after(addModal);
+    }
 
-      const modalPlaylist = addModal.querySelectorAll(
-        ".music .addModal .myPlaylist"
-      );
-      modalPlaylist.forEach((playlist) => {
-        playlist.addEventListener("click", () => {
-          alertAdd = document.createElement("div");
-          alertAdd.setAttribute("class", "alertAdd");
-          alertAdd.innerHTML = `<i class="fas fa-exclamation-circle"></i>
+    document.addEventListener("click", (e) => {
+      if (
+        e.target.className !== "addModal" &&
+        e.target.className !== "myPlaylist" &&
+        e.target.className !== "addMusicBtn" &&
+        e.target.className !== "fas fa-list fa-lg"
+      ) {
+        addModal.remove();
+      }
+    });
+
+    const modalPlaylist = addModal.querySelectorAll(
+      ".music .addModal .myPlaylist"
+    );
+    modalPlaylist.forEach((playlist) => {
+      playlist.addEventListener("click", () => {
+        alertAdd = document.createElement("div");
+        alertAdd.setAttribute("class", "alertAdd");
+        alertAdd.innerHTML = `<i class="fas fa-exclamation-circle"></i>
           <span>"${playlist.innerText}"에 추가되었습니다.</span>`;
-          searchWrap.append(alertAdd);
-          setTimeout(() => {
-            alertAdd.remove();
-          }, 2000);
-        });
+        searchWrap.append(alertAdd);
+        setTimeout(() => {
+          alertAdd.remove();
+        }, 2000);
       });
     });
   });
@@ -180,12 +177,11 @@ const createSong = (musicInfo) => {
 };
 
 const outputSearchHtml = (song, searchText) => {
-  const searchWrap = document.querySelector(".search-wrap");
   const searchValue = searchWrap.querySelector(".value");
   searchValue.innerText = `" ${searchText} "에 해당하는 검색결과`;
   const sortTable = searchWrap.querySelector(".sort");
-  const musicTable = searchWrap.querySelector(".musicList");
   const noResult = searchWrap.querySelector(".noResult");
+  const musicTable = searchWrap.querySelector(".musicList");
 
   if (song != null) {
     sortTable.classList.remove("deactive");
@@ -194,7 +190,7 @@ const outputSearchHtml = (song, searchText) => {
     searchResult = [...song].map(createSong);
     musicTable.append(...searchResult);
     playMusic(musicTable);
-    addMusic(musicTable);
+    addMusic(searchResult, musicTable);
   } else if (song == null) {
     sortTable.classList.add("deactive");
     musicTable.classList.add("deactive");
@@ -208,8 +204,13 @@ const setSearchAni = () => {
   inputBox.classList.add("active");
 };
 
-const handleSearch = (inputValue) => {
-  const url = `https://nochu.pw/spotify?q=${inputValue}`;
+const handleSearch = () => {
+  const musicTable = searchWrap.querySelector(".musicList");
+  while (musicTable.firstChild) {
+    musicTable.removeChild(musicTable.firstChild);
+  }
+  const cookieValue = getCookie("value");
+  const url = `https://nochu.pw/spotify?q=${cookieValue}`;
   fetch(url, {
     headers: {
       "Content-Type": "application/json",
@@ -220,20 +221,13 @@ const handleSearch = (inputValue) => {
       {
         const songInfo = data.tracks.items;
         songInfo.map((song) => {
-          // const musicInfo = {
-          //   songName: song.name,
-          //   artist: song.artists[0].name,
-          //   album: song.album.name,
-          //   albumCover: song.album.images[2].url,
-          //   playMusic: song.preview_url,
-          // };
           const songName = song.name;
           const artist = song.artists[0].name;
           const album = song.album.name;
           const albumCover = song.album.images[2].url;
           const playMusic = song.preview_url;
           const musicInfo = [songName, artist, album, albumCover, playMusic];
-          outputSearchHtml([musicInfo], inputValue);
+          outputSearchHtml([musicInfo], cookieValue);
           setSearchAni();
         });
       }
@@ -241,10 +235,42 @@ const handleSearch = (inputValue) => {
     .catch((error) => console.log("error", error));
 };
 
+function getCookie(cname) {
+  const cookie = document.cookie;
+  let value;
+  if (cookie.length > 0) {
+    startIndex = cookie.indexOf(cname);
+    if (startIndex != -1) {
+      startIndex += cname.length;
+      endIndex = cookie.indexOf(";", startIndex);
+      if (endIndex == -1) endIndex = cookie.length;
+      value = unescape(cookie.substring(startIndex + 1, endIndex));
+    } else {
+      return false;
+    }
+  } else {
+    return false;
+  }
+  return value;
+}
+
+function setCookie(name, value, expiredays) {
+  const todayDate = new Date();
+  todayDate.setDate(todayDate.getDate() + expiredays);
+  document.cookie = `${name}=${escape(
+    value
+  )};path=/;expires=${todayDate.toGMTString()};`;
+}
+
 searchBtn.addEventListener("click", () => {
   if (inputBox.classList.contains("active")) {
-    // window.location.href = "search.html";
-    handleSearch(inputBox.value);
+    setCookie("value", inputBox.value, 1);
+    setCookie("inputId", inputBox.id, 1);
+    if (getCookie("inputId") !== "search") {
+      window.location.href = "search.html";
+    } else {
+      handleSearch();
+    }
   } else {
     inputBox.classList.add("active");
     searchBtn.classList.add("active");
@@ -266,9 +292,16 @@ cancelBtn.addEventListener("click", () => {
 
 inputBox.addEventListener("keypress", (e) => {
   if (e.key === "Enter") {
-    // window.location.href = "search.html";
-    handleSearch(inputBox.value);
+    setCookie("value", inputBox.value, 1);
+    setCookie("inputId", inputBox.id, 1);
+    if (getCookie("inputId") !== "search") {
+      window.location.href = "search.html";
+    } else {
+      handleSearch();
+    }
   }
 });
 
-// handleSearch();
+if (searchWrap !== null) {
+  handleSearch();
+}

@@ -1,6 +1,4 @@
-const filterMusic = (features) => {
-  console.log(features);
-};
+const filterMusic = (features) => {};
 
 const loadMusic = () => {
   const url = "https://nochu.pw/spotify/featured";
@@ -11,6 +9,7 @@ const loadMusic = () => {
   })
     .then((response) => response.json())
     .then((data) => {
+      // console.log(data);
       const musicInfo = data.map((song) => {
         const musicDescription = {
           songName: song.track.name,
@@ -31,6 +30,7 @@ const loadMusic = () => {
     })
     .then((musicInfo) => {
       musicInfo.forEach((info) => {
+        // console.log(info);
         filterMusic(info.musicFeatures);
       });
     })

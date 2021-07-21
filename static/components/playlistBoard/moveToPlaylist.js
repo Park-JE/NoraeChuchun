@@ -1,31 +1,3 @@
-function getCookie(cname) {
-  const cookie = document.cookie;
-  let value;
-
-  if (cookie.length > 0) {
-    startIndex = cookie.indexOf(cname);
-    if (startIndex != -1) {
-      startIndex += cname.length;
-      endIndex = cookie.indexOf(";", startIndex);
-      if (endIndex == -1) endIndex = cookie.length;
-      value = unescape(cookie.substring(startIndex + 1, endIndex));
-    } else {
-      return false;
-    }
-  } else {
-    return false;
-  }
-  return value;
-}
-
-function setCookie(name, value, expiredays) {
-  const todayDate = new Date();
-  todayDate.setDate(todayDate.getDate() + expiredays);
-  document.cookie = `${name}=${escape(
-    value
-  )};path=/;expires=${todayDate.toGMTString()};`;
-}
-
 playlistWrap.addEventListener("click", (e) => {
   const clickedTarget = e.target.offsetParent;
   if (clickedTarget.className === "playlist") {
