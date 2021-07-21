@@ -1,12 +1,18 @@
 // 날씨 코드에 맞는 한국어 json 파일 불러오기
+let koWeatherKey;
 function loadWeatherInKo() {
   const config = {
     headers: { Accept: "application/json" },
   };
   return fetch("static/data/ko.json", config)
     .then((response) => response.json())
+    .then((data) => {
+      koWeatherKey = data.openweathermap.weather_code;
+      return koWeatherKey;
+    })
     .catch((error) => console.log("error", error));
 }
+loadWeatherInKo();
 
 // 날씨 정보가 불러와졌을 때
 const onGeoOk = (position) => {
@@ -18,35 +24,41 @@ const onGeoOk = (position) => {
   fetch(url)
     .then((response) => response.json())
     .then((data) => {
+      const cityWeather = {
+        cityName: data.name,
+        cityTemp: Math.round(data.main.temp),
+        cityCondID: data.weather[0].id,
+        cityCond: data.weather[0].main,
+        cityWind: data.wind.speed,
+        weatherIcon: data.weather[0].icon,
+      };
+      for (let key in koWeatherKey) {
+        if (key === String(cityWeather.cityCondID)) {
+          cityWeather.cityCondDescription = koWeatherKey[key];
+          break;
+        }
+      }
+      return cityWeather;
+    })
+    .then((cityWeather) => {
       const recommendation = document.querySelector(".recommendation");
       const weather = recommendation.querySelector(".weather");
       const icon = weather.querySelector(".icon");
       const temp = weather.querySelector(".temperature");
       const loc = weather.querySelector(".location");
       const state = weather.querySelector(".state");
-      icon.src = `http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`;
-      const currentWeather = data.weather[0].main;
-      const currentTemp = `${Math.round(data.main.temp)}`;
-      temp.textContent = `${currentTemp}°C`;
-      loc.textContent = data.name;
-      const weatherCode = data.weather[0].id;
-
-      loadWeatherInKo().then((data) => {
-        const koWeatherKey = data.openweathermap.weather_code;
-        for (let key in koWeatherKey) {
-          if (key === String(weatherCode)) {
-            currentDescrip = koWeatherKey[key];
-            break;
-          }
-        }
-        state.textContent = currentDescrip;
-      });
-
+      icon.src = `http://openweathermap.org/img/wn/${cityWeather.weatherIcon}@2x.png`;
+      temp.textContent = `${cityWeather.cityTemp}°C`;
+      loc.textContent = cityWeather.cityName;
+      state.textContent = cityWeather.cityCondDescription;
       const loading = recommendation.querySelector(".loading");
       loading.classList.add("deactive");
       weather.classList.add("active");
-
-      return [currentTemp, currentWeather, weatherCode];
+      return [
+        cityWeather.cityTemp,
+        cityWeather.cityCond,
+        cityWeather.cityCondID,
+      ];
     })
     .then((weather) => {
       const weatherParm = () => {
@@ -91,37 +103,6 @@ const onGeoOk = (position) => {
           );
           container.classList.add("active");
           container.append(...music);
-
-          const playMusic = container.querySelectorAll(".music .play");
-          const pauseMusic = container.querySelectorAll(".music .pause");
-
-          playMusic.forEach((play) => {
-            play.addEventListener("click", () => {
-              pauseMusic.forEach((otherPlays) => {
-                if (otherPlays.classList.contains("active")) {
-                  otherPlays.classList.toggle("active");
-                  return;
-                }
-              });
-              playMusic.forEach((otherPlays) => {
-                if (otherPlays.classList.contains("active")) {
-                  otherPlays.classList.toggle("active");
-                  return;
-                }
-              });
-              play.nextElementSibling.classList.toggle("active");
-              if (play.classList.contains("active")) {
-                play.classList.toggle("active");
-              }
-            });
-          });
-
-          pauseMusic.forEach((pause) => {
-            pause.addEventListener("click", () => {
-              pause.classList.toggle("active");
-              pause.previousElementSibling.classList.toggle("active");
-            });
-          });
         })
         .catch(console.log);
     })
