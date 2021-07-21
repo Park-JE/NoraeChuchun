@@ -8,13 +8,13 @@ const addMusic = (musicTable) => {
     addBtn.addEventListener("click", () => {
       if (addBtn.nextSibling != null) {
         addBtn.nextSibling.remove();
-        // console.log("1");
+        console.log("1");
         return;
       } else {
         addMusicBtn.forEach((btn) => {
           if (btn.nextSibling) {
             btn.nextSibling.remove();
-            // console.log("2");
+            console.log("2");
           }
         });
         addModal = document.createElement("div");
@@ -23,7 +23,7 @@ const addMusic = (musicTable) => {
         <div class="myPlaylist">운동할 때 들어야지</div>
         <div class="myPlaylist">집갈 때 들어야지</div>`;
         addBtn.after(addModal);
-        // console.log("3");
+        console.log("3");
       }
 
       document.addEventListener("click", (e) => {
@@ -111,13 +111,13 @@ const createSong = (musicInfo) => {
 
   const img = document.createElement("img");
   img.setAttribute("class", "cover");
-  img.setAttribute("src", `${musicInfo.albumCover}`);
+  img.setAttribute("src", `${musicInfo[3]}`);
   img.setAttribute("alt", "img");
   content.append(img);
 
   const audio = document.createElement("audio");
   audio.setAttribute("class", "play-audio");
-  audio.setAttribute("src", `${musicInfo.playMusic}`);
+  audio.setAttribute("src", `${musicInfo[4]}`);
   content.append(audio);
 
   const play = document.createElement("div");
@@ -147,7 +147,7 @@ const createSong = (musicInfo) => {
 
   const name = document.createElement("span");
   name.setAttribute("class", "name");
-  name.innerText = `${musicInfo.songName}`;
+  name.innerText = `${musicInfo[0]}`;
   info.append(name);
 
   const descrip = document.createElement("div");
@@ -156,7 +156,7 @@ const createSong = (musicInfo) => {
 
   const artist = document.createElement("span");
   artist.setAttribute("class", "artist");
-  artist.innerText = `${musicInfo.artist}`;
+  artist.innerText = `${musicInfo[1]}`;
   descrip.append(artist);
 
   const dot = document.createElement("span");
@@ -166,7 +166,7 @@ const createSong = (musicInfo) => {
 
   const album = document.createElement("span");
   album.setAttribute("class", "album");
-  album.innerText = `${musicInfo.album}`;
+  album.innerText = `${musicInfo[2]}`;
   descrip.append(album);
 
   const addBtn = document.createElement("button");
@@ -191,7 +191,7 @@ const outputSearchHtml = (song, searchText) => {
     sortTable.classList.remove("deactive");
     musicTable.classList.remove("deactive");
     noResult.classList.remove("active");
-    searchResult = song.map(createSong);
+    searchResult = [...song].map(createSong);
     musicTable.append(...searchResult);
     playMusic(musicTable);
     addMusic(musicTable);
@@ -209,27 +209,31 @@ const setSearchAni = () => {
 };
 
 const handleSearch = (inputValue) => {
-  const url = `https://nochu.pw/spotify?inputValue=${inputValue}`;
+  const url = `https://nochu.pw/spotify?q=${inputValue}`;
   fetch(url, {
-    // method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify(data),
   })
-    // .then((response) => response.json())
+    .then((response) => response.json())
     .then((data) => {
       {
         const songInfo = data.tracks.items;
         songInfo.map((song) => {
+          // const musicInfo = {
+          //   songName: song.name,
+          //   artist: song.artists[0].name,
+          //   album: song.album.name,
+          //   albumCover: song.album.images[2].url,
+          //   playMusic: song.preview_url,
+          // };
           const songName = song.name;
           const artist = song.artists[0].name;
           const album = song.album.name;
           const albumCover = song.album.images[2].url;
           const playMusic = song.preview_url;
-          const musicInfo = { songName, artist, album, albumCover, playMusic };
-          // const resultArray = [songName, artist, album, albumCover, playMusic];
-          outputSearchHtml(musicInfo, inputValue);
+          const musicInfo = [songName, artist, album, albumCover, playMusic];
+          outputSearchHtml([musicInfo], inputValue);
           setSearchAni();
         });
       }
@@ -239,6 +243,7 @@ const handleSearch = (inputValue) => {
 
 searchBtn.addEventListener("click", () => {
   if (inputBox.classList.contains("active")) {
+    // window.location.href = "search.html";
     handleSearch(inputBox.value);
   } else {
     inputBox.classList.add("active");
@@ -261,8 +266,9 @@ cancelBtn.addEventListener("click", () => {
 
 inputBox.addEventListener("keypress", (e) => {
   if (e.key === "Enter") {
+    // window.location.href = "search.html";
     handleSearch(inputBox.value);
   }
 });
 
-handleSearch();
+// handleSearch();

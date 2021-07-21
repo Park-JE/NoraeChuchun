@@ -25,7 +25,7 @@ const createElement = (musicInfo) => {
 
   const audio = document.createElement("audio");
   audio.setAttribute("class", "play-audio");
-  audio.setAttribute("src", "");
+  audio.setAttribute("src", `${musicInfo[4]}`);
   content.append(audio);
 
   const play = document.createElement("div");
@@ -80,54 +80,12 @@ const createElement = (musicInfo) => {
   const addBtn = document.createElement("button");
   addBtn.setAttribute("class", "add");
   const addIcon = document.createElement("i");
-  addIcon.setAttribute("class", "fas fa-list fa-lg");
+  addIcon.setAttribute("class", "fas fa-ellipsis-v fa-lg");
   addBtn.append(addIcon);
   music.append(addBtn);
 
   return music;
 };
-
-// function createElement(music) {
-//   const li = document.createElement("li");
-//   li.setAttribute("class", "music");
-
-//   const img = document.createElement("img");
-//   img.setAttribute("class", "album-cover");
-//   img.setAttribute("src", `static/img/albumCovers/${music.cover}`);
-//   img.setAttribute("alt", "album-cover");
-
-//   const play = document.createElement("button");
-//   play.setAttribute("class", "manipul play");
-//   const playIcon = document.createElement("i");
-//   playIcon.setAttribute("class", "fas fa-play");
-//   play.append(playIcon);
-
-//   const pause = document.createElement("button");
-//   pause.setAttribute("class", "manipul pause");
-//   const pauseIcon = document.createElement("i");
-//   pauseIcon.setAttribute("class", "fas fa-pause");
-//   pause.append(pauseIcon);
-
-//   const songInfo = document.createElement("div");
-//   songInfo.setAttribute("class", "song-info");
-
-//   const name = document.createElement("span");
-//   name.setAttribute("class", "name");
-//   name.textContent = `${music.title}`;
-
-//   const artist = document.createElement("span");
-//   artist.setAttribute("class", "artist");
-//   artist.textContent = `${music.artist}`;
-
-//   songInfo.append(name);
-//   songInfo.append(artist);
-//   li.append(img);
-//   li.append(play);
-//   li.append(pause);
-//   li.append(songInfo);
-
-//   return li;
-// }
 
 // 현재 날짜, 시간에 따라 카테고리 분류
 let today = new Date();
