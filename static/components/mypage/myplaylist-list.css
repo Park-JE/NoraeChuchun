@@ -97,6 +97,10 @@
   font-size: 18px;
 }
 
+.container .playlist-info .info .playlist-tags span {
+  margin-right: 10px;
+}
+
 .container .playlist-info .info .playlist-count {
   margin-top: 10px;
   display: -webkit-box;

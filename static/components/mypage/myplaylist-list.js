@@ -10,7 +10,15 @@ function displayItems(items) {
     </div>`;
     $(".items").append(str);
   });
+
+  $(".playlist-title").html(items[0].title)
+  items[0].category.forEach((tag) => {
+    $(".playlist-tags").append(`<span>#${tag.tag}</span>`)
+  })
+  $(".count").html(`노래 ${items[0].tracks.length} 곡`)
 }
+
+
 function loadData() {
   //회원 정보에 따라 user이랑 title 변경 해야함 
   return fetch("https://nochu.pw/playlist_api/playlist/?uid=user&title=title")
