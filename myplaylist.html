@@ -16,8 +16,11 @@
   <script defer src="static/components/weatherMusic/music.js"></script>
   <script defer src="static/components/mainpage_playlist/mainpagePlaylist.js"></script>
   <script defer src="static/components/search/search.js"></script>
+  <script defer src="static/components/mypage/kakao.js"></script>
   <script defer src="https://code.jquery.com/jquery-3.6.0.min.js"
     integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+  <script> Kakao.init('d22cb6b87d4211094563aa81f9b30874'); Kakao.isInitialized();</script>
   <title>날씨에 맞는 음악 추천</title>
 </head>
 
@@ -42,7 +45,7 @@
           <input id="logout" type="submit" class="logout" value="로그아웃" />
         </form>
         <!-- {% else %} -->
-        <!-- <a href="loginl"><span class="login">로그인</span></a> -->
+        <!-- <a href="login"><span class="login">로그인</span></a> -->
         <!-- {% endif %} -->
         <div class="dark-mode">
           <button class="light mode-btn">
@@ -95,7 +98,7 @@
             <ul>
               <li class="list-open"><span class="fas fa-lock-open"></span>공개</li>
               <li class="list-close"><span class="fas fa-lock"></span>비공개</li>
-              <li class="list-share"><span class="fas fa-share-alt"></span>재생목록 공유</li>
+              <li class="list-share" onClick="kakaoShare(this)"><span class="fas fa-share-alt"></span>재생목록 공유</li>
               <li class="list-modify"><span class="fas fa-edit"></span>재생목록 수정</li>
               <li class="list-remove"><span class="fas fa-trash"></span>재생목록 삭제
               </li>

@@ -1,8 +1,27 @@
+//유저 음악정보 가져오기,, 
+function displayData() {
+
+}
+function loadData() {
+  return fetch("https://nochu.pw/playlist_api/?uid=user&title=title")
+    .then(res => {
+      console.log(res);
+      return res.json();
+    })
+    .then(data => {
+      console.log(data)
+    })
+    .catch(error => {
+      console.log("error", error)
+    });
+}
+
+
+
 const unlike = document.querySelector(".unlike");
 const like = document.querySelector(".like");
 function onButton(obj) {
   const parent = obj.parentNode;
-  console.log(parent)
   parent.parentNode.removeChild(parent)
 }
 

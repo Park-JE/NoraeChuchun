@@ -55,8 +55,13 @@ function filter() {
     }
   }
 }
+function delFriend(obj) {
+  const friendlist = document.querySelector(".friends");
+  friendlist.removeChild(obj.parentNode);
+}
 
 //친구 추가
+//  친구 아이디 누르면 친구 플레이리스트로 이동해야하는데 
 function addFriend(obj) {
   const parent = obj.parentNode;
   const id = parent.querySelector(".find-id").innerText;
@@ -65,10 +70,10 @@ function addFriend(obj) {
 
   let str = `
   <div class="friend">
-    <span class="id"><span class="fas fa-user">
-    </span>${id}</span>
+    <a href="https://nochu.pw/myplaylist=${id}"class="id"><span class="fas fa-user">
+    </span>${id}</a>
     <span class="name">${name}</span>
-    <span class="fas fa-share shareBtn">
+    <span class="fas fa-trash-alt shareBtn" onclick="delFriend(this)">
     </span>
   </div>
   `;

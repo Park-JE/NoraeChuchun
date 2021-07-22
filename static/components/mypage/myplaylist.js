@@ -59,6 +59,7 @@ function pageChange(obj) {
   form.submit();
 }
 
+
 function displayMenu(obj) {
   const menu = obj.parentNode.children[4];
   const lock_state = obj.parentNode.children[5];
@@ -68,7 +69,6 @@ function displayMenu(obj) {
   const share = menu.children[0].children[2];
   const modify = menu.children[0].children[3];
   const remove = menu.children[0].children[4];
-  console.log(open)
   obj.addEventListener("click", () => {
     menu.classList.add("active");
     cover.classList.add("active");
@@ -87,4 +87,5 @@ function displayMenu(obj) {
     myplaylist_list.removeChild(obj.parentNode);
   })
   //공유랑 수정,,, 해야함 
+
 }
