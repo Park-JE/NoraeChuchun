@@ -198,6 +198,7 @@
 
 .container .content-wrap .items .item {
   width: 90%;
+  height: 55px;
   display: -ms-grid;
   display: grid;
   -webkit-box-align: center;
