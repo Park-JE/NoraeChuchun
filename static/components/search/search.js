@@ -108,13 +108,13 @@ const createSong = (musicInfo) => {
 
   const img = document.createElement("img");
   img.setAttribute("class", "cover");
-  img.setAttribute("src", `${musicInfo[3]}`);
+  img.setAttribute("src", `${musicInfo.albumCover}`);
   img.setAttribute("alt", "img");
   content.append(img);
 
   const audio = document.createElement("audio");
   audio.setAttribute("class", "play-audio");
-  audio.setAttribute("src", `${musicInfo[4]}`);
+  audio.setAttribute("src", `${musicInfo.audio}`);
   content.append(audio);
 
   const play = document.createElement("div");
@@ -144,7 +144,7 @@ const createSong = (musicInfo) => {
 
   const name = document.createElement("span");
   name.setAttribute("class", "name");
-  name.innerText = `${musicInfo[0]}`;
+  name.innerText = `${musicInfo.songName}`;
   info.append(name);
 
   const descrip = document.createElement("div");
@@ -153,7 +153,7 @@ const createSong = (musicInfo) => {
 
   const artist = document.createElement("span");
   artist.setAttribute("class", "artist");
-  artist.innerText = `${musicInfo[1]}`;
+  artist.innerText = `${musicInfo.artist}`;
   descrip.append(artist);
 
   const dot = document.createElement("span");
@@ -163,7 +163,7 @@ const createSong = (musicInfo) => {
 
   const album = document.createElement("span");
   album.setAttribute("class", "album");
-  album.innerText = `${musicInfo[2]}`;
+  album.innerText = `${musicInfo.album}`;
   descrip.append(album);
 
   const addBtn = document.createElement("button");
@@ -187,7 +187,7 @@ const outputSearchHtml = (song, searchText) => {
     sortTable.classList.remove("deactive");
     musicTable.classList.remove("deactive");
     noResult.classList.remove("active");
-    searchResult = [...song].map(createSong);
+    searchResult = song.map(createSong);
     musicTable.append(...searchResult);
     playMusic(musicTable);
     addMusic(searchResult, musicTable);
@@ -220,16 +220,18 @@ const handleSearch = () => {
     .then((data) => {
       {
         const songInfo = data.tracks.items;
-        songInfo.map((song) => {
-          const songName = song.name;
-          const artist = song.artists[0].name;
-          const album = song.album.name;
-          const albumCover = song.album.images[2].url;
-          const playMusic = song.preview_url;
-          const musicInfo = [songName, artist, album, albumCover, playMusic];
-          outputSearchHtml([musicInfo], cookieValue);
-          setSearchAni();
+        const musicInfo = songInfo.map((song) => {
+          const musicDescription = {
+            songName: song.name,
+            artist: song.artists[0].name,
+            album: song.album.name,
+            albumCover: song.album.images[2].url,
+            playMusic: song.preview_url,
+          };
+          return musicDescription;
         });
+        outputSearchHtml(musicInfo, cookieValue);
+        setSearchAni();
       }
     })
     .catch((error) => console.log("error", error));

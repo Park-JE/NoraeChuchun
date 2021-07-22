@@ -20,7 +20,6 @@ const onGeoOk = (position) => {
   const lon = position.coords.longitude;
   const API_KEY = "1f8df0d58280f08cfe4b490e40aceb02";
   const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${API_KEY}&units=metric`;
-
   fetch(url)
     .then((response) => response.json())
     .then((data) => {
@@ -72,37 +71,47 @@ const onGeoOk = (position) => {
         return conditions[random];
       };
       const weatherParmValue = weatherParm();
-
-      const filterSongByWeather = (data) => {
-        let result = [];
-        data.filter((song) => {
-          song.mood.forEach(function (item) {
-            if (item === weatherParmValue) {
-              result.push(song);
-            }
-          });
+      const filterSongByWeather = (eachInfo, result) => {
+        matchSeasonWithSong(eachInfo);
+        matchTimeWithSong(eachInfo);
+        matchWeatherWithSong(eachInfo);
+        eachInfo.mood.forEach(function (eachMood) {
+          if (eachMood === weatherParmValue) {
+            result.push(eachInfo);
+          }
         });
         return result;
       };
 
-      loadItems()
-        .then((data) => {
-          const result = filterSongByWeather(data.music);
+      loadMusic()
+        .then((musicInfo) => {
+          let result = [];
+          musicInfo.forEach((eachInfo) => {
+            filterSongByWeather(eachInfo, result);
+          });
+          const removeDuplication = result.filter((song1, idx1) => {
+            return (
+              result.findIndex((song2, idx2) => {
+                return song1.id == song2.id;
+              }) == idx1
+            );
+          });
           let newResult = [];
           for (i = 0; i < 8; i++) {
-            const randomSong = result.splice(
-              Math.floor(Math.random() * result.length),
+            const randomSong = removeDuplication.splice(
+              Math.floor(Math.random() * removeDuplication.length),
               1
             )[0];
             newResult.push(randomSong);
           }
-
-          const music = newResult.map(createElement);
+          const music = newResult.map(createSong);
           const container = document.querySelector(
             ".recommendation .currentWeather-playlist"
           );
           container.classList.add("active");
           container.append(...music);
+          playMusic(container);
+          addMusic(music, container);
         })
         .catch(console.log);
     })

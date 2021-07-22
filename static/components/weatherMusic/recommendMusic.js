@@ -1,39 +1,334 @@
-const filterMusic = (features) => {};
+const createElement = (musicInfo) => {
+  const music = document.createElement("li");
+  music.setAttribute("class", "music");
+
+  const content = document.createElement("div");
+  content.setAttribute("class", "content");
+  music.append(content);
+
+  const img = document.createElement("img");
+  img.setAttribute("class", "cover");
+  img.setAttribute("src", `${musicInfo.albumCover}`);
+  img.setAttribute("alt", "img");
+  content.append(img);
+
+  const audio = document.createElement("audio");
+  audio.setAttribute("class", "play-audio");
+  audio.setAttribute("src", `${musicInfo.audio}`);
+  content.append(audio);
+
+  const play = document.createElement("div");
+  play.setAttribute("class", "manipul play");
+  const playIcon = document.createElement("i");
+  playIcon.setAttribute("class", "fas fa-play");
+  play.append(playIcon);
+  content.append(play);
+
+  const playing = document.createElement("div");
+  playing.setAttribute("class", "manipul playing");
+  const playingIcon = document.createElement("i");
+  playingIcon.setAttribute("class", "fas fa-volume-up");
+  playing.append(playingIcon);
+  content.append(playing);
+
+  const pause = document.createElement("button");
+  pause.setAttribute("class", "manipul pause");
+  const pauseIcon = document.createElement("i");
+  pauseIcon.setAttribute("class", "fas fa-pause");
+  pause.append(pauseIcon);
+  content.append(pause);
+
+  const info = document.createElement("div");
+  info.setAttribute("class", "info");
+  content.append(info);
+
+  const name = document.createElement("span");
+  name.setAttribute("class", "name");
+  name.innerText = `${musicInfo.songName}`;
+  info.append(name);
+
+  const descrip = document.createElement("div");
+  descrip.setAttribute("class", "descrip");
+  info.append(descrip);
+
+  const artist = document.createElement("span");
+  artist.setAttribute("class", "artist");
+  artist.innerText = `${musicInfo.artist}`;
+  descrip.append(artist);
+
+  const dot = document.createElement("span");
+  dot.setAttribute("class", "dot");
+  dot.innerText = "∙";
+  descrip.append(dot);
+
+  const album = document.createElement("span");
+  album.setAttribute("class", "album");
+  album.innerText = `${musicInfo.album}`;
+  descrip.append(album);
+
+  const addBtn = document.createElement("button");
+  addBtn.setAttribute("class", "add");
+  const addIcon = document.createElement("i");
+  addIcon.setAttribute("class", "fas fa-ellipsis-v fa-lg");
+  addBtn.append(addIcon);
+  music.append(addBtn);
+
+  return music;
+};
+
+// 현재 날짜, 시간에 따라 카테고리 분류
+let today = new Date();
+let month = today.getMonth() + 1;
+let date = today.getDate;
+let hours = today.getHours();
+
+const matchSeason = () => {
+  if (3 <= month && month <= 5) {
+    return "봄";
+  } else if (6 <= month && month <= 8) {
+    return "여름";
+  } else if (9 <= month && month <= 11) {
+    return "가을";
+  } else if (month === 12 && 18 <= date && date <= 25) {
+    return "크리스마스";
+  } else if (1 <= month <= 2 && month === 12) {
+    return "겨울";
+  }
+};
+
+const matchTime = () => {
+  if (5 <= hours && hours <= 11) {
+    return "아침";
+  } else if (12 <= hours && hours <= 17) {
+    return "오후";
+  } else if (18 <= hours && hours <= 20) {
+    return "저녁";
+  } else {
+    return "밤/ 새벽";
+  }
+};
+
+// 현재 온도와 날씨 상태에 따라 카테고리 분류
+const matchTemp = (temp) => {
+  if (temp <= 4) {
+    return "눈오는 날";
+  } else if (5 <= temp && temp <= 10) {
+    return "환절기";
+  } else if (11 <= temp && temp <= 16) {
+    return "쌀쌀한 날";
+  } else if (17 <= temp && temp <= 22) {
+    return "선선한 날";
+  } else if (23 <= temp) {
+    return "폭염/ 더위";
+  }
+};
+
+const matchWeather = (weather1, weather2) => {
+  if (weather1 === "Clear") {
+    return "화창한 날";
+  } else if (weather1 === "Clouds" && (weather2 === 801 || weather2 === 803)) {
+    return "비온 후/ 맑게 갠";
+  } else if (weather1 === "Snow") {
+    return "눈오는 날";
+  } else {
+    return "비/ 흐림";
+  }
+};
+
+const matchSeasonWithSong = (eachInfo) => {
+  if (
+    (eachInfo.energy > 0.6 && eachInfo.valence > 0.55) ||
+    eachInfo.songName.indexOf("봄") !== -1 ||
+    eachInfo.songName.toLowerCase().indexOf("spring") !== -1
+  ) {
+    eachInfo.mood.push("봄");
+    return eachInfo;
+  }
+  if (
+    (eachInfo.danceability > 0.6 &&
+      eachInfo.energy > 0.55 &&
+      eachInfo.valence > 0.6) ||
+    eachInfo.songName.indexOf("여름") !== -1 ||
+    eachInfo.songName.toLowerCase().indexOf("summer") !== -1
+  ) {
+    eachInfo.mood.push("여름");
+    return eachInfo;
+  }
+  if (
+    eachInfo.danceability < 0.55 &&
+    eachInfo.energy < 0.6 &&
+    eachInfo.valence < 0.55
+  ) {
+    eachInfo.mood.push("가을");
+    return eachInfo;
+  }
+  if (
+    (eachInfo.energy < 0.3 && eachInfo.valence < 0.4) ||
+    (eachInfo.energy > 0.6 && eachInfo.valence < 0.2) ||
+    eachInfo.songName.indexOf("겨울") !== -1 ||
+    eachInfo.songName.toLowerCase().indexOf("winter") !== -1
+  ) {
+    eachInfo.mood.push("겨울");
+    return eachInfo;
+  }
+  if (
+    eachInfo.songName.indexOf("크리스마스") !== -1 ||
+    eachInfo.songName.toLowerCase().indexOf("christmas") !== -1 ||
+    eachInfo.songName.toLowerCase().indexOf("bells") !== -1 ||
+    eachInfo.songName.toLowerCase().indexOf("santa") !== -1 ||
+    eachInfo.songName.toLowerCase().indexOf("mistletoe") !== -1
+  ) {
+    eachInfo.mood.push("크리스마스");
+    return eachInfo;
+  }
+};
+
+const matchTimeWithSong = (eachInfo) => {
+  if (
+    eachInfo.danceability > 0.55 &&
+    eachInfo.energy > 0.6 &&
+    eachInfo.valence > 0.55 &&
+    eachInfo.tempo > 100
+  ) {
+    eachInfo.mood.push("아침");
+    return eachInfo;
+  }
+  if (
+    0.6 < eachInfo.danceability &&
+    0.55 < eachInfo.energy &&
+    90 < eachInfo.tempo &&
+    eachInfo.tempo < 125
+  ) {
+    eachInfo.mood.push("오후");
+    return eachInfo;
+  }
+  if (
+    0.5 < eachInfo.danceability &&
+    eachInfo.danceability < 0.75 &&
+    0.6 < eachInfo.energy &&
+    eachInfo.energy < 0.8 &&
+    0.3 < eachInfo.valence &&
+    eachInfo.valence < 0.7 &&
+    eachInfo.tempo > 90
+  ) {
+    eachInfo.mood.push("저녁");
+    return eachInfo;
+  }
+  if (eachInfo.energy <= 0.45 && eachInfo.valence < 0.3) {
+    eachInfo.mood.push("밤/ 새벽");
+    return eachInfo;
+  }
+};
+
+const matchWeatherWithSong = (eachInfo) => {
+  if (0.55 < eachInfo.valence && 70 < eachInfo.tempo && eachInfo.tempo < 130) {
+    eachInfo.mood.push("화창한 날");
+    return eachInfo;
+  }
+  if (
+    0.5 <= eachInfo.danceability &&
+    eachInfo.danceability < 0.72 &&
+    0.3 <= eachInfo.valence &&
+    eachInfo.valence < 0.75 &&
+    65 <= eachInfo.tempo &&
+    eachInfo.tempo < 110
+  ) {
+    eachInfo.mood.push("선선한 날");
+    return eachInfo;
+  }
+  if (
+    0.45 < eachInfo.danceability &&
+    eachInfo.danceability < 0.55 &&
+    0.3 < eachInfo.energy &&
+    eachInfo.energy < 0.55
+  ) {
+    eachInfo.mood.push("쌀쌀한 날");
+    return eachInfo;
+  }
+  if (
+    (0.3 < eachInfo.energy &&
+      eachInfo.energy < 0.5 &&
+      0.3 < eachInfo.valence &&
+      eachInfo.valence < 0.6 &&
+      70 < eachInfo.tempo &&
+      eachInfo.tempo < 110) ||
+    (eachInfo.valence < 0.3 && eachInfo.tempo > 130)
+  ) {
+    eachInfo.mood.push("환절기");
+    return eachInfo;
+  }
+  if (
+    (eachInfo.danceability < 0.71 &&
+      eachInfo.energy < 0.66 &&
+      eachInfo.valence < 0.55 &&
+      eachInfo.tempo < 100) ||
+    eachInfo.songName.indexOf("비") !== -1 ||
+    eachInfo.songName.indexOf("빗") !== -1 ||
+    eachInfo.songName.indexOf("우산") !== -1 ||
+    eachInfo.songName.indexOf("장마") !== -1 ||
+    eachInfo.songName.toLowerCase().indexOf("rain") !== -1
+  ) {
+    eachInfo.mood.push("비/ 흐림");
+    return eachInfo;
+  }
+  if (
+    (0.7 < eachInfo.danceability &&
+      eachInfo.danceability < 0.85 &&
+      0.5 < eachInfo.energy &&
+      eachInfo.energy < 0.7) ||
+    (0.3 < eachInfo.valence && eachInfo.valence < 0.4 && eachInfo.tempo > 160)
+  ) {
+    eachInfo.mood.push("비온 후/ 맑게 갠");
+    return eachInfo;
+  }
+  if (
+    (eachInfo.songName.indexOf("눈") !== -1 ||
+      eachInfo.songName.indexOf("겨울") !== -1 ||
+      eachInfo.songName.toLowerCase().indexOf("snow") !== -1 ||
+      eachInfo.songName.toLowerCase().indexOf("winter") !== -1) &&
+    (parseInt(eachInfo.releaseDate.split("-")[1]) <= 2 ||
+      parseInt(eachInfo.releaseDate.split("-")[1]) >= 11)
+  ) {
+    eachInfo.mood.push("눈오는 날");
+    return eachInfo;
+  }
+  if (
+    eachInfo.danceability > 0.5 &&
+    eachInfo.energy > 0.7 &&
+    eachInfo.tempo > 120
+  ) {
+    eachInfo.mood.push("폭염/ 더위");
+    return eachInfo;
+  }
+};
 
 const loadMusic = () => {
   const url = "https://nochu.pw/spotify/featured";
-  fetch(url, {
+  return fetch(url, {
     headers: {
       "Content-Type": "application/json",
     },
   })
     .then((response) => response.json())
     .then((data) => {
-      // console.log(data);
       const musicInfo = data.map((song) => {
-        const musicDescription = {
+        let musicDescription = {
+          id: song.id,
+          releaseDate: song.track.album.release_date,
           songName: song.track.name,
           artist: song.track.artists[0].name,
           album: song.track.album.name,
           albumCover: song.track.album.images[2].url,
           audio: song.track.preview_url,
-        };
-        const musicFeatures = {
           danceability: song.danceability,
           energy: song.energy,
           tempo: song.tempo,
           valence: song.valence,
+          mood: [],
         };
-        return { musicDescription, musicFeatures };
+        return musicDescription;
       });
       return musicInfo;
     })
-    .then((musicInfo) => {
-      musicInfo.forEach((info) => {
-        // console.log(info);
-        filterMusic(info.musicFeatures);
-      });
-    })
     .catch((error) => console.log("error", error));
 };
-loadMusic();

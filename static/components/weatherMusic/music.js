@@ -19,13 +19,13 @@ const createElement = (musicInfo) => {
 
   const img = document.createElement("img");
   img.setAttribute("class", "cover");
-  img.setAttribute("src", `static/img/albumCovers/${musicInfo.cover}`);
+  img.setAttribute("src", `${musicInfo.albumCover}`);
   img.setAttribute("alt", "img");
   content.append(img);
 
   const audio = document.createElement("audio");
   audio.setAttribute("class", "play-audio");
-  audio.setAttribute("src", `${musicInfo[4]}`);
+  audio.setAttribute("src", `${musicInfo.audio}`);
   content.append(audio);
 
   const play = document.createElement("div");
@@ -55,7 +55,7 @@ const createElement = (musicInfo) => {
 
   const name = document.createElement("span");
   name.setAttribute("class", "name");
-  name.innerText = `${musicInfo.title}`;
+  name.innerText = `${musicInfo.songName}`;
   info.append(name);
 
   const descrip = document.createElement("div");
@@ -100,7 +100,7 @@ const matchSeason = () => {
     return "여름";
   } else if (9 <= month && month <= 11) {
     return "가을";
-  } else if (month === 12 && date === 25) {
+  } else if (month === 12 && 18 <= date && date <= 25) {
     return "크리스마스";
   } else if (1 <= month <= 2 && month === 12) {
     return "겨울";
