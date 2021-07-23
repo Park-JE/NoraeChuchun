@@ -1,88 +1,101 @@
 <!DOCTYPE html>
 <html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="static/img/favicon.png" />
+    <script
+      src="https://kit.fontawesome.com/ef81e253aa.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="static/css/style.css" />
+    <link
+      rel="stylesheet"
+      href="static/components/playlistBoard/playlist.css"
+    />
+    <script defer src="static/components/navbar/navbar.js"></script>
+    <script defer src="static/components/search/search.js"></script>
+    <script
+      defer
+      src="static/components/mypage/friendplaylist-list.js"
+    ></script>
+    <title>날씨에 맞는 음악 추천</title>
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="shortcut icon" href="img/favicon.ico" />
-  <script src="https://kit.fontawesome.com/ef81e253aa.js" crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="./static/components/navbar/navbar.scss" />
-  <link rel="stylesheet" href="static/css/style.css" />
-  <link rel="stylesheet" href="./static/components/mypage/menu.css" />
-  <link rel="stylesheet" href="./static/components/mypage/share.css" />
-  <link rel="stylesheet" href="./static/components/mypage/myplaylist-list.css" />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
-  <script defer src="static/components/navbar/navbar.js"></script>
-  <script defer src="static/components/weatherMusic/music.js"></script>
-  <script defer src="static/components/mainpage_playlist/mainpagePlaylist.js"></script>
-  <script defer src="static/components/search/search.js"></script>
-  <script defer src="static/components/mypage/friendplaylist-list.js"></script>
-  <script defer src="https://code.jquery.com/jquery-3.6.0.min.js"
-    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-  <title>날씨에 맞는 음악 추천</title>
-</head>
-
-<body>
-  <nav>
-    <div class="logoAndName">
-      <a href="index"><img class="logo" src="static/img/favicon.png" alt="img" /></a>
-      <a href="index" class="name">날씨음악</a>
-    </div>
-    <div class="searchAndLogin">
-      <input id="myplaylistList" type="search" class="searchInput" placeholder="검색" />
-      <button class="btn search">
-        <i class="fas fa-search fa-lg"></i>
-      </button>
-      <button class="btn close"><i class="fas fa-times fa-lg"></i></button>
-      <!-- {% if user.is_authenticated %} -->
-      <!-- <a href="mypage.html" class="mypage">마이페이지</a> -->
-      <!-- <form action="{% url 'logout' %}" method="POST"> -->
-      <!-- {% csrf_token %} -->
-      <!-- <input type="submit" class="login" value="로그아웃" /> -->
-      <!-- </form> -->
-      <!-- {% else %} -->
-      <a href="login" class="login">로그인</a>
-      <!-- {% endif %} -->
-    </div>
-  </nav>
-  <div class="container">
-    <div class="playlist-info">
-      <div class="thumnail">
-        <img class="thumnail_img" src="static/img/playlistCovers/lp2.jpeg" alt="playlist-thumbnail" />
-      </div>
-      <div class="info">
-        <div class="playlist-title"></div>
-        <div class="playlist-tags">
+  <body>
+    <nav>
+      <a href="index.html" class="logoAndName">
+        <img class="logo" src="static/img/favicon.png" alt="img" />
+        <span class="name">날씨음악</span>
+      </a>
+      <div class="searchAndLogin">
+        <input
+          id="index"
+          type="search"
+          class="searchInput"
+          placeholder="검색"
+        />
+        <button class="btn search">
+          <i class="fas fa-search fa-lg"></i>
+        </button>
+        <button class="btn close"><i class="fas fa-times fa-lg"></i></button>
+        <div class="userAndDarkMode">
+          <!-- {% if user.is_authenticated %} -->
+          <a href="mypage.html" class="mypage">마이페이지</a>
+          <form action="logout" method="POST">
+            <!-- {% csrf_token %} -->
+            <label for="logout" class="login logout">로그아웃</label>
+            <input id="logout" type="submit" class="logout" value="로그아웃" />
+          </form>
+          <!-- {% else %} -->
+          <!-- <a href="login.html"><span class="login">로그인</span></a> -->
+          <!-- {% endif %} -->
+          <div class="dark-mode">
+            <button class="light mode-btn">
+              <i class="fas fa-sun fa-lg"></i>
+              <span class="modeText">라이트 모드</span>
+            </button>
+            <button class="dark mode-btn">
+              <i class="fas fa-moon fa-lg"></i>
+              <span class="modeText">다크 모드</span>
+            </button>
+          </div>
         </div>
-        <div class="playlist-count">
-          <span class="material-icons-outlined"> headphones </span><span class="count"></span>
-          <span class="material-icons-outlined unlike active">
-            favorite_border
-          </span>
-          <span class="material-icons-outlined like">
-            favorite
-          </span>
+        <button class="ellipsis">
+          <i class="fas fa-bars fa-lg"></i>
+        </button>
+      </div>
+    </nav>
+    <div class="playlist-main">
+      <div class="description-wrap">
+        <div class="cover"></div>
+        <div class="info">
+          <span class="title"></span>
+          <div class="tagAndSong">
+            <div class="tags">
+              <span class="filter"></span>
+              <span class="filter"></span>
+            </div>
+            <div class="songs">
+              <i class="fas fa-compact-disc"></i>
+              <span class="count"></span>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="content-wrap">
-      <div class="sort">
-        <span class="sort-cover">커버</span>
-        <span class="sort-title">곡</span>
-        <span class="sort-artist">아티스트</span>
-        <span class="sort-album">앨범</span>
-        <span class="sort-remove">제거</span>
-      </div>
-      <div class="items">
-        <!-- item이란 이름으로 div 요소들 생성  -->
+      <div class="content-wrap">
+        <div class="sort">
+          <span class="name">곡</span>
+          <span class="artist">아티스트</span>
+          <span class="album">앨범</span>
+          <span class="add">담기</span>
+        </div>
+        <ul class="musicTable"></ul>
       </div>
     </div>
-  </div>
-  <div class="bg-1"></div>
-  <div class="bg-2"></div>
-  <div class="bg-3"></div>
-</body>
-
+    <div class="bg-1"></div>
+    <div class="bg-2"></div>
+    <div class="bg-3"></div>
+  </body>
 </html>

@@ -106,12 +106,15 @@ const playMusic = (musicTable) => {
       });
       play.nextSibling.classList.toggle("active");
       play.previousElementSibling.play();
-      console.dir(play.previousElementSibling);
-      if (play.previousElementSibling.currentSrc.indexOf(null) !== -1) {
+      if (
+        play.previousElementSibling.currentSrc.indexOf(null) !== -1 ||
+        play.previousElementSibling.currentSrc.indexOf(undefined) !== -1
+      ) {
         const alertNoAudio = document.createElement("div");
         alertNoAudio.setAttribute("class", "alert-no-audio");
         alertNoAudio.textContent = "해당 음원은 미리듣기를 지원하지 않습니다 🥲";
         play.previousElementSibling.parentNode.parentNode.append(alertNoAudio);
+        play.nextSibling.classList.remove("active");
         setTimeout(() => {
           alertNoAudio.remove();
         }, 2000);
@@ -220,8 +223,8 @@ const outputSearchHtml = (song, searchText) => {
   const sortTable = searchWrap.querySelector(".sort");
   const noResult = searchWrap.querySelector(".noResult");
   const musicTable = searchWrap.querySelector(".musicList");
-
-  if (song != null) {
+  console.log(song);
+  if (song.length !== 0) {
     sortTable.classList.remove("deactive");
     musicTable.classList.remove("deactive");
     noResult.classList.remove("active");
@@ -229,7 +232,7 @@ const outputSearchHtml = (song, searchText) => {
     musicTable.append(...searchResult);
     playMusic(musicTable);
     addMusic(musicTable);
-  } else if (song == null) {
+  } else if (song.length === 0) {
     sortTable.classList.add("deactive");
     musicTable.classList.add("deactive");
     noResult.classList.add("active");

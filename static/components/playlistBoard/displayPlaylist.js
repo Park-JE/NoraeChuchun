@@ -19,10 +19,11 @@ function showNewPlaylist(list) {
 function createPlaylist(playlist) {
   const playlistCard = document.createElement("div");
   playlistCard.setAttribute("class", "playlist");
+  playlistCard.setAttribute("data-id", `${playlist.id}`);
+  playlistCard.setAttribute("data-user", `${playlist.user_id}`);
 
   const img = document.createElement("div");
   img.setAttribute("class", "cover");
-  img.setAttribute("data-mood", playlist.mood);
 
   const title = document.createElement("span");
   title.setAttribute("class", "title");
@@ -100,12 +101,10 @@ function updateItems(value, playlist) {
 }
 
 //move to playlist
-const pageChange = (target) => {
-  const form = document.getElementById("playlist_form");
-  form.title.value = target.parentNode.childNodes[1].textContent;
-  form.submit();
-};
-
 playlistWrap.addEventListener("click", (e) => {
-  pageChange(e.target);
+  if (e.target.parentNode.classList.contains("playlist")) {
+    document.cookie = `playlist=${e.target.parentNode.childNodes[1].textContent}`;
+    document.cookie = `friend_name=${e.target.parentNode.dataset.user}`;
+  }
+  window.location.href = "friendplaylist-list.html";
 });

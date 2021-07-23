@@ -72,147 +72,157 @@ body {
       .name {
         padding-left: $base-space;
       }
+
+      &.deactive {
+        display: none;
+      }
     }
 
-    .music {
-      width: 100%;
-      font-size: $font-small;
-      padding: 5px $base-space/2;
-      @include color-var(border-bottom, sm-nav-border);
-      position: relative;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-
-      .content {
+    .musicTable {
+      .music {
         width: 100%;
-        display: grid;
-        grid-template-columns: 72px 4fr;
+        font-size: $font-small;
+        padding: 5px $base-space/2;
+        @include color-var(border-bottom, sm-nav-border);
+        position: relative;
+        display: flex;
+        justify-content: space-between;
         align-items: center;
-        margin-right: 8px;
 
-        .manipul {
-          position: absolute;
-          width: 55px;
-          height: 55px;
-          border-radius: $border-small;
-          background-color: $black;
-          display: none;
-          justify-content: center;
-          align-items: center;
-          font-size: $font-medium;
-          opacity: 0.9;
-          border: 0;
-          outline: none;
-          color: $white;
-
-          &.play:hover {
-            display: flex;
-          }
-
-          &.play.active {
-            display: flex;
-          }
-
-          &.pause.active {
-            display: flex;
-          }
-        }
-
-        .cover {
-          width: 55px;
-          height: 55px;
-          border-radius: $border-small;
-
-          &:hover ~ .play {
-            display: flex;
-          }
-        }
-
-        .info {
+        .content {
           width: 100%;
-          height: 80%;
           display: grid;
-          grid-template-columns: 2fr 3fr;
+          grid-template-columns: 72px 4fr;
           align-items: center;
-          gap: 5px;
+          margin-right: 8px;
+          position: relative;
 
-          .descrip {
+          .manipul {
+            position: absolute;
+            width: 55px;
+            height: 55px;
+            border-radius: $border-small;
+            background-color: $black;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            font-size: $font-medium;
+            opacity: 0.9;
+            border: 0;
+            outline: none;
+            color: $white;
+
+            &.play:hover {
+              display: flex;
+            }
+
+            &.playing.active {
+              display: flex;
+            }
+
+            &.pause.active {
+              display: flex;
+            }
+          }
+
+          .cover {
+            width: 55px;
+            height: 55px;
+            border-radius: $border-small;
+
+            &:hover ~ .play {
+              display: flex;
+            }
+          }
+
+          .info {
+            width: 100%;
+            height: 80%;
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4px;
+            grid-template-columns: 2fr 3fr;
+            align-items: center;
+            gap: 5px;
 
-            .dot {
-              display: none;
+            .descrip {
+              display: grid;
+              grid-template-columns: 1fr 1fr;
+              gap: 4px;
+
+              .dot {
+                display: none;
+              }
             }
           }
         }
-      }
 
-      .add {
-        outline: none;
-        border: 0;
-        background-color: transparent;
-        @include color-var(color, font-color);
-        margin-right: $base-space/2;
-      }
-
-      .addModal {
-        width: 200px;
-        position: absolute;
-        z-index: 2;
-        right: 42px;
-        top: 36px;
-        border-radius: $border-small;
-        padding: $base-space/2 0;
-        border: 1px solid rgba(255, 255, 255, 0.2);
-        @include color-var(background-color, sm-nav-bgc);
-        backdrop-filter: blur(5px);
-        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
-
-        &.deactive {
-          display: none;
+        .add {
+          outline: none;
+          border: 0;
+          background-color: transparent;
+          @include color-var(color, font-color);
+          margin-right: $base-space/2;
         }
 
-        .myPlaylist {
-          width: 100%;
-          padding: $base-space;
-          @include color-var(border-bottom, sm-nav-border);
-          font-weight: $font-bold;
-          cursor: pointer;
+        .addModal {
+          list-style: none;
+          width: 200px;
+          position: absolute;
+          z-index: 2;
+          right: 39px;
+          top: 42px;
+          border-radius: $border-small;
+          padding: $base-space/2 0;
+          border: 1px solid rgba(255, 255, 255, 0.2);
+          @include color-var(background-color, sm-nav-bgc);
+          backdrop-filter: blur(5px);
+          box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
 
-          &:first-child {
-            padding: $base-space/2 $base-space;
-            opacity: 0.8;
-            font-weight: 400;
-            pointer-events: none;
+          &.deactive {
+            display: none;
           }
 
-          &:last-child {
-            border-bottom: 0;
+          .myPlaylist {
+            width: 100%;
+            padding: $base-space;
+            @include color-var(border-bottom, sm-nav-border);
+            font-weight: $font-bold;
+            cursor: pointer;
+
+            &:first-child {
+              padding: $base-space/2 $base-space;
+              opacity: 0.8;
+              font-weight: 400;
+              pointer-events: none;
+            }
+
+            &:last-child {
+              border-bottom: 0;
+            }
           }
         }
-      }
-    }
 
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
+        @keyframes fadeIn {
+          from {
+            opacity: 0;
+            transform: translateY(20px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
 
-    .alertAdd {
-      position: absolute;
-      top: 90%;
-      left: 30%;
-      padding: $base-space $base-space * 2;
-      background-color: rgb(14, 14, 34);
-      animation: fadeIn 0.5s ease-in-out;
+        .alertAdd,
+        .alert-no-audio {
+          position: absolute;
+          z-index: 1;
+          top: -65%;
+          right: 5%;
+          padding: $base-space $base-space * 2;
+          @include color-var(background-color, addModal-color);
+          animation: fadeIn 0.5s ease-in-out;
+        }
+      }
     }
   }
 
@@ -270,48 +280,52 @@ body {
           }
         }
 
-        .music {
-          font-size: $font-xsmall;
-          .content {
-            .info {
-              grid-template-columns: 1fr;
-              grid-template-rows: 1fr 1fr;
+        .musicTable {
+          .music {
+            font-size: $font-xsmall;
 
-              .descrip {
-                display: flex;
-                justify-content: flex-start;
-                display: -webkit-box;
-                -webkit-box-orient: vertical;
-                -webkit-line-clamp: 1;
-                overflow: hidden;
+            .content {
+              .info {
+                grid-template-columns: 1fr;
+                grid-template-rows: 1fr 1fr;
 
-                .dot {
-                  display: inline;
-                  margin: 0 3px;
+                .descrip {
+                  display: flex;
+                  justify-content: flex-start;
+                  display: -webkit-box;
+                  -webkit-box-orient: vertical;
+                  -webkit-line-clamp: 1;
+                  overflow: hidden;
+
+                  .dot {
+                    display: inline;
+                    margin: 0 3px;
+                  }
                 }
+              }
+            }
+
+            .add {
+              margin-right: 3px;
+            }
+
+            .addModal {
+              width: 150px;
+              font-size: $font-xsmall;
+              right: 32px;
+              padding: $base-space/4 0;
+
+              .myPlaylist {
+                padding: $base-space * 2/3 $base-space;
               }
             }
           }
 
-          .add {
-            margin-right: 3px;
+          .alertAdd,
+          .alert-no-audio {
+            font-size: $font-xsmall;
           }
         }
-
-        .addModal {
-          width: 150px;
-          font-size: $font-xsmall;
-          right: 32px;
-          padding: $base-space/4 0;
-
-          .myPlaylist {
-            padding: $base-space * 2/3 $base-space;
-          }
-        }
-      }
-      .alertAdd {
-        font-size: $font-xsmall;
-        left: 15%;
       }
     }
   }

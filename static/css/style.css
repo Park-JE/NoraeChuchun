@@ -886,6 +886,11 @@ nav .searchAndLogin .ellipsis {
     height: fit-content;
     margin-top: 30px;
   }
+  .recommendation-warp .recommendation .currentWeather-playlist .alertAdd,
+  .recommendation-warp .recommendation .currentWeather-playlist .alert-no-audio {
+    width: 320px;
+    padding: 8px 16px;
+  }
 }
 
 @media (max-width: 767px) {
@@ -1085,6 +1090,12 @@ nav .searchAndLogin .ellipsis {
 .musicFilter-wrap .titleAndFilters .filter-bar .filter-wrap {
   width: 100%;
   overflow-y: scroll;
+  -ms-overflow-style: none;
+}
+
+.musicFilter-wrap .titleAndFilters .filter-bar .filter-wrap::-webkit-scrollbar {
+  display: none;
+  width: 0 !important;
 }
 
 .musicFilter-wrap .titleAndFilters .filter-bar .filter-wrap .btn-box {

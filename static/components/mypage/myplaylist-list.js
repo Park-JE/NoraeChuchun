@@ -19,20 +19,21 @@ function displayItems(items) {
 }
 
 var getCookie = function (name) {
-  var value = document.cookie.match('(^|;) ?' + name + '=([^;]*)(;|$)');
+  var value = document.cookie.match("(^|;) ?" + name + "=([^;]*)(;|$)");
   return value ? value[2] : null;
 };
 
 function loadData() {
-  //회원 정보에 따라 user이랑 title 변경 해야함 
-  //cookie 값 활용해서 친구 playlist에 들어가는 거 까진 했는데,, 
+  //회원 정보에 따라 user이랑 title 변경 해야함
+  //cookie 값 활용해서 친구 playlist에 들어가는 거 까진 했는데,,
   const user = getCookie("user");
   const title = getCookie("playlist");
-  return fetch(`https://nochu.pw/playlist_api/playlist/?uid=${user}&title=${title}`)
-    .then(res => {
-      console.log(res);
-      return res.json();
-    })
+  return fetch(
+    `https://nochu.pw/playlist_api/playlist/?uid=user&title=${title}`
+  ).then((res) => {
+    console.log(res);
+    return res.json();
+  });
 }
 
 // const data = loadData();

@@ -458,6 +458,11 @@
     height: fit-content;
     margin-top: 30px;
   }
+  .recommendation-warp .recommendation .currentWeather-playlist .alertAdd,
+  .recommendation-warp .recommendation .currentWeather-playlist .alert-no-audio {
+    width: 320px;
+    padding: 8px 16px;
+  }
 }
 
 @media (max-width: 767px) {

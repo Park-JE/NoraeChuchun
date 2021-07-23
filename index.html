@@ -1,152 +1,189 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="static/img/favicon.png" />
+    <title>날씨에 맞는 음악 추천</title>
+    <script
+      defer
+      src="https://kit.fontawesome.com/ef81e253aa.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="static/css/style.css" />
+    <script defer src="static/components/navbar/navbar.js"></script>
+    <script defer src="static/components/search/search.js"></script>
+    <script defer src="static/components/weatherMusic/weather.js"></script>
+    <script
+      defer
+      src="static/components/weatherMusic/recommendMusic.js"
+    ></script>
+    <script defer src="static/components/filterBar/filterBar.js"></script>
+    <script
+      defer
+      src="static/components/playlistBoard/displayPlaylist.js"
+    ></script>
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="shortcut icon" href="static/img/favicon.png" />
-  <title>날씨에 맞는 음악 추천</title>
-  <script defer src="https://kit.fontawesome.com/ef81e253aa.js" crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="static/css/style.css" />
-  <script defer src="static/components/navbar/navbar.js"></script>
-  <script defer src="static/components/search/search.js"></script>
-  <script defer src="static/components/weatherMusic/weather.js"></script>
-  <script defer src="static/components/weatherMusic/recommendMusic.js"></script>
-  <script defer src="static/components/filterBar/filterBar.js"></script>
-  <script defer src="static/components/playlistBoard/displayPlaylist.js"></script>
-  <script defer src="static/components/playlistBoard/moveToPlaylist.js"></script>
-</head>
-
-<body>
-  <nav>
-    <a href="index.html" class="logoAndName">
-      <img class="logo" src="static/img/favicon.png" alt="img" />
-      <span class="name">날씨음악</span>
-    </a>
-    <div class="searchAndLogin">
-      <input id="index" type="search" class="searchInput" placeholder="검색" />
-      <button class="btn search">
-        <i class="fas fa-search fa-lg"></i>
-      </button>
-      <button class="btn close"><i class="fas fa-times fa-lg"></i></button>
-      <div class="userAndDarkMode">
-        <!-- {% if user.is_authenticated %} -->
-        <a href="mypage.html" class="mypage">마이페이지</a>
-        <form action="logout" method="POST">
-          <!-- {% csrf_token %} -->
-          <label for="logout" class="login logout">로그아웃</label>
-          <input id="logout" type="submit" class="logout" value="로그아웃" />
-        </form>
-        <!-- {% else %} -->
-        <!-- <a href="login.html"><span class="login">로그인</span></a> -->
-        <!-- {% endif %} -->
-        <div class="dark-mode">
-          <button class="light mode-btn">
-            <i class="fas fa-sun fa-lg"></i>
-            <span class="modeText">라이트 모드</span>
-          </button>
-          <button class="dark mode-btn">
-            <i class="fas fa-moon fa-lg"></i>
-            <span class="modeText">다크 모드</span>
-          </button>
-        </div>
-      </div>
-      <button class="ellipsis">
-        <i class="fas fa-bars fa-lg"></i>
-      </button>
-    </div>
-  </nav>
-  <section class="recommendation-warp">
-    <span class="title">현재 날씨에 맞는 추천 음악</span>
-    <div class="recommendation">
-      <div class="loading">
-        <div class="bouncer"></div>
-        <div class="bouncer"></div>
-        <div class="bouncer"></div>
-        <div class="bouncer"></div>
-        <div class="bouncer"></div>
-      </div>
-      <div class="weather">
-        <img class="icon" />
-        <div class="info">
-          <div class="tempAndLoc">
-            <span class="temperature"></span>
-            <span class="location"></span>
-          </div>
-          <span class="state"></span>
-        </div>
-      </div>
-      <ul class="currentWeather-playlist"></ul>
-    </div>
-  </section>
-  <section class="musicFilter-wrap">
-    <div class="titleAndFilters">
-      <span class="title">날씨에 맞는 추천 플레이리스트</span>
-      <button class="filter-btn">
-        FILTERS <i class="fas fa-filter fa-xs"></i>
-      </button>
-      <div class="blank-bar"></div>
-      <div class="filter-bar">
-        <form class="filter-wrap">
-          <div class="btn-box">
-            <button class="btn reset">초기화</button>
-            <button class="btn close">
-              <i class="fas fa-times fa-lg"></i>
+  <body>
+    <nav>
+      <a href="index.html" class="logoAndName">
+        <img class="logo" src="static/img/favicon.png" alt="img" />
+        <span class="name">날씨음악</span>
+      </a>
+      <div class="searchAndLogin">
+        <input
+          id="index"
+          type="search"
+          class="searchInput"
+          placeholder="검색"
+        />
+        <button class="btn search">
+          <i class="fas fa-search fa-lg"></i>
+        </button>
+        <button class="btn close"><i class="fas fa-times fa-lg"></i></button>
+        <div class="userAndDarkMode">
+          <!-- {% if user.is_authenticated %} -->
+          <a href="mypage.html" class="mypage">마이페이지</a>
+          <form action="logout" method="POST">
+            <!-- {% csrf_token %} -->
+            <label for="logout" class="login logout">로그아웃</label>
+            <input id="logout" type="submit" class="logout" value="로그아웃" />
+          </form>
+          <!-- {% else %} -->
+          <!-- <a href="login.html"><span class="login">로그인</span></a> -->
+          <!-- {% endif %} -->
+          <div class="dark-mode">
+            <button class="light mode-btn">
+              <i class="fas fa-sun fa-lg"></i>
+              <span class="modeText">라이트 모드</span>
+            </button>
+            <button class="dark mode-btn">
+              <i class="fas fa-moon fa-lg"></i>
+              <span class="modeText">다크 모드</span>
             </button>
           </div>
-          <div class="filters">
-            <p class="category">계절</p>
-            <input type="radio" name="season" id="spring" value="spring" />
-            <label for="spring" class="option">봄</label>
-            <input type="radio" name="season" id="summer" value="summer" />
-            <label for="summer" class="option">여름</label>
-            <input type="radio" name="season" id="fall" value="fall" />
-            <label for="fall" class="option">가을</label>
-            <input type="radio" name="season" id="winter" value="winter" />
-            <label for="winter" class="option">겨울</label>
-            <input type="radio" name="season" id="christmas" value="christmas" />
-            <label for="christmas" class="option"> 크리스마스 </label>
-
-            <p class="category">시간</p>
-            <input type="radio" name="time" id="morning" value="morning" />
-            <label for="morning" class="option">아침</label>
-            <input type="radio" name="time" id="afternoon" value="afternoon" />
-            <label for="afternoon" class="option">오후</label>
-            <input type="radio" name="time" id="evening" value="evening" />
-            <label for="evening" class="option">저녁</label>
-            <input type="radio" name="time" id="nightDawn" value="nightDawn" />
-            <label for="nightDawn" class="option">밤/ 새벽</label>
-
-            <p class="category">날씨</p>
-            <input type="radio" name="weather" id="clear" value="clear" />
-            <label for="clear" class="option">화창한 날</label>
-            <input type="radio" name="weather" id="breezy" value="breezy" />
-            <label for="breezy" class="option">선선한 날</label>
-            <input type="radio" name="weather" id="chilly" value="chilly" />
-            <label for="chilly" class="option">쌀쌀한 날</label>
-            <input type="radio" name="weather" id="between" value="between" />
-            <label for="between" class="option">환절기</label>
-            <input type="radio" name="weather" id="rain" value="rain" />
-            <label for="rain" class="option">비/ 흐림</label>
-            <input type="radio" name="weather" id="rainStop" value="rainStop" />
-            <label for="rainStop" class="option">비온 후/ 맑게 갠</label>
-            <input type="radio" name="weather" id="snow" value="snow" />
-            <label for="snow" class="option">눈오는 날</label>
-            <input type="radio" name="weather" id="heatWave" value="heatWave" />
-            <label for="heatWave" class="option">폭염/ 더위</label>
-          </div>
-        </form>
+        </div>
+        <button class="ellipsis">
+          <i class="fas fa-bars fa-lg"></i>
+        </button>
       </div>
-    </div>
-    <div class="playlist-wrap"></div>
-  </section>
-  <form action="./myplaylist-list.html" id="playlist_form">
-    <input type="hidden" name="title" />
-  </form>
-  <div class="bg-1"></div>
-  <div class="bg-2"></div>
-  <div class="bg-3"></div>
-</body>
+    </nav>
+    <section class="recommendation-warp">
+      <span class="title">현재 날씨에 맞는 추천 음악</span>
+      <div class="recommendation">
+        <div class="loading">
+          <div class="bouncer"></div>
+          <div class="bouncer"></div>
+          <div class="bouncer"></div>
+          <div class="bouncer"></div>
+          <div class="bouncer"></div>
+        </div>
+        <div class="weather">
+          <img class="icon" />
+          <div class="info">
+            <div class="tempAndLoc">
+              <span class="temperature"></span>
+              <span class="location"></span>
+            </div>
+            <span class="state"></span>
+          </div>
+        </div>
+        <ul class="currentWeather-playlist"></ul>
+      </div>
+    </section>
+    <section class="musicFilter-wrap">
+      <div class="titleAndFilters">
+        <span class="title">날씨에 맞는 추천 플레이리스트</span>
+        <button class="filter-btn">
+          FILTERS <i class="fas fa-filter fa-xs"></i>
+        </button>
+        <div class="blank-bar"></div>
+        <div class="filter-bar">
+          <form class="filter-wrap">
+            <div class="btn-box">
+              <button class="btn reset">초기화</button>
+              <button class="btn close">
+                <i class="fas fa-times fa-lg"></i>
+              </button>
+            </div>
+            <div class="filters">
+              <p class="category">계절</p>
+              <input type="radio" name="season" id="spring" value="spring" />
+              <label for="spring" class="option">봄</label>
+              <input type="radio" name="season" id="summer" value="summer" />
+              <label for="summer" class="option">여름</label>
+              <input type="radio" name="season" id="fall" value="fall" />
+              <label for="fall" class="option">가을</label>
+              <input type="radio" name="season" id="winter" value="winter" />
+              <label for="winter" class="option">겨울</label>
+              <input
+                type="radio"
+                name="season"
+                id="christmas"
+                value="christmas"
+              />
+              <label for="christmas" class="option"> 크리스마스 </label>
 
+              <p class="category">시간</p>
+              <input type="radio" name="time" id="morning" value="morning" />
+              <label for="morning" class="option">아침</label>
+              <input
+                type="radio"
+                name="time"
+                id="afternoon"
+                value="afternoon"
+              />
+              <label for="afternoon" class="option">오후</label>
+              <input type="radio" name="time" id="evening" value="evening" />
+              <label for="evening" class="option">저녁</label>
+              <input
+                type="radio"
+                name="time"
+                id="nightDawn"
+                value="nightDawn"
+              />
+              <label for="nightDawn" class="option">밤/ 새벽</label>
+
+              <p class="category">날씨</p>
+              <input type="radio" name="weather" id="clear" value="clear" />
+              <label for="clear" class="option">화창한 날</label>
+              <input type="radio" name="weather" id="breezy" value="breezy" />
+              <label for="breezy" class="option">선선한 날</label>
+              <input type="radio" name="weather" id="chilly" value="chilly" />
+              <label for="chilly" class="option">쌀쌀한 날</label>
+              <input type="radio" name="weather" id="between" value="between" />
+              <label for="between" class="option">환절기</label>
+              <input type="radio" name="weather" id="rain" value="rain" />
+              <label for="rain" class="option">비/ 흐림</label>
+              <input
+                type="radio"
+                name="weather"
+                id="rainStop"
+                value="rainStop"
+              />
+              <label for="rainStop" class="option">비온 후/ 맑게 갠</label>
+              <input type="radio" name="weather" id="snow" value="snow" />
+              <label for="snow" class="option">눈오는 날</label>
+              <input
+                type="radio"
+                name="weather"
+                id="heatWave"
+                value="heatWave"
+              />
+              <label for="heatWave" class="option">폭염/ 더위</label>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="playlist-wrap"></div>
+    </section>
+    <!-- <form action="./friendplaylist-list.html" id="playlist_form">
+      <input type="hidden" name="title" />
+    </form> -->
+    <div class="bg-1"></div>
+    <div class="bg-2"></div>
+    <div class="bg-3"></div>
+  </body>
 </html>
