@@ -3,51 +3,67 @@ const cancelBtn = navBar.querySelector(".searchAndLogin .close");
 const inputBox = navBar.querySelector(".searchAndLogin input");
 const searchWrap = document.querySelector(".search-wrap");
 
-const addMusic = (searchResult, musicTable) => {
-  const addMusicBtn = searchResult[0].querySelector(".add");
+const addMusic = (musicTable) => {
   const musicTableBtn = musicTable.querySelectorAll(".music .add");
-  addMusicBtn.addEventListener("click", () => {
-    if (addMusicBtn.nextSibling != null) {
-      addMusicBtn.nextSibling.remove();
-      return;
-    } else {
-      musicTableBtn.forEach((btn) => {
-        if (btn.nextSibling) {
-          btn.nextSibling.remove();
+  musicTableBtn.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      if (btn.nextSibling != null) {
+        btn.nextSibling.remove();
+        return;
+      } else {
+        musicTableBtn.forEach((btn) => {
+          if (btn.nextSibling) {
+            btn.nextSibling.remove();
+          }
+        });
+        addModal = document.createElement("ul");
+        addModal.setAttribute("class", "addModal");
+        // addModalHeader = document.createElement("li");
+        // addModalHeader.setAttribute("class", "myPlaylist");
+        // addModalHeader.textContent = "내 플레이리스트";
+        // addModal.append(addModalHeader);
+        fetch(`https://nochu.pw//playlist_api/playlist/17/add_record/`, {
+          method: "PATCH",
+          headers: { "Content-Type": "application/json" },
+        }).then((response) => response.json());
+        then((data) => console.log(data));
+        // for(let i=0; i<json.length; i++){
+        //   addModalHeader = document.createElement("li");
+        //   addModalHeader = setAttribute("class", "myPlaylist");
+        //   addModalHeader.textContent = `${json.name}`;
+        //   addMoadl.append(addModalHeader);
+        // }
+        addModal.innerHTML = `<div class="myPlaylist">내 플레이리스트</div>
+          <div class="myPlaylist">운동할 때 들어야지</div>
+          <div class="myPlaylist">집갈 때 들어야지</div>`;
+        btn.after(addModal);
+      }
+
+      document.addEventListener("click", (e) => {
+        if (
+          e.target.className !== "addModal" &&
+          e.target.className !== "myPlaylist" &&
+          e.target.className !== "addMusicBtn" &&
+          e.target.className !== "fas fa-list fa-lg"
+        ) {
+          addModal.remove();
         }
       });
-      addModal = document.createElement("div");
-      addModal.setAttribute("class", "addModal");
-      addModal.innerHTML = `<div class="myPlaylist">내 플레이리스트</div>
-        <div class="myPlaylist">운동할 때 들어야지</div>
-        <div class="myPlaylist">집갈 때 들어야지</div>`;
-      addMusicBtn.after(addModal);
-    }
 
-    document.addEventListener("click", (e) => {
-      if (
-        e.target.className !== "addModal" &&
-        e.target.className !== "myPlaylist" &&
-        e.target.className !== "addMusicBtn" &&
-        e.target.className !== "fas fa-list fa-lg"
-      ) {
-        addModal.remove();
-      }
-    });
-
-    const modalPlaylist = addModal.querySelectorAll(
-      ".music .addModal .myPlaylist"
-    );
-    modalPlaylist.forEach((playlist) => {
-      playlist.addEventListener("click", () => {
-        alertAdd = document.createElement("div");
-        alertAdd.setAttribute("class", "alertAdd");
-        alertAdd.innerHTML = `<i class="fas fa-exclamation-circle"></i>
-          <span>"${playlist.innerText}"에 추가되었습니다.</span>`;
-        searchWrap.append(alertAdd);
-        setTimeout(() => {
-          alertAdd.remove();
-        }, 2000);
+      const modalPlaylist = addModal.querySelectorAll(
+        ".music .addModal .myPlaylist"
+      );
+      modalPlaylist.forEach((playlist) => {
+        playlist.addEventListener("click", () => {
+          alertAdd = document.createElement("div");
+          alertAdd.setAttribute("class", "alertAdd");
+          alertAdd.innerHTML = `<i class="fas fa-exclamation-circle"></i>
+            <span>"${playlist.innerText}"에 추가되었습니다.</span>`;
+          playlist.parentNode.parentNode.append(alertAdd);
+          setTimeout(() => {
+            alertAdd.remove();
+          }, 2000);
+        });
       });
     });
   });
@@ -190,7 +206,7 @@ const outputSearchHtml = (song, searchText) => {
     searchResult = song.map(createSong);
     musicTable.append(...searchResult);
     playMusic(musicTable);
-    addMusic(searchResult, musicTable);
+    addMusic(musicTable);
   } else if (song == null) {
     sortTable.classList.add("deactive");
     musicTable.classList.add("deactive");

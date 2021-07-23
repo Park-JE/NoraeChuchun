@@ -226,6 +226,64 @@
           padding: 0 $base-space/2;
           margin: 0 $base-space/2;
         }
+
+        .addModal {
+          width: 190px;
+          position: absolute;
+          z-index: 2;
+          right: 32px;
+          top: 48px;
+          border-radius: $border-small;
+          padding: $base-space/2 0;
+          border: 1px solid rgba(255, 255, 255, 0.2);
+          @include color-var(background-color, sm-nav-bgc);
+          backdrop-filter: blur(5px);
+          box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+
+          &.deactive {
+            display: none;
+          }
+
+          .myPlaylist {
+            width: 100%;
+            padding: $base-space;
+            @include color-var(border-bottom, sm-nav-border);
+            font-weight: $font-bold;
+            cursor: pointer;
+
+            &:first-child {
+              padding: $base-space/2 $base-space;
+              opacity: 0.8;
+              font-weight: 400;
+              pointer-events: none;
+            }
+
+            &:last-child {
+              border-bottom: 0;
+            }
+          }
+        }
+
+        @keyframes fadeIn {
+          from {
+            opacity: 0;
+            transform: translateY(20px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+
+        .alertAdd {
+          position: absolute;
+          z-index: 1;
+          top: -100%;
+          left: 0;
+          padding: $base-space $base-space * 2;
+          @include color-var(background-color, addModal-color);
+          animation: fadeIn 0.5s ease-in-out;
+        }
       }
     }
   }
@@ -302,6 +360,30 @@
         grid-template-columns: 1fr;
         grid-template-rows: repeat(8, 1fr);
         font-size: $font-xsmall;
+
+        .music {
+          font-size: $font-xsmall;
+
+          .add {
+            margin-right: 3px;
+          }
+
+          .addModal {
+            width: 150px;
+            font-size: $font-xsmall;
+            right: 32px;
+            padding: $base-space/4 0;
+
+            .myPlaylist {
+              padding: $base-space * 2/3 $base-space;
+            }
+          }
+
+          .alertAdd {
+            font-size: $font-xsmall;
+            top: -90%;
+          }
+        }
       }
     }
   }

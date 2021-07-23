@@ -16,6 +16,7 @@
   --addPlaylist-btn: rgba(254, 254, 254, 0.7);
   --playlists-cover: url("../img/playlistCovers/lp3.png");
   --playlist-cover: url("../../img/playlistCovers/lp3.png");
+  --addModal-color: rgb(228, 223, 207);
 }
 
 :root[color-theme="dark"] {
@@ -36,6 +37,7 @@
   --addPlaylist-btn: rgba(187, 187, 187, 0.4);
   --playlists-cover: url("../img/playlistCovers/lp10.png");
   --playlist-cover: url("../../img/playlistCovers/lp10.png");
+  --addModal-color: rgb(14, 14, 34);
 }
 
 .search-wrap {
@@ -230,8 +232,8 @@
   width: 200px;
   position: absolute;
   z-index: 2;
-  right: 42px;
-  top: 36px;
+  right: 39px;
+  top: 42px;
   border-radius: 8px;
   padding: 8px 0;
   border: 1px solid rgba(255, 255, 255, 0.2);
@@ -293,12 +295,13 @@
   }
 }
 
-.search-wrap .alertAdd {
+.search-wrap .musicList .music .alertAdd {
   position: absolute;
-  top: 105%;
-  left: 30%;
+  z-index: 1;
+  top: -65%;
+  right: 5%;
   padding: 16px 32px;
-  background-color: #0e0e22;
+  background-color: var(--addModal-color, );
   -webkit-animation: fadeIn 0.5s ease-in-out;
           animation: fadeIn 0.5s ease-in-out;
 }
@@ -373,9 +376,8 @@
   .search-wrap .musicList .music .addModal .myPlaylist {
     padding: 10.66667px 16px;
   }
-  .search-wrap .alertAdd {
+  .search-wrap .musicList .alertAdd {
     font-size: 12px;
-    left: 15%;
   }
 }
 /*# sourceMappingURL=search.css.map */

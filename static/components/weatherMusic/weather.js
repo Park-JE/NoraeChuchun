@@ -111,7 +111,7 @@ const onGeoOk = (position) => {
           container.classList.add("active");
           container.append(...music);
           playMusic(container);
-          addMusic(music, container);
+          addMusic(container);
         })
         .catch(console.log);
     })

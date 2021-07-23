@@ -16,6 +16,7 @@
   --addPlaylist-btn: rgba(254, 254, 254, 0.7);
   --playlists-cover: url("../img/playlistCovers/lp3.png");
   --playlist-cover: url("../../img/playlistCovers/lp3.png");
+  --addModal-color: rgb(228, 223, 207);
 }
 
 :root[color-theme="dark"] {
@@ -36,6 +37,7 @@
   --addPlaylist-btn: rgba(187, 187, 187, 0.4);
   --playlists-cover: url("../img/playlistCovers/lp10.png");
   --playlist-cover: url("../../img/playlistCovers/lp10.png");
+  --addModal-color: rgb(14, 14, 34);
 }
 
 body {
