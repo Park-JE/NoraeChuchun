@@ -60,18 +60,23 @@ function delFriend(obj) {
   friendlist.removeChild(obj.parentNode);
 }
 
+//Cookie 써서 친구 정보 담아올라 했는데 왜 안되고 ㅅ지라라이양 ,,
+
+function setCookie(obj) {
+  const id = obj.innerText;
+  location.href = "friendplaylist.html";
+}
 //친구 추가
 //  친구 아이디 누르면 친구 플레이리스트로 이동해야하는데 
 function addFriend(obj) {
   const parent = obj.parentNode;
   const id = parent.querySelector(".find-id").innerText;
-  console.log(id);
   const name = parent.querySelector(".find-name").innerText;
 
   let str = `
   <div class="friend">
-    <a href="https://nochu.pw/myplaylist=${id}"class="id"><span class="fas fa-user">
-    </span>${id}</a>
+    <span onClick="setCookie(this)" class="id"><span class="fas fa-user">
+    </span>${id}</span>
     <span class="name">${name}</span>
     <span class="fas fa-trash-alt shareBtn" onclick="delFriend(this)">
     </span>
@@ -80,7 +85,6 @@ function addFriend(obj) {
   $(".friends").append(str);
   alert("친구추가 되었습니다😃");
 }
-
 //main
 loadUsers()
   .then((users) => {

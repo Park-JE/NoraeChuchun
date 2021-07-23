@@ -121,8 +121,10 @@
 
           .id {
             display: flex;
-            align-items: center;
-
+            align-items: center;            
+            &:hover{
+              cursor: pointer;              
+            }
             span {
               margin-right: 10px;
             }
