@@ -39,4 +39,3 @@ function getCookieArray(playlist) {
 
   return JSON.parse(playlistCookie);
 }
-const playlistWrap = document.querySelector(".playlist-wrap");
