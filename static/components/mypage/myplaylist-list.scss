@@ -44,6 +44,9 @@
       .playlist-tags {
         margin-top: 20px;
         font-size: 18px;
+        span{
+          margin-right: 10px;
+        }
       }
 
       .playlist-count {
@@ -126,6 +129,7 @@
       }
       .item {
         width: 90%;
+        height: 55px;
         display: grid;
         align-items: center;
         grid-template-columns: 1fr 3fr 3fr 3fr 55px;

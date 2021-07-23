@@ -99,6 +99,10 @@
   font-size: 18px;
 }
 
+.container .playlist-info .info .playlist-tags span {
+  margin-right: 10px;
+}
+
 .container .playlist-info .info .playlist-count {
   margin-top: 10px;
   display: -webkit-box;
@@ -200,6 +204,7 @@
 
 .container .content-wrap .items .item {
   width: 90%;
+  height: 55px;
   display: -ms-grid;
   display: grid;
   -webkit-box-align: center;

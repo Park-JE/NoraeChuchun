@@ -1,21 +1,41 @@
 //유저 음악정보 가져오기,, 
-function displayData() {
+function displayItems(items) {
+  items[0].tracks.forEach((music) => {
+    let str = `<div class="item">
+    <div class="cover"><img src="${music.track_image}" alt="coverImg"></div>
+    <div class="title">${music.track_name}</div>
+    <div class="artist">${music.track_artist}</div>
+    <div class="album">${music.track_album}</div>
+    <div class="remove material-icons-outlined" onclick="onButton(this)">delete_outline</div>
+    </div>`;
+    $(".items").append(str);
+  });
 
+  $(".playlist-title").html(items[0].title)
+  items[0].category.forEach((tag) => {
+    $(".playlist-tags").append(`<span>#${tag.tag}</span>`)
+  })
+  $(".count").html(`노래 ${items[0].tracks.length} 곡`)
 }
+
+
 function loadData() {
-  return fetch("https://nochu.pw/playlist_api/?uid=user&title=title")
+  //회원 정보에 따라 user이랑 title 변경 해야함 
+  return fetch("https://nochu.pw/playlist_api/playlist/?uid=user&title=title")
     .then(res => {
       console.log(res);
       return res.json();
     })
-    .then(data => {
-      console.log(data)
-    })
-    .catch(error => {
-      console.log("error", error)
-    });
 }
 
+// const data = loadData();
+// // displayData(data);
+
+loadData()
+  .then(items => {
+    console.log(items)
+    displayItems(items);
+  })
 
 
 const unlike = document.querySelector(".unlike");
