@@ -71,7 +71,6 @@ const onGeoOk = (position) => {
         return conditions[random];
       };
       const weatherParmValue = weatherParm();
-      console.log(weatherParmValue);
 
       const filterSongByWeather = (eachInfo, result) => {
         matchSeasonWithSong(eachInfo);

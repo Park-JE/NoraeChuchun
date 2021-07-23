@@ -106,8 +106,10 @@ const playMusic = (musicTable) => {
       });
       play.nextSibling.classList.toggle("active");
       play.previousElementSibling.play();
-      console.dir(play.previousElementSibling);
-      if (play.previousElementSibling.currentSrc.indexOf(null) !== -1) {
+      if (
+        play.previousElementSibling.currentSrc.indexOf(null) !== -1 ||
+        play.previousElementSibling.currentSrc.indexOf(undefined) !== -1
+      ) {
         const alertNoAudio = document.createElement("div");
         alertNoAudio.setAttribute("class", "alert-no-audio");
         alertNoAudio.textContent = "해당 음원은 미리듣기를 지원하지 않습니다 🥲";

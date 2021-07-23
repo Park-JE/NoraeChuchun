@@ -1,23 +1,19 @@
-playlistWrap.addEventListener("click", (e) => {
-  const clickedTarget = e.target.offsetParent;
-  if (clickedTarget.className === "playlist") {
-    const clickedList = newList.filter((list) => {
-      if (list.title === clickedTarget.innerText.split("\n")[0]) {
-        return list;
-      }
-    });
-    const targetListInfo = [
-      clickedList[0].title,
-      clickedList[0].musicList,
-      clickedList[0].mood,
-      clickedList[0].cover,
-    ];
-
-    setCookie("playlist", JSON.stringify(targetListInfo), 1);
-    window.location.href = "playlist.html";
-    displayPlaylistCookies();
-  }
-});
+// playlistWrap.addEventListener("click", (e) => {
+//   const info =
+//     e.target.parentNode.childNodes[2].childNodes[0].textContent.split("#");
+//   info.shift();
+//   let targetListInfo;
+//   if (e.target.parentNode.classList.contains("playlist")) {
+//     targetListInfo = {
+//       // id: e.target.parentNode.dataset.id,
+//       title: e.target.parentNode.childNodes[1].textContent,
+//       user: e.target.parentNode.dataset.user,
+//       // category: info,
+//     };
+//   }
+//   setCookie("playlist", JSON.stringify(targetListInfo), 1);
+//   window.location.href = "playlist.html";
+// });
 
 function getCookieArray(playlist) {
   const cookie = document.cookie;

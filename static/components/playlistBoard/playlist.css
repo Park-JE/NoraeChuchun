@@ -135,7 +135,11 @@ body .content-wrap .sort .name {
   padding-left: 16px;
 }
 
-body .content-wrap .music {
+body .content-wrap .sort.deactive {
+  display: none;
+}
+
+body .content-wrap .musicTable .music {
   width: 100%;
   font-size: 14px;
   padding: 5px 8px;
@@ -153,7 +157,7 @@ body .content-wrap .music {
           align-items: center;
 }
 
-body .content-wrap .music .content {
+body .content-wrap .musicTable .music .content {
   width: 100%;
   display: -ms-grid;
   display: grid;
@@ -163,9 +167,10 @@ body .content-wrap .music .content {
       -ms-flex-align: center;
           align-items: center;
   margin-right: 8px;
+  position: relative;
 }
 
-body .content-wrap .music .content .manipul {
+body .content-wrap .musicTable .music .content .manipul {
   position: absolute;
   width: 55px;
   height: 55px;
@@ -185,37 +190,37 @@ body .content-wrap .music .content .manipul {
   color: #eee;
 }
 
-body .content-wrap .music .content .manipul.play:hover {
+body .content-wrap .musicTable .music .content .manipul.play:hover {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
 }
 
-body .content-wrap .music .content .manipul.play.active {
+body .content-wrap .musicTable .music .content .manipul.playing.active {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
 }
 
-body .content-wrap .music .content .manipul.pause.active {
+body .content-wrap .musicTable .music .content .manipul.pause.active {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
 }
 
-body .content-wrap .music .content .cover {
+body .content-wrap .musicTable .music .content .cover {
   width: 55px;
   height: 55px;
   border-radius: 8px;
 }
 
-body .content-wrap .music .content .cover:hover ~ .play {
+body .content-wrap .musicTable .music .content .cover:hover ~ .play {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
 }
 
-body .content-wrap .music .content .info {
+body .content-wrap .musicTable .music .content .info {
   width: 100%;
   height: 80%;
   display: -ms-grid;
@@ -228,7 +233,7 @@ body .content-wrap .music .content .info {
   gap: 5px;
 }
 
-body .content-wrap .music .content .info .descrip {
+body .content-wrap .musicTable .music .content .info .descrip {
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: 1fr 1fr;
@@ -236,11 +241,11 @@ body .content-wrap .music .content .info .descrip {
   gap: 4px;
 }
 
-body .content-wrap .music .content .info .descrip .dot {
+body .content-wrap .musicTable .music .content .info .descrip .dot {
   display: none;
 }
 
-body .content-wrap .music .add {
+body .content-wrap .musicTable .music .add {
   outline: none;
   border: 0;
   background-color: transparent;
@@ -249,12 +254,13 @@ body .content-wrap .music .add {
   margin-right: 8px;
 }
 
-body .content-wrap .music .addModal {
+body .content-wrap .musicTable .music .addModal {
+  list-style: none;
   width: 200px;
   position: absolute;
   z-index: 2;
-  right: 42px;
-  top: 36px;
+  right: 39px;
+  top: 42px;
   border-radius: 8px;
   padding: 8px 0;
   border: 1px solid rgba(255, 255, 255, 0.2);
@@ -266,11 +272,11 @@ body .content-wrap .music .addModal {
           box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
 }
 
-body .content-wrap .music .addModal.deactive {
+body .content-wrap .musicTable .music .addModal.deactive {
   display: none;
 }
 
-body .content-wrap .music .addModal .myPlaylist {
+body .content-wrap .musicTable .music .addModal .myPlaylist {
   width: 100%;
   padding: 16px;
   border-bottom: 1px solid rgba(2, 2, 2, 0.2);
@@ -279,14 +285,14 @@ body .content-wrap .music .addModal .myPlaylist {
   cursor: pointer;
 }
 
-body .content-wrap .music .addModal .myPlaylist:first-child {
+body .content-wrap .musicTable .music .addModal .myPlaylist:first-child {
   padding: 8px 16px;
   opacity: 0.8;
   font-weight: 400;
   pointer-events: none;
 }
 
-body .content-wrap .music .addModal .myPlaylist:last-child {
+body .content-wrap .musicTable .music .addModal .myPlaylist:last-child {
   border-bottom: 0;
 }
 
@@ -316,12 +322,14 @@ body .content-wrap .music .addModal .myPlaylist:last-child {
   }
 }
 
-body .content-wrap .alertAdd {
+body .content-wrap .musicTable .music .alertAdd,
+body .content-wrap .musicTable .music .alert-no-audio {
   position: absolute;
-  top: 90%;
-  left: 30%;
+  z-index: 1;
+  top: -65%;
+  right: 5%;
   padding: 16px 32px;
-  background-color: #0e0e22;
+  background-color: var(--addModal-color, );
   -webkit-animation: fadeIn 0.5s ease-in-out;
           animation: fadeIn 0.5s ease-in-out;
 }
@@ -370,16 +378,16 @@ body .content-wrap .alertAdd {
   body .playlist-main .content-wrap .sort .album {
     display: none;
   }
-  body .playlist-main .content-wrap .music {
+  body .playlist-main .content-wrap .musicTable .music {
     font-size: 12px;
   }
-  body .playlist-main .content-wrap .music .content .info {
+  body .playlist-main .content-wrap .musicTable .music .content .info {
     -ms-grid-columns: 1fr;
         grid-template-columns: 1fr;
     -ms-grid-rows: 1fr 1fr;
         grid-template-rows: 1fr 1fr;
   }
-  body .playlist-main .content-wrap .music .content .info .descrip {
+  body .playlist-main .content-wrap .musicTable .music .content .info .descrip {
     display: -ms-flexbox;
     display: flex;
     -webkit-box-pack: start;
@@ -390,25 +398,25 @@ body .content-wrap .alertAdd {
     -webkit-line-clamp: 1;
     overflow: hidden;
   }
-  body .playlist-main .content-wrap .music .content .info .descrip .dot {
+  body .playlist-main .content-wrap .musicTable .music .content .info .descrip .dot {
     display: inline;
     margin: 0 3px;
   }
-  body .playlist-main .content-wrap .music .add {
+  body .playlist-main .content-wrap .musicTable .music .add {
     margin-right: 3px;
   }
-  body .playlist-main .content-wrap .addModal {
+  body .playlist-main .content-wrap .musicTable .music .addModal {
     width: 150px;
     font-size: 12px;
     right: 32px;
     padding: 4px 0;
   }
-  body .playlist-main .content-wrap .addModal .myPlaylist {
+  body .playlist-main .content-wrap .musicTable .music .addModal .myPlaylist {
     padding: 10.66667px 16px;
   }
-  body .playlist-main .alertAdd {
+  body .playlist-main .content-wrap .musicTable .alertAdd,
+  body .playlist-main .content-wrap .musicTable .alert-no-audio {
     font-size: 12px;
-    left: 15%;
   }
 }
 /*# sourceMappingURL=playlist.css.map */
