@@ -11,16 +11,14 @@
   <link rel="stylesheet" href="static/css/style.css" />
   <link rel="stylesheet" href="static/components/mypage/menu.css" />
   <link rel="stylesheet" href="static/components/mypage/myplaylist.css" />
-  <script defer src="static/components/mypage/myplaylist.js"></script>
+  <link rel="stylesheet" href="static/components/mypage/friendplaylist.css" />
+  <script defer src="static/components/mypage/friendplaylist.js"></script>
   <script defer src="static/components/navbar/navbar.js"></script>
   <script defer src="static/components/weatherMusic/music.js"></script>
   <script defer src="static/components/mainpage_playlist/mainpagePlaylist.js"></script>
   <script defer src="static/components/search/search.js"></script>
-  <script defer src="static/components/mypage/kakao.js"></script>
   <script defer src="https://code.jquery.com/jquery-3.6.0.min.js"
     integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-  <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
-  <script> Kakao.init('d22cb6b87d4211094563aa81f9b30874'); Kakao.isInitialized();</script>
   <title>날씨에 맞는 음악 추천</title>
 </head>
 
@@ -68,7 +66,7 @@
       <ul class="menu__list">
         <li class="list-group-item nonactive fas fa-key"><a href="mypage">비밀번호 변경</a>
         </li>
-        <li class="list-group-item active fas fa-music">
+        <li class="list-group-item nonactive fas fa-music">
           <a href="myplaylist">나의 플레이리스트</a>
         </li>
         <li class="list-group-item nonactive fas fa-user-plus">
@@ -80,23 +78,22 @@
       </ul>
     </div>
     <div class="myplaylist">
-      <h2>나만의 플레이리스트</h2>
+      <h2 class="friend_name">나만의 플레이리스트</h2>
       <ul class="myplaylist__list">
-        <li class="list-group-play">
+        <!-- <li class="list-group-play">
           <img class="myplaylist__thumnail" onclick="pageChange(this);" src="./static/img/albumCovers/92.jpg"
             alt="플레이리스트 이미지" />
           <div class="myplaylist__title">운동할때 들어야징</div>
           <span class="myplaylist__count">노래 9곡</span>
-
-        </li>
+        </li> -->
       </ul>
     </div>
 
   </div>
-
-  <form action="./myplaylist-list" id="playlist_title">
+  <form action="./friendplaylist-list.html" id="playlist_title">
     <input type="hidden" name="title" />
   </form>
+  <div class="empty"><i class="far fa-folder-open"></i>플레이리스트 생성을 하지 않았어요!</div>
   <div class="cover"></div>
   <div class="cover2"></div>
   <div class="bg-1"></div>
