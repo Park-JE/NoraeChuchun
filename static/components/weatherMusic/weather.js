@@ -97,13 +97,18 @@ const onGeoOk = (position) => {
             );
           });
           let newResult = [];
-          for (i = 0; i < 8; i++) {
-            const randomSong = removeDuplication.splice(
-              Math.floor(Math.random() * removeDuplication.length),
-              1
-            )[0];
-            newResult.push(randomSong);
+          if (result.length > 7) {
+            for (i = 0; i < 8; i++) {
+              const randomSong = removeDuplication.splice(
+                Math.floor(Math.random() * removeDuplication.length),
+                1
+              )[0];
+              newResult.push(randomSong);
+            }
+          } else {
+            newResult = result;
           }
+
           const music = newResult.map(createSong);
           const container = document.querySelector(
             ".recommendation .currentWeather-playlist"

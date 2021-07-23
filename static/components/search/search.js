@@ -3,14 +3,25 @@ const cancelBtn = navBar.querySelector(".searchAndLogin .close");
 const inputBox = navBar.querySelector(".searchAndLogin input");
 const searchWrap = document.querySelector(".search-wrap");
 
-// const loadPlaylistUrl = () => {
-//   return fetch(`https://nochu.pw//playlist_api/playlist/`, {
-//     headers: { "Content-Type": "application/json" },
-//   })
-//     .then((response) => response.json())
-//     .then((data) => console.log(data));
-// };
-// loadPlaylistUrl();
+function loadUserPlaylists() {
+  const config = {
+    headers: { Accept: "application/json" },
+  };
+  return fetch(
+    `https://nochu.pw/playlist_api/playlist?uid={{username}}`,
+    config
+  )
+    .then((response) => response.json())
+    .catch((error) => console.log("error", error));
+}
+let playlistCount;
+let playlistTitle = [];
+loadUserPlaylists().then((data) => {
+  playlistCount = data.length;
+  data.forEach((playlist) => {
+    playlistTitle.push(playlist.title);
+  });
+});
 
 const addMusic = (musicTable) => {
   const musicTableBtn = musicTable.querySelectorAll(".music .add");
@@ -27,20 +38,16 @@ const addMusic = (musicTable) => {
         });
         addModal = document.createElement("ul");
         addModal.setAttribute("class", "addModal");
-        // addModalHeader = document.createElement("li");
-        // addModalHeader.setAttribute("class", "myPlaylist");
-        // addModalHeader.textContent = "내 플레이리스트";
-        // addModal.append(addModalHeader);
-
-        // for(let i=0; i<json.length; i++){
-        //   addModalHeader = document.createElement("li");
-        //   addModalHeader = setAttribute("class", "myPlaylist");
-        //   addModalHeader.textContent = `${json.name}`;
-        //   addMoadl.append(addModalHeader);
-        // }
-        addModal.innerHTML = `<div class="myPlaylist">내 플레이리스트</div>
-          <div class="myPlaylist">운동할 때 들어야지</div>
-          <div class="myPlaylist">집갈 때 들어야지</div>`;
+        addModalHeader = document.createElement("li");
+        addModalHeader.setAttribute("class", "myPlaylist");
+        addModalHeader.textContent = "내 플레이리스트";
+        addModal.append(addModalHeader);
+        for (let i = 0; i < playlistCount; i++) {
+          addModalHeader = document.createElement("li");
+          addModalHeader.setAttribute("class", "myPlaylist");
+          addModalHeader.textContent = `${playlistTitle[i]}`;
+          addModal.append(addModalHeader);
+        }
         btn.after(addModal);
       }
 
