@@ -28,9 +28,6 @@ function loadData() {
     })
 }
 
-// const data = loadData();
-// // displayData(data);
-
 loadData()
   .then(items => {
     console.log(items)
