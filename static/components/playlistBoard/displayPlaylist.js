@@ -82,7 +82,8 @@ function onButtonClick(event, playlist) {
 function updateItems(value, playlist) {
   newPlaylist = [];
   playlist[0].forEach((item) => {
-    const mood = item.firstChild.dataset.mood.split(",");
+    const mood = item.childNodes[2].firstChild.textContent.split("#");
+    mood.shift();
     for (let i = 0; i < mood.length; i++) {
       if (mood[i] === value) {
         item.classList.remove("invisible");
@@ -92,6 +93,7 @@ function updateItems(value, playlist) {
         item.classList.add("invisible");
       }
     }
+    return;
   });
 
   showNewPlaylist([newPlaylist]);

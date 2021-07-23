@@ -34,7 +34,7 @@ resetBtn.addEventListener("click", (e) => {
 
   loadPlaylists()
     .then((data) => {
-      const playlist = data.playlists.map(createPlaylist);
+      const playlist = data.map(createPlaylist);
       const playlistWrap = document.querySelector(".playlist-wrap");
       while (playlistWrap.firstChild) {
         playlistWrap.removeChild(playlistWrap.firstChild);
