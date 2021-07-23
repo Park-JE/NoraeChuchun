@@ -135,7 +135,7 @@
 .container .share-main .title-wrap.active {
   display: block;
   width: 100%;
-  height: 450px;
+  height: 550px;
   color: #111;
   color: var(--font-color, #111);
 }
@@ -158,7 +158,7 @@
 
 .container .share-main .title-wrap.active .friends {
   width: 100%;
-  height: 400px;
+  height: 550px;
   overflow-y: scroll;
 }
 
@@ -225,7 +225,7 @@
 .container .share-main .find-wrap.active {
   display: block;
   width: 100%;
-  height: 450px;
+  height: 550px;
   color: #111;
   color: var(--font-color, #111);
 }
@@ -266,7 +266,7 @@
 
 .container .share-main .find-wrap.active .allUsers .allUser {
   overflow-y: scroll;
-  height: 400px;
+  height: 550px;
 }
 
 .container .share-main .find-wrap.active .allUsers .allUser::-webkit-scrollbar {

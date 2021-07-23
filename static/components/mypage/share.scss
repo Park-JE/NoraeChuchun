@@ -73,7 +73,7 @@
     .title-wrap.active {
       display: block;
       width: 100%;
-      height: 450px;
+      height: 550px;
       @include color-var(color, font-color);
 
       .sort {
@@ -89,7 +89,7 @@
 
       .friends {
         width: 100%;
-        height: 400px;
+        height: 550px;
 
         overflow-y: scroll;
         &::-webkit-scrollbar {
@@ -143,7 +143,7 @@
     .find-wrap.active {
       display: block;
       width: 100%;
-      height: 450px;
+      height: 550px;
       @include color-var(color, font-color);
 
       .findInput {
@@ -176,7 +176,7 @@
 
         .allUser {
           overflow-y: scroll;
-          height: 400px;
+          height: 550px;
 
           &::-webkit-scrollbar {
             width: 10px;
