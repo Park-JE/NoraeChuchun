@@ -147,8 +147,8 @@
         width: 200px;
         position: absolute;
         z-index: 2;
-        right: 42px;
-        top: 36px;
+        right: 39px;
+        top: 42px;
         border-radius: $border-small;
         padding: $base-space/2 0;
         border: 1px solid rgba(255, 255, 255, 0.2);
@@ -179,27 +179,28 @@
           }
         }
       }
-    }
-  }
 
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
 
-  .alertAdd {
-    position: absolute;
-    top: 105%;
-    left: 30%;
-    padding: $base-space $base-space * 2;
-    background-color: rgb(14, 14, 34);
-    animation: fadeIn 0.5s ease-in-out;
+      .alertAdd {
+        position: absolute;
+        z-index: 1;
+        top: -65%;
+        right: 5%;
+        padding: $base-space $base-space * 2;
+        @include color-var(background-color, addModal-color);
+        animation: fadeIn 0.5s ease-in-out;
+      }
+    }
   }
 }
 
@@ -281,11 +282,10 @@
           }
         }
       }
-    }
 
-    .alertAdd {
-      font-size: $font-xsmall;
-      left: 15%;
+      .alertAdd {
+        font-size: $font-xsmall;
+      }
     }
   }
 }

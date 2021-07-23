@@ -16,6 +16,7 @@
   --addPlaylist-btn: rgba(254, 254, 254, 0.7);
   --playlists-cover: url("../img/playlistCovers/lp3.png");
   --playlist-cover: url("../../img/playlistCovers/lp3.png");
+  --addModal-color: rgb(228, 223, 207);
 }
 
 :root[color-theme="dark"] {
@@ -36,6 +37,7 @@
   --addPlaylist-btn: rgba(187, 187, 187, 0.4);
   --playlists-cover: url("../img/playlistCovers/lp10.png");
   --playlist-cover: url("../../img/playlistCovers/lp10.png");
+  --addModal-color: rgb(14, 14, 34);
 }
 
 .recommendation-warp {
@@ -342,6 +344,84 @@
   margin: 0 8px;
 }
 
+.recommendation-warp .recommendation .currentWeather-playlist .music .addModal {
+  width: 190px;
+  position: absolute;
+  z-index: 2;
+  right: 32px;
+  top: 48px;
+  border-radius: 8px;
+  padding: 8px 0;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background-color: rgba(239, 222, 205, 0.9);
+  background-color: var(--sm-nav-bgc, rgba(239, 222, 205, 0.9));
+  -webkit-backdrop-filter: blur(5px);
+          backdrop-filter: blur(5px);
+  -webkit-box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.recommendation-warp .recommendation .currentWeather-playlist .music .addModal.deactive {
+  display: none;
+}
+
+.recommendation-warp .recommendation .currentWeather-playlist .music .addModal .myPlaylist {
+  width: 100%;
+  padding: 16px;
+  border-bottom: 1px solid rgba(2, 2, 2, 0.2);
+  border-bottom: var(--sm-nav-border, 1px solid rgba(2, 2, 2, 0.2));
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.recommendation-warp .recommendation .currentWeather-playlist .music .addModal .myPlaylist:first-child {
+  padding: 8px 16px;
+  opacity: 0.8;
+  font-weight: 400;
+  pointer-events: none;
+}
+
+.recommendation-warp .recommendation .currentWeather-playlist .music .addModal .myPlaylist:last-child {
+  border-bottom: 0;
+}
+
+@-webkit-keyframes fadeIn {
+  from {
+    opacity: 0;
+    -webkit-transform: translateY(20px);
+            transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    -webkit-transform: translateY(20px);
+            transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+}
+
+.recommendation-warp .recommendation .currentWeather-playlist .music .alertAdd {
+  position: absolute;
+  z-index: 1;
+  top: -100%;
+  left: 0;
+  padding: 16px 32px;
+  background-color: var(--addModal-color, );
+  -webkit-animation: fadeIn 0.5s ease-in-out;
+          animation: fadeIn 0.5s ease-in-out;
+}
+
 @media (min-width: 768px) and (max-width: 1023px) {
   .recommendation-warp {
     width: 680px;
@@ -416,6 +496,25 @@
     -ms-grid-rows: (1fr)[8];
         grid-template-rows: repeat(8, 1fr);
     font-size: 12px;
+  }
+  .recommendation-warp .recommendation .currentWeather-playlist .music {
+    font-size: 12px;
+  }
+  .recommendation-warp .recommendation .currentWeather-playlist .music .add {
+    margin-right: 3px;
+  }
+  .recommendation-warp .recommendation .currentWeather-playlist .music .addModal {
+    width: 150px;
+    font-size: 12px;
+    right: 32px;
+    padding: 4px 0;
+  }
+  .recommendation-warp .recommendation .currentWeather-playlist .music .addModal .myPlaylist {
+    padding: 10.66667px 16px;
+  }
+  .recommendation-warp .recommendation .currentWeather-playlist .music .alertAdd {
+    font-size: 12px;
+    top: -90%;
   }
 }
 /*# sourceMappingURL=weatherMusic.css.map */
