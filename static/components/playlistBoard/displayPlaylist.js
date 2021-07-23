@@ -4,23 +4,10 @@ function loadPlaylists() {
   const config = {
     headers: { Accept: "application/json" },
   };
-  return fetch("static/data/playlist.json", config)
+  return fetch(`https://nochu.pw/playlist_api/playlist`, config)
     .then((response) => response.json())
     .catch((error) => console.log("error", error));
 }
-
-loadPlaylists()
-  .then((data) => {
-    const playlists = data.playlists.map(createPlaylist);
-    playlistWrap.append(...playlists);
-    const playlistDiv = playlists.map((item) => item);
-    optionBtns.forEach((optionBtn) => {
-      optionBtn.addEventListener("click", (event) => {
-        onButtonClick(event, [playlistDiv]);
-      });
-    });
-  })
-  .catch(console.log);
 
 function showNewPlaylist(list) {
   while (playlistWrap.firstChild) {
@@ -49,12 +36,14 @@ function createPlaylist(playlist) {
 
   const filter1 = document.createElement("span");
   filter1.setAttribute("class", "filter");
-  filter1.innerText = `#${playlist.mood[0]}`;
+  if (playlist.category[0] !== undefined) {
+    filter1.innerText = `#${playlist.category[0].tag}`;
+  }
 
   const filter2 = document.createElement("span");
   filter2.setAttribute("class", "filter");
-  if (playlist.mood[1] !== undefined) {
-    filter2.innerText = `#${playlist.mood[1]}`;
+  if (playlist.category[1] !== undefined) {
+    filter2.innerText = `#${playlist.category[1].tag}`;
   }
 
   const songs = document.createElement("div");
@@ -65,7 +54,7 @@ function createPlaylist(playlist) {
 
   const count = document.createElement("span");
   count.setAttribute("class", "count");
-  count.innerText = `${playlist.musicList.length}곡`;
+  count.innerText = `${playlist.tracks.length}곡`;
 
   songs.append(icon);
   songs.append(count);
@@ -93,7 +82,8 @@ function onButtonClick(event, playlist) {
 function updateItems(value, playlist) {
   newPlaylist = [];
   playlist[0].forEach((item) => {
-    const mood = item.firstChild.dataset.mood.split(",");
+    const mood = item.childNodes[2].firstChild.textContent.split("#");
+    mood.shift();
     for (let i = 0; i < mood.length; i++) {
       if (mood[i] === value) {
         item.classList.remove("invisible");
@@ -103,6 +93,7 @@ function updateItems(value, playlist) {
         item.classList.add("invisible");
       }
     }
+    return;
   });
 
   showNewPlaylist([newPlaylist]);

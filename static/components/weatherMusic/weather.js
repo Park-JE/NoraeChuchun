@@ -71,6 +71,8 @@ const onGeoOk = (position) => {
         return conditions[random];
       };
       const weatherParmValue = weatherParm();
+      // console.log(weatherParmValue);
+
       const filterSongByWeather = (eachInfo, result) => {
         matchSeasonWithSong(eachInfo);
         matchTimeWithSong(eachInfo);
@@ -97,13 +99,18 @@ const onGeoOk = (position) => {
             );
           });
           let newResult = [];
-          for (i = 0; i < 8; i++) {
-            const randomSong = removeDuplication.splice(
-              Math.floor(Math.random() * removeDuplication.length),
-              1
-            )[0];
-            newResult.push(randomSong);
+          if (result.length > 7) {
+            for (i = 0; i < 8; i++) {
+              const randomSong = removeDuplication.splice(
+                Math.floor(Math.random() * removeDuplication.length),
+                1
+              )[0];
+              newResult.push(randomSong);
+            }
+          } else {
+            newResult = result;
           }
+
           const music = newResult.map(createSong);
           const container = document.querySelector(
             ".recommendation .currentWeather-playlist"
@@ -112,6 +119,28 @@ const onGeoOk = (position) => {
           container.append(...music);
           playMusic(container);
           addMusic(container);
+        })
+        .catch(console.log);
+
+      loadPlaylists()
+        .then((data) => {
+          playlistResult = [];
+          data.map((playlist) => {
+            playlist.category.forEach((mood) => {
+              if (mood.tag && mood.tag === weatherParmValue) {
+                playlistResult.push(playlist);
+              }
+            });
+          });
+          const playlists = playlistResult.map(createPlaylist);
+          playlistWrap.append(...playlists);
+          optionBtns.forEach((optionBtn) => {
+            optionBtn.addEventListener("click", (event) => {
+              const allPlaylists = data.map(createPlaylist);
+              const allPlaylistDiv = allPlaylists.map((item) => item);
+              onButtonClick(event, [allPlaylistDiv]);
+            });
+          });
         })
         .catch(console.log);
     })
