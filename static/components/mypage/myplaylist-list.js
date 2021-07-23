@@ -19,36 +19,30 @@ function displayItems(items) {
 }
 
 var getCookie = function (name) {
-  var value = document.cookie.match('(^|;) ?' + name + '=([^;]*)(;|$)');
+  var value = document.cookie.match("(^|;) ?" + name + "=([^;]*)(;|$)");
   return value ? value[2] : null;
 };
 
 function loadData() {
-  //회원 정보에 따라 user이랑 title 변경 해야함 
-  //cookie 값 활용해서 친구 playlist에 들어가는 거 까진 했는데,, 
+  //회원 정보에 따라 user이랑 title 변경 해야함
+  //cookie 값 활용해서 친구 playlist에 들어가는 거 까진 했는데,,
   const user = getCookie("user");
   const title = getCookie("playlist");
-  return fetch(`https://nochu.pw/playlist_api/playlist/?uid=user&title=${title}`)
-    .then(res => {
-      console.log(res);
-      return res.json();
-    })
-function loadData() {
-  //회원 정보에 따라 user이랑 title 변경 해야함
   return fetch(
-    "https://nochu.pw/playlist_api/playlist/?uid=user&title=title"
+    `https://nochu.pw/playlist_api/playlist/?uid=user&title=${title}`
   ).then((res) => {
     console.log(res);
     return res.json();
   });
 }
 
-loadData()
-  .then(items => {
-    console.log(items)
-    displayItems(items);
-  })
+// const data = loadData();
+// // displayData(data);
 
+loadData().then((items) => {
+  console.log(items);
+  displayItems(items);
+});
 
 const unlike = document.querySelector(".unlike");
 const like = document.querySelector(".like");
