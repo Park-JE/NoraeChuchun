@@ -101,12 +101,6 @@ function updateItems(value, playlist) {
 }
 
 //move to playlist
-// const pageChange = (target) => {
-//   const form = document.getElementById("playlist_form");
-//   form.title.value = target.parentNode.childNodes[1].textContent;
-//   form.submit();
-// };
-
 playlistWrap.addEventListener("click", (e) => {
   if (e.target.parentNode.classList.contains("playlist")) {
     document.cookie = `playlist=${e.target.parentNode.childNodes[1].textContent}`;
@@ -114,5 +108,3 @@ playlistWrap.addEventListener("click", (e) => {
   }
   window.location.href = "friendplaylist-list.html";
 });
-
-// console.log(dc)
