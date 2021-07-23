@@ -18,7 +18,6 @@ function displayItems(items) {
   $(".count").html(`노래 ${items[0].tracks.length} 곡`);
 }
 
-<<<<<<< HEAD
 var getCookie = function (name) {
   var value = document.cookie.match('(^|;) ?' + name + '=([^;]*)(;|$)');
   return value ? value[2] : null;
@@ -34,19 +33,8 @@ function loadData() {
       console.log(res);
       return res.json();
     })
-=======
-function loadData() {
-  //회원 정보에 따라 user이랑 title 변경 해야함
-  return fetch(
-    "https://nochu.pw/playlist_api/playlist/?uid=user&title=title"
-  ).then((res) => {
-    console.log(res);
-    return res.json();
-  });
->>>>>>> b88e1368e94f647e997b25af283a116f6cc1105f
 }
 
-<<<<<<< HEAD
 // const data = loadData();
 // // displayData(data);
 
@@ -54,14 +42,6 @@ loadData().then((items) => {
   console.log(items);
   displayItems(items);
 });
-=======
-loadData()
-  .then(items => {
-    console.log(items)
-    displayItems(items);
-  })
-
->>>>>>> 663a90de77235f53368a82839d4bf25d68c66c8a
 
 const unlike = document.querySelector(".unlike");
 const like = document.querySelector(".like");
