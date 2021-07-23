@@ -1,4 +1,4 @@
-//유저 음악정보 가져오기,, 
+//유저 음악정보 가져오기,,
 function displayItems(items) {
   items[0].tracks.forEach((music) => {
     let str = `<div class="item">
@@ -11,46 +11,43 @@ function displayItems(items) {
     $(".items").append(str);
   });
 
-  $(".playlist-title").html(items[0].title)
+  $(".playlist-title").html(items[0].title);
   items[0].category.forEach((tag) => {
-    $(".playlist-tags").append(`<span>#${tag.tag}</span>`)
-  })
-  $(".count").html(`노래 ${items[0].tracks.length} 곡`)
+    $(".playlist-tags").append(`<span>#${tag.tag}</span>`);
+  });
+  $(".count").html(`노래 ${items[0].tracks.length} 곡`);
 }
 
-
 function loadData() {
-  //회원 정보에 따라 user이랑 title 변경 해야함 
-  return fetch("https://nochu.pw/playlist_api/playlist/?uid=user&title=title")
-    .then(res => {
-      console.log(res);
-      return res.json();
-    })
+  //회원 정보에 따라 user이랑 title 변경 해야함
+  return fetch(
+    "https://nochu.pw/playlist_api/playlist/?uid=user&title=title"
+  ).then((res) => {
+    console.log(res);
+    return res.json();
+  });
 }
 
 // const data = loadData();
 // // displayData(data);
 
-loadData()
-  .then(items => {
-    console.log(items)
-    displayItems(items);
-  })
-
+loadData().then((items) => {
+  console.log(items);
+  displayItems(items);
+});
 
 const unlike = document.querySelector(".unlike");
 const like = document.querySelector(".like");
 function onButton(obj) {
   const parent = obj.parentNode;
-  parent.parentNode.removeChild(parent)
+  parent.parentNode.removeChild(parent);
 }
 
 unlike.addEventListener("click", () => {
   unlike.classList.remove("active");
-  like.classList.add("active")
-})
+  like.classList.add("active");
+});
 like.addEventListener("click", () => {
   like.classList.remove("active");
   unlike.classList.add("active");
-})
-
+});

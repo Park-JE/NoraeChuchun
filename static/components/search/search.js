@@ -3,6 +3,15 @@ const cancelBtn = navBar.querySelector(".searchAndLogin .close");
 const inputBox = navBar.querySelector(".searchAndLogin input");
 const searchWrap = document.querySelector(".search-wrap");
 
+// const loadPlaylistUrl = () => {
+//   return fetch(`https://nochu.pw//playlist_api/playlist/`, {
+//     headers: { "Content-Type": "application/json" },
+//   })
+//     .then((response) => response.json())
+//     .then((data) => console.log(data));
+// };
+// loadPlaylistUrl();
+
 const addMusic = (musicTable) => {
   const musicTableBtn = musicTable.querySelectorAll(".music .add");
   musicTableBtn.forEach((btn) => {
@@ -22,11 +31,7 @@ const addMusic = (musicTable) => {
         // addModalHeader.setAttribute("class", "myPlaylist");
         // addModalHeader.textContent = "내 플레이리스트";
         // addModal.append(addModalHeader);
-        fetch(`https://nochu.pw//playlist_api/playlist/17/add_record/`, {
-          method: "PATCH",
-          headers: { "Content-Type": "application/json" },
-        }).then((response) => response.json());
-        then((data) => console.log(data));
+
         // for(let i=0; i<json.length; i++){
         //   addModalHeader = document.createElement("li");
         //   addModalHeader = setAttribute("class", "myPlaylist");
