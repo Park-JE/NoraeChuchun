@@ -64,6 +64,7 @@ function delFriend(obj) {
 
 function setCookie(obj) {
   const id = obj.innerText;
+  document.cookie = "friend_name" + "=" + id;
   location.href = "friendplaylist.html";
 }
 //친구 추가
