@@ -156,7 +156,7 @@ li {
           width: 200px;
           height: 200px;
           border-radius: 10px;
-          background: #28243a;
+          @include color-var(background-color, add-newPlaylist);
           align-items: center;
           justify-content: center;
 
@@ -374,7 +374,6 @@ li {
   background-color: none;
   z-index: 1;
 }
-
 
 @media screen and (max-width: 768px) {
   .container {
