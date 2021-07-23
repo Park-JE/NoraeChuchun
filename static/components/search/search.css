@@ -229,6 +229,7 @@
 }
 
 .search-wrap .musicList .music .addModal {
+  list-style: none;
   width: 200px;
   position: absolute;
   z-index: 2;
@@ -295,7 +296,8 @@
   }
 }
 
-.search-wrap .musicList .music .alertAdd {
+.search-wrap .musicList .music .alertAdd,
+.search-wrap .musicList .music .alert-no-audio {
   position: absolute;
   z-index: 1;
   top: -65%;
@@ -376,7 +378,8 @@
   .search-wrap .musicList .music .addModal .myPlaylist {
     padding: 10.66667px 16px;
   }
-  .search-wrap .musicList .alertAdd {
+  .search-wrap .musicList .alertAdd,
+  .search-wrap .musicList .alert-no-audio {
     font-size: 12px;
   }
 }

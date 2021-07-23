@@ -228,6 +228,7 @@
         }
 
         .addModal {
+          list-style: none;
           width: 190px;
           position: absolute;
           z-index: 2;
@@ -275,7 +276,8 @@
           }
         }
 
-        .alertAdd {
+        .alertAdd,
+        .alert-no-audio {
           position: absolute;
           z-index: 1;
           top: -100%;
@@ -379,7 +381,8 @@
             }
           }
 
-          .alertAdd {
+          .alertAdd,
+          .alert-no-audio {
             font-size: $font-xsmall;
             top: -90%;
           }

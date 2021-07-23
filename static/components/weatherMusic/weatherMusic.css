@@ -345,6 +345,7 @@
 }
 
 .recommendation-warp .recommendation .currentWeather-playlist .music .addModal {
+  list-style: none;
   width: 190px;
   position: absolute;
   z-index: 2;
@@ -411,7 +412,8 @@
   }
 }
 
-.recommendation-warp .recommendation .currentWeather-playlist .music .alertAdd {
+.recommendation-warp .recommendation .currentWeather-playlist .music .alertAdd,
+.recommendation-warp .recommendation .currentWeather-playlist .music .alert-no-audio {
   position: absolute;
   z-index: 1;
   top: -100%;
@@ -512,7 +514,8 @@
   .recommendation-warp .recommendation .currentWeather-playlist .music .addModal .myPlaylist {
     padding: 10.66667px 16px;
   }
-  .recommendation-warp .recommendation .currentWeather-playlist .music .alertAdd {
+  .recommendation-warp .recommendation .currentWeather-playlist .music .alertAdd,
+  .recommendation-warp .recommendation .currentWeather-playlist .music .alert-no-audio {
     font-size: 12px;
     top: -90%;
   }

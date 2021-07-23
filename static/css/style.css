@@ -769,6 +769,7 @@ nav .searchAndLogin .ellipsis {
 }
 
 .recommendation-warp .recommendation .currentWeather-playlist .music .addModal {
+  list-style: none;
   width: 190px;
   position: absolute;
   z-index: 2;
@@ -835,7 +836,8 @@ nav .searchAndLogin .ellipsis {
   }
 }
 
-.recommendation-warp .recommendation .currentWeather-playlist .music .alertAdd {
+.recommendation-warp .recommendation .currentWeather-playlist .music .alertAdd,
+.recommendation-warp .recommendation .currentWeather-playlist .music .alert-no-audio {
   position: absolute;
   z-index: 1;
   top: -100%;
@@ -936,7 +938,8 @@ nav .searchAndLogin .ellipsis {
   .recommendation-warp .recommendation .currentWeather-playlist .music .addModal .myPlaylist {
     padding: 10.66667px 16px;
   }
-  .recommendation-warp .recommendation .currentWeather-playlist .music .alertAdd {
+  .recommendation-warp .recommendation .currentWeather-playlist .music .alertAdd,
+  .recommendation-warp .recommendation .currentWeather-playlist .music .alert-no-audio {
     font-size: 12px;
     top: -90%;
   }
@@ -1539,6 +1542,7 @@ nav .searchAndLogin .ellipsis {
 }
 
 .search-wrap .musicList .music .addModal {
+  list-style: none;
   width: 200px;
   position: absolute;
   z-index: 2;
@@ -1592,7 +1596,8 @@ nav .searchAndLogin .ellipsis {
   }
 }
 
-.search-wrap .musicList .music .alertAdd {
+.search-wrap .musicList .music .alertAdd,
+.search-wrap .musicList .music .alert-no-audio {
   position: absolute;
   z-index: 1;
   top: -65%;
@@ -1673,7 +1678,8 @@ nav .searchAndLogin .ellipsis {
   .search-wrap .musicList .music .addModal .myPlaylist {
     padding: 10.66667px 16px;
   }
-  .search-wrap .musicList .alertAdd {
+  .search-wrap .musicList .alertAdd,
+  .search-wrap .musicList .alert-no-audio {
     font-size: 12px;
   }
 }
