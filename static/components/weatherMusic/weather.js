@@ -20,6 +20,10 @@ const onGeoOk = (position) => {
   const lon = position.coords.longitude;
   const API_KEY = "1f8df0d58280f08cfe4b490e40aceb02";
   const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${API_KEY}&units=metric`;
+  const recommendation = document.querySelector(".recommendation");
+  const weatherMAIN = recommendation.querySelector(".weather");
+
+  const loading = recommendation.querySelector(".loading");
   fetch(url)
     .then((response) => response.json())
     .then((data) => {
@@ -40,19 +44,14 @@ const onGeoOk = (position) => {
       return cityWeather;
     })
     .then((cityWeather) => {
-      const recommendation = document.querySelector(".recommendation");
-      const weather = recommendation.querySelector(".weather");
-      const icon = weather.querySelector(".icon");
-      const temp = weather.querySelector(".temperature");
-      const loc = weather.querySelector(".location");
-      const state = weather.querySelector(".state");
+      const icon = weatherMAIN.querySelector(".icon");
+      const temp = weatherMAIN.querySelector(".temperature");
+      const loc = weatherMAIN.querySelector(".location");
+      const state = weatherMAIN.querySelector(".state");
       icon.src = `http://openweathermap.org/img/wn/${cityWeather.weatherIcon}@2x.png`;
       temp.textContent = `${cityWeather.cityTemp}°C`;
       loc.textContent = cityWeather.cityName;
       state.textContent = cityWeather.cityCondDescription;
-      const loading = recommendation.querySelector(".loading");
-      loading.classList.add("deactive");
-      weather.classList.add("active");
       return [
         cityWeather.cityTemp,
         cityWeather.cityCond,
@@ -114,6 +113,9 @@ const onGeoOk = (position) => {
           const container = document.querySelector(
             ".recommendation .currentWeather-playlist"
           );
+
+          loading.classList.add("deactive");
+          weatherMAIN.classList.add("active");
           container.classList.add("active");
           container.append(...music);
           playMusic(container);

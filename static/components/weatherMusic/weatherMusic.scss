@@ -320,6 +320,12 @@
         width: 95%;
         height: fit-content;
         margin-top: 30px;
+
+        .alertAdd,
+        .alert-no-audio {
+          width: 320px;
+          padding: $base-space/2 $base-space;
+        }
       }
     }
   }
