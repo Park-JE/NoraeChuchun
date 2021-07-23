@@ -58,8 +58,6 @@ function addPlaylist() {
 }
 
 function loadData() {
-  //회원 정보에 따라 user이랑 title 변경 해야함 
-  //cookie 값 활용해서 친구 playlist에 들어가는 거 까진 했는데,, 
   const id = getCookie("user");
   return fetch(`https://nochu.pw/playlist_api/playlist/?uid=${id}`)
     .then(res => {
@@ -79,8 +77,8 @@ function displayItems(items) {
     <ul>
       <li class="list-open"><span class="fas fa-lock-open"></span>공개</li>
       <li class="list-close"><span class="fas fa-lock"></span>비공개</li>
-      <li class="list-share"><span class="fas fa-share-alt"></span>재생목록 공유</li>
-      <li class="list-modify"><span class="fas fa-edit"></span>재생목록 수정</li>
+      <li class="list-share" onclick="kakaoShare(this);"><span class="fas fa-share-alt"></span>재생목록 공유</li>
+      <li class="list-modify"  ><span class="fas fa-edit"></span>재생목록 수정</li>
       <li class="list-remove"><span class="fas fa-trash"></span>재생목록 삭제
       </li>
     </ul>
@@ -90,13 +88,22 @@ function displayItems(items) {
   $(".myplaylist__list").append(str);
 };
 
-
+var getFormUid = function (name) {
+  var value = document.cookie.match('(^|;) ?' + name + '=([^;]*)(;|$)');
+  return value ? value[2] : null;
+};
 function kakaoShare(obj) {
-  loadUserInfo()
-  const parent = obj.parentNode.parentNode.parentNode;
-  let title = parent.children[2].innerHTML;
-  //uid 정보 어케 불러오지 ?  
-  let targetTitle = `https://nochu.pw/playlist_api/?uid=&title=title`
+  //form 전송 까지는 완료 ,,, 
+  const form = document.getElementById("playlist_title");
+  const form_uid = document.getElementById("form_uid");
+  const form_playlist = document.getElementById("form_playlist");
+  const title = obj.parentNode.parentNode.parentNode.children[2].innerHTML;
+  const id = getFormUid("user")
+  console.log(id)
+
+  console.log("gg")
+  // uid 정보 어케 불러오지 ?
+  let targetTitle = `http://127.0.0.1:5500/friendplaylist-list.html?uid=${id}&playlist=${title}`;
   console.log(targetTitle)
   Kakao.Link.sendDefault({
     objectType: 'feed',
@@ -120,6 +127,9 @@ function kakaoShare(obj) {
       }
     ]
   });
+  form_uid.value = user
+  form_playlist.value = title;
+  form.submit();
 }
 function pageChange(obj) {
   const title = obj.parentNode.children[2].innerHTML;

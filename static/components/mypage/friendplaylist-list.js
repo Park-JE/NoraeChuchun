@@ -104,18 +104,26 @@ var getCookie = function (name) {
   return value ? value[2] : null;
 };
 
+function searchParam(key) {
+  return new URLSearchParams(location.search).get(key);
+};
+
 function loadData() {
   //회원 정보에 따라 user이랑 title 변경 해야함
   //cookie 값 활용해서 친구 playlist에 들어가는 거 까진 했는데,,
-  const id = getCookie("friend_name");
-  const title = getCookie("playlist");
+  let id = getCookie("friend_name");
+  let title = getCookie("playlist");
+  if (id == null && title == null) {
+    id = searchParam("uid")
+    title = searchParam("playlist")
+    console.log(id, title)
+  }
   return fetch(
     `https://nochu.pw/playlist_api/playlist/?uid=${id}&title=${title}`
   ).then((res) => {
     return res.json();
   });
 }
-
 loadData().then((items) => {
   displayItems(items);
 });
