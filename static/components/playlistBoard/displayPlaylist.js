@@ -99,19 +99,6 @@ function updateItems(value, playlist) {
   showNewPlaylist([newPlaylist]);
 }
 
-loadPlaylists()
-  .then((data) => {
-    const playlists = data.map(createPlaylist);
-    playlistWrap.append(...playlists);
-    const playlistDiv = playlists.map((item) => item);
-    optionBtns.forEach((optionBtn) => {
-      optionBtn.addEventListener("click", (event) => {
-        onButtonClick(event, [playlistDiv]);
-      });
-    });
-  })
-  .catch(console.log);
-
 //move to playlist
 const pageChange = (target) => {
   const form = document.getElementById("playlist_form");

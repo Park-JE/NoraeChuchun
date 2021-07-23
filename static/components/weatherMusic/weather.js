@@ -71,6 +71,8 @@ const onGeoOk = (position) => {
         return conditions[random];
       };
       const weatherParmValue = weatherParm();
+      // console.log(weatherParmValue);
+
       const filterSongByWeather = (eachInfo, result) => {
         matchSeasonWithSong(eachInfo);
         matchTimeWithSong(eachInfo);
@@ -117,6 +119,28 @@ const onGeoOk = (position) => {
           container.append(...music);
           playMusic(container);
           addMusic(container);
+        })
+        .catch(console.log);
+
+      loadPlaylists()
+        .then((data) => {
+          playlistResult = [];
+          data.map((playlist) => {
+            playlist.category.forEach((mood) => {
+              if (mood.tag && mood.tag === weatherParmValue) {
+                playlistResult.push(playlist);
+              }
+            });
+          });
+          const playlists = playlistResult.map(createPlaylist);
+          playlistWrap.append(...playlists);
+          optionBtns.forEach((optionBtn) => {
+            optionBtn.addEventListener("click", (event) => {
+              const allPlaylists = data.map(createPlaylist);
+              const allPlaylistDiv = allPlaylists.map((item) => item);
+              onButtonClick(event, [allPlaylistDiv]);
+            });
+          });
         })
         .catch(console.log);
     })
