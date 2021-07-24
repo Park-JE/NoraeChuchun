@@ -34,59 +34,70 @@ function addPlaylist() {
   } else {
     let str =
       `<li class="list-group-play">
-    <div class="myplaylist__thumnail" onclick="pageChange(this);"></div>
-    <div class="fas fa-caret-down myplaylist-menu" onclick="displayMenu(this);"></div>
-    <div class="myplaylist__title">` +
-      title.value +
-      `</div>
-    <span class="myplaylist__count">노래 9곡</span>
-    <div class="menu-list">
-      <ul>
-        <li class="list-open"><span class="fas fa-lock-open"></span>공개</li>
-        <li class="list-close"><span class="fas fa-lock"></span>비공개</li>
-        <li class="list-share" onClick="kakaoShare(this)"><span class="fas fa-share-alt"></span>재생목록 공유</li>
-        <li class="list-modify"><span class="fas fa-edit"></span>재생목록 수정</li>
-        <li class="list-remove"><span class="fas fa-trash"></span>재생목록 삭제</li>
-      </ul>
-    </div>
-    <span class="fas fa-lock lock-state"></span>
-  </li>`;
+      <div class="myplaylist__thumnail" onclick="pageChange(this);"></div>
+      <div class="fas fa-caret-down myplaylist-menu" onclick="displayMenu(this);" aria-hidden="true"></div>
+      <div class="myplaylist__title">${title.value}</div>
+      <span class="myplaylist__count">노래 0곡</span>
+      <div class="menu-list">
+        <ul>
+          <li class="list-open"><span class="fas fa-lock-open" aria-hidden="true"></span>공개</li>
+          <li class="list-close"><span class="fas fa-lock" aria-hidden="true"></span>비공개</li>
+          <li class="list-share" onclick="kakaoShare(this)"><span class="fas fa-share-alt" aria-hidden="true"></span>재생목록 공유</li>
+          <li class="list-modify"><span class="fas fa-edit" aria-hidden="true"></span>재생목록 수정</li>
+          <li class="list-remove"><span class="fas fa-trash" aria-hidden="true"></span>재생목록 삭제</li>
+        </ul>
+      </div>
+      <span class="fas fa-lock lock-state" aria-hidden="true"></span>
+    </li>`;
     $(".myplaylist__list").append(str);
 
     cover.classList.remove("active");
     modal.classList.remove("active");
     title.value = "";
+    //fetch 추가 
+    // var playlists = new Array();
+    // var playlist = new Object();
+    // playlist.username = getCookie("user");
+    // playlists.push(playlist)
+    // console.log('{{csrf_token}}')
+    // fetch(`https://nochu.pw/api/playlist/${getCookie("user")}/add/`, {
+    //   method: "POST",
+    //   headers: {
+    //     "X-CSRFToken": '{{csrf_token}}',
+    //     "Content-Type": "application/json",
+    //   },
+    //   body: JSON.stringify({
+    //     playlists: playlists,
+    //   }),
+    // })
+    //   .then((response) => response.json())
+    //   .then((data) => console.log(data));
   }
 }
 
-function loadData() {
+async function loadData() {
   const id = getCookie("user");
-  return fetch(`https://nochu.pw/api/playlist/?uid=${id}`).then(
-    (res) => {
-      console.log(res);
-      return res.json();
-    }
-  );
+  const res = await fetch(`https://nochu.pw/api/playlist/?uid=${id}`);
+  console.log(res);
+  return await res.json();
 }
 
 function displayItems(items) {
   let str = `<li class="list-group-play">
-  <img class="myplaylist__thumnail" onclick="pageChange(this);" src="${items.tracks[0].track_image}"
-    alt="플레이리스트 이미지" />
-  <div class="fas fa-caret-down myplaylist-menu" onclick="displayMenu(this);"></div>
+  <div class="myplaylist__thumnail" onclick="pageChange(this);"></div>
+  <div class="fas fa-caret-down myplaylist-menu" onclick="displayMenu(this);" aria-hidden="true"></div>
   <div class="myplaylist__title">${items.title}</div>
   <span class="myplaylist__count">노래 ${items.tracks.length}곡</span>
   <div class="menu-list">
     <ul>
-      <li class="list-open"><span class="fas fa-lock-open"></span>공개</li>
-      <li class="list-close"><span class="fas fa-lock"></span>비공개</li>
-      <li class="list-share" onclick="kakaoShare(this);"><span class="fas fa-share-alt"></span>재생목록 공유</li>
-      <li class="list-modify"  ><span class="fas fa-edit"></span>재생목록 수정</li>
-      <li class="list-remove"><span class="fas fa-trash"></span>재생목록 삭제
-      </li>
+      <li class="list-open"><span class="fas fa-lock-open" aria-hidden="true"></span>공개</li>
+      <li class="list-close"><span class="fas fa-lock" aria-hidden="true"></span>비공개</li>
+      <li class="list-share" onclick="kakaoShare(this)"><span class="fas fa-share-alt" aria-hidden="true"></span>재생목록 공유</li>
+      <li class="list-modify"><span class="fas fa-edit" aria-hidden="true"></span>재생목록 수정</li>
+      <li class="list-remove"><span class="fas fa-trash" aria-hidden="true"></span>재생목록 삭제</li>
     </ul>
   </div>
-  <span class="fas fa-lock lock-state"></span>
+  <span class="fas fa-lock lock-state" aria-hidden="true"></span>
 </li>`;
   $(".myplaylist__list").append(str);
 }
@@ -102,10 +113,7 @@ function kakaoShare(obj) {
   const form_playlist = document.getElementById("form_playlist");
   const title = obj.parentNode.parentNode.parentNode.children[2].innerHTML;
   const id = getFormUid("user");
-  console.log(id);
 
-  console.log("gg");
-  // uid 정보 어케 불러오지 ?
   let targetTitle = `http://127.0.0.1:5500/friendplaylist-list.html?uid=${id}&playlist=${title}`;
   console.log(targetTitle);
   Kakao.Link.sendDefault({
@@ -166,7 +174,6 @@ function displayMenu(obj) {
   remove.addEventListener("click", () => {
     myplaylist_list.removeChild(obj.parentNode);
   });
-  //공유랑 수정,,, 해야함
 }
 
 loadData().then((items) => {
