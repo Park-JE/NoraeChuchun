@@ -79,7 +79,7 @@
       .sort {
         width: 100%;
         display: grid;
-        grid-template-columns: 3fr 3fr 1fr 40px;
+        grid-template-columns: 5fr 1fr;
         column-gap: 5px;
         @include color-var(border-top, sm-nav-border);
         @include color-var(border-bottom, sm-nav-border);
@@ -111,7 +111,7 @@
           line-height: 3;
           width: 100%;
           display: grid;
-          grid-template-columns: 3fr 3fr 1fr 40px;
+          grid-template-columns: 5fr 1fr;
           column-gap: 5px;
           align-items: center;
           justify-items: flex-start;
@@ -163,7 +163,7 @@
       .sort {
         width: 100%;
         display: grid;
-        grid-template-columns: 3fr 3fr 1fr 40px;
+        grid-template-columns: 5fr 1fr ;
         column-gap: 5px;
         @include color-var(border-top, sm-nav-border);
         @include color-var(border-bottom, sm-nav-border);
@@ -198,7 +198,7 @@
             line-height: 3;
             width: 100%;
             display: grid;
-            grid-template-columns: 3fr 3fr 1fr 40px;
+            grid-template-columns: 5fr 1fr;
             column-gap: 5px;
             align-items: center;
             justify-items: flex-start;
@@ -280,12 +280,12 @@
       .title-wrap {
         .sort {
           font-size: 12px;
-          grid-template-columns: 4fr 3fr 1fr 30px;
+          grid-template-columns: 5fr 1fr;
         }
 
         .friends {
           font-size: 13px;
-          grid-template-columns: 4fr 3fr 1fr 30px;
+          grid-template-columns: 5fr 1fr;
           height: 400px;
           .id {
             display: flex;

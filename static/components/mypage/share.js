@@ -19,35 +19,56 @@ title.addEventListener("click", () => {
 function createHTMLString(user) {
   return `
   <div class="user-list">
-    <span class="find-id">${user.id}</span>
-    <span class="find-name">${user.name}</span>
+    <span class="find-id">${user}</span>
     <span class="fas fa-user-plus addBtn" onclick="addFriend(this)"></span>
   </div>
   `;
 }
 
 function loadUsers() {
-  return fetch("/static/data/user.json")
-    .then((response) => response.json())
-    .then((json) => json.users);
+  return fetch(
+    `https://nochu.pw/api/friend/`
+  ).then((res) => {
+    return res.json();
+  });
 }
 function displayUsers(users) {
-  const friends = document.querySelector(".allUser");
-  friends.innerHTML = users.map((user) => createHTMLString(user)).join("");
+  const user_name = users.user.username;
+  $(".allUser").append(createHTMLString(user_name));
 }
+//친구목록 
+function inqFriend(items) {
+  const user_name = getCookie("user");
+  console.log(user_name)
+  items.forEach((users) => {
+    console.log(users)
+    if (users.user.username === user_name) {
+      users.friends.forEach((friend)=>{
+        let str = `
+        <div class="friend">
+          <span onClick="hello(this);" class="id"><span class="fas fa-user">
+          </span>${friend.username}</span>
+          <span class="fas fa-trash-alt shareBtn" onclick="delFriend(this)">
+        </span>
+      </div>
+      `;
+        $(".friends").append(str);
+      })
+      }
+  });
+}
+
 
 //친구 검색
 function filter() {
-  var name, id, i;
+  var id, i;
   let findInput = document.querySelector(".findInput").value.toUpperCase();
   console.log(findInput);
   userlist = document.getElementsByClassName("user-list");
   for (i = 0; i < userlist.length; i++) {
     id = userlist[i].getElementsByClassName("find-id");
-    name = userlist[i].getElementsByClassName("find-name");
     if (
-      id[0].innerHTML.toUpperCase().indexOf(findInput) != -1 ||
-      name[0].innerHTML.toUpperCase().indexOf(findInput) != -1
+      id[0].innerHTML.toUpperCase().indexOf(findInput) != -1
     ) {
       userlist[i].style.display = "grid";
     } else {
@@ -65,27 +86,19 @@ function hello(obj) {
   document.cookie = "friend_name" + "=" + id;
   location.href = "friendplaylist.html";
 }
-//친구 추가
-function addFriend(obj) {
-  const parent = obj.parentNode;
-  const id = parent.querySelector(".find-id").innerText;
-  const name = parent.querySelector(".find-name").innerText;
 
-  let str = `
-  <div class="friend">
-    <span onClick="hello(this);" class="id"><span class="fas fa-user">
-    </span>${id}</span>
-    <span class="name">${name}</span>
-    <span class="fas fa-trash-alt shareBtn" onclick="delFriend(this)">
-    </span>
-  </div>
-  `;
-  $(".friends").append(str);
-  alert("친구추가 되었습니다😃");
-}
+//친구 추가
+// function addFriend(obj) {
+//   const parent = obj.parentNode;
+//   const id = parent.querySelector(".find-id").innerText;
+
+
+//   alert("친구추가 되었습니다😃");
+// }
 //main
-loadUsers()
-  .then((users) => {
-    displayUsers(users);
-  })
-  .catch(console.log);
+loadUsers().then((items) => {
+  inqFriend(items)
+  items.forEach((users) =>
+    displayUsers(users)
+  );
+});
