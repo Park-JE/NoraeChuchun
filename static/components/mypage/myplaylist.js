@@ -39,7 +39,7 @@ function addPlaylist() {
     <div class="myplaylist__title">` +
       title.value +
       `</div>
-    <span class="myplaylist__count">노래 9곡</span>
+    <span class="myplaylist__count">노래 0곡</span>
     <div class="menu-list">
       <ul>
         <li class="list-open"><span class="fas fa-lock-open"></span>공개</li>
@@ -59,19 +59,16 @@ function addPlaylist() {
   }
 }
 
-function loadData() {
+async function loadData() {
   const id = getCookie("user");
-  return fetch(`https://nochu.pw/api/playlist/?uid=${id}`).then(
-    (res) => {
-      console.log(res);
-      return res.json();
-    }
-  );
+  const res = await fetch(`https://nochu.pw/api/playlist/?uid=${id}`);
+  console.log(res);
+  return await res.json();
 }
 
 function displayItems(items) {
   let str = `<li class="list-group-play">
-  <img class="myplaylist__thumnail" onclick="pageChange(this);" src="${items.tracks[0].track_image}"
+  <img class="myplaylist__thumnail" onclick="pageChange(this);" "
     alt="플레이리스트 이미지" />
   <div class="fas fa-caret-down myplaylist-menu" onclick="displayMenu(this);"></div>
   <div class="myplaylist__title">${items.title}</div>
@@ -102,10 +99,7 @@ function kakaoShare(obj) {
   const form_playlist = document.getElementById("form_playlist");
   const title = obj.parentNode.parentNode.parentNode.children[2].innerHTML;
   const id = getFormUid("user");
-  console.log(id);
 
-  console.log("gg");
-  // uid 정보 어케 불러오지 ?
   let targetTitle = `http://127.0.0.1:5500/friendplaylist-list.html?uid=${id}&playlist=${title}`;
   console.log(targetTitle);
   Kakao.Link.sendDefault({
@@ -166,7 +160,6 @@ function displayMenu(obj) {
   remove.addEventListener("click", () => {
     myplaylist_list.removeChild(obj.parentNode);
   });
-  //공유랑 수정,,, 해야함
 }
 
 loadData().then((items) => {
