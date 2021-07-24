@@ -236,7 +236,6 @@ const loadMusic = () => {
   })
     .then((response) => response.json())
     .then((data) => {
-      console.log(data);
       const musicInfo = data.map((song) => {
         let musicDescription = {
           id: song.id,
@@ -245,7 +244,7 @@ const loadMusic = () => {
           artist: song.track.artists[0].name,
           album: song.track.album.name,
           albumCover: song.track.album.images[2].url,
-          audio: song.track.preview_url,
+          playMusic: song.track.preview_url,
           danceability: song.danceability,
           energy: song.energy,
           tempo: song.tempo,
