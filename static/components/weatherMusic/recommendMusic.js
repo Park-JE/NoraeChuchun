@@ -236,6 +236,7 @@ const loadMusic = () => {
   })
     .then((response) => response.json())
     .then((data) => {
+      console.log(data);
       const musicInfo = data.map((song) => {
         let musicDescription = {
           id: song.id,

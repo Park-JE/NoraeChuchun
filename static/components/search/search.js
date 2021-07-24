@@ -152,7 +152,7 @@ const createSong = (musicInfo) => {
 
   const audio = document.createElement("audio");
   audio.setAttribute("class", "play-audio");
-  audio.setAttribute("src", `${musicInfo.audio}`);
+  audio.setAttribute("src", `${musicInfo.playMusic}`);
   content.append(audio);
 
   const play = document.createElement("div");
