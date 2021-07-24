@@ -24,7 +24,7 @@ closeBtn.addEventListener("click", () => {
 });
 
 var getCookie = function (name) {
-  var value = document.cookie.match('(^|;) ?' + name + '=([^;]*)(;|$)');
+  var value = document.cookie.match("(^|;) ?" + name + "=([^;]*)(;|$)");
   return value ? value[2] : null;
 };
 
@@ -32,11 +32,13 @@ function addPlaylist() {
   if (title.value == "") {
     alert("제목을 입력해주세요😥");
   } else {
-    let str = `<li class="list-group-play">
-    <img class="myplaylist__thumnail" onclick="pageChange(this);" src="./static/img/albumCovers/92.jpg"
-      alt="플레이리스트 이미지" />
+    let str =
+      `<li class="list-group-play">
+    <div class="myplaylist__thumnail" onclick="pageChange(this);"></div>
     <div class="fas fa-caret-down myplaylist-menu" onclick="displayMenu(this);"></div>
-    <div class="myplaylist__title">`+ title.value + `</div>
+    <div class="myplaylist__title">` +
+      title.value +
+      `</div>
     <span class="myplaylist__count">노래 9곡</span>
     <div class="menu-list">
       <ul>
@@ -59,11 +61,12 @@ function addPlaylist() {
 
 function loadData() {
   const id = getCookie("user");
-  return fetch(`https://nochu.pw/playlist_api/playlist/?uid=${id}`)
-    .then(res => {
+  return fetch(`https://nochu.pw/playlist_api/playlist/?uid=${id}`).then(
+    (res) => {
       console.log(res);
       return res.json();
-    })
+    }
+  );
 }
 
 function displayItems(items) {
@@ -86,57 +89,56 @@ function displayItems(items) {
   <span class="fas fa-lock lock-state"></span>
 </li>`;
   $(".myplaylist__list").append(str);
-};
+}
 
 var getFormUid = function (name) {
-  var value = document.cookie.match('(^|;) ?' + name + '=([^;]*)(;|$)');
+  var value = document.cookie.match("(^|;) ?" + name + "=([^;]*)(;|$)");
   return value ? value[2] : null;
 };
 function kakaoShare(obj) {
-  //form 전송 까지는 완료 ,,, 
+  //form 전송 까지는 완료 ,,,
   const form = document.getElementById("playlist_title");
   const form_uid = document.getElementById("form_uid");
   const form_playlist = document.getElementById("form_playlist");
   const title = obj.parentNode.parentNode.parentNode.children[2].innerHTML;
-  const id = getFormUid("user")
-  console.log(id)
+  const id = getFormUid("user");
+  console.log(id);
 
-  console.log("gg")
+  console.log("gg");
   // uid 정보 어케 불러오지 ?
   let targetTitle = `http://127.0.0.1:5500/friendplaylist-list.html?uid=${id}&playlist=${title}`;
-  console.log(targetTitle)
+  console.log(targetTitle);
   Kakao.Link.sendDefault({
-    objectType: 'feed',
+    objectType: "feed",
     content: {
-      title: 'NOCHU',
-      description: '날씨에 맞는 음악추천',
-      imageUrl: 'http://127.0.0.1:5500/static/img/favicon.png',
+      title: "NOCHU",
+      description: "날씨에 맞는 음악추천",
+      imageUrl: "http://127.0.0.1:5500/static/img/favicon.png",
       link: {
         mobileWebUrl: targetTitle,
-        androidExecutionParams: 'test',
+        androidExecutionParams: "test",
       },
     },
 
     buttons: [
       {
-        title: '플레이리스트 확인하기',
+        title: "플레이리스트 확인하기",
         link: {
           mobileWebUrl: targetTitle,
-          webUrl: targetTitle
+          webUrl: targetTitle,
         },
-      }
-    ]
+      },
+    ],
   });
-  form_uid.value = user
+  form_uid.value = user;
   form_playlist.value = title;
   form.submit();
 }
 function pageChange(obj) {
   const title = obj.parentNode.children[2].innerHTML;
   document.cookie = "playlist" + "=" + title;
-  window.location.href = "myplaylist-list.html"
+  window.location.href = "myplaylist-list.html";
 }
-
 
 function displayMenu(obj) {
   const menu = obj.parentNode.children[4];
@@ -150,26 +152,23 @@ function displayMenu(obj) {
   obj.addEventListener("click", () => {
     menu.classList.add("active");
     cover.classList.add("active");
-  })
+  });
   cover.addEventListener("click", () => {
     menu.classList.remove("active");
     cover.classList.remove("active");
-  })
+  });
   open.addEventListener("click", () => {
     lock_state.classList.remove("active");
-  })
+  });
   close.addEventListener("click", () => {
     lock_state.classList.add("active");
-  })
+  });
   remove.addEventListener("click", () => {
     myplaylist_list.removeChild(obj.parentNode);
-  })
-  //공유랑 수정,,, 해야함 
-
+  });
+  //공유랑 수정,,, 해야함
 }
 
-loadData()
-  .then(items => {
-    items.forEach((playlist) => displayItems(playlist))
-  })
-
+loadData().then((items) => {
+  items.forEach((playlist) => displayItems(playlist));
+});
