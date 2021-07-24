@@ -13,7 +13,7 @@ title.innerText = friend_name + "님의 플레이리스트";
 function loadData() {
   //회원 정보에 따라 user이랑 title 변경 해야함
   return fetch(
-    `https://nochu.pw/playlist_api/playlist/?uid=${friend_name}`
+    `https://nochu.pw/api/playlist/?uid=${friend_name}`
   ).then((res) => {
     console.log(res);
     return res.json();

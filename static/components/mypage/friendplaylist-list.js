@@ -119,7 +119,7 @@ function loadData() {
     console.log(id, title)
   }
   return fetch(
-    `https://nochu.pw/playlist_api/playlist/?uid=${id}&title=${title}`
+    `https://nochu.pw/api/playlist/?uid=${id}&title=${title}`
   ).then((res) => {
     return res.json();
   });

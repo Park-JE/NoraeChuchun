@@ -61,7 +61,7 @@ function addPlaylist() {
 
 function loadData() {
   const id = getCookie("user");
-  return fetch(`https://nochu.pw/playlist_api/playlist/?uid=${id}`).then(
+  return fetch(`https://nochu.pw/api/playlist/?uid=${id}`).then(
     (res) => {
       console.log(res);
       return res.json();
