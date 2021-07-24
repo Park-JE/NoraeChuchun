@@ -4,7 +4,7 @@ function loadPlaylists() {
   const config = {
     headers: { Accept: "application/json" },
   };
-  return fetch(`https://nochu.pw/playlist_api/playlist`, config)
+  return fetch(`https://nochu.pw/api/playlist/ `, config)
     .then((response) => response.json())
     .catch((error) => console.log("error", error));
 }
