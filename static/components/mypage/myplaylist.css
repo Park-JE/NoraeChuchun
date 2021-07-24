@@ -420,6 +420,7 @@ li {
   color: #111;
   color: var(--font-color, #111);
   line-height: 1.5;
+  margin-right: 5px;
 }
 
 .container .newplaylist.active .newplaylist__container .btn__group {
@@ -529,8 +530,7 @@ li {
         flex-wrap: wrap;
   }
   .container .newplaylist.active {
-    width: 450px;
-    height: 600px;
+    width: 400px;
   }
   .container .newplaylist.active .newplaylist__container {
     width: 100%;

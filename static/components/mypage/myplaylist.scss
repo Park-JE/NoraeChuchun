@@ -293,6 +293,7 @@ li {
             label {
               @include color-var(color, font-color);
               line-height: 1.5;
+              margin-right: 5px;
             }
           }
         }
@@ -395,8 +396,7 @@ li {
     }
 
     .newplaylist.active {
-      width: 450px;
-      height: 600px;
+      width: 400px;
 
       .newplaylist__container {
         width: 100%;
