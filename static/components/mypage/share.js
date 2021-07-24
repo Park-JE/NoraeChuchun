@@ -25,12 +25,11 @@ function createHTMLString(user) {
   `;
 }
 
-function loadUsers() {
-  return fetch(
+async function loadUsers() {
+  const res = await fetch(
     `https://nochu.pw/api/friend/`
-  ).then((res) => {
-    return res.json();
-  });
+  );
+  return await res.json();
 }
 function displayUsers(users) {
   const user_name = users.user.username;
@@ -39,11 +38,9 @@ function displayUsers(users) {
 //친구목록 
 function inqFriend(items) {
   const user_name = getCookie("user");
-  console.log(user_name)
   items.forEach((users) => {
-    console.log(users)
     if (users.user.username === user_name) {
-      users.friends.forEach((friend)=>{
+      users.friends.forEach((friend) => {
         let str = `
         <div class="friend">
           <span onClick="hello(this);" class="id"><span class="fas fa-user">
@@ -54,7 +51,7 @@ function inqFriend(items) {
       `;
         $(".friends").append(str);
       })
-      }
+    }
   });
 }
 
@@ -63,7 +60,6 @@ function inqFriend(items) {
 function filter() {
   var id, i;
   let findInput = document.querySelector(".findInput").value.toUpperCase();
-  console.log(findInput);
   userlist = document.getElementsByClassName("user-list");
   for (i = 0; i < userlist.length; i++) {
     id = userlist[i].getElementsByClassName("find-id");
@@ -76,9 +72,29 @@ function filter() {
     }
   }
 }
+//친구삭제
 function delFriend(obj) {
-  const friendlist = document.querySelector(".friends");
-  friendlist.removeChild(obj.parentNode);
+  const parent = obj.parentNode;
+  const deleteName = obj.parentNode.children[0].innerText;
+  const friendsList = document.querySelector(".friends");
+  var friends = new Array();
+  var friend = new Object();
+  friend.username = deleteName;
+  friends.push(friend)
+  console.log('{{csrf_token}}')
+  fetch(`https://nochu.pw/api/friend/${getCookie("user")}/delete/`, {
+    method: "PATCH",
+    headers: {
+      "X-CSRFToken": '{{csrf_token}}',
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      friends: friends,
+    }),
+  })
+    .then((response) => response.json())
+    .then((data) => console.log(data));
+  friendsList.removeChild(obj.parentNode);
 }
 
 function hello(obj) {
@@ -89,7 +105,32 @@ function hello(obj) {
 
 //친구 추가
 function addFriend(obj) {
-  
+  let friendName = obj.parentNode.children[0].innerText;
+  let str = `<div class="friend">
+          <span onclick="hello(this);" class="id"><span class="fas fa-user" aria-hidden="true">
+          </span>${friendName}</span>
+          <span class="fas fa-trash-alt shareBtn" onclick="delFriend(this)" aria-hidden="true">
+        </span>
+      </div> `
+  $(".friends").append(str)
+  var friends = new Array();
+  var friend = new Object();
+  friend.username = friendName;
+  friends.push(friend)
+  console.log('{{csrf_token}}')
+  fetch(`https://nochu.pw/api/friend/${getCookie("user")}/add/`, {
+    method: "PATCH",
+    headers: {
+      "X-CSRFToken": '{{csrf_token}}',
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      friends: friends,
+    }),
+  })
+    .then((response) => response.json())
+    .then((data) => console.log(data));
+  alert("친구추가 되었습니다😊")
 }
 //main
 loadUsers().then((items) => {
