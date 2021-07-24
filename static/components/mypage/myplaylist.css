@@ -18,6 +18,7 @@
   --playlist-cover: url("../../img/playlistCovers/lp3.png");
   --addModal-color: rgb(228, 223, 207);
   --add-newPlaylist: #413428;
+  --hover-bright: brightness(105%);
 }
 
 :root[color-theme="dark"] {
@@ -40,6 +41,7 @@
   --playlist-cover: url("../../img/playlistCovers/lp10.png");
   --addModal-color: rgb(14, 14, 34);
   --add-newPlaylist: #28243a;
+  --hover-bright: brightness(115%);
 }
 
 li {
@@ -111,14 +113,20 @@ li {
 }
 
 .container .myplaylist .myplaylist__list .list-group-play .myplaylist__thumnail {
-  width: 200px;
   height: 200px;
-  border-radius: 10px;
+  width: 200px;
+  border-radius: 50%;
+  -webkit-box-shadow: 10px 5px 16px 5px rgba(0, 0, 0, 0.4);
+          box-shadow: 10px 5px 16px 5px rgba(0, 0, 0, 0.4);
+  background-image: var(--playlist-cover, );
+  background-size: cover;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 .container .myplaylist .myplaylist__list .list-group-play .myplaylist__thumnail:hover {
-  -webkit-filter: brightness(70%);
-          filter: brightness(70%);
+  -webkit-filter: var(--hover-bright, );
+          filter: var(--hover-bright, );
   cursor: pointer;
 }
 
@@ -359,7 +367,7 @@ li {
 .container .newplaylist.active .newplaylist__container .new__tags .tags__season label {
   color: #111;
   color: var(--font-color, #111);
-  margin-left: 5px;
+  margin-right: 10px;
   line-height: 1.6;
   width: -webkit-fit-content;
   width: -moz-fit-content;
@@ -387,7 +395,7 @@ li {
 .container .newplaylist.active .newplaylist__container .new__tags .tags__time label {
   color: #111;
   color: var(--font-color, #111);
-  margin-left: 5px;
+  margin-right: 10px;
   line-height: 1.6;
   width: -webkit-fit-content;
   width: -moz-fit-content;
@@ -420,6 +428,7 @@ li {
   color: #111;
   color: var(--font-color, #111);
   line-height: 1.5;
+  margin-right: 10px;
 }
 
 .container .newplaylist.active .newplaylist__container .btn__group {
@@ -530,7 +539,6 @@ li {
   }
   .container .newplaylist.active {
     width: 450px;
-    height: 600px;
   }
   .container .newplaylist.active .newplaylist__container {
     width: 100%;

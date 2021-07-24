@@ -1,95 +1,106 @@
 <!DOCTYPE html>
 <html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="static/img/favicon.png" />
+    <script
+      src="https://kit.fontawesome.com/ef81e253aa.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="static/components/navbar/navbar.scss" />
+    <link rel="stylesheet" href="static/css/style.css" />
+    <link rel="stylesheet" href="static/components/mypage/menu.css" />
+    <link rel="stylesheet" href="static/components/mypage/myplaylist.css" />
+    <script defer src="static/components/mypage/myplaylist.js"></script>
+    <script defer src="static/components/navbar/navbar.js"></script>
+    <script defer src="static/components/search/search.js"></script>
+    <script
+      defer
+      src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+    <script>
+      Kakao.init("d22cb6b87d4211094563aa81f9b30874");
+      Kakao.isInitialized();
+    </script>
+    <title>NOCHU - 날씨에 맞는 노래 추천</title>
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="shortcut icon" href="static/img/favicon.ico" />
-  <script src="https://kit.fontawesome.com/ef81e253aa.js" crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="static/components/navbar/navbar.scss" />
-  <link rel="stylesheet" href="static/css/style.css" />
-  <link rel="stylesheet" href="static/components/mypage/menu.css" />
-  <link rel="stylesheet" href="static/components/mypage/myplaylist.css" />
-  <script defer src="static/components/mypage/myplaylist.js"></script>
-  <script defer src="static/components/navbar/navbar.js"></script>
-  <script defer src="static/components/search/search.js"></script>
-  <script defer src="https://code.jquery.com/jquery-3.6.0.min.js"
-    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-  <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
-  <script>
-    Kakao.init("d22cb6b87d4211094563aa81f9b30874");
-    Kakao.isInitialized();
-  </script>
-  <title>날씨에 맞는 음악 추천</title>
-</head>
-
-<body>
-  <nav>
-    <a href="index" class="logoAndName">
-      <img class="logo" src="static/img/favicon.png" alt="img" />
-      <span class="name">날씨음악</span>
-    </a>
-    <div class="searchAndLogin">
-      <input id="index" type="search" class="searchInput" placeholder="검색" />
-      <button class="btn search">
-        <i class="fas fa-search fa-lg"></i>
-      </button>
-      <button class="btn close"><i class="fas fa-times fa-lg"></i></button>
-      <div class="userAndDarkMode">
-        <!-- {% if user.is_authenticated %} -->
-        <a href="mypage" class="mypage">마이페이지</a>
-        <form action="logout" method="POST">
-          <!-- {% csrf_token %} -->
-          <label for="logout" class="login logout">로그아웃</label>
-          <input id="logout" type="submit" class="logout" value="로그아웃" />
-        </form>
-        <!-- {% else %} -->
-        <!-- <a href="login"><span class="login">로그인</span></a> -->
-        <!-- {% endif %} -->
-        <div class="dark-mode">
-          <button class="light mode-btn">
-            <i class="fas fa-sun fa-lg"></i>
-            <span class="modeText">라이트 모드</span>
-          </button>
-          <button class="dark mode-btn">
-            <i class="fas fa-moon fa-lg"></i>
-            <span class="modeText">다크 모드</span>
-          </button>
-        </div>
-      </div>
-      <button class="ellipsis">
-        <i class="fas fa-bars fa-lg"></i>
-      </button>
-    </div>
-  </nav>
-  <div class="container">
-    <div class="mypage__menu">
-      <ul class="menu__list">
-        <li class="list-group-item nonactive fas fa-key">
-          <a href="mypage">비밀번호 변경</a>
-        </li>
-        <li class="list-group-item active fas fa-music">
-          <a href="myplaylist">나의 플레이리스트</a>
-        </li>
-        <li class="list-group-item nonactive fas fa-user-plus">
-          <a href="share">친구목록</a>
-        </li>
-        <li class="list-group-item nonactive fas fa-user-minus">
-          <a href="secession">회원탈퇴</a>
-        </li>
-      </ul>
-    </div>
-    <div class="myplaylist">
-      <h2>나만의 플레이리스트</h2>
-      <ul class="myplaylist__list">
-        <li class="list-group-add">
-          <div class="myplaylist__add" title="새 재생목록 생성">
-            <div class="fas fa-plus"></div>
+  <body>
+    <nav>
+      <a href="index" class="logoAndName">
+        <img class="logo" src="static/img/favicon.png" alt="img" />
+        <span class="name">NOCHU</span>
+      </a>
+      <div class="searchAndLogin">
+        <input
+          id="index"
+          type="search"
+          class="searchInput"
+          placeholder="검색"
+        />
+        <button class="btn search">
+          <i class="fas fa-search fa-lg"></i>
+        </button>
+        <button class="btn close"><i class="fas fa-times fa-lg"></i></button>
+        <div class="userAndDarkMode">
+          <!-- {% if user.is_authenticated %} -->
+          <a href="mypage" class="mypage">마이페이지</a>
+          <form action="logout" method="POST">
+            <!-- {% csrf_token %} -->
+            <label for="logout" class="login logout">로그아웃</label>
+            <input id="logout" type="submit" class="logout" value="로그아웃" />
+          </form>
+          <!-- {% else %} -->
+          <!-- <a href="login"><span class="login">로그인</span></a> -->
+          <!-- {% endif %} -->
+          <div class="dark-mode">
+            <button class="light mode-btn">
+              <i class="fas fa-sun fa-lg"></i>
+              <span class="modeText">라이트 모드</span>
+            </button>
+            <button class="dark mode-btn">
+              <i class="fas fa-moon fa-lg"></i>
+              <span class="modeText">다크 모드</span>
+            </button>
           </div>
-          <div class="myplaylist__title">새 재생목록</div>
-        </li>
-        <!-- <li class="list-group-play">
+        </div>
+        <button class="ellipsis">
+          <i class="fas fa-bars fa-lg"></i>
+        </button>
+      </div>
+    </nav>
+    <div class="container">
+      <div class="mypage__menu">
+        <ul class="menu__list">
+          <li class="list-group-item nonactive fas fa-key">
+            <a href="mypage">비밀번호 변경</a>
+          </li>
+          <li class="list-group-item active fas fa-music">
+            <a href="myplaylist">나의 플레이리스트</a>
+          </li>
+          <li class="list-group-item nonactive fas fa-user-plus">
+            <a href="share">친구목록</a>
+          </li>
+          <li class="list-group-item nonactive fas fa-user-minus">
+            <a href="secession">회원탈퇴</a>
+          </li>
+        </ul>
+      </div>
+      <div class="myplaylist">
+        <h2>나만의 플레이리스트</h2>
+        <ul class="myplaylist__list">
+          <li class="list-group-add">
+            <div class="myplaylist__add" title="새 재생목록 생성">
+              <div class="fas fa-plus"></div>
+            </div>
+            <div class="myplaylist__title">새 재생목록</div>
+          </li>
+          <!-- <li class="list-group-play">
           <img class="myplaylist__thumnail" onclick="pageChange(this);" src="./static/img/albumCovers/92.jpg"
             alt="플레이리스트 이미지" />
           <div class="fas fa-caret-down myplaylist-menu" onclick="displayMenu(this);"></div>
@@ -107,69 +118,145 @@
           </div>
           <span class="fas fa-lock lock-state"></span>
         </li> -->
-      </ul>
-    </div>
-    <!-- 모달창 -->
+        </ul>
+      </div>
+      <!-- 모달창 -->
 
-    <div class="newplaylist">
-      <div class="newplaylist__container">
-        <h2>새 재생목록</h2>
-        <div class="new__title">
-          <input class="title" type="text" name="newplaylist" placeholder="제목" />
-        </div>
-        <div class="new__tags">
-          <input type="text" placeholder="태그" class="tags" disabled />
-          <div class="tags__season">
-            <div class="tag_sort">계절</div>
-            <div class="radio_group">
-              <label><input type="radio" name="season" value="봄" />봄</label>
-              <label><input type="radio" name="season" value="여름" />여름</label>
-              <label><input type="radio" name="season" value="가을" />가을</label>
-              <label><input type="radio" name="season" value="겨울" />겨울</label>
-              <label><input type="radio" name="season" value="크리스마스" />크리스마스</label>
+      <div class="newplaylist">
+        <div class="newplaylist__container">
+          <h2>새 재생목록</h2>
+          <div class="new__title">
+            <input
+              class="title"
+              type="text"
+              name="newplaylist"
+              placeholder="제목"
+            />
+          </div>
+          <div class="new__tags">
+            <input type="text" placeholder="태그" class="tags" disabled />
+            <div class="tags__season">
+              <div class="tag_sort">계절</div>
+              <div class="radio_group">
+                <label><input type="radio" name="season" value="봄" />봄</label>
+                <label
+                  ><input type="radio" name="season" value="여름" />여름</label
+                >
+                <label
+                  ><input type="radio" name="season" value="가을" />가을</label
+                >
+                <label
+                  ><input type="radio" name="season" value="겨울" />겨울</label
+                >
+                <label
+                  ><input
+                    type="radio"
+                    name="season"
+                    value="크리스마스"
+                  />크리스마스</label
+                >
+              </div>
+            </div>
+            <div class="tags__time">
+              <div class="tag_sort">시간</div>
+              <div class="radio_group">
+                <label
+                  ><input type="radio" name="time" value="아침" />아침</label
+                >
+                <label
+                  ><input type="radio" name="time" value="오후" />오후</label
+                >
+                <label
+                  ><input type="radio" name="time" value="저녁" />저녁</label
+                >
+                <label
+                  ><input
+                    type="radio"
+                    name="time"
+                    value="밤/새벽"
+                  />밤/새벽</label
+                >
+              </div>
+            </div>
+            <div class="tags__weather">
+              <div class="tag_sort">날씨</div>
+              <div class="radio_group">
+                <label
+                  ><input
+                    type="radio"
+                    name="weather"
+                    value="화창한"
+                  />화창한</label
+                >
+                <label
+                  ><input
+                    type="radio"
+                    name="weather"
+                    value="선선한"
+                  />선선한</label
+                >
+                <label
+                  ><input
+                    type="radio"
+                    name="weather"
+                    value="쌀쌀한"
+                  />쌀쌀한</label
+                >
+                <label
+                  ><input
+                    type="radio"
+                    name="weather"
+                    value="환절기"
+                  />환절기</label
+                >
+                <label
+                  ><input
+                    type="radio"
+                    name="weather"
+                    value="비/흐림"
+                  />비/흐림</label
+                >
+                <label
+                  ><input
+                    type="radio"
+                    name="weather"
+                    value="비온 후/ 맑게 갠"
+                  />비온 후/ 맑게 갠</label
+                >
+                <label
+                  ><input
+                    type="radio"
+                    name="weather"
+                    value="눈오는"
+                  />눈오는</label
+                >
+                <label
+                  ><input
+                    type="radio"
+                    name="weather"
+                    value="폭염/더위"
+                  />폭염/더위</label
+                >
+              </div>
             </div>
           </div>
-          <div class="tags__time">
-            <div class="tag_sort">시간</div>
-            <div class="radio_group">
-              <label><input type="radio" name="time" value="아침" />아침</label>
-              <label><input type="radio" name="time" value="오후" />오후</label>
-              <label><input type="radio" name="time" value="저녁" />저녁</label>
-              <label><input type="radio" name="time" value="밤/새벽" />밤/새벽</label>
-            </div>
+          <div class="btn__group">
+            <button class="closeBtn">취소</button>
+            <button class="saveBtn" onClick="addPlaylist()">저장</button>
           </div>
-          <div class="tags__weather">
-            <div class="tag_sort">날씨</div>
-            <div class="radio_group">
-              <label><input type="radio" name="weather" value="화창한" />화창한</label>
-              <label><input type="radio" name="weather" value="선선한" />선선한</label>
-              <label><input type="radio" name="weather" value="쌀쌀한" />쌀쌀한</label>
-              <label><input type="radio" name="weather" value="환절기" />환절기</label>
-              <label><input type="radio" name="weather" value="비/흐림" />비/흐림</label>
-              <label><input type="radio" name="weather" value="비온 후/ 맑게 갠" />비온 후/ 맑게 갠</label>
-              <label><input type="radio" name="weather" value="눈오는" />눈오는</label>
-              <label><input type="radio" name="weather" value="폭염/더위" />폭염/더위</label>
-            </div>
-          </div>
-        </div>
-        <div class="btn__group">
-          <button class="closeBtn">취소</button>
-          <button class="saveBtn" onClick="addPlaylist()">저장</button>
         </div>
       </div>
     </div>
-  </div>
 
-  <form action="./friendplaylist-list" id="playlist_title">
-    <input type="hidden" name="uid" id="form_uid" />
-    <input type="hidden" name="playlist" id="form_playlist" />
-  </form>
+    <form action="./friendplaylist-list" id="playlist_title">
+      <input type="hidden" name="uid" id="form_uid" />
+      <input type="hidden" name="playlist" id="form_playlist" />
+    </form>
 
-  <div class="cover"></div>
-  <div class="cover2"></div>
-  <div class="bg-1"></div>
-  <div class="bg-2"></div>
-  <div class="bg-3"></div>
-</body>
-
+    <div class="cover"></div>
+    <div class="cover2"></div>
+    <div class="bg-1"></div>
+    <div class="bg-2"></div>
+    <div class="bg-3"></div>
+  </body>
 </html>

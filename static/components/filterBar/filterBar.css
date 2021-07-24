@@ -19,6 +19,7 @@
   --playlist-cover: url("../../img/playlistCovers/lp3.png");
   --addModal-color: rgb(228, 223, 207);
   --add-newPlaylist: #413428;
+  --hover-bright: brightness(105%);
 }
 
 :root[color-theme="dark"] {
@@ -41,6 +42,7 @@
   --playlist-cover: url("../../img/playlistCovers/lp10.png");
   --addModal-color: rgb(14, 14, 34);
   --add-newPlaylist: #28243a;
+  --hover-bright: brightness(115%);
 }
 
 .musicFilter-wrap {

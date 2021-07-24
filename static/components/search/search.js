@@ -7,10 +7,7 @@ function loadUserPlaylists() {
   const config = {
     headers: { Accept: "application/json" },
   };
-  return fetch(
-    `https://nochu.pw/playlist_api/playlist?uid={{username}}`,
-    config
-  )
+  return fetch(`https://nochu.pw/api/playlist/?uid={username}`, config)
     .then((response) => response.json())
     .catch((error) => console.log("error", error));
 }
@@ -223,7 +220,6 @@ const outputSearchHtml = (song, searchText) => {
   const sortTable = searchWrap.querySelector(".sort");
   const noResult = searchWrap.querySelector(".noResult");
   const musicTable = searchWrap.querySelector(".musicList");
-  console.log(song);
   if (song.length !== 0) {
     sortTable.classList.remove("deactive");
     musicTable.classList.remove("deactive");
@@ -251,7 +247,7 @@ const handleSearch = () => {
     musicTable.removeChild(musicTable.firstChild);
   }
   const cookieValue = getCookie("value");
-  const url = `https://nochu.pw/spotify?q=${cookieValue}`;
+  const url = `https://nochu.pw/spotify/search?q=${cookieValue}`;
   fetch(url, {
     headers: {
       "Content-Type": "application/json",
