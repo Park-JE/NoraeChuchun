@@ -29,7 +29,7 @@ function loadData() {
   const user = getCookie("user");
   const title = getCookie("playlist");
   return fetch(
-    `https://nochu.pw/playlist_api/playlist/?uid=${user}&title=${title}`
+    `https://nochu.pw/api/playlist/?uid=${user}&title=${title}`
   ).then((res) => {
     console.log(res);
     return res.json();
