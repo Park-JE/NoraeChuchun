@@ -75,14 +75,13 @@
 }
 
 .container .playlist-info .thumnail {
-  width: 200px;
-  height: 200px;
-}
-
-.container .playlist-info .thumnail img {
-  width: 200px;
-  height: 200px;
-  border-radius: 10px;
+  height: 150px;
+  width: 150px;
+  border-radius: 50%;
+  -webkit-box-shadow: 10px 5px 16px 5px rgba(0, 0, 0, 0.4);
+          box-shadow: 10px 5px 16px 5px rgba(0, 0, 0, 0.4);
+  background-image: var(--playlist-cover, );
+  background-size: cover;
 }
 
 .container .playlist-info .info {
