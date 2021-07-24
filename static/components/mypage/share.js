@@ -88,13 +88,9 @@ function hello(obj) {
 }
 
 //친구 추가
-// function addFriend(obj) {
-//   const parent = obj.parentNode;
-//   const id = parent.querySelector(".find-id").innerText;
-
-
-//   alert("친구추가 되었습니다😃");
-// }
+function addFriend(obj) {
+  
+}
 //main
 loadUsers().then((items) => {
   inqFriend(items)
