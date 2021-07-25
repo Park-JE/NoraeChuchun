@@ -304,7 +304,7 @@ const handleSearch = () => {
             songName: song.name,
             artist: song.artists[0].name,
             album: song.album.name,
-            albumCover: song.album.images[2].url,
+            albumCover: song.album.images[0].url,
             playMusic: song.preview_url,
           };
           return musicDescription;
