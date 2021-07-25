@@ -7,7 +7,7 @@ function displayItems(items) {
     <div class="title">${music.track_name}</div>
     <div class="artist">${music.track_artist}</div>
     <div class="album">${music.track_album}</div>
-    <div class="remove material-icons-outlined" onclick="onButton(this)">delete_outline</div>
+    <i class="fas fa-trash fa-lg" onclick="onButton(this)"></i>
     </div>`;
     $(".items").append(str);
   });
