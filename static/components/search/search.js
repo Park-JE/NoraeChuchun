@@ -13,11 +13,16 @@ function loadUserPlaylists() {
     .catch((error) => console.log("error", error));
 }
 let playlistCount;
-let playlistTitle = [];
+let myPlaylistInfo;
 loadUserPlaylists().then((data) => {
   playlistCount = data.length;
-  data.forEach((playlist) => {
-    playlistTitle.push(playlist.title);
+  myPlaylistInfo = data.map((playlist) => {
+    const eachInfo = {
+      title: playlist.title,
+      category: playlist.category.map((item) => item.tag),
+      id: playlist.id,
+    };
+    return eachInfo;
   });
 });
 
@@ -43,7 +48,12 @@ const addMusic = (musicTable) => {
         for (let i = 0; i < playlistCount; i++) {
           addModalHeader = document.createElement("li");
           addModalHeader.setAttribute("class", "myPlaylist");
-          addModalHeader.textContent = `${playlistTitle[i]}`;
+          addModalHeader.setAttribute(
+            "data-mood",
+            `${myPlaylistInfo[i].category}`
+          );
+          addModalHeader.setAttribute("data-id", `${myPlaylistInfo[i].id}`);
+          addModalHeader.textContent = `${myPlaylistInfo[i].title}`;
           addModal.append(addModalHeader);
         }
         btn.after(addModal);
@@ -64,7 +74,38 @@ const addMusic = (musicTable) => {
         ".music .addModal .myPlaylist"
       );
       modalPlaylist.forEach((playlist) => {
-        playlist.addEventListener("click", () => {
+        playlist.addEventListener("click", (e) => {
+          const tracks = new Array();
+          const category = new Array();
+          const track = new Object();
+          const tags = new Object();
+          tags.tag = playlist.dataset.mood.split(",");
+          track.track_name =
+            e.target.parentNode.parentNode.childNodes[0].childNodes[5].childNodes[0].textContent;
+          track.track_artist =
+            e.target.parentNode.parentNode.childNodes[0].childNodes[5].childNodes[1].childNodes[0].textContent;
+          track.track_album =
+            e.target.parentNode.parentNode.childNodes[0].childNodes[5].childNodes[1].childNodes[2].textContent;
+          track.track_image =
+            e.target.parentNode.parentNode.childNodes[0].childNodes[0].currentSrc;
+          track.audio =
+            e.target.parentNode.parentNode.childNodes[0].childNodes[1].currentSrc;
+          tracks.push(track);
+          category.push(tags);
+          csrftoken = getCookie("csrftoken");
+          fetch(`https://nochu.pw/api/playlist/${playlist.dataset.id}/add/`, {
+            method: "PATCH",
+            headers: {
+              "X-CSRFToken": csrftoken,
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              tracks: tracks,
+            }),
+          })
+            .then((response) => response.json())
+            .then((data) => console.log(data));
+
           alertAdd = document.createElement("div");
           alertAdd.setAttribute("class", "alertAdd");
           alertAdd.innerHTML = `<i class="fas fa-exclamation-circle"></i>
@@ -276,22 +317,25 @@ const handleSearch = () => {
 };
 
 function getCookie(cname) {
-  const cookie = document.cookie;
-  let value;
-  if (cookie.length > 0) {
-    startIndex = cookie.indexOf(cname);
-    if (startIndex != -1) {
-      startIndex += cname.length;
-      endIndex = cookie.indexOf(";", startIndex);
-      if (endIndex == -1) endIndex = cookie.length;
-      value = unescape(cookie.substring(startIndex + 1, endIndex));
-    } else {
-      return false;
-    }
-  } else {
-    return false;
-  }
-  return value;
+  var value = document.cookie.match(`(^|;) ?${cname}=([^;]*)(;|$)`);
+  return value ? value[2] : null;
+
+  // const cookie = document.cookie;
+  // let value;
+  // if (cookie.length > 0) {
+  //   startIndex = cookie.indexOf(cname);
+  //   if (startIndex != -1) {
+  //     startIndex += cname.length;
+  //     endIndex = cookie.indexOf(";", startIndex);
+  //     if (endIndex == -1) endIndex = cookie.length;
+  //     value = unescape(cookie.substring(startIndex + 1, endIndex));
+  //   } else {
+  //     return false;
+  //   }
+  // } else {
+  //   return false;
+  // }
+  // return value;
 }
 
 function setCookie(name, value, expiredays) {

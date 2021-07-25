@@ -235,6 +235,7 @@
 .search-wrap .musicList .music .addModal {
   list-style: none;
   width: 200px;
+  max-height: 250px;
   position: absolute;
   z-index: 2;
   right: 39px;
@@ -248,6 +249,13 @@
           backdrop-filter: blur(5px);
   -webkit-box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
           box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+  overflow-y: scroll;
+  -ms-overflow-style: none;
+}
+
+.search-wrap .musicList .music .addModal::-webkit-scrollbar {
+  display: none;
+  width: 0 !important;
 }
 
 .search-wrap .musicList .music .addModal.deactive {
