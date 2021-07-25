@@ -76,7 +76,6 @@ const createElement = (musicInfo) => {
   return music;
 };
 
-//유저 음악정보 가져오기,,
 function displayItems(items) {
   const descriptionWrap = document.querySelector(
     ".playlist-main .description-wrap .info"
@@ -106,23 +105,27 @@ var getCookie = function (name) {
 
 function searchParam(key) {
   return new URLSearchParams(location.search).get(key);
-};
+}
 
 function loadData() {
-  //회원 정보에 따라 user이랑 title 변경 해야함
-  //cookie 값 활용해서 친구 playlist에 들어가는 거 까진 했는데,,
   let id = getCookie("friend_name");
   let title = getCookie("playlist");
   if (id == null || title == null) {
+<<<<<<< HEAD
+    id = searchParam("uid");
+    title = searchParam("playlist");
+    console.log(id, title);
+=======
     id = searchParam("uid")
     title = searchParam("playlist")
 
+>>>>>>> 149f09ebcbe12070b4e4466efa847052a421431b
   }
-  return fetch(
-    `https://nochu.pw/api/playlist/?uid=${id}&title=${title}`
-  ).then((res) => {
-    return res.json();
-  });
+  return fetch(`https://nochu.pw/api/playlist/?uid=${id}&title=${title}`).then(
+    (res) => {
+      return res.json();
+    }
+  );
 }
 loadData().then((items) => {
   displayItems(items);

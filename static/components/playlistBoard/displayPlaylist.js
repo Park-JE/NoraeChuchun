@@ -100,7 +100,6 @@ function updateItems(value, playlist) {
   showNewPlaylist([newPlaylist]);
 }
 
-//move to playlist
 playlistWrap.addEventListener("click", (e) => {
   if (e.target.parentNode.classList.contains("playlist")) {
     document.cookie = `playlist=${e.target.parentNode.childNodes[1].textContent}`;

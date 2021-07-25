@@ -334,7 +334,11 @@ searchBtn.addEventListener("click", () => {
     setCookie("value", inputBox.value, 1);
     setCookie("inputId", inputBox.id, 1);
     if (getCookie("inputId") !== "search") {
+<<<<<<< HEAD
+      window.location.href = "search";
+=======
       window.location.href = "search ";
+>>>>>>> 149f09ebcbe12070b4e4466efa847052a421431b
     } else {
       handleSearch();
     }
@@ -378,7 +382,11 @@ inputBox.addEventListener("keypress", (e) => {
       setCookie("inputId", inputBox.id, 1);
     }
     if (getCookie("inputId") !== "search") {
+<<<<<<< HEAD
+      window.location.href = "search";
+=======
       window.location.href = "search ";
+>>>>>>> 149f09ebcbe12070b4e4466efa847052a421431b
     } else {
       handleSearch();
     }
