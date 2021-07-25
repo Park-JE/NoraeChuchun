@@ -334,7 +334,7 @@ searchBtn.addEventListener("click", () => {
     setCookie("value", inputBox.value, 1);
     setCookie("inputId", inputBox.id, 1);
     if (getCookie("inputId") !== "search") {
-      window.location.href = "search.html";
+      window.location.href = "search";
     } else {
       handleSearch();
     }
@@ -362,7 +362,7 @@ inputBox.addEventListener("keypress", (e) => {
     setCookie("value", inputBox.value, 1);
     setCookie("inputId", inputBox.id, 1);
     if (getCookie("inputId") !== "search") {
-      window.location.href = "search.html";
+      window.location.href = "search";
     } else {
       handleSearch();
     }

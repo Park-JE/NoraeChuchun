@@ -1,4 +1,3 @@
-// 현재 날짜, 시간에 따라 카테고리 분류
 let today = new Date();
 let month = today.getMonth() + 1;
 let date = today.getDate;
@@ -30,7 +29,6 @@ const matchTime = () => {
   }
 };
 
-// 현재 온도와 날씨 상태에 따라 카테고리 분류
 const matchTemp = (temp) => {
   if (temp <= 4) {
     return "눈오는 날";
@@ -57,7 +55,6 @@ const matchWeather = (weather1, weather2) => {
   }
 };
 
-// 노래를 계절별로 분류
 const matchSeasonWithSong = (eachInfo) => {
   if (
     (eachInfo.energy > 0.6 && eachInfo.valence > 0.55) ||
@@ -95,7 +92,6 @@ const matchSeasonWithSong = (eachInfo) => {
   }
 };
 
-// 노래를 시간대별로 분류
 const matchTimeWithSong = (eachInfo) => {
   if (
     eachInfo.danceability > 0.55 &&
@@ -133,7 +129,6 @@ const matchTimeWithSong = (eachInfo) => {
   }
 };
 
-// 노래를 날씨 별로 분류
 const matchWeatherWithSong = (eachInfo) => {
   if (0.55 < eachInfo.valence && 70 < eachInfo.tempo && eachInfo.tempo < 130) {
     eachInfo.mood.push("화창한 날");

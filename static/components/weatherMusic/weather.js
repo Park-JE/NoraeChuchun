@@ -1,4 +1,3 @@
-// 날씨 코드에 맞는 한국어 json 파일 불러오기
 let koWeatherKey;
 function loadWeatherInKo() {
   const config = {
@@ -14,7 +13,6 @@ function loadWeatherInKo() {
 }
 loadWeatherInKo();
 
-// 날씨 정보가 불러와졌을 때
 const onGeoOk = (position) => {
   const lat = position.coords.latitude;
   const lon = position.coords.longitude;
@@ -153,10 +151,8 @@ const onGeoOk = (position) => {
     .catch((error) => console.log("error", error));
 };
 
-// 날씨 정보가 불러와지지 않았을 때
 const onGeoError = () => {
   alert("위치 정보 수집에 동의해 주세요 🥺");
 };
 
-// 현재 위치 정보 불러오기
 navigator.geolocation.getCurrentPosition(onGeoOk, onGeoError);
