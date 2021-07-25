@@ -230,8 +230,9 @@
         .addModal {
           list-style: none;
           width: 190px;
+          max-height: 250px;
           position: absolute;
-          z-index: 2;
+          z-index: 5;
           right: 32px;
           top: 48px;
           border-radius: $border-small;
@@ -240,6 +241,13 @@
           @include color-var(background-color, sm-nav-bgc);
           backdrop-filter: blur(5px);
           box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+          overflow-y: scroll;
+          -ms-overflow-style: none;
+
+          &::-webkit-scrollbar {
+            display: none;
+            width: 0 !important;
+          }
 
           &.deactive {
             display: none;
