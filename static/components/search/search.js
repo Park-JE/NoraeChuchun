@@ -317,25 +317,8 @@ const handleSearch = () => {
 };
 
 function getCookie(cname) {
-  var value = document.cookie.match(`(^|;) ?${cname}=([^;]*)(;|$)`);
+  const value = document.cookie.match(`(^|;) ?${cname}=([^;]*)(;|$)`);
   return value ? value[2] : null;
-
-  // const cookie = document.cookie;
-  // let value;
-  // if (cookie.length > 0) {
-  //   startIndex = cookie.indexOf(cname);
-  //   if (startIndex != -1) {
-  //     startIndex += cname.length;
-  //     endIndex = cookie.indexOf(";", startIndex);
-  //     if (endIndex == -1) endIndex = cookie.length;
-  //     value = unescape(cookie.substring(startIndex + 1, endIndex));
-  //   } else {
-  //     return false;
-  //   }
-  // } else {
-  //   return false;
-  // }
-  // return value;
 }
 
 function setCookie(name, value, expiredays) {
