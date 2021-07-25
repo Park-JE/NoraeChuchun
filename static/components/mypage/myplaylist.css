@@ -137,7 +137,7 @@ li {
   width: -moz-fit-content;
   width: fit-content;
   padding: 10px;
-  bottom: 35px;
+  bottom: 20px;
   right: 0px;
   font-size: 25px;
   z-index: 2;
@@ -150,6 +150,8 @@ li {
 .container .myplaylist .myplaylist__list .list-group-play .myplaylist__title {
   font-size: 15px;
   margin-top: 5px;
+  width: 200px;
+  overflow: wrap;
 }
 
 .container .myplaylist .myplaylist__list .list-group-play .myplaylist__count {

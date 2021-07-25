@@ -84,7 +84,7 @@ function addPlaylist() {
     fetch(`https://nochu.pw/api/playlist/`, {
       method: "POST",
       headers: {
-        "X-CSRFToken": '{{csrf_token}}',
+        "X-CSRFToken": csrftoken = getCookie('csrftoken'),
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
@@ -140,14 +140,14 @@ function kakaoShare(obj) {
   const title = obj.parentNode.parentNode.parentNode.children[2].innerHTML;
   const id = getFormUid("user");
 
-  let targetTitle = `http://127.0.0.1:5500/friendplaylist-list.html?uid=${id}&playlist=${title}`;
+  let targetTitle = `https://nochu.pw/friendplaylist-list?uid=${id}&playlist=${title}`;
   console.log(targetTitle);
   Kakao.Link.sendDefault({
     objectType: "feed",
     content: {
       title: "NOCHU",
       description: "날씨에 맞는 음악추천",
-      imageUrl: "http://127.0.0.1:5500/static/img/favicon.png",
+      imageUrl: "static/img/favicon.png",
       link: {
         mobileWebUrl: targetTitle,
         androidExecutionParams: "test",
@@ -213,7 +213,7 @@ function delPlaylist(obj) {
         fetch(`https://nochu.pw/api/playlist/${ids.id}`, {
           method: "DELETE",
           headers: {
-            "X-CSRFToken": '{{csrf_token}}',
+            "X-CSRFToken": csrftoken = getCookie('csrftoken'),
             "Content-Type": "application/json",
           },
           body: JSON.stringify({

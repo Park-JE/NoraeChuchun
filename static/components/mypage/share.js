@@ -33,7 +33,10 @@ async function loadUsers() {
 }
 function displayUsers(users) {
   let user_name = users.user.username;
-  $(".allUser").append(createHTMLString(user_name));
+  const user = getCookie("user")
+  if (user != user_name) {
+    $(".allUser").append(createHTMLString(user_name));
+  }
 }
 //친구목록 
 function inqFriend(items) {
@@ -81,11 +84,11 @@ function delFriend(obj) {
   var friend = new Object();
   friend.username = deleteName;
   friends.push(friend)
-  console.log('{{csrf_token}}')
+  console.log(csrftoken = getCookie('csrftoken'))
   fetch(`https://nochu.pw/api/friend/${getCookie("user")}/delete/`, {
     method: "PATCH",
     headers: {
-      "X-CSRFToken": '{{csrf_token}}',
+      "X-CSRFToken": csrftoken = getCookie('csrftoken'),
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
@@ -120,7 +123,7 @@ function addFriend(obj) {
   fetch(`https://nochu.pw/api/friend/${getCookie("user")}/add/`, {
     method: "PATCH",
     headers: {
-      "X-CSRFToken": '{{csrf_token}}',
+      "X-CSRFToken": csrftoken = getCookie('csrftoken'),
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
