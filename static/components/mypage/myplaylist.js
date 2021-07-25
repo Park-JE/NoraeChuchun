@@ -147,7 +147,7 @@ function kakaoShare(obj) {
     content: {
       title: "NOCHU",
       description: "날씨에 맞는 음악추천",
-      imageUrl: "http://127.0.0.1:5500/static/img/favicon.png",
+      imageUrl: "static/img/favicon.png",
       link: {
         mobileWebUrl: targetTitle,
         androidExecutionParams: "test",

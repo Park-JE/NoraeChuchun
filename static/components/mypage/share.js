@@ -33,7 +33,10 @@ async function loadUsers() {
 }
 function displayUsers(users) {
   let user_name = users.user.username;
-  $(".allUser").append(createHTMLString(user_name));
+  const user = getCookie("user")
+  if (user != user_name) {
+    $(".allUser").append(createHTMLString(user_name));
+  }
 }
 //친구목록 
 function inqFriend(items) {
