@@ -113,7 +113,7 @@ function loadData() {
   //cookie 값 활용해서 친구 playlist에 들어가는 거 까진 했는데,,
   let id = getCookie("friend_name");
   let title = getCookie("playlist");
-  if (id == null && title == null) {
+  if (id == null || title == null) {
     id = searchParam("uid")
     title = searchParam("playlist")
     console.log(id, title)
