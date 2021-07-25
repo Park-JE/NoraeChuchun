@@ -26,18 +26,18 @@ function createHTMLString(user) {
 }
 
 async function loadUsers() {
-  const res = await fetch(
+  let res = await fetch(
     `https://nochu.pw/api/friend/`
   );
   return await res.json();
 }
 function displayUsers(users) {
-  const user_name = users.user.username;
+  let user_name = users.user.username;
   $(".allUser").append(createHTMLString(user_name));
 }
 //친구목록 
 function inqFriend(items) {
-  const user_name = getCookie("user");
+  let user_name = getCookie("user");
   items.forEach((users) => {
     if (users.user.username === user_name) {
       users.friends.forEach((friend) => {
@@ -117,7 +117,6 @@ function addFriend(obj) {
   var friend = new Object();
   friend.username = friendName;
   friends.push(friend)
-  console.log('{{csrf_token}}')
   fetch(`https://nochu.pw/api/friend/${getCookie("user")}/add/`, {
     method: "PATCH",
     headers: {

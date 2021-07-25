@@ -28,6 +28,8 @@ var getCookie = function (name) {
   return value ? value[2] : null;
 };
 
+
+//플레이리스트 추가 
 function addPlaylist() {
   if (title.value == "") {
     alert("제목을 입력해주세요😥");
@@ -44,34 +46,58 @@ function addPlaylist() {
           <li class="list-close"><span class="fas fa-lock" aria-hidden="true"></span>비공개</li>
           <li class="list-share" onclick="kakaoShare(this)"><span class="fas fa-share-alt" aria-hidden="true"></span>재생목록 공유</li>
           <li class="list-modify"><span class="fas fa-edit" aria-hidden="true"></span>재생목록 수정</li>
-          <li class="list-remove"><span class="fas fa-trash" aria-hidden="true"></span>재생목록 삭제</li>
+          <li class="list-remove" onClick="delPlaylist(this)"><span class="fas fa-trash" aria-hidden="true"></span>재생목록 삭제</li>
         </ul>
       </div>
       <span class="fas fa-lock lock-state" aria-hidden="true"></span>
     </li>`;
     $(".myplaylist__list").append(str);
+    let cate = new Array();
+    let season_tag = new Object();
+    let time_tag = new Object();
+    let weather_tag = new Object();
+    let seasonList = document.getElementsByName("season");
+    for (let i = 0; i < seasonList.length; i++) {
+      console.log(seasonList[i])
+      if (seasonList[i].checked == true) {
+        season_tag.tag = seasonList[i].value;
+        cate.push(season_tag)
+      }
+    }
+    let timeList = document.getElementsByName("time");
+    for (let i = 0; i < timeList.length; i++) {
+      console.log(timeList[i])
+      if (timeList[i].checked == true) {
+        time_tag.tag = timeList[i].value;
+        cate.push(time_tag)
+      }
+    }
+    let weatherList = document.getElementsByName("weather");
+    for (let i = 0; i < weatherList.length; i++) {
+      if (weatherList[i].checked == true) {
+        weather_tag.tag = weatherList[i].value;
+        cate.push(weather_tag)
+      }
+    }
+    console.log(cate)
+    //fetch 추가 플레이리스트 생성 
+    fetch(`https://nochu.pw/api/playlist/`, {
+      method: "POST",
+      headers: {
+        "X-CSRFToken": '{{csrf_token}}',
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        title: `${title.value}`, desc: "", user_id: `${getCookie("user")}`,
+        category: cate, public: true
 
+      }),
+    })
+      .then((response) => response.json())
+      .then((data) => console.log(data));
     cover.classList.remove("active");
     modal.classList.remove("active");
     title.value = "";
-    //fetch 추가 
-    // var playlists = new Array();
-    // var playlist = new Object();
-    // playlist.username = getCookie("user");
-    // playlists.push(playlist)
-    // console.log('{{csrf_token}}')
-    // fetch(`https://nochu.pw/api/playlist/${getCookie("user")}/add/`, {
-    //   method: "POST",
-    //   headers: {
-    //     "X-CSRFToken": '{{csrf_token}}',
-    //     "Content-Type": "application/json",
-    //   },
-    //   body: JSON.stringify({
-    //     playlists: playlists,
-    //   }),
-    // })
-    //   .then((response) => response.json())
-    //   .then((data) => console.log(data));
   }
 }
 
@@ -94,7 +120,7 @@ function displayItems(items) {
       <li class="list-close"><span class="fas fa-lock" aria-hidden="true"></span>비공개</li>
       <li class="list-share" onclick="kakaoShare(this)"><span class="fas fa-share-alt" aria-hidden="true"></span>재생목록 공유</li>
       <li class="list-modify"><span class="fas fa-edit" aria-hidden="true"></span>재생목록 수정</li>
-      <li class="list-remove"><span class="fas fa-trash" aria-hidden="true"></span>재생목록 삭제</li>
+      <li class="list-remove" onClick="delPlaylist(this)"><span class="fas fa-trash" aria-hidden="true"></span>재생목록 삭제</li>
     </ul>
   </div>
   <span class="fas fa-lock lock-state" aria-hidden="true"></span>
@@ -155,8 +181,6 @@ function displayMenu(obj) {
   const open = menu.children[0].children[0];
   const close = menu.children[0].children[1];
   const share = menu.children[0].children[2];
-  const modify = menu.children[0].children[3];
-  const remove = menu.children[0].children[4];
   obj.addEventListener("click", () => {
     menu.classList.add("active");
     cover.classList.add("active");
@@ -171,9 +195,36 @@ function displayMenu(obj) {
   close.addEventListener("click", () => {
     lock_state.classList.add("active");
   });
-  remove.addEventListener("click", () => {
-    myplaylist_list.removeChild(obj.parentNode);
-  });
+}
+
+
+//플레이리스트 삭제 
+function delPlaylist(obj) {
+  let parent = obj.parentNode.parentNode.parentNode;
+  console.log(parent)
+  let title = parent.children[2].innerText;
+
+  fetch(
+    `https://nochu.pw/api/playlist/?uid=${getCookie("user")}&title=${title}`
+  )
+    .then((response) => response.json())
+    .then((data) => {
+      data.forEach((ids) => {
+        fetch(`https://nochu.pw/api/playlist/${ids.id}`, {
+          method: "DELETE",
+          headers: {
+            "X-CSRFToken": '{{csrf_token}}',
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+          }),
+        })
+          .then((response) => response.json())
+          .then((data) => console.log(data));
+      })
+    })
+  const myplaylist__list = document.querySelector(".myplaylist__list")
+  myplaylist__list.removeChild(parent);
 }
 
 loadData().then((items) => {
