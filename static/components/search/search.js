@@ -4,10 +4,11 @@ const inputBox = navBar.querySelector(".searchAndLogin input");
 const searchWrap = document.querySelector(".search-wrap");
 
 function loadUserPlaylists() {
+  const username = getCookie("user");
   const config = {
     headers: { Accept: "application/json" },
   };
-  return fetch(`https://nochu.pw/api/playlist/?uid={username}`, config)
+  return fetch(`https://nochu.pw/api/playlist/?uid=${username}`, config)
     .then((response) => response.json())
     .catch((error) => console.log("error", error));
 }
