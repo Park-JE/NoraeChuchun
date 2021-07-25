@@ -63,7 +63,7 @@ function onButton(obj) {
   loadData().then((items) => {
     items[0].tracks.forEach((music) => {
       if (music.track_name === title && music.track_artist === artist) {
-        fetch(`https://nochu.pw/playlist_api/${getCookie("playlist_id")}/delete/`, {
+        fetch(`https://nochu.pw/api/playlist/${getCookie("playlist_id")}/delete/`, {
           method: "PATCH",
           headers: {
             "X-CSRFToken": csrftoken = getCookie('csrftoken'),

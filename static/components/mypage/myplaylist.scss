@@ -85,7 +85,7 @@ li {
           position: absolute;
           width: fit-content;
           padding: 10px;
-          bottom: 35px;
+          bottom: 20px;
           right: 0px;
           font-size: 25px;
           z-index: 2;
@@ -97,6 +97,8 @@ li {
         .myplaylist__title {
           font-size: 15px;
           margin-top: 5px;
+          width: 200px;
+          overflow: wrap;
         }
 
         .myplaylist__count {
