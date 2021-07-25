@@ -356,16 +356,33 @@ cancelBtn.addEventListener("click", () => {
     inputBox.focus();
   }
 });
+function checkKor(str) {
+  const regExp = /[ㄱ-ㅎㅏ-ㅣ가-힣]/g;
+  if (regExp.test(str)) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
 
 inputBox.addEventListener("keypress", (e) => {
   if (e.key === "Enter") {
-    setCookie("value", inputBox.value, 1);
-    setCookie("inputId", inputBox.id, 1);
+    console.log(inputBox.value)
+    if (checkKor(inputBox.value)) {
+      str = inputBox.value
+      document.cookie = "value=" + str;
+      document.cookie = "inputId=" + inputBox.id;
+    } else {
+      setCookie("value", inputBox.value, 1);
+      setCookie("inputId", inputBox.id, 1);
+    }
     if (getCookie("inputId") !== "search") {
       window.location.href = "search ";
     } else {
       handleSearch();
     }
+
   }
 });
 
