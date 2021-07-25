@@ -111,9 +111,15 @@ function loadData() {
   let id = getCookie("friend_name");
   let title = getCookie("playlist");
   if (id == null || title == null) {
+<<<<<<< HEAD
     id = searchParam("uid");
     title = searchParam("playlist");
     console.log(id, title);
+=======
+    id = searchParam("uid")
+    title = searchParam("playlist")
+
+>>>>>>> 149f09ebcbe12070b4e4466efa847052a421431b
   }
   return fetch(`https://nochu.pw/api/playlist/?uid=${id}&title=${title}`).then(
     (res) => {

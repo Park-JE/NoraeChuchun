@@ -105,5 +105,5 @@ playlistWrap.addEventListener("click", (e) => {
     document.cookie = `playlist=${e.target.parentNode.childNodes[1].textContent}`;
     document.cookie = `friend_name=${e.target.parentNode.dataset.user}`;
   }
-  window.location.href = "friendplaylist-list.html";
+  window.location.href = "friendplaylist-list ";
 });

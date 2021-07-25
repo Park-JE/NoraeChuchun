@@ -41,7 +41,6 @@ function loadData() {
 
 loadData().then((items) => {
   displayItems(items);
-
 });
 
 const unlike = document.querySelector(".unlike");
@@ -57,7 +56,6 @@ function onButton(obj) {
   track.track_name = title;
   track.track_artist = artist;
   tracks.push(track)
-  console.log(tracks)
 
   parent.parentNode.removeChild(parent);
   loadData().then((items) => {

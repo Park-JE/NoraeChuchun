@@ -5,7 +5,6 @@ var getCookie = function (name) {
 var deleteCookie = function (name) {
   document.cookie = name + "=; expires=Thu, 01 Jan 1999 00:00:10 GMT;";
 };
-console.log(document.cookie);
 const friend_name = getCookie("friend_name");
 title = document.querySelector(".friend_name");
 title.innerText = friend_name + "님의 플레이리스트";
@@ -15,12 +14,10 @@ function loadData() {
   return fetch(
     `https://nochu.pw/api/playlist/?uid=${friend_name}`
   ).then((res) => {
-    console.log(res);
     return res.json();
   });
 }
 function displayItems(items) {
-  console.log(items);
   let str = `<li class="list-group-play">
   <img class="myplaylist__thumnail" onclick="pageChange(this);" src="${items.tracks[0].track_image}"
   alt="플레이리스트 이미지" />
@@ -37,5 +34,5 @@ loadData().then((items) => {
 function pageChange(obj) {
   const title = obj.parentNode.children[1].innerHTML;
   document.cookie = "playlist" + "=" + title;
-  window.location.href = "friendplaylist-list.html";
+  window.location.href = "friendplaylist-list ";
 }
