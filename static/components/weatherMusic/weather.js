@@ -75,6 +75,13 @@ const onGeoOk = (position) => {
         matchSeasonWithSong(eachInfo);
         matchTimeWithSong(eachInfo);
         matchWeatherWithSong(eachInfo);
+
+        if (eachInfo.mood.length === 0) {
+          eachInfo.mood.push("쌀쌀한 날");
+          eachInfo.mood.push("환절기");
+          eachInfo.mood.push("비/ 흐림");
+        }
+        console.log(eachInfo.mood);
         eachInfo.mood.forEach(function (eachMood) {
           if (eachMood === weatherParmValue) {
             result.push(eachInfo);
@@ -108,7 +115,6 @@ const onGeoOk = (position) => {
           } else {
             newResult = result;
           }
-
           const music = newResult.map(createSong);
           const container = document.querySelector(
             ".recommendation .currentWeather-playlist"

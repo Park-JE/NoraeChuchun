@@ -68,9 +68,8 @@ const matchSeasonWithSong = (eachInfo) => {
     return eachInfo;
   }
   if (
-    (eachInfo.danceability > 0.6 &&
-      eachInfo.energy > 0.55 &&
-      eachInfo.valence > 0.6) ||
+    (eachInfo.tempo > 95 && eachInfo.danceability > 0.6) ||
+    (eachInfo.tempo > 95 && eachInfo.energy > 0.6) ||
     eachInfo.songName.indexOf("여름") !== -1 ||
     eachInfo.songName.toLowerCase().indexOf("summer") !== -1
   ) {
@@ -92,16 +91,6 @@ const matchSeasonWithSong = (eachInfo) => {
     eachInfo.songName.toLowerCase().indexOf("winter") !== -1
   ) {
     eachInfo.mood.push("겨울");
-    return eachInfo;
-  }
-  if (
-    eachInfo.songName.indexOf("크리스마스") !== -1 ||
-    eachInfo.songName.toLowerCase().indexOf("christmas") !== -1 ||
-    eachInfo.songName.toLowerCase().indexOf("bells") !== -1 ||
-    eachInfo.songName.toLowerCase().indexOf("santa") !== -1 ||
-    eachInfo.songName.toLowerCase().indexOf("mistletoe") !== -1
-  ) {
-    eachInfo.mood.push("크리스마스");
     return eachInfo;
   }
 };
