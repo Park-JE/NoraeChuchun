@@ -81,7 +81,6 @@ const onGeoOk = (position) => {
           eachInfo.mood.push("환절기");
           eachInfo.mood.push("비/ 흐림");
         }
-        console.log(eachInfo.mood);
         eachInfo.mood.forEach(function (eachMood) {
           if (eachMood === weatherParmValue) {
             result.push(eachInfo);
