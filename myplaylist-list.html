@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="shortcut icon" href="static/img/favicon.ico" />
+    <link rel="shortcut icon" href="static/img/favicon.png" />
     <script
       src="https://kit.fontawesome.com/ef81e253aa.js"
       crossorigin="anonymous"
@@ -15,14 +15,6 @@
     <link
       rel="stylesheet"
       href="./static/components/mypage/myplaylist-list.css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/icon?family=Material+Icons"
     />
     <script defer src="static/components/navbar/navbar.js"></script>
     <script defer src="static/components/search/search.js"></script>
@@ -85,20 +77,21 @@
         <div class="thumnail"></div>
         <div class="info">
           <div class="playlist-title"></div>
-          <div class="playlist-tags"></div>
-          <div class="playlist-count">
-            <span class="material-icons-outlined"> headphones </span
-            ><span class="count"></span>
-            <span class="material-icons-outlined unlike active">
+          <div class="tagsAdnCount">
+            <div class="playlist-tags"></div>
+            <div class="playlist-count">
+              <i class="fas fa-compact-disc fa lg"></i>
+              <span class="count"></span>
+            </div>
+          </div>
+          <!-- <span class="material-icons-outlined unlike active">
               favorite_border
             </span>
-            <span class="material-icons-outlined like"> favorite </span>
-          </div>
+            <span class="material-icons-outlined like"> favorite </span> -->
         </div>
       </div>
       <div class="content-wrap">
         <div class="sort">
-          <span class="sort-cover">커버</span>
           <span class="sort-title">곡</span>
           <span class="sort-artist">아티스트</span>
           <span class="sort-album">앨범</span>

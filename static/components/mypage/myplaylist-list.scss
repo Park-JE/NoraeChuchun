@@ -1,10 +1,9 @@
 @import "../../css/variables";
 
 .container {
-  width: 100%;
+  width: $content-width;
   display: flex;
   flex-direction: column;
-  width: 90%;
   background-color: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(5px);
   border-radius: $border-small;
@@ -16,8 +15,11 @@
   @include color-var(color, font-color);
 
   .playlist-info {
-    width: 90%;
+    width: 100%;
+    padding: 0 $base-space;
     display: flex;
+    align-items: center;
+    justify-content: space-between;
     margin: 20px auto;
 
     .thumnail {
@@ -30,56 +32,62 @@
     }
 
     .info {
-      width: 500px;
-      margin: 10px 30px;
+      width: calc(100% - 150px);
+      height: 100%;
+      padding: $base-space;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
 
       .playlist-title {
-        margin-top: 80px;
-        font-size: 25px;
-        font-weight: 700;
+        font-size: $font-xlarge;
+        font-weight: $font-bold;
       }
 
-      .playlist-tags {
-        margin-top: 20px;
-        font-size: 18px;
-        span {
-          margin-right: 10px;
-        }
-      }
+      .tagsAdnCount {
+        .playlist-tags {
+          font-size: $font-small;
+          margin-bottom: 4px;
 
-      .playlist-count {
-        margin-top: 10px;
-        display: flex;
-        align-items: center;
-        position: relative;
-
-        span {
-          font-size: 16px;
-          margin-right: 5px;
-        }
-        .unlike {
-          display: none;
-        }
-        .unlike.active {
-          display: block;
-          position: absolute;
-          font-size: 26px;
-          left: 95px;
-          &:hover {
-            cursor: pointer;
+          span {
+            margin-bottom: 4px;
           }
         }
-        .like {
-          display: none;
-        }
-        .like.active {
-          display: block;
-          position: absolute;
-          font-size: 26px;
-          left: 95px;
-          color: rebeccapurple;
-          &:hover {
-            cursor: pointer;
+
+        .playlist-count {
+          font-size: $font-small;
+          display: flex;
+          align-items: center;
+          position: relative;
+
+          .count {
+            margin-left: 4px;
+          }
+
+          .unlike {
+            display: none;
+          }
+          .unlike.active {
+            display: block;
+            position: absolute;
+            font-size: 26px;
+            left: 95px;
+            &:hover {
+              cursor: pointer;
+            }
+          }
+          .like {
+            display: none;
+          }
+          .like.active {
+            display: block;
+            position: absolute;
+            font-size: 26px;
+            left: 95px;
+            color: rebeccapurple;
+            &:hover {
+              cursor: pointer;
+            }
           }
         }
       }
@@ -88,24 +96,23 @@
 
   .content-wrap {
     width: 100%;
+    padding: 0 $base-space;
     @include color-var(color, font-color);
     position: relative;
 
     .sort {
-      width: 90%;
+      width: 100%;
       display: grid;
       align-items: center;
-      grid-template-columns: 1fr 3fr 3fr 3fr 55px;
+      grid-template-columns: 3fr 2fr 2fr 55px;
       column-gap: 5px;
       @include color-var(border-top, sm-nav-border);
       @include color-var(border-bottom, sm-nav-border);
       font-size: $font-small;
       padding: 4px 0 4px $base-space;
-      margin: 0px auto;
     }
 
     .items {
-      height: 500px;
       width: 100%;
       overflow-y: scroll;
       position: relative;
@@ -126,7 +133,7 @@
         box-shadow: inset 0px 0px 5px white;
       }
       .item {
-        width: 90%;
+        width: 100%;
         height: 55px;
         display: grid;
         align-items: center;
@@ -140,8 +147,8 @@
 
         .cover {
           img {
-            width: 40px;
-            height: 40px;
+            width: 48px;
+            height: 48px;
             border-radius: 5px;
           }
         }
@@ -150,5 +157,21 @@
         }
       }
     }
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  $content-width: 680px;
+
+  .container {
+    width: $content-width;
+  }
+}
+
+@media (max-width: 767px) {
+  $content-width: 350px;
+
+  .container {
+    width: $content-width;
   }
 }
