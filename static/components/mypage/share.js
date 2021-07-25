@@ -84,7 +84,6 @@ function delFriend(obj) {
   var friend = new Object();
   friend.username = deleteName;
   friends.push(friend)
-  console.log(csrftoken = getCookie('csrftoken'))
   fetch(`https://nochu.pw/api/friend/${getCookie("user")}/delete/`, {
     method: "PATCH",
     headers: {
@@ -103,7 +102,7 @@ function delFriend(obj) {
 function hello(obj) {
   const id = obj.innerText;
   document.cookie = "friend_name" + "=" + id;
-  location.href = "friendplaylist.html";
+  location.href = "friendplaylist ";
 }
 
 //친구 추가

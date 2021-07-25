@@ -58,7 +58,6 @@ function addPlaylist() {
     let weather_tag = new Object();
     let seasonList = document.getElementsByName("season");
     for (let i = 0; i < seasonList.length; i++) {
-      console.log(seasonList[i])
       if (seasonList[i].checked == true) {
         season_tag.tag = seasonList[i].value;
         cate.push(season_tag)
@@ -66,7 +65,6 @@ function addPlaylist() {
     }
     let timeList = document.getElementsByName("time");
     for (let i = 0; i < timeList.length; i++) {
-      console.log(timeList[i])
       if (timeList[i].checked == true) {
         time_tag.tag = timeList[i].value;
         cate.push(time_tag)
@@ -79,7 +77,6 @@ function addPlaylist() {
         cate.push(weather_tag)
       }
     }
-    console.log(cate)
     //fetch 추가 플레이리스트 생성 
     fetch(`https://nochu.pw/api/playlist/`, {
       method: "POST",
@@ -104,7 +101,6 @@ function addPlaylist() {
 async function loadData() {
   const id = getCookie("user");
   const res = await fetch(`https://nochu.pw/api/playlist/?uid=${id}`);
-  console.log(res);
   return await res.json();
 }
 
@@ -141,7 +137,6 @@ function kakaoShare(obj) {
   const id = getFormUid("user");
 
   let targetTitle = `https://nochu.pw/friendplaylist-list?uid=${id}&playlist=${title}`;
-  console.log(targetTitle);
   Kakao.Link.sendDefault({
     objectType: "feed",
     content: {
@@ -171,7 +166,7 @@ function kakaoShare(obj) {
 function pageChange(obj) {
   const title = obj.parentNode.children[2].innerHTML;
   document.cookie = "playlist" + "=" + title;
-  window.location.href = "myplaylist-list.html";
+  window.location.href = "myplaylist-list ";
 }
 
 function displayMenu(obj) {
@@ -201,7 +196,6 @@ function displayMenu(obj) {
 //플레이리스트 삭제 
 function delPlaylist(obj) {
   let parent = obj.parentNode.parentNode.parentNode;
-  console.log(parent)
   let title = parent.children[2].innerText;
 
   fetch(

@@ -116,7 +116,7 @@ function loadData() {
   if (id == null || title == null) {
     id = searchParam("uid")
     title = searchParam("playlist")
-    console.log(id, title)
+
   }
   return fetch(
     `https://nochu.pw/api/playlist/?uid=${id}&title=${title}`

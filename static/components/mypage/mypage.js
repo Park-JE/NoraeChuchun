@@ -5,7 +5,6 @@ let pw1_error = document.querySelector(".pw1_error");
 let pw2_error = document.querySelector(".pw2_error");
 
 chngBtn.addEventListener("click", function () {
-  console.log(new_pw1.value)
   if (new_pw1.value == "") {
     pw1_error.classList.add("active");
     pw1_error.innerHTML = "패스워드를 4글자 이상 입력해주세요";
