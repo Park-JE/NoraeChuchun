@@ -1,5 +1,6 @@
 //유저 음악정보 가져오기,,
 function displayItems(items) {
+  document.cookie = "playlist_id" + "=" + items[0].id;
   items[0].tracks.forEach((music) => {
     let str = `<div class="item">
     <div class="cover"><img src="${music.track_image}" alt="coverImg"></div>
@@ -31,7 +32,6 @@ function loadData() {
   return fetch(
     `https://nochu.pw/api/playlist/?uid=${user}&title=${title}`
   ).then((res) => {
-    console.log(res);
     return res.json();
   });
 }
@@ -40,15 +40,46 @@ function loadData() {
 // // displayData(data);
 
 loadData().then((items) => {
-  console.log(items);
   displayItems(items);
+
 });
 
 const unlike = document.querySelector(".unlike");
 const like = document.querySelector(".like");
+
+//특정 음악 삭제
 function onButton(obj) {
   const parent = obj.parentNode;
+  let title = parent.children[1].innerText;
+  let artist = parent.children[2].innerText;
+  tracks = new Array();
+  track = new Object();
+  track.track_name = title;
+  track.track_artist = artist;
+  tracks.push(track)
+  console.log(tracks)
+
   parent.parentNode.removeChild(parent);
+  loadData().then((items) => {
+    items[0].tracks.forEach((music) => {
+      if (music.track_name === title && music.track_artist === artist) {
+        fetch(`https://nochu.pw/playlist_api/${getCookie("playlist_id")}/delete/`, {
+          method: "PATCH",
+          headers: {
+            "X-CSRFToken": csrftoken = getCookie('csrftoken'),
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            tracks: tracks
+          }),
+        })
+          .then((response) => response.json())
+          .then((data) => console.log(data));
+      }
+    })
+  })
+
+
 }
 
 unlike.addEventListener("click", () => {
