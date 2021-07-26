@@ -46,7 +46,7 @@ const onGeoOk = (position) => {
       const temp = weatherMAIN.querySelector(".temperature");
       const loc = weatherMAIN.querySelector(".location");
       const state = weatherMAIN.querySelector(".state");
-      icon.src = `http://openweathermap.org/img/wn/${cityWeather.weatherIcon}@2x.png`;
+      icon.src = `https://openweathermap.org/img/wn/${cityWeather.weatherIcon}@2x.png`;
       temp.textContent = `${cityWeather.cityTemp}°C`;
       loc.textContent = cityWeather.cityName;
       state.textContent = cityWeather.cityCondDescription;
