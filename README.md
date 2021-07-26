@@ -91,7 +91,7 @@
     - password : 유저 비밀번호
 - **Friend**
     - user : 친구 아이디
-    - 
+    <br>
 ### API 명세
 - **Playlist**
     - 전체 플레이리스트 조회
