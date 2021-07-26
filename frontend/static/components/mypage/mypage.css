@@ -1,0 +1,170 @@
+:root[color-theme="light"] {
+  --background: #edecdd;
+  --font-color: #111;
+  --border: 1px solid #111;
+  --bouncer1: #ffc931;
+  --bouncer2: #d74639;
+  --nav-bgc: rgba(239, 222, 205, 0.2);
+  --sm-nav-bgc: rgba(239, 222, 205, 0.9);
+  --sm-nav-border: 1px solid rgba(2, 2, 2, 0.2);
+  --filter-bar-border: 1px solid rgba(25, 25, 25, 0.5);
+  --login-btn: linear-gradient(125deg, #f5d270, #d77253, #f5d270);
+  --login-border: 2px solid #707070;
+  --count-color: #454545;
+  --secession-btn: #e1dec8;
+  --addPlaylist-modal: url("../../img/lightBg.png");
+  --addPlaylist-btn: rgba(254, 254, 254, 0.7);
+  --playlists-cover: url("../img/playlistCovers/lp3.png");
+  --playlist-cover: url("../../img/playlistCovers/lp3.png");
+  --addModal-color: rgb(228, 223, 207);
+  --add-newPlaylist: #413428;
+  --hover-bright: brightness(105%);
+}
+
+:root[color-theme="dark"] {
+  --background: linear-gradient(to left, #242359, #0e0e1f);
+  --font-color: #eee;
+  --border: 1px solid #eee;
+  --bouncer1: #d557e1;
+  --bouncer2: #01adf7;
+  --nav-bgc: rgba(92, 66, 75, 0.2);
+  --sm-nav-bgc: rgba(92, 66, 75, 0.9);
+  --sm-nav-border: 1px solid rgba(255, 255, 255, 0.2);
+  --filter-bar-border: 1px solid rgba(238, 238, 238, 0.5);
+  --login-btn: linear-gradient(125deg, #81ecec, #6c5ce7, #81ecec);
+  --login-border: 2px solid #adadad;
+  --count-color: #aaaaaa;
+  --secession-btn: #242359;
+  --addPlaylist-modal: url("../../img/darkBg.png");
+  --addPlaylist-btn: rgba(187, 187, 187, 0.4);
+  --playlists-cover: url("../img/playlistCovers/lp10.png");
+  --playlist-cover: url("../../img/playlistCovers/lp10.png");
+  --addModal-color: rgb(14, 14, 34);
+  --add-newPlaylist: #28243a;
+  --hover-bright: brightness(115%);
+}
+
+.container {
+  width: 100%;
+  height: 100%;
+}
+
+.container .menu__contents {
+  color: #111;
+  color: var(--font-color, #111);
+  margin: 0px 70px;
+  width: 90%;
+  margin-top: 50px;
+}
+
+.container .menu__contents .menu__content {
+  width: 700px;
+}
+
+.container .menu__contents .menu__content .contents {
+  width: 500px;
+}
+
+.container .menu__contents .menu__content .contents .contents_tag {
+  font-size: 16px;
+  width: 200px;
+  margin-top: 20px;
+}
+
+.container .menu__contents .menu__content .contents input {
+  color: #111;
+  color: var(--font-color, #111);
+  font-size: 20px;
+  width: 600px;
+  height: 40px;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: 2px solid #707070;
+  border-bottom: var(--login-border, 2px solid #707070);
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.container .menu__contents .menu__content .contents input:focus {
+  outline: none;
+}
+
+.container .menu__contents .menu__content .error {
+  display: none;
+}
+
+.container .menu__contents .menu__content .error.active {
+  margin-top: 5px;
+  display: block;
+  color: red;
+  font-size: 14px;
+}
+
+.container .menu__contents .menu__content button {
+  left: 40%;
+  margin-top: 30px;
+  width: 600px;
+  height: 50px;
+  background: linear-gradient(125deg, #f5d270, #d77253, #f5d270);
+  background: var(--login-btn, linear-gradient(125deg, #f5d270, #d77253, #f5d270));
+  background-position: left;
+  background-size: 200%;
+  color: white;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.container .menu__contents .menu__content button:hover {
+  background-position: right;
+}
+
+@media screen and (max-width: 910px) {
+  .container .menu__contents .menu__content {
+    width: 500px;
+  }
+  .container .menu__contents .menu__content .contents input {
+    width: 400px;
+  }
+  .container .menu__contents .menu__content button {
+    width: 400px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    width: 100%;
+  }
+  .container .menu__contents {
+    width: 100%;
+    margin: 0px auto;
+  }
+  .container .menu__contents .menu__content {
+    width: 400px;
+    margin: 40px auto;
+  }
+  .container .menu__contents .menu__content .contents {
+    width: 300px;
+  }
+  .container .menu__contents .menu__content .contents .contents_tag {
+    font-size: 14px;
+    width: 200px;
+    margin-top: 20px;
+  }
+  .container .menu__contents .menu__content .contents input {
+    width: 400px;
+    height: 40px;
+  }
+  .container .menu__contents .menu__content button {
+    left: 40%;
+    margin-top: 30px;
+    width: 400px;
+  }
+}
+/*# sourceMappingURL=mypage.css.map */

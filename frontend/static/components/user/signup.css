@@ -1,0 +1,153 @@
+:root[color-theme="light"] {
+  --background: #edecdd;
+  --font-color: #111;
+  --border: 1px solid #111;
+  --bouncer1: #ffc931;
+  --bouncer2: #d74639;
+  --nav-bgc: rgba(239, 222, 205, 0.2);
+  --sm-nav-bgc: rgba(239, 222, 205, 0.9);
+  --sm-nav-border: 1px solid rgba(2, 2, 2, 0.2);
+  --filter-bar-border: 1px solid rgba(25, 25, 25, 0.5);
+  --login-btn: linear-gradient(125deg, #f5d270, #d77253, #f5d270);
+  --login-border: 2px solid #707070;
+  --count-color: #454545;
+  --secession-btn: #e1dec8;
+  --addPlaylist-modal: url("../../img/lightBg.png");
+  --addPlaylist-btn: rgba(254, 254, 254, 0.7);
+  --playlists-cover: url("../img/playlistCovers/lp3.png");
+  --playlist-cover: url("../../img/playlistCovers/lp3.png");
+  --addModal-color: rgb(228, 223, 207);
+  --add-newPlaylist: #413428;
+  --hover-bright: brightness(105%);
+}
+
+:root[color-theme="dark"] {
+  --background: linear-gradient(to left, #242359, #0e0e1f);
+  --font-color: #eee;
+  --border: 1px solid #eee;
+  --bouncer1: #d557e1;
+  --bouncer2: #01adf7;
+  --nav-bgc: rgba(92, 66, 75, 0.2);
+  --sm-nav-bgc: rgba(92, 66, 75, 0.9);
+  --sm-nav-border: 1px solid rgba(255, 255, 255, 0.2);
+  --filter-bar-border: 1px solid rgba(238, 238, 238, 0.5);
+  --login-btn: linear-gradient(125deg, #81ecec, #6c5ce7, #81ecec);
+  --login-border: 2px solid #adadad;
+  --count-color: #aaaaaa;
+  --secession-btn: #242359;
+  --addPlaylist-modal: url("../../img/darkBg.png");
+  --addPlaylist-btn: rgba(187, 187, 187, 0.4);
+  --playlists-cover: url("../img/playlistCovers/lp10.png");
+  --playlist-cover: url("../../img/playlistCovers/lp10.png");
+  --addModal-color: rgb(14, 14, 34);
+  --add-newPlaylist: #28243a;
+  --hover-bright: brightness(115%);
+}
+
+body {
+  height: 100vh;
+}
+
+body .loginForm {
+  position: absolute;
+  width: 300px;
+  min-height: 400px;
+  padding: 30px, 20px;
+  background-color: rgba(255, 255, 255, 0.1);
+  -webkit-backdrop-filter: blur(5px);
+          backdrop-filter: blur(5px);
+  border-top: 2px solid rgba(255, 255, 255, 0.2);
+  border-right: 2px solid rgba(255, 255, 255, 0.2);
+  -webkit-box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+  color: #111;
+  color: var(--font-color, #111);
+  text-align: center;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  border-radius: 15px;
+}
+
+body .loginForm h2 {
+  text-align: center;
+  margin: 30px;
+}
+
+body .loginForm .idForm {
+  border-bottom: 2px solid #707070;
+  border-bottom: var(--login-border, 2px solid #707070);
+  margin: 30px;
+  padding: 10px 10px;
+}
+
+body .loginForm .idForm .id {
+  width: 100%;
+  border: none;
+  outline: none;
+  color: #636e72;
+  font-size: 16px;
+  height: 25px;
+  background: none;
+}
+
+body .loginForm .passForm {
+  border-bottom: 2px solid #707070;
+  border-bottom: var(--login-border, 2px solid #707070);
+  margin: 30px;
+  padding: 10px 10px;
+}
+
+body .loginForm .passForm .pw {
+  width: 100%;
+  border: none;
+  outline: none;
+  color: #636e72;
+  font-size: 16px;
+  height: 25px;
+  background: none;
+}
+
+body .loginForm .passForm_chck {
+  border-bottom: 2px solid #707070;
+  border-bottom: var(--login-border, 2px solid #707070);
+  margin: 30px;
+  padding: 10px 10px;
+}
+
+body .loginForm .passForm_chck .pw_chck {
+  width: 100%;
+  border: none;
+  outline: none;
+  color: #636e72;
+  font-size: 16px;
+  height: 25px;
+  background: none;
+}
+
+body .loginForm .signupBtn {
+  position: relative;
+  left: 40%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  margin-bottom: 40px;
+  width: 80%;
+  height: 40px;
+  background: linear-gradient(125deg, #f5d270, #d77253, #f5d270);
+  background: var(--login-btn, linear-gradient(125deg, #f5d270, #d77253, #f5d270));
+  background-position: left;
+  background-size: 200%;
+  color: white;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+  display: inline;
+}
+
+body .loginForm .signupBtn:hover {
+  background-position: right;
+}
+/*# sourceMappingURL=signup.css.map */

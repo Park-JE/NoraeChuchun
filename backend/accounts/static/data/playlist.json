@@ -1,0 +1,195 @@
+{
+  "playlist": [
+    {
+      "list1": {
+        "playlistId": 1,
+        "playlistTitle": "신선한 초여름 낭만을 느끼며",
+        "playlistCover": "img/summer.jpeg",
+        "playlistMusic": [
+          {
+            "id": 1,
+            "title": "그건 아마 우리의 잘못은 아닐거야",
+            "artist": "백예린",
+            "cover": "img/yerinbaek_ep.jpeg",
+            "category": ["여름", "화창한", "환절기"]
+          },
+          {
+            "id": 2,
+            "title": "하루살이 Feat. 설리, Rad Museum",
+            "artist": "DEAN(딘)",
+            "cover": "img/하루살이.jpeg",
+            "category": ["여름", "화창한", "밤/새벽", "비/흐림"]
+          },
+          {
+            "id": 3,
+            "title": "나랑 아니면",
+            "artist": "검정치마",
+            "cover": "img/나랑아니면.jpeg",
+            "category": ["여름", "화창한", "밤/새벽", "쌀쌀한날"]
+          },
+          {
+            "id": 4,
+            "title": "Vinyard (빈야드)",
+            "artist": "우효",
+            "cover": "img/빈야드.jpeg",
+            "category": ["여름", "화창한", "가을", "오후"]
+          },
+          {
+            "id": 5,
+            "title": "영원처럼 안아줘 (with 카더가든)",
+            "artist": "프롬",
+            "cover": "img/영원처럼.jpeg",
+            "category": ["여름", "화창한", "선선한", "빔/새벽"]
+          },
+          {
+            "id": 6,
+            "title": "Walking In The Moonlight (feat. 다원, Lazier)",
+            "artist": "서교동의 밤",
+            "cover": "img/moonlight.jpeg",
+            "category": ["여름", "화창한", "쌀쌀한날", "폭염/더위"]
+          },
+          {
+            "id": 7,
+            "title": "bath",
+            "artist": "오프온오프(offonoff)",
+            "cover": "img/bath.jpeg",
+            "category": ["여름", "화창한", "미세먼지/황사", "겨울"]
+          },
+          {
+            "id": 8,
+            "title": "WALKING",
+            "artist": "수란",
+            "cover": "img/walking.jpeg",
+            "category": ["여름", "화창한", "봄", "아침"]
+          }
+        ]
+      },
+      "list2": {
+        "playlistId": 2,
+        "playlistTitle": "피크닉을 즐기며 듣는 이국적인 분위기의 음악들",
+        "playlistCover": "img/picnic.jpeg",
+        "playlistMusic": [
+          {
+            "id": 1,
+            "title": "그건 아마 우리의 잘못은 아닐거야",
+            "artist": "백예린",
+            "cover": "img/yerinbaek_ep.jpeg",
+            "category": ["여름", "화창한", "환절기"]
+          },
+          {
+            "id": 2,
+            "title": "하루살이 Feat. 설리, Rad Museum",
+            "artist": "DEAN(딘)",
+            "cover": "img/하루살이.jpeg",
+            "category": ["여름", "화창한", "밤/새벽", "비/흐림"]
+          },
+          {
+            "id": 3,
+            "title": "나랑 아니면",
+            "artist": "검정치마",
+            "cover": "img/나랑아니면.jpeg",
+            "category": ["여름", "화창한", "밤/새벽", "쌀쌀한날"]
+          },
+          {
+            "id": 4,
+            "title": "Vinyard (빈야드)",
+            "artist": "우효",
+            "cover": "img/빈야드.jpeg",
+            "category": ["여름", "화창한", "가을", "오후"]
+          },
+          {
+            "id": 5,
+            "title": "영원처럼 안아줘 (with 카더가든)",
+            "artist": "프롬",
+            "cover": "img/영원처럼.jpeg",
+            "category": ["여름", "화창한", "선선한", "빔/새벽"]
+          },
+          {
+            "id": 6,
+            "title": "Walking In The Moonlight (feat. 다원, Lazier)",
+            "artist": "서교동의 밤",
+            "cover": "img/moonlight.jpeg",
+            "category": ["여름", "화창한", "쌀쌀한날", "폭염/더위"]
+          },
+          {
+            "id": 7,
+            "title": "bath",
+            "artist": "오프온오프(offonoff)",
+            "cover": "img/bath.jpeg",
+            "category": ["여름", "화창한", "미세먼지/황사", "겨울"]
+          },
+          {
+            "id": 8,
+            "title": "WALKING",
+            "artist": "수란",
+            "cover": "img/walking.jpeg",
+            "category": ["여름", "화창한", "봄", "아침"]
+          }
+        ]
+      },
+      "list3": {
+        "playlistId": 3,
+        "playlistTitle": "나의 새벽을 몽롱하게 만들어주는 알앤비 모음",
+        "playlistCover": "img/night.jpeg",
+        "playlistMusic": [
+          {
+            "id": 1,
+            "title": "그건 아마 우리의 잘못은 아닐거야",
+            "artist": "백예린",
+            "cover": "img/yerinbaek_ep.jpeg",
+            "category": ["여름", "화창한", "환절기"]
+          },
+          {
+            "id": 2,
+            "title": "하루살이 Feat. 설리, Rad Museum",
+            "artist": "DEAN(딘)",
+            "cover": "img/하루살이.jpeg",
+            "category": ["여름", "화창한", "밤/새벽", "비/흐림"]
+          },
+          {
+            "id": 3,
+            "title": "나랑 아니면",
+            "artist": "검정치마",
+            "cover": "img/나랑아니면.jpeg",
+            "category": ["여름", "화창한", "밤/새벽", "쌀쌀한날"]
+          },
+          {
+            "id": 4,
+            "title": "Vinyard (빈야드)",
+            "artist": "우효",
+            "cover": "img/빈야드.jpeg",
+            "category": ["여름", "화창한", "가을", "오후"]
+          },
+          {
+            "id": 5,
+            "title": "영원처럼 안아줘 (with 카더가든)",
+            "artist": "프롬",
+            "cover": "img/영원처럼.jpeg",
+            "category": ["여름", "화창한", "선선한", "빔/새벽"]
+          },
+          {
+            "id": 6,
+            "title": "Walking In The Moonlight (feat. 다원, Lazier)",
+            "artist": "서교동의 밤",
+            "cover": "img/moonlight.jpeg",
+            "category": ["여름", "화창한", "쌀쌀한날", "폭염/더위"]
+          },
+          {
+            "id": 7,
+            "title": "bath",
+            "artist": "오프온오프(offonoff)",
+            "cover": "img/bath.jpeg",
+            "category": ["여름", "화창한", "미세먼지/황사", "겨울"]
+          },
+          {
+            "id": 8,
+            "title": "WALKING",
+            "artist": "수란",
+            "cover": "img/walking.jpeg",
+            "category": ["여름", "화창한", "봄", "아침"]
+          }
+        ]
+      }
+    }
+  ]
+}
