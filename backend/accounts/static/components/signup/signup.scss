@@ -1,0 +1,99 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .loginForm {
+    position: absolute;
+    width: 300px;
+    height: 400px;
+    padding: 30px, 20px;
+    background-color: #ffffff;
+    text-align: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 15px;
+
+    h2 {
+      text-align: center;
+      margin: 30px;
+    }
+
+    .idForm {
+      border-bottom: 2px solid #adadad;
+      margin: 30px;
+      padding: 10px 10px;
+
+      .id {
+        width: 100%;
+        border: none;
+        outline: none;
+        color: #636e72;
+        font-size: 16px;
+        height: 25px;
+        background: none;
+      }
+    }
+
+    .passForm {
+      border-bottom: 2px solid #adadad;
+      margin: 30px;
+      padding: 10px 10px;
+
+      .pw {
+        width: 100%;
+        border: none;
+        outline: none;
+        color: #636e72;
+        font-size: 16px;
+        height: 25px;
+        background: none;
+      }
+    }
+    .passForm_chck {
+      border-bottom: 2px solid #adadad;
+      margin: 30px;
+      padding: 10px 10px;
+
+      .pw_chck {
+        width: 100%;
+        border: none;
+        outline: none;
+        color: #636e72;
+        font-size: 16px;
+        height: 25px;
+        background: none;
+      }
+    }
+
+    .btn {
+      position: relative;
+      left: 40%;
+      transform: translateX(-50%);
+      margin-bottom: 40px;
+      width: 80%;
+      height: 40px;
+      background: linear-gradient(125deg, #81ecec, #6c5ce7, #81ecec);
+      background-position: left;
+      background-size: 200%;
+      color: white;
+      font-weight: bold;
+      border: none;
+      cursor: pointer;
+      transition: 0.4s;
+      display: inline;
+
+      &:hover {
+        background-position: right;
+      }
+    }
+  }
+}

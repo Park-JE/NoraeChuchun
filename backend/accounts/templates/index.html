@@ -1,0 +1,114 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="shortcut icon" href="{% static 'img/favicon.png' %}" />
+  <title>날씨에 맞는 음악 추천</title>
+  <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+  <script defer src="{% static 'components/weatherMusic/weather.js' %}"></script>
+  <script defer src="{% static 'components/weatherMusic/music.js' %}"></script>
+</head>
+
+<body>
+  <nav>
+    <a href="{% url 'index'%}" class="logo">날씨음악</a>
+    <!-- {% if user.is_authenticated %} -->
+    <div class="mypageAndLogout">
+      <!-- <p>{{ user.username }}님</p> -->
+      <form action="{% url 'logout' %}" method="POST">
+        {% csrf_token %}
+        <input type="submit" value="로그아웃">
+      </form>
+    </div>
+    <!-- {% else %} -->
+    <div class="loginAndJoin">
+      <a href="{% url 'login'%}" class="login">로그인</a>
+      <a href="{% url 'signup'%}" class="signup">회원가입</a>
+    </div>
+    <!-- {% endif %} -->
+  </nav>
+  <section class="recommendation-warp">
+    <span class="title">현재 날씨에 맞는 추천 음악</span>
+    <div class="recommendation">
+      <div class="weather">
+        <p class="status"></p>
+        <img class="icon" />
+        <div class="info">
+          <div class="tempAndLoc">
+            <span class="temperature"></span>
+            <span class="location"></span>
+          </div>
+          <span class="state"></span>
+        </div>
+      </div>
+      <div class="playlist">
+        <div class="music">
+          <img src="{% static 'img/yerinbaek_ep.jpeg' %}" alt="album-cover" class="album-cover" />
+          <div class="song-info">
+            <span class="name">노래 제목</span>
+            <span class="artist">가수</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="weather-filter">
+    <div class="category">
+      <span class="title">날씨에 맞는 추천 음악</span>
+      <div class="filter-wrap">
+        <div class="btn-wrap">
+          <button class="filter">봄</button>
+          <button class="filter">여름</button>
+          <button class="filter">가을</button>
+          <button class="filter">겨울</button>
+          <button class="filter">아침</button>
+          <button class="filter">오후</button>
+          <button class="filter">저녁</button>
+          <button class="filter">밤/새벽</button>
+          <button class="filter">화창한 날</button>
+          <button class="filter">비/ 흐림</button>
+        </div>
+        <div class="btn-wrap">
+          <button class="filter">크리스마스</button>
+          <button class="filter">환절기</button>
+          <button class="filter">눈오는 날</button>
+          <button class="filter">비온 후<br />/ 맑게 갠</button>
+          <button class="filter">
+            미세먼지
+            <br />/ 황사
+          </button>
+          <button class="filter">선선한 날</button>
+          <button class="filter">쌀쌀한 날</button>
+          <button class="filter">폭염/ 더위</button>
+        </div>
+      </div>
+    </div>
+    <div class="playlists">
+      <span class="total-count">전체(1,234)</span>
+      <div class="playlist-wrap">
+        <div class="platlist">
+          <div class="cover-wrap">
+            <img src="{% static 'img/summer.jpeg'%}" alt="platlist-cover" class="cover" />
+          </div>
+          <div class="info">
+            <span class="title">선선한 초여름의 낭만을 느끼며</span>
+            <div class="tags">
+              <span class="filter">#여름</span>
+              <span class="filter">#화창한 날</span>
+            </div>
+            <div class="songs">
+              <i class="fas fa-compact-disc"></i>
+              <span class="count">30곡</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</body>
+
+</html>

@@ -1,0 +1,550 @@
+:root[color-theme="light"] {
+  --background: #edecdd;
+  --font-color: #111;
+  --border: 1px solid #111;
+  --bouncer1: #ffc931;
+  --bouncer2: #d74639;
+  --nav-bgc: rgba(239, 222, 205, 0.2);
+  --sm-nav-bgc: rgba(239, 222, 205, 0.9);
+  --sm-nav-border: 1px solid rgba(2, 2, 2, 0.2);
+  --filter-bar-border: 1px solid rgba(25, 25, 25, 0.5);
+  --login-btn: linear-gradient(125deg, #f5d270, #d77253, #f5d270);
+  --login-border: 2px solid #707070;
+  --count-color: #454545;
+  --secession-btn: #e1dec8;
+  --addPlaylist-modal: url("../../img/lightBg.png");
+  --addPlaylist-btn: rgba(254, 254, 254, 0.7);
+  --playlists-cover: url("../img/playlistCovers/lp3.png");
+  --playlist-cover: url("../../img/playlistCovers/lp3.png");
+  --addModal-color: rgb(228, 223, 207);
+  --add-newPlaylist: #413428;
+  --hover-bright: brightness(105%);
+}
+
+:root[color-theme="dark"] {
+  --background: linear-gradient(to left, #242359, #0e0e1f);
+  --font-color: #eee;
+  --border: 1px solid #eee;
+  --bouncer1: #d557e1;
+  --bouncer2: #01adf7;
+  --nav-bgc: rgba(92, 66, 75, 0.2);
+  --sm-nav-bgc: rgba(92, 66, 75, 0.9);
+  --sm-nav-border: 1px solid rgba(255, 255, 255, 0.2);
+  --filter-bar-border: 1px solid rgba(238, 238, 238, 0.5);
+  --login-btn: linear-gradient(125deg, #81ecec, #6c5ce7, #81ecec);
+  --login-border: 2px solid #adadad;
+  --count-color: #aaaaaa;
+  --secession-btn: #242359;
+  --addPlaylist-modal: url("../../img/darkBg.png");
+  --addPlaylist-btn: rgba(187, 187, 187, 0.4);
+  --playlists-cover: url("../img/playlistCovers/lp10.png");
+  --playlist-cover: url("../../img/playlistCovers/lp10.png");
+  --addModal-color: rgb(14, 14, 34);
+  --add-newPlaylist: #28243a;
+  --hover-bright: brightness(115%);
+}
+
+li {
+  list-style: none;
+}
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes fadein {
+  /* Safari and Chrome */
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.container {
+  width: 100%;
+  height: 100%;
+}
+
+.container .myplaylist {
+  margin: 0px 70px;
+  width: 90%;
+  margin-top: 50px;
+}
+
+.container .myplaylist .myplaylist__list {
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.container .myplaylist .myplaylist__list .list-group-play {
+  max-width: 100%;
+  margin: 20px;
+  height: 280px;
+  position: relative;
+}
+
+.container .myplaylist .myplaylist__list .list-group-play div {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  vertical-align: middle;
+  font-size: 50px;
+  color: #111;
+  color: var(--font-color, #111);
+}
+
+.container .myplaylist .myplaylist__list .list-group-play .myplaylist__thumnail {
+  height: 200px;
+  width: 200px;
+  border-radius: 50%;
+  -webkit-box-shadow: 10px 5px 16px 5px rgba(0, 0, 0, 0.4);
+          box-shadow: 10px 5px 16px 5px rgba(0, 0, 0, 0.4);
+  background-image: var(--playlist-cover, );
+  background-size: cover;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+.container .myplaylist .myplaylist__list .list-group-play .myplaylist__thumnail:hover {
+  -webkit-filter: var(--hover-bright, );
+          filter: var(--hover-bright, );
+  cursor: pointer;
+}
+
+.container .myplaylist .myplaylist__list .list-group-play .myplaylist-menu {
+  display: block;
+  position: absolute;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  padding: 10px;
+  bottom: 20px;
+  right: 0px;
+  font-size: 25px;
+  z-index: 2;
+}
+
+.container .myplaylist .myplaylist__list .list-group-play .myplaylist-menu:hover {
+  cursor: pointer;
+}
+
+.container .myplaylist .myplaylist__list .list-group-play .myplaylist__title {
+  font-size: 15px;
+  margin-top: 5px;
+  width: 200px;
+  overflow: wrap;
+}
+
+.container .myplaylist .myplaylist__list .list-group-play .myplaylist__count {
+  color: #aaaaaa;
+  font-size: 14px;
+  position: relative;
+}
+
+.container .myplaylist .myplaylist__list .list-group-play .menu-list {
+  display: none;
+}
+
+.container .myplaylist .myplaylist__list .list-group-play .menu-list.active {
+  display: block;
+  position: absolute;
+  font-size: 16px;
+  top: 0px;
+  left: 210px;
+  width: 200px;
+  background-color: #282829;
+  border: 1px solid #242323;
+  border-radius: 10px;
+  color: #e0dede;
+  z-index: 2;
+}
+
+.container .myplaylist .myplaylist__list .list-group-play .menu-list.active ul li {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 8px;
+  height: 48px;
+}
+
+.container .myplaylist .myplaylist__list .list-group-play .menu-list.active ul li span {
+  margin: 0px 8px;
+  font-size: 17px;
+}
+
+.container .myplaylist .myplaylist__list .list-group-play .menu-list.active ul li:hover {
+  background-color: #585757;
+}
+
+.container .myplaylist .myplaylist__list .list-group-play .lock-state {
+  display: none;
+}
+
+.container .myplaylist .myplaylist__list .list-group-play .lock-state.active {
+  display: block;
+  position: absolute;
+  left: 150px;
+  bottom: 53px;
+}
+
+.container .myplaylist .myplaylist__list .list-group-add {
+  max-width: 100%;
+  margin: 20px;
+  height: 280px;
+}
+
+.container .myplaylist .myplaylist__list .list-group-add:hover {
+  cursor: pointer;
+}
+
+.container .myplaylist .myplaylist__list .list-group-add .myplaylist__add {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 200px;
+  height: 200px;
+  border-radius: 10px;
+  background-color: var(--add-newPlaylist, );
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.container .myplaylist .myplaylist__list .list-group-add .myplaylist__add div {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  vertical-align: middle;
+  font-size: 50px;
+  color: #eee;
+}
+
+.container .myplaylist .myplaylist__list .list-group-add .myplaylist__add:hover {
+  cursor: pointer;
+}
+
+.container .myplaylist .myplaylist__list .list-group-add .myplaylist__title {
+  margin-top: 5px;
+}
+
+.container .newplaylist {
+  display: none;
+}
+
+@-webkit-keyframes addFadeIn {
+  from {
+    -webkit-transform: translateY(20px);
+            transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    -webkit-transform: none;
+            transform: none;
+    opacity: 1;
+  }
+}
+
+@keyframes addFadeIn {
+  from {
+    -webkit-transform: translateY(20px);
+            transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    -webkit-transform: none;
+            transform: none;
+    opacity: 1;
+  }
+}
+
+.container .newplaylist.active {
+  -webkit-animation: addFadeIn 0.2s linear;
+          animation: addFadeIn 0.2s linear;
+  position: absolute;
+  display: block;
+  z-index: 5;
+  width: 600px;
+  height: 400px;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto auto;
+  padding: 24px 16px;
+  background-image: var(--addPlaylist-modal, );
+  border-radius: 20px;
+}
+
+.container .newplaylist.active .newplaylist__container {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  color: #111;
+  color: var(--font-color, #111);
+}
+
+.container .newplaylist.active .newplaylist__container h2 {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  font-size: 22px;
+  margin: 20px auto 0px auto;
+}
+
+.container .newplaylist.active .newplaylist__container .new__title {
+  width: 90%;
+  margin: 20px auto;
+}
+
+.container .newplaylist.active .newplaylist__container .new__title input {
+  color: #111;
+  color: var(--font-color, #111);
+  font-size: 16px;
+  width: 100%;
+  height: 40px;
+  border: 0;
+  border-bottom: 2px solid #707070;
+  border-bottom: var(--login-border, 2px solid #707070);
+  background-color: rgba(0, 0, 0, 0);
+  outline: none;
+}
+
+.container .newplaylist.active .newplaylist__container .new__tags {
+  width: 90%;
+  margin: 0px auto;
+  color: #454545;
+  color: var(--count-color, #454545);
+}
+
+.container .newplaylist.active .newplaylist__container .new__tags .tags {
+  font-size: 16px;
+  width: 100%;
+  height: 40px;
+  border: 0;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.container .newplaylist.active .newplaylist__container .new__tags .tags__season {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 10px;
+}
+
+.container .newplaylist.active .newplaylist__container .new__tags .tags__season .tag_sort {
+  width: 50px;
+}
+
+.container .newplaylist.active .newplaylist__container .new__tags .tags__season label {
+  color: #111;
+  color: var(--font-color, #111);
+  margin-right: 10px;
+  line-height: 1.6;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
+.container .newplaylist.active .newplaylist__container .new__tags .tags__season label input {
+  padding: 2px;
+}
+
+.container .newplaylist.active .newplaylist__container .new__tags .tags__time {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 10px;
+}
+
+.container .newplaylist.active .newplaylist__container .new__tags .tags__time .tag_sort {
+  width: 50px;
+}
+
+.container .newplaylist.active .newplaylist__container .new__tags .tags__time label {
+  color: #111;
+  color: var(--font-color, #111);
+  margin-right: 10px;
+  line-height: 1.6;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
+.container .newplaylist.active .newplaylist__container .new__tags .tags__time label input {
+  padding: 2px;
+}
+
+.container .newplaylist.active .newplaylist__container .new__tags .tags__weather {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.container .newplaylist.active .newplaylist__container .new__tags .tags__weather .tag_sort {
+  width: 50px;
+}
+
+.container .newplaylist.active .newplaylist__container .new__tags .tags__weather .radio_group {
+  width: calc(100%-50px);
+  margin-left: 17px;
+}
+
+.container .newplaylist.active .newplaylist__container .new__tags .tags__weather .radio_group label {
+  color: #111;
+  color: var(--font-color, #111);
+  line-height: 1.5;
+  margin-right: 10px;
+}
+
+.container .newplaylist.active .newplaylist__container .btn__group {
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+  color: #111;
+  color: var(--font-color, #111);
+}
+
+.container .newplaylist.active .newplaylist__container .btn__group .closeBtn {
+  padding: 0.5em 1.5em;
+  border: 1px solid var(--font-color, #111);
+  color: #111;
+  color: var(--font-color, #111);
+  border-radius: 18px;
+  font-size: 16px;
+  background: none;
+  font-weight: 700;
+  cursor: pointer;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  margin-right: 5px;
+}
+
+.container .newplaylist.active .newplaylist__container .btn__group .closeBtn:hover {
+  background-color: var(--addPlaylist-btn, );
+}
+
+.container .newplaylist.active .newplaylist__container .btn__group .saveBtn {
+  padding: 0.5em 1.5em;
+  border: 1px solid var(--font-color, #111);
+  color: #111;
+  color: var(--font-color, #111);
+  border-radius: 18px;
+  font-size: 16px;
+  background: none;
+  cursor: pointer;
+  font-weight: 700;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+.container .newplaylist.active .newplaylist__container .btn__group .saveBtn:hover {
+  background: rgba(187, 187, 187, 0.4);
+}
+
+.container .newplaylist.active .newplaylist__container .btn__group .btn__group {
+  position: absolute;
+  right: 0;
+  margin-right: 30px;
+}
+
+.container .newplaylist.active .newplaylist__container .btn__group .btn__group .saveBtn {
+  color: #fff;
+  background: none;
+  margin-right: 5px;
+}
+
+.container .newplaylist.active .newplaylist__container .btn__group .btn__group .closeBtn {
+  background: linear-gradient(125deg, #f0eaea, #aaa9a9, #e0dede);
+}
+
+.cover.active {
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(75, 73, 73, 0.5);
+  -webkit-backdrop-filter: blur(1px);
+          backdrop-filter: blur(1px);
+  z-index: 4;
+}
+
+.cover2.active {
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  background-color: none;
+  z-index: 1;
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    width: 100%;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+  .container .myplaylist {
+    width: 90%;
+    margin: auto auto;
+  }
+  .container .myplaylist .myplaylist__list {
+    width: 100%;
+    height: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+  .container .newplaylist.active {
+    width: 450px;
+  }
+  .container .newplaylist.active .newplaylist__container {
+    width: 100%;
+    height: 100%;
+  }
+}
+/*# sourceMappingURL=myplaylist.css.map */

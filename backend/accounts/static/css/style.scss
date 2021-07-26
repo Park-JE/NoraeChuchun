@@ -1,0 +1,29 @@
+@import "../components/navbar/navbar.scss";
+@import "../components/weatherMusic/weatherMusic.scss";
+@import "../components/filterMusic/filterMusic.scss";
+
+// size
+$base-space: 16px;
+$base-border: 5px;
+
+// font-size
+$font-large: 18px;
+$font-medium: 15px;
+$font-small: 13px;
+$font-xsmall: 11px;
+
+// font-weight
+$font-bold: 600;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
