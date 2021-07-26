@@ -1,6 +1,5 @@
 const body = document.querySelector("body");
 const navBar = body.querySelector("nav");
-let prevScrollPos = window.pageYOffset;
 const userAndDarkMode = navBar.querySelector(".userAndDarkMode ");
 const logout = userAndDarkMode.querySelector(".logout");
 const darkMode = userAndDarkMode.querySelector(".dark-mode");
@@ -15,26 +14,12 @@ if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
   isOsColorTheme = "light";
 }
 
-window.addEventListener("scroll", () => {
-  let currentScrollPos = window.pageYOffset;
-  if (prevScrollPos > currentScrollPos) {
-    navBar.classList.remove("scrollDown");
-  } else {
-    if (userAndDarkMode.classList.contains("active")) {
-      navBar.classList.remove("scrollDown");
-      return;
-    }
-    navBar.classList.add("scrollDown");
-  }
-  prevScrollPos = currentScrollPos;
-});
-
 const delCookie = function delCookie_by_name(name) {
   let date = new Date();
   date.setDate(date.getDate() - 100);
-  let Cookie = `${name}=;Expires=${date.toUTCString()}`
+  let Cookie = `${name}=;Expires=${date.toUTCString()}`;
   document.cookie = Cookie;
-}
+};
 
 window.onload = function () {
   if (isUserColorTheme === "dark") {
