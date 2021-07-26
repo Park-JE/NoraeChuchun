@@ -38,7 +38,7 @@
 - 모바일/ 테블릿/ PC 크기에 따른 반응형 렌더링 구현
 - Spotify API 이용하여 노래 데이터 수집
 - Django Rest Framework사용하여 Restful API 서버 구현
-- 웹 보안 향상: letsencrypt 사용하여 https 적용
+- 웹 보안 향상 - letsencrypt 사용하여 https 적용
 - SQLite3로 데이터 관리
 - AWS EC2에 서버 배포
   </br>
