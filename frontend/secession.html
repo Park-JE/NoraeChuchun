@@ -37,16 +37,16 @@
         </button>
         <button class="btn close"><i class="fas fa-times fa-lg"></i></button>
         <div class="userAndDarkMode">
-          <!-- {% if user.is_authenticated %} -->
+          {% if user.is_authenticated %}
           <a href="mypage" class="mypage">마이페이지</a>
           <form action="logout" method="POST">
-            <!-- {% csrf_token %} -->
+            {% csrf_token %}
             <label for="logout" class="login logout">로그아웃</label>
             <input id="logout" type="submit" class="logout" value="로그아웃" />
           </form>
-          <!-- {% else %} -->
-          <!-- <a href="loginl"><span class="login">로그인</span></a> -->
-          <!-- {% endif %} -->
+          {% else %}
+          <a href="loginl"><span class="login">로그인</span></a>
+          {% endif %}
           <div class="dark-mode">
             <button class="light mode-btn">
               <i class="fas fa-sun fa-lg"></i>
@@ -101,7 +101,7 @@
           <span>안내 사항을 모두 확인하였으며, 이에 동의합니다.</span>
         </div>
         <form action="delete" method="POST">
-          <!-- {% csrf_token %} -->
+          {% csrf_token %}
           <button type="submit" value="회원탈퇴" class="okayBtn">확인</button>
         </form>
       </div>
