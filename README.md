@@ -36,7 +36,6 @@
 - 사용자 비밀번호 변경/ 탈퇴
 - 다크모드/라이트모드 지원
 - 모바일/ 테블릿/ PC 크기에 따른 반응형 렌더링 구현
-- 노래 데이터 수집 - Spotify API 사용
 - Restful API 서버 구현 - Django Rest Framework 사용
 - 웹 보안 향상 - letsencrypt 사용하여 https 적용
 - SQLite3로 데이터 관리
