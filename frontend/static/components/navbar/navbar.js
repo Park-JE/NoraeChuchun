@@ -29,6 +29,13 @@ window.addEventListener("scroll", () => {
   prevScrollPos = currentScrollPos;
 });
 
+const delCookie = function delCookie_by_name(name) {
+  let date = new Date();
+  date.setDate(date.getDate() - 100);
+  let Cookie = `${name}=;Expires=${date.toUTCString()}`
+  document.cookie = Cookie;
+}
+
 window.onload = function () {
   if (isUserColorTheme === "dark") {
     document.documentElement.setAttribute("color-theme", "dark");
@@ -59,6 +66,14 @@ darkBtn.addEventListener("click", () => {
   document.documentElement.setAttribute("color-theme", "dark");
 });
 
+logout.addEventListener("click", () => {
+  delCookie("user");
+  delCookie("value");
+  delCookie("playlist_id");
+  delCookie("friend_name");
+  delCookie("inputId");
+  delCookie("playlist");
+});
 ellipsisBtn.addEventListener("click", () => {
   userAndDarkMode.classList.toggle("active");
 
