@@ -9,8 +9,8 @@
   <script src="https://kit.fontawesome.com/ef81e253aa.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="static/css/style.css" />
   <link rel="stylesheet" href="./static/components/mypage/menu.css" />
-  <link rel="stylesheet" href="./static/components/mypage/share.css" />
-  <link rel="stylesheet" href="./static/components/mypage/myplaylist-list.css" />
+  <link rel="stylesheet" href="static/components/playlistBoard/playlist.css" />
+  <link rel="stylesheet" href="./static/components/mypage/friendplaylist-list.css" />
   <script defer src="static/components/navbar/navbar.js"></script>
   <script defer src="static/components/search/search.js"></script>
   <script defer src="static/components/mypage/myplaylist-list.js"></script>
@@ -54,41 +54,31 @@
         </div>
       </div>
   </nav>
-  <div class="container">
-    <div class="playlist-info">
-      <div class="thumnail"></div>
+  <div class="playlist-main">
+    <div class="description-wrap">
+      <div class="cover"></div>
       <div class="info">
-        <div class="playlist-title"></div>
-        <div class="tagsAdnCount">
-          <div class="playlist-tags"></div>
-          <div class="playlist-count">
-            <i class="fas fa-compact-disc fa lg"></i>
+        <span class="title"></span>
+        <div class="tagAndSong">
+          <div class="tags">
+            <span class="filter"></span>
+            <span class="filter"></span>
+          </div>
+          <div class="songs">
+            <i class="fas fa-compact-disc"></i>
             <span class="count"></span>
           </div>
         </div>
-        <!-- <span class="material-icons-outlined unlike active">
-              favorite_border
-            </span>
-            <span class="material-icons-outlined like"> favorite </span> -->
       </div>
     </div>
     <div class="content-wrap">
       <div class="sort">
-        <span class="sort-title">곡</span>
-        <span class="sort-artist">아티스트</span>
-        <span class="sort-album">앨범</span>
-        <span class="sort-remove">제거</span>
+        <span class="name">곡</span>
+        <span class="artist">아티스트</span>
+        <span class="album">앨범</span>
+        <span class="add">담기</span>
       </div>
-      <div class="items">
-        <!-- item이란 이름으로 div 요소들 생성  -->
-        <!-- <div class="item">
-          <div class="cover"><img src="./static/img/albumCovers/AtMyWorst.jpg" alt="coverImg"></div>
-          <div class="title">At My Worst (feat. Kehlani)</div>
-          <div class="artist">Pink Sweat$</div>
-          <div class="album">At My Worst (feat. Kehlani)</div>
-          <div class="remove material-icons-outlined" onclick="onButton(this)">delete_outline</div>
-        </div> -->
-      </div>
+      <ul class="musicTable"></ul>
     </div>
   </div>
   <div class="bg-1"></div>

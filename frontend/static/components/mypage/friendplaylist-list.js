@@ -77,6 +77,7 @@ const createElement = (musicInfo) => {
 };
 
 function displayItems(items) {
+  console.log(items)
   const descriptionWrap = document.querySelector(
     ".playlist-main .description-wrap .info"
   );
@@ -84,8 +85,13 @@ function displayItems(items) {
   const tags = descriptionWrap.querySelectorAll(".tagAndSong .tags .filter");
   const songCount = descriptionWrap.querySelector(".tagAndSong .songs .count");
   title.textContent = `${items[0].title}`;
+
   for (let i = 0; i < items[0].category.length; i++) {
-    tags[i].textContent = `#${items[0].category[i].tag}`;
+    if (i === 2) {
+      break;
+    } else {
+      tags[i].textContent = `#${items[0].category[i].tag}`;
+    }
   }
   songCount.textContent = `${items[0].tracks.length}곡`;
   const musicTable = document.querySelector(
@@ -111,15 +117,8 @@ function loadData() {
   let id = getCookie("friend_name");
   let title = getCookie("playlist");
   if (id == null || title == null) {
-<<<<<<< HEAD
-    id = searchParam("uid");
-    title = searchParam("playlist");
-    console.log(id, title);
-=======
     id = searchParam("uid")
     title = searchParam("playlist")
-
->>>>>>> 149f09ebcbe12070b4e4466efa847052a421431b
   }
   return fetch(`https://nochu.pw/api/playlist/?uid=${id}&title=${title}`).then(
     (res) => {
