@@ -51,14 +51,16 @@ darkBtn.addEventListener("click", () => {
   document.documentElement.setAttribute("color-theme", "dark");
 });
 
-logout.addEventListener("click", () => {
-  delCookie("user");
-  delCookie("value");
-  delCookie("playlist_id");
-  delCookie("friend_name");
-  delCookie("inputId");
-  delCookie("playlist");
-});
+logout &&
+  logout.addEventListener("click", () => {
+    delCookie("user");
+    delCookie("value");
+    delCookie("playlist_id");
+    delCookie("friend_name");
+    delCookie("inputId");
+    delCookie("playlist");
+  });
+
 ellipsisBtn.addEventListener("click", () => {
   userAndDarkMode.classList.toggle("active");
 
