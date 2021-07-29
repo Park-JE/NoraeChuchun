@@ -21,7 +21,7 @@
 
 <body>
   <nav>
-    <a href="index " class="logoAndName">
+    <a href="index" class="logoAndName">
       <img class="logo" src="static/img/favicon.png" alt="img" />
       <span class="name">NOCHU</span>
     </a>
@@ -33,14 +33,14 @@
       <button class="btn close"><i class="fas fa-times fa-lg"></i></button>
       <div class="userAndDarkMode">
         <!-- {% if user.is_authenticated %} -->
-        <a href="mypage " class="mypage">마이페이지</a>
+        <a href="mypage" class="mypage">마이페이지</a>
         <form action="logout" method="POST">
           <!-- {% csrf_token %} -->
           <label for="logout" class="login logout">로그아웃</label>
           <input id="logout" type="submit" class="logout" value="로그아웃" />
         </form>
         <!-- {% else %} -->
-        <!-- <a href="login "><span class="login">로그인</span></a> -->
+        <a href="login"><span class="login">로그인</span></a>
         <!-- {% endif %} -->
         <div class="dark-mode">
           <button class="light mode-btn">
@@ -73,10 +73,12 @@
     </div>
     <div class="content-wrap">
       <div class="sort">
-        <span class="name">곡</span>
-        <span class="artist">아티스트</span>
-        <span class="album">앨범</span>
-        <span class="add">담기</span>
+        <span class="sort-title">곡</span>
+        <span class="sort-artist">아티스트</span>
+        <span class="sort-album">앨범</span>
+        <span class="sort-remove">제거</span>
+      </div>
+      <div class="items">
       </div>
       <ul class="musicTable"></ul>
     </div>

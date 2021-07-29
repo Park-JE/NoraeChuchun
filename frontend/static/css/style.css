@@ -1174,6 +1174,7 @@ nav .searchAndLogin .ellipsis {
   -webkit-appearance: none;
      -moz-appearance: none;
           appearance: none;
+  display: none;
 }
 
 .musicFilter-wrap .titleAndFilters .filter-bar .filter-wrap .filters .option {

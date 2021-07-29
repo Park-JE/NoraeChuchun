@@ -1,111 +1,126 @@
 <!DOCTYPE html>
 <html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="static/img/favicon.png" />
+    <script
+      src="https://kit.fontawesome.com/ef81e253aa.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="static/css/style.css" />
+    <link rel="stylesheet" href="static/components/mypage/menu.css" />
+    <link rel="stylesheet" href="static/components/mypage/share.css" />
+    <script defer src="static/components/mypage/share.js"></script>
+    <script defer src="static/components/navbar/navbar.js"></script>
+    <script defer src="static/components/search/search.js"></script>
+    <script
+      defer
+      src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+      crossorigin="anonymous"
+    ></script>
+    <title>NOCHU - 날씨에 맞는 노래 추천</title>
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="shortcut icon" href="static/img/favicon.png" />
-  <script src="https://kit.fontawesome.com/ef81e253aa.js" crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="static/css/style.css" />
-  <link rel="stylesheet" href="static/components/mypage/menu.css" />
-  <link rel="stylesheet" href="static/components/mypage/share.css" />
-  <script defer src="static/components/mypage/share.js"></script>
-  <script defer src="static/components/navbar/navbar.js"></script>
-  <script defer src="static/components/search/search.js"></script>
-  <script defer src="https://code.jquery.com/jquery-3.6.0.min.js"
-    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-  <title>NOCHU - 날씨에 맞는 노래 추천</title>
-</head>
-
-<body>
-  <nav>
-    <a href="index " class="logoAndName">
-      <img class="logo" src="static/img/favicon.png" alt="img" />
-      <span class="name">NOCHU</span>
-    </a>
-    <div class="searchAndLogin">
-      <input id="index" type="search" class="searchInput" placeholder="검색" />
-      <button class="btn search">
-        <i class="fas fa-search fa-lg"></i>
-      </button>
-      <button class="btn close"><i class="fas fa-times fa-lg"></i></button>
-      <div class="userAndDarkMode">
-        <!-- {% if user.is_authenticated %} -->
-        <a href="mypage " class="mypage">마이페이지</a>
-        <form action="logout" method="POST">
-          <!-- {% csrf_token %} -->
-          <label for="logout" class="login logout">로그아웃</label>
-          <input id="logout" type="submit" class="logout" value="로그아웃" />
-        </form>
-        <!-- {% else %} -->
-        <!-- <a href="login "><span class="login">로그인</span></a> -->
-        <!-- {% endif %} -->
-        <div class="dark-mode">
-          <button class="light mode-btn">
-            <i class="fas fa-sun fa-lg"></i>
-            <span class="modeText">라이트 모드</span>
-          </button>
-          <button class="dark mode-btn">
-            <i class="fas fa-moon fa-lg"></i>
-            <span class="modeText">다크 모드</span>
-          </button>
+  <body>
+    <nav>
+      <a href="index" class="logoAndName">
+        <img class="logo" src="static/img/favicon.png" alt="img" />
+        <span class="name">NOCHU</span>
+      </a>
+      <div class="searchAndLogin">
+        <input
+          id="index"
+          type="search"
+          class="searchInput"
+          placeholder="검색"
+        />
+        <button class="btn search">
+          <i class="fas fa-search fa-lg"></i>
+        </button>
+        <button class="btn close"><i class="fas fa-times fa-lg"></i></button>
+        <div class="userAndDarkMode">
+          {% if user.is_authenticated %}
+          <a href="mypage" class="mypage">마이페이지</a>
+          <form action="logout" method="POST">
+            {% csrf_token %}
+            <label for="logout" class="login logout">로그아웃</label>
+            <input id="logout" type="submit" class="logout" value="로그아웃" />
+          </form>
+          {% else %}
+          <a href="login"><span class="login">로그인</span></a>
+          {% endif %}
+          <div class="dark-mode">
+            <button class="light mode-btn">
+              <i class="fas fa-sun fa-lg"></i>
+              <span class="modeText">라이트 모드</span>
+            </button>
+            <button class="dark mode-btn">
+              <i class="fas fa-moon fa-lg"></i>
+              <span class="modeText">다크 모드</span>
+            </button>
+          </div>
+        </div>
+        <button class="ellipsis">
+          <i class="fas fa-bars fa-lg"></i>
+        </button>
+      </div>
+    </nav>
+    <div class="container">
+      <div class="mypage__menu">
+        <ul class="menu__list">
+          <li class="list-group-item nonactive fas fa-key">
+            <a href="mypage">비밀번호 변경</a>
+          </li>
+          <li class="list-group-item nonactive fas fa-music">
+            <a href="myplaylist ">나의 플레이리스트</a>
+          </li>
+          <li class="list-group-item active fas fa-user-plus">
+            <a href="share ">친구목록</a>
+          </li>
+          <li class="list-group-item nonactive fas fa-user-minus">
+            <a href="secession">회원탈퇴</a>
+          </li>
+        </ul>
+      </div>
+      <div class="share-main">
+        <div class="description-wrap">
+          <div class="info">
+            <span class="title active">친구목록</span>
+            <span class="find">친구검색</span>
+          </div>
+        </div>
+        <!-- 친구목록 -->
+        <div class="title-wrap active">
+          <div class="sort">
+            <span class="id">아이디</span>
+            <span class="share">삭제</span>
+          </div>
+          <div class="friends"></div>
+        </div>
+        <!-- 친구검색 -->
+        <div class="find-wrap">
+          <input
+            type="search"
+            class="findInput"
+            onkeyup="filter()"
+            placeholder="검색"
+          />
+          <div class="sort">
+            <span class="id">아이디</span>
+            <span class="share">추가</span>
+          </div>
+          <div class="allUsers">
+            <div class="allUser"></div>
+          </div>
         </div>
       </div>
-      <button class="ellipsis">
-        <i class="fas fa-bars fa-lg"></i>
-      </button>
     </div>
-  </nav>
-  <div class="container">
-    <div class="mypage__menu">
-      <ul class="menu__list">
-        <li class="list-group-item nonactive fas fa-key">
-          <a href="mypage">비밀번호 변경</a>
-        </li>
-        <li class="list-group-item nonactive fas fa-music">
-          <a href="myplaylist ">나의 플레이리스트</a>
-        </li>
-        <li class="list-group-item active fas fa-user-plus">
-          <a href="share ">친구목록</a>
-        </li>
-        <li class="list-group-item nonactive fas fa-user-minus">
-          <a href="secession">회원탈퇴</a>
-        </li>
-      </ul>
-    </div>
-    <div class="share-main">
-      <div class="description-wrap">
-        <div class="info">
-          <span class="title active">친구목록</span>
-          <span class="find">친구검색</span>
-        </div>
-      </div>
-      <!-- 친구목록 -->
-      <div class="title-wrap active">
-        <div class="sort">
-          <span class="id">아이디</span>
-          <span class="share">삭제</span>
-        </div>
-        <div class="friends"></div>
-      </div>
-      <!-- 친구검색 -->
-      <div class="find-wrap">
-        <input type="search" class="findInput" onkeyup="filter()" placeholder="검색" />
-        <div class="sort">
-          <span class="id">아이디</span>
-          <span class="share">추가</span>
-        </div>
-        <div class="allUsers">
-          <div class="allUser"></div>
-        </div>
-      </div>
-    </div>
-  </div>
 
-  <div class="bg-1"></div>
-  <div class="bg-2"></div>
-  <div class="bg-3"></div>
-</body>
-
+    <div class="bg-1"></div>
+    <div class="bg-2"></div>
+    <div class="bg-3"></div>
+  </body>
 </html>

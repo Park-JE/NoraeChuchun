@@ -43,16 +43,16 @@
         </button>
         <button class="btn close"><i class="fas fa-times fa-lg"></i></button>
         <div class="userAndDarkMode">
-          <!-- {% if user.is_authenticated %} -->
+          {% if user.is_authenticated %}
           <a href="mypage" class="mypage">마이페이지</a>
           <form action="logout" method="POST">
-            <!-- {% csrf_token %} -->
+            {% csrf_token %}
             <label for="logout" class="login logout">로그아웃</label>
             <input id="logout" type="submit" class="logout" value="로그아웃" />
           </form>
-          <!-- {% else %} -->
-          <!-- <a href="login"><span class="login">로그인</span></a> -->
-          <!-- {% endif %} -->
+          {% else %}
+          <a href="login"><span class="login">로그인</span></a>
+          {% endif %}
           <div class="dark-mode">
             <button class="light mode-btn">
               <i class="fas fa-sun fa-lg"></i>
@@ -88,14 +88,7 @@
       </div>
       <div class="myplaylist">
         <h2 class="friend_name">나만의 플레이리스트</h2>
-        <ul class="myplaylist__list">
-          <!-- <li class="list-group-play">
-          <img class="myplaylist__thumnail" onclick="pageChange(this);" src="./static/img/albumCovers/92.jpg"
-            alt="플레이리스트 이미지" />
-          <div class="myplaylist__title">운동할때 들어야징</div>
-          <span class="myplaylist__count">노래 9곡</span>
-        </li> -->
-        </ul>
+        <ul class="myplaylist__list"></ul>
       </div>
     </div>
     <form action="./friendplaylist-list " id="playlist_title">
