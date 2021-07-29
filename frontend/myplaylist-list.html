@@ -9,8 +9,8 @@
   <script src="https://kit.fontawesome.com/ef81e253aa.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="static/css/style.css" />
   <link rel="stylesheet" href="./static/components/mypage/menu.css" />
-  <link rel="stylesheet" href="./static/components/mypage/share.css" />
-  <link rel="stylesheet" href="./static/components/mypage/myplaylist-list.css" />
+  <link rel="stylesheet" href="static/components/playlistBoard/playlist.css" />
+  <link rel="stylesheet" href="./static/components/mypage/friendplaylist-list.css" />
   <script defer src="static/components/navbar/navbar.js"></script>
   <script defer src="static/components/search/search.js"></script>
   <script defer src="static/components/mypage/myplaylist-list.js"></script>
@@ -32,16 +32,16 @@
       </button>
       <button class="btn close"><i class="fas fa-times fa-lg"></i></button>
       <div class="userAndDarkMode">
-        {% if user.is_authenticated %}
+        <!-- {% if user.is_authenticated %} -->
         <a href="mypage" class="mypage">마이페이지</a>
         <form action="logout" method="POST">
-          {% csrf_token %}
+          <!-- {% csrf_token %} -->
           <label for="logout" class="login logout">로그아웃</label>
           <input id="logout" type="submit" class="logout" value="로그아웃" />
         </form>
-        {% else %}
+        <!-- {% else %} -->
         <a href="login"><span class="login">로그인</span></a>
-        {% endif %}
+        <!-- {% endif %} -->
         <div class="dark-mode">
           <button class="light mode-btn">
             <i class="fas fa-sun fa-lg"></i>
@@ -54,15 +54,18 @@
         </div>
       </div>
   </nav>
-  <div class="container">
-    <div class="playlist-info">
-      <div class="thumnail"></div>
+  <div class="playlist-main">
+    <div class="description-wrap">
+      <div class="cover"></div>
       <div class="info">
-        <div class="playlist-title"></div>
-        <div class="tagsAdnCount">
-          <div class="playlist-tags"></div>
-          <div class="playlist-count">
-            <i class="fas fa-compact-disc fa lg"></i>
+        <span class="title"></span>
+        <div class="tagAndSong">
+          <div class="tags">
+            <span class="filter"></span>
+            <span class="filter"></span>
+          </div>
+          <div class="songs">
+            <i class="fas fa-compact-disc"></i>
             <span class="count"></span>
           </div>
         </div>
@@ -77,6 +80,7 @@
       </div>
       <div class="items">
       </div>
+      <ul class="musicTable"></ul>
     </div>
   </div>
   <div class="bg-1"></div>
