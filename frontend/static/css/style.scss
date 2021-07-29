@@ -8,20 +8,24 @@
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 
-body {
-  width: 110vw;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  @include color-var(background, background);
-  overscroll-behavior: none;
-  overflow-x: hidden;
+html {
+  width: 100vw;
 
-  a {
-    text-decoration: none;
-    color: inherit;
-    :active {
+  body {
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    @include color-var(background, background);
+    overscroll-behavior: none;
+    overflow-x: hidden;
+
+    a {
       text-decoration: none;
+      color: inherit;
+      :active {
+        text-decoration: none;
+      }
     }
   }
 
