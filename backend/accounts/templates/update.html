@@ -1,0 +1,11 @@
+<html>
+	<head>
+	</head>
+	<body>
+		<h1>회원수정</h1>
+		<form method="POST" action="{% url 'login' %}">
+			{% csrf_token %}
+			{{ form.as_p }}
+		</form>
+	</body>
+</html>

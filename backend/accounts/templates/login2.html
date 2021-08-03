@@ -1,0 +1,19 @@
+{% load socialaccount %}
+<html>
+	<head>
+	</head>
+	<body>
+		{% if user.is_authenticated %}
+			<p> 로그인 성공 </p>
+		{% else %}		
+			<form method ="POST" action = "{% url 'login' %}">
+				{% csrf_token %}
+				{{ form.as_p }}
+				<button type="submit">로그인</button>
+				<span style="color:red;"><strong>{{error}}</strong></span>
+			</form>
+			<a href="{% provider_login_url 'naver' %}">네이버로그인</a>
+			<a href="{% url 'signup' %}">회원가입</a>
+		{% endif %}
+	</body>
+</html>

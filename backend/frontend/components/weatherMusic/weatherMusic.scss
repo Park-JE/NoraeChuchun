@@ -1,0 +1,407 @@
+@import "../../css/variables";
+
+.recommendation-warp {
+  width: $content-width;
+  margin-bottom: 100px;
+  margin-top: 130px;
+  @include color-var(color, font-color);
+
+  .title {
+    display: block;
+    width: 100%;
+    padding: 0 $base-space;
+    font-size: $font-large;
+    font-weight: $font-bold;
+    cursor: default;
+    margin-bottom: $base-space;
+    backdrop-filter: blur(5px);
+  }
+
+  .recommendation {
+    width: 100%;
+    min-height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: $border-small;
+    padding: $base-space * 1.5 $base-space;
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    border-right: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+
+    .loading {
+      display: flex;
+      justify-content: space-around;
+      align-items: flex-end;
+      width: 70px;
+      height: 60px;
+
+      &.deactive {
+        display: none;
+      }
+
+      .bouncer {
+        width: 10px;
+        height: 10px;
+        background: linear-gradient(
+          135deg,
+          var(--bouncer1, map-get($colors, bouncer1)),
+          var(--bouncer2, map-get($colors, bouncer2))
+        );
+        border-radius: 50%;
+        animation: bouncer 0.5s cubic-bezier(0.19, 0.57, 0.3, 0.98) infinite
+          alternate;
+
+        &:nth-child(2) {
+          animation-delay: 0.1s;
+          opacity: 0.9;
+        }
+
+        &:nth-child(3) {
+          animation-delay: 0.2s;
+          opacity: 0.8;
+        }
+
+        &:nth-child(4) {
+          animation-delay: 0.3s;
+          opacity: 0.7;
+        }
+
+        &:nth-child(5) {
+          animation-delay: 0.4s;
+          opacity: 0.6;
+        }
+      }
+
+      @keyframes bouncer {
+        from {
+          transform: translateY(0);
+        }
+        to {
+          transform: translateY(-60px);
+        }
+      }
+    }
+
+    .weather {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 29%;
+      height: 270px;
+      position: relative;
+
+      &.active {
+        display: flex;
+      }
+
+      .icon {
+        width: 220px;
+        position: absolute;
+        top: -10px;
+      }
+
+      .info {
+        text-align: center;
+        position: absolute;
+        top: 180px;
+        cursor: default;
+
+        .tempAndLoc {
+          font-size: $font-small;
+          margin-bottom: 4px;
+
+          .temperature {
+            margin-right: 4px;
+          }
+
+          .state {
+            font-size: $font-medium;
+          }
+        }
+      }
+    }
+
+    .currentWeather-playlist {
+      width: 70%;
+      height: 270px;
+      display: none;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: repeat(4, 1fr);
+      gap: auto;
+      align-items: center;
+
+      &.active {
+        display: grid;
+      }
+
+      .music {
+        width: 100%;
+        height: 60px;
+        font-size: $font-small;
+        position: relative;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .content {
+          width: 100%;
+          display: grid;
+          grid-template-columns: 58px 4fr;
+          align-items: center;
+          margin-right: 8px;
+          position: relative;
+
+          .manipul {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            border-radius: $border-small;
+            background-color: $black;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            font-size: $font-medium;
+            opacity: 0.9;
+            border: 0;
+            outline: none;
+            color: $white;
+
+            &.play:hover {
+              display: flex;
+            }
+
+            &.playing.active {
+              display: flex;
+            }
+
+            &.pause.active {
+              display: flex;
+            }
+          }
+
+          .cover {
+            width: 50px;
+            height: 50px;
+            border-radius: $border-small;
+
+            &:hover ~ .play {
+              display: flex;
+            }
+          }
+
+          .info {
+            width: 100%;
+            height: 80%;
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-template-rows: 1fr 1fr;
+            align-items: center;
+            gap: 5px;
+
+            .descrip {
+              display: flex;
+              justify-content: flex-start;
+              display: -webkit-box;
+              -webkit-box-orient: vertical;
+              -webkit-line-clamp: 1;
+              overflow: hidden;
+
+              .dot {
+                display: inline;
+                margin: 0 3px;
+              }
+            }
+          }
+        }
+
+        .add {
+          outline: none;
+          border: 0;
+          background-color: transparent;
+          @include color-var(color, font-color);
+          padding: 0 $base-space/2;
+          margin: 0 $base-space/2;
+        }
+
+        .addModal {
+          list-style: none;
+          width: 190px;
+          max-height: 250px;
+          position: absolute;
+          z-index: 5;
+          right: 32px;
+          top: 48px;
+          border-radius: $border-small;
+          padding: $base-space/2 0;
+          border: 1px solid rgba(255, 255, 255, 0.2);
+          @include color-var(background-color, sm-nav-bgc);
+          backdrop-filter: blur(5px);
+          box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+          overflow-y: scroll;
+          -ms-overflow-style: none;
+
+          &::-webkit-scrollbar {
+            display: none;
+            width: 0 !important;
+          }
+
+          &.deactive {
+            display: none;
+          }
+
+          .myPlaylist {
+            width: 100%;
+            padding: $base-space;
+            @include color-var(border-bottom, sm-nav-border);
+            font-weight: $font-bold;
+            cursor: pointer;
+
+            &:first-child {
+              padding: $base-space/2 $base-space;
+              opacity: 0.8;
+              font-weight: 400;
+              pointer-events: none;
+            }
+
+            &:last-child {
+              border-bottom: 0;
+            }
+          }
+        }
+
+        @keyframes fadeIn {
+          from {
+            opacity: 0;
+            transform: translateY(20px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+
+        .alertAdd,
+        .alert-no-audio {
+          position: absolute;
+          z-index: 1;
+          top: -100%;
+          left: 0;
+          padding: $base-space $base-space * 2;
+          @include color-var(background-color, addModal-color);
+          animation: fadeIn 0.5s ease-in-out;
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  $content-width: 680px;
+
+  .recommendation-warp {
+    width: $content-width;
+
+    .recommendation {
+      flex-direction: column;
+      align-items: center;
+      min-height: 500px;
+
+      .weather {
+        width: 90%;
+        height: 170px;
+
+        .icon {
+          width: 200px;
+          top: -30px;
+        }
+
+        .info {
+          top: 130px;
+        }
+      }
+
+      .currentWeather-playlist {
+        width: 95%;
+        height: fit-content;
+        margin-top: 30px;
+
+        .alertAdd,
+        .alert-no-audio {
+          width: 320px;
+          padding: $base-space/2 $base-space;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  $content-width: 350px;
+
+  .recommendation-warp {
+    width: $content-width;
+    margin-top: 90px;
+
+    .recommendation {
+      flex-direction: column;
+      justify-content: flex-start;
+      min-height: 750px;
+
+      .loading {
+        margin-top: 100px;
+      }
+
+      .weather {
+        width: 90%;
+        height: 200px;
+
+        .icon {
+          width: 180px;
+          top: -30px;
+        }
+
+        .info {
+          top: 120px;
+        }
+      }
+
+      .currentWeather-playlist {
+        font-size: $font-xsmall;
+        width: 95%;
+        height: fit-content;
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(8, 1fr);
+        font-size: $font-xsmall;
+
+        .music {
+          font-size: $font-xsmall;
+
+          .add {
+            margin-right: 3px;
+          }
+
+          .addModal {
+            width: 150px;
+            font-size: $font-xsmall;
+            right: 32px;
+            padding: $base-space/4 0;
+
+            .myPlaylist {
+              padding: $base-space * 2/3 $base-space;
+            }
+          }
+
+          .alertAdd,
+          .alert-no-audio {
+            font-size: $font-xsmall;
+            top: -90%;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,97 @@
+.recommendation-warp {
+  width: 800px;
+  height: 300px;
+  margin: $base-space * 3;
+
+  .title {
+    display: block;
+    width: 100%;
+    padding: $base-space/2 $base-space;
+    font-size: $font-large;
+    font-weight: $font-bold;
+    cursor: default;
+  }
+
+  .recommendation {
+    width: 800px;
+    height: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: $base-space;
+    background-color: #444e61;
+    color: #fff;
+    border-radius: $base-border;
+
+    .weather {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 30%;
+      height: 100%;
+      position: relative;
+
+      .icon {
+        width: 150px;
+        position: absolute;
+        top: 10px;
+      }
+
+      .info {
+        text-align: center;
+        position: absolute;
+        top: 150px;
+        cursor: default;
+
+        .tempAndLoc {
+          font-size: $font-small;
+          margin-bottom: 4px;
+
+          .temperature {
+            margin-right: 4px;
+          }
+
+          .state {
+            font-size: $font-medium;
+          }
+        }
+      }
+    }
+
+    .playlist {
+      width: 70%;
+      height: 100%;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: repeat(4, 1fr);
+
+      .music {
+        width: 100%;
+        display: grid;
+        grid-template-columns: 50px auto;
+        align-items: center;
+
+        .album-cover {
+          height: 45px;
+          width: 45px;
+          border-radius: $base-border;
+        }
+
+        .song-info {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          font-size: $font-small;
+          padding: $base-space/2;
+          cursor: default;
+
+          .artist {
+            font-size: $font-xsmall;
+            opacity: 80%;
+          }
+        }
+      }
+    }
+  }
+}

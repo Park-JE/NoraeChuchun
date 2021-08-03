@@ -1,0 +1,97 @@
+@import "../../css/variables";
+
+body {
+  height: 100vh;
+
+  .loginForm {
+    position: absolute;
+    width: 300px;
+    min-height: 400px;
+    padding: 30px, 20px;
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    border-top: 2px solid rgba(255, 255, 255, 0.2);
+    border-right: 2px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    @include color-var(color, font-color);
+    text-align: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 15px;
+
+    h2 {
+      text-align: center;
+      margin: 30px;
+    }
+
+    .idForm {
+      @include color-var(border-bottom, login-border);
+      margin: 30px;
+      padding: 10px 10px;
+
+      .id {
+        width: 100%;
+        border: none;
+        outline: none;
+        color: #636e72;
+        font-size: 16px;
+        height: 25px;
+        background: none;
+      }
+    }
+
+    .passForm {
+      @include color-var(border-bottom, login-border);
+      margin: 30px;
+      padding: 10px 10px;
+
+      .pw {
+        width: 100%;
+        border: none;
+        outline: none;
+        color: #636e72;
+        font-size: 16px;
+        height: 25px;
+        background: none;
+      }
+    }
+    .passForm_chck {
+      @include color-var(border-bottom, login-border);
+      margin: 30px;
+      padding: 10px 10px;
+
+      .pw_chck {
+        width: 100%;
+        border: none;
+        outline: none;
+        color: #636e72;
+        font-size: 16px;
+        height: 25px;
+        background: none;
+      }
+    }
+
+    .signupBtn {
+      position: relative;
+      left: 40%;
+      transform: translateX(-50%);
+      margin-bottom: 40px;
+      width: 80%;
+      height: 40px;
+      @include color-var(background, login-btn);
+      background-position: left;
+      background-size: 200%;
+      color: white;
+      font-weight: bold;
+      border: none;
+      cursor: pointer;
+      transition: 0.4s;
+      display: inline;
+
+      &:hover {
+        background-position: right;
+      }
+    }
+  }
+}

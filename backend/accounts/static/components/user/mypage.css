@@ -1,0 +1,37 @@
+html {
+  height: 100%;
+}
+
+body {
+  min-height: 100%;
+}
+
+li {
+  list-style: none;
+}
+
+.mypage {
+  height: 75vh;
+  width: 80%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  margin: auto auto;
+}
+
+.mypage .mypage__menu ul * {
+  height: 36px;
+}
+
+.mypage .mypage__menu .menu__list {
+  border: 1px solid;
+}
+
+.mypage .menu__contents {
+  width: 80%;
+}
+/*# sourceMappingURL=mypage.css.map */
